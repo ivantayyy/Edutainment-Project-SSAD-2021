@@ -1,0 +1,2159 @@
+fileFormatVersion: 2
+guid: 834ff245b6e222f4ea4c502f3e376f2f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8153645925933827395
+    second: room_broadcast_0
+  - first:
+      213: 2510083294328985499
+    second: room_broadcast_1
+  - first:
+      213: 8351292743444529315
+    second: room_broadcast_2
+  - first:
+      213: -7424368746817396627
+    second: room_broadcast_3
+  - first:
+      213: -4555589579920188627
+    second: room_broadcast_4
+  - first:
+      213: 3708011213421812262
+    second: room_broadcast_5
+  - first:
+      213: -1395465400908241189
+    second: room_broadcast_6
+  - first:
+      213: 289557237353690080
+    second: room_broadcast_7
+  - first:
+      213: -9145365659640675250
+    second: room_broadcast_8
+  - first:
+      213: 1451805255012886658
+    second: room_broadcast_9
+  - first:
+      213: -8788762985402582444
+    second: room_broadcast_10
+  - first:
+      213: -1867215817665335956
+    second: room_broadcast_11
+  - first:
+      213: 4557349851285116149
+    second: room_broadcast_12
+  - first:
+      213: 3649669220316281755
+    second: room_broadcast_13
+  - first:
+      213: -8174403585806117283
+    second: room_broadcast_14
+  - first:
+      213: 103405827457206133
+    second: room_broadcast_15
+  - first:
+      213: 1536446646713775576
+    second: room_broadcast_16
+  - first:
+      213: -158102429122875981
+    second: room_broadcast_17
+  - first:
+      213: 5648413419206374808
+    second: room_broadcast_18
+  - first:
+      213: 8060074426961119645
+    second: room_broadcast_19
+  - first:
+      213: -1201656987991398872
+    second: room_broadcast_20
+  - first:
+      213: 6583335352022719628
+    second: room_broadcast_21
+  - first:
+      213: 6753796569693031038
+    second: room_broadcast_22
+  - first:
+      213: 5745924121340971882
+    second: room_broadcast_23
+  - first:
+      213: 2698248100608130613
+    second: room_broadcast_24
+  - first:
+      213: -1331021410011678455
+    second: room_broadcast_25
+  - first:
+      213: 282914576897032753
+    second: room_broadcast_26
+  - first:
+      213: -3270014397182944389
+    second: room_broadcast_27
+  - first:
+      213: -4674314157031616119
+    second: room_broadcast_28
+  - first:
+      213: -9086832935855086942
+    second: room_broadcast_29
+  - first:
+      213: 2581785073418723616
+    second: room_broadcast_30
+  - first:
+      213: 4824113865872839092
+    second: room_broadcast_31
+  - first:
+      213: 4276686163212169963
+    second: room_broadcast_32
+  - first:
+      213: -5854163584373116332
+    second: room_broadcast_33
+  - first:
+      213: 8237209708281813475
+    second: room_broadcast_34
+  - first:
+      213: 7413904406340756708
+    second: room_broadcast_35
+  - first:
+      213: -8164128504524151852
+    second: room_broadcast_36
+  - first:
+      213: -68271856343876457
+    second: room_broadcast_37
+  - first:
+      213: 5444201282595212376
+    second: room_broadcast_38
+  - first:
+      213: 5582095325000822475
+    second: room_broadcast_39
+  - first:
+      213: -7238814885860740437
+    second: room_broadcast_40
+  - first:
+      213: 5678518045122457089
+    second: room_broadcast_41
+  - first:
+      213: 1368994782400768962
+    second: room_broadcast_42
+  - first:
+      213: -8865509618422072167
+    second: room_broadcast_43
+  - first:
+      213: -7709097051577924304
+    second: room_broadcast_44
+  - first:
+      213: -5615464985242543631
+    second: room_broadcast_45
+  - first:
+      213: 5168734429692888172
+    second: room_broadcast_46
+  - first:
+      213: 8097821777858132948
+    second: room_broadcast_47
+  - first:
+      213: -6738500614804500893
+    second: room_broadcast_48
+  - first:
+      213: 3198052928818881987
+    second: room_broadcast_49
+  - first:
+      213: -4676163003408170600
+    second: room_broadcast_50
+  - first:
+      213: 6607946345952617255
+    second: room_broadcast_51
+  - first:
+      213: 2644846962716044911
+    second: room_broadcast_52
+  - first:
+      213: 754944235246802767
+    second: room_broadcast_53
+  - first:
+      213: 4917408669869013377
+    second: room_broadcast_54
+  - first:
+      213: -456854330351226778
+    second: room_broadcast_55
+  - first:
+      213: -6893757527693387431
+    second: room_broadcast_56
+  - first:
+      213: -5044320518018568509
+    second: room_broadcast_57
+  - first:
+      213: -4565417317744440234
+    second: room_broadcast_58
+  - first:
+      213: 3651575185901523302
+    second: room_broadcast_59
+  - first:
+      213: -686420966641663884
+    second: room_broadcast_60
+  - first:
+      213: 3600386350824457248
+    second: room_broadcast_61
+  - first:
+      213: -8072055827880237378
+    second: room_broadcast_62
+  - first:
+      213: -9102232623255173043
+    second: room_broadcast_63
+  - first:
+      213: -5516022053461243005
+    second: room_broadcast_64
+  - first:
+      213: -591307792438800266
+    second: room_broadcast_65
+  - first:
+      213: 959877034101544703
+    second: room_broadcast_66
+  - first:
+      213: -902067237510461022
+    second: room_broadcast_67
+  - first:
+      213: 627254586954710106
+    second: room_broadcast_68
+  - first:
+      213: -8237161565960731322
+    second: room_broadcast_69
+  - first:
+      213: 2358029905500831120
+    second: room_broadcast_70
+  - first:
+      213: -3936137417485899423
+    second: room_broadcast_71
+  - first:
+      213: -3437279881193794009
+    second: room_broadcast_72
+  - first:
+      213: -4388503155870453297
+    second: room_broadcast_73
+  - first:
+      213: -4850558529649795622
+    second: room_broadcast_74
+  - first:
+      213: -6939883819742386634
+    second: room_broadcast_75
+  - first:
+      213: -3098615850094834426
+    second: room_broadcast_76
+  - first:
+      213: 4455807991061660510
+    second: room_broadcast_77
+  - first:
+      213: 5646458844417855215
+    second: room_broadcast_78
+  - first:
+      213: -4842862402951169933
+    second: room_broadcast_79
+  - first:
+      213: -8724275061847580057
+    second: room_broadcast_80
+  - first:
+      213: -4548913038989803885
+    second: room_broadcast_81
+  - first:
+      213: 8493472473667225972
+    second: room_broadcast_82
+  - first:
+      213: -8501087937994860850
+    second: room_broadcast_83
+  - first:
+      213: 336780960885229683
+    second: room_broadcast_84
+  - first:
+      213: -3741240456615737091
+    second: room_broadcast_85
+  - first:
+      213: -1016737936281495162
+    second: room_broadcast_86
+  - first:
+      213: -413478803500960943
+    second: room_broadcast_87
+  - first:
+      213: 6953101563803590957
+    second: room_broadcast_88
+  - first:
+      213: -7586552646647315929
+    second: room_broadcast_89
+  - first:
+      213: 2682151742378914054
+    second: room_broadcast_90
+  - first:
+      213: 268037236636418411
+    second: room_broadcast_91
+  - first:
+      213: 2447646229776288714
+    second: room_broadcast_92
+  - first:
+      213: 3532443887769714107
+    second: room_broadcast_93
+  - first:
+      213: 391002868132580647
+    second: room_broadcast_94
+  - first:
+      213: -3763339243212848671
+    second: room_broadcast_95
+  - first:
+      213: -1874258659358720815
+    second: room_broadcast_96
+  - first:
+      213: 787216275439510355
+    second: room_broadcast_97
+  - first:
+      213: 3310816239327623289
+    second: room_broadcast_98
+  - first:
+      213: -8356087839133672084
+    second: room_broadcast_99
+  - first:
+      213: -4702762930701597189
+    second: room_broadcast_100
+  - first:
+      213: -1320028810356548382
+    second: room_broadcast_101
+  - first:
+      213: -5656672119751836327
+    second: room_broadcast_102
+  - first:
+      213: -5654954505834669053
+    second: room_broadcast_103
+  - first:
+      213: 3546760785118588716
+    second: room_broadcast_104
+  - first:
+      213: 4885731820840435288
+    second: room_broadcast_105
+  - first:
+      213: 8484931519915113217
+    second: room_broadcast_106
+  - first:
+      213: 8519391673243709243
+    second: room_broadcast_107
+  - first:
+      213: -7504220174487261023
+    second: room_broadcast_108
+  - first:
+      213: -7327561188673905358
+    second: room_broadcast_109
+  - first:
+      213: -557808232531971880
+    second: room_broadcast_110
+  - first:
+      213: 3363817105501032840
+    second: room_broadcast_111
+  - first:
+      213: -5649768823420270019
+    second: room_broadcast_112
+  - first:
+      213: -1484882710669540170
+    second: room_broadcast_113
+  - first:
+      213: 2284168000678191744
+    second: room_broadcast_114
+  - first:
+      213: 1510222854422711312
+    second: room_broadcast_115
+  - first:
+      213: -5483881175836990134
+    second: room_broadcast_116
+  - first:
+      213: 4267116556814220876
+    second: room_broadcast_117
+  - first:
+      213: -2967685877281098911
+    second: room_broadcast_118
+  - first:
+      213: -3115267217604856994
+    second: room_broadcast_119
+  - first:
+      213: 6059125294234365940
+    second: room_broadcast_120
+  - first:
+      213: -1056657451609910327
+    second: room_broadcast_121
+  - first:
+      213: 7792440995874512866
+    second: room_broadcast_122
+  - first:
+      213: 1034149661501536129
+    second: room_broadcast_123
+  - first:
+      213: -3828130944925688574
+    second: room_broadcast_124
+  - first:
+      213: 2532793213809149849
+    second: room_broadcast_125
+  - first:
+      213: 7590632333228207097
+    second: room_broadcast_126
+  - first:
+      213: 2628574452006524620
+    second: room_broadcast_127
+  - first:
+      213: 9007708654626123327
+    second: room_broadcast_128
+  - first:
+      213: 1399526901129824664
+    second: room_broadcast_129
+  - first:
+      213: -5454738912689078205
+    second: room_broadcast_130
+  - first:
+      213: -3278922118877876470
+    second: room_broadcast_131
+  - first:
+      213: -5412713456259816296
+    second: room_broadcast_132
+  - first:
+      213: -1432310172110017727
+    second: room_broadcast_133
+  - first:
+      213: -929922135330921272
+    second: room_broadcast_134
+  - first:
+      213: -3652198872968896697
+    second: room_broadcast_135
+  - first:
+      213: -4685014275509425646
+    second: room_broadcast_136
+  - first:
+      213: 7179560241853465879
+    second: room_broadcast_137
+  - first:
+      213: 8906578316499796511
+    second: room_broadcast_138
+  - first:
+      213: -5040687052342521859
+    second: room_broadcast_139
+  - first:
+      213: -6553535572188500787
+    second: room_broadcast_140
+  - first:
+      213: -5258820823958331096
+    second: room_broadcast_141
+  - first:
+      213: -5142941449859360661
+    second: room_broadcast_142
+  - first:
+      213: -7920414900094932105
+    second: room_broadcast_143
+  - first:
+      213: 729748222490644815
+    second: room_broadcast_144
+  - first:
+      213: -6713605405976843804
+    second: room_broadcast_145
+  - first:
+      213: 7912682503210600642
+    second: room_broadcast_146
+  - first:
+      213: 2755196616892997330
+    second: room_broadcast_147
+  - first:
+      213: -2204566773590623237
+    second: room_broadcast_148
+  - first:
+      213: 5201205253262758502
+    second: room_broadcast_149
+  - first:
+      213: -3411450979744939288
+    second: room_broadcast_150
+  - first:
+      213: -8603102444507468731
+    second: room_broadcast_151
+  - first:
+      213: -2363616175113437205
+    second: room_broadcast_152
+  - first:
+      213: 8090827972612375631
+    second: room_broadcast_153
+  - first:
+      213: 6629148975339850250
+    second: room_broadcast_154
+  - first:
+      213: 5451703515854515828
+    second: room_broadcast_155
+  - first:
+      213: -5201613570918703403
+    second: room_broadcast_156
+  - first:
+      213: 7479651908571923136
+    second: room_broadcast_157
+  - first:
+      213: 2703969279815188515
+    second: room_broadcast_158
+  - first:
+      213: 2448538870116117342
+    second: room_broadcast_159
+  - first:
+      213: -1029503835227120655
+    second: room_broadcast_160
+  - first:
+      213: -6738345203667257467
+    second: room_broadcast_161
+  - first:
+      213: -7340963278168115695
+    second: room_broadcast_162
+  - first:
+      213: -3376930344448877567
+    second: room_broadcast_163
+  - first:
+      213: 2620013166017217580
+    second: room_broadcast_164
+  - first:
+      213: -3793612833158942903
+    second: room_broadcast_0
+  - first:
+      213: 2852380386907013908
+    second: room_broadcast_1
+  - first:
+      213: 408422873214298167
+    second: room_broadcast_2
+  - first:
+      213: 2571186357870427746
+    second: room_broadcast_3
+  - first:
+      213: 4588437030582064404
+    second: room_broadcast_4
+  - first:
+      213: -5202206017534302660
+    second: room_broadcast_5
+  - first:
+      213: 6434448832500122373
+    second: room_broadcast_6
+  - first:
+      213: -3258553948213045181
+    second: room_broadcast_7
+  - first:
+      213: 8441210597672167207
+    second: room_broadcast_8
+  - first:
+      213: 7631460945457440791
+    second: room_broadcast_9
+  - first:
+      213: -1314150332312635794
+    second: room_broadcast_10
+  - first:
+      213: 5736629839353219688
+    second: room_broadcast_11
+  - first:
+      213: -8540633413563752530
+    second: room_broadcast_12
+  - first:
+      213: 7064466360919803352
+    second: room_broadcast_13
+  - first:
+      213: -1565984470202972639
+    second: room_broadcast_14
+  - first:
+      213: 3861583774073676732
+    second: room_broadcast_15
+  - first:
+      213: -5266204004413524858
+    second: room_broadcast_16
+  - first:
+      213: -5103217119152280154
+    second: room_broadcast_17
+  - first:
+      213: -6060982297673261954
+    second: room_broadcast_18
+  - first:
+      213: 662175638261903383
+    second: room_broadcast_19
+  - first:
+      213: -4906379149756943008
+    second: room_broadcast_20
+  - first:
+      213: -2635896055636675843
+    second: room_broadcast_21
+  - first:
+      213: -8856043152076500549
+    second: room_broadcast_22
+  - first:
+      213: -7607728288139574412
+    second: room_broadcast_23
+  - first:
+      213: -5814403748465895182
+    second: room_broadcast_24
+  - first:
+      213: -6908020178469362646
+    second: room_broadcast_25
+  - first:
+      213: 8883766522643750553
+    second: room_broadcast_26
+  - first:
+      213: -9092259547877930500
+    second: room_broadcast_27
+  - first:
+      213: -8062117105441492308
+    second: room_broadcast_28
+  - first:
+      213: 7865719172508655416
+    second: room_broadcast_29
+  - first:
+      213: 6987759868718954571
+    second: room_broadcast_30
+  - first:
+      213: -5913706476154356070
+    second: room_broadcast_31
+  - first:
+      213: -3867121418751443747
+    second: room_broadcast_165
+  - first:
+      213: -1622915836082939857
+    second: room_broadcast_166
+  - first:
+      213: -5713225645212721150
+    second: room_broadcast_167
+  - first:
+      213: -5717250243373016058
+    second: room_broadcast_168
+  - first:
+      213: 7663952443901983190
+    second: room_broadcast_169
+  - first:
+      213: 50787545910622405
+    second: room_broadcast_170
+  - first:
+      213: -8826091089860680381
+    second: room_broadcast_171
+  - first:
+      213: 2854016482718435486
+    second: room_broadcast_172
+  - first:
+      213: -6754443427304283697
+    second: room_broadcast_173
+  - first:
+      213: -2269017185990279898
+    second: room_broadcast_174
+  - first:
+      213: 201212338167174045
+    second: room_broadcast_175
+  - first:
+      213: 6288944872116761432
+    second: room_broadcast_176
+  - first:
+      213: -6208825814190869908
+    second: room_broadcast_177
+  - first:
+      213: 1019238302339614441
+    second: room_broadcast_178
+  - first:
+      213: -8846039124184833363
+    second: room_broadcast_179
+  - first:
+      213: -8141588527537624980
+    second: room_broadcast_180
+  - first:
+      213: -1071512725502654164
+    second: room_broadcast_181
+  - first:
+      213: 2613510580282014589
+    second: room_broadcast_182
+  - first:
+      213: 7040930855303629083
+    second: room_broadcast_183
+  - first:
+      213: -1951625118662935804
+    second: room_broadcast_184
+  - first:
+      213: 3399218442638870560
+    second: room_broadcast_185
+  - first:
+      213: -8291092975233398984
+    second: room_broadcast_186
+  - first:
+      213: -3551993702447502017
+    second: room_broadcast_187
+  - first:
+      213: 6151470821823346423
+    second: room_broadcast_188
+  - first:
+      213: 6167273430769113242
+    second: room_broadcast_189
+  - first:
+      213: -2070442785427064767
+    second: room_broadcast_190
+  - first:
+      213: 9020730685551651410
+    second: room_broadcast_191
+  - first:
+      213: -745581433432857379
+    second: room_broadcast_192
+  - first:
+      213: 5817266339579962294
+    second: room_broadcast_193
+  - first:
+      213: -4007292117820688796
+    second: room_broadcast_194
+  - first:
+      213: 2880694651914576122
+    second: room_broadcast_195
+  - first:
+      213: -8288931820525540141
+    second: room_broadcast_196
+  - first:
+      213: -8172622363655769696
+    second: room_broadcast_197
+  - first:
+      213: -5682657661343746971
+    second: room_broadcast_198
+  - first:
+      213: 8969255649953877270
+    second: room_broadcast_199
+  - first:
+      213: -9013311142911401067
+    second: room_broadcast_200
+  - first:
+      213: 8557487599984249169
+    second: room_broadcast_201
+  - first:
+      213: 6031310237092376280
+    second: room_broadcast_202
+  - first:
+      213: 6340631765638141587
+    second: room_broadcast_203
+  - first:
+      213: -4802900645824227436
+    second: room_broadcast_204
+  - first:
+      213: -5168431847611423469
+    second: room_broadcast_205
+  - first:
+      213: -3139429198845898483
+    second: room_broadcast_206
+  - first:
+      213: 2966951822383201496
+    second: room_broadcast_207
+  - first:
+      213: 232022524767862097
+    second: room_broadcast_208
+  - first:
+      213: 7777097013864711990
+    second: room_broadcast_209
+  - first:
+      213: 7319330863036392336
+    second: room_broadcast_210
+  - first:
+      213: 641995439578426759
+    second: room_broadcast_211
+  - first:
+      213: 83064706154671793
+    second: room_broadcast_212
+  - first:
+      213: -6487771615117206529
+    second: room_broadcast_32
+  - first:
+      213: 1523924096308940108
+    second: room_broadcast_33
+  - first:
+      213: -1645927333608138216
+    second: room_broadcast_34
+  - first:
+      213: 795125524566321005
+    second: room_broadcast_35
+  - first:
+      213: -4258747815340032433
+    second: room_broadcast_36
+  - first:
+      213: 2312267100274571761
+    second: room_broadcast_37
+  - first:
+      213: -8942202936904604961
+    second: room_broadcast_38
+  - first:
+      213: 7090245554226191293
+    second: room_broadcast_39
+  - first:
+      213: 6965053771970805166
+    second: room_broadcast_40
+  - first:
+      213: 623427512687638240
+    second: room_broadcast_41
+  - first:
+      213: 326917481985783757
+    second: room_broadcast_42
+  - first:
+      213: -4409607414755063907
+    second: room_broadcast_43
+  - first:
+      213: -1607029060563917418
+    second: room_broadcast_44
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 35
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: room_broadcast_0
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 613
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94fa2384a316a5bc0800000000000000
+      internalID: -3793612833158942903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_1
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 613
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41342ed69d0b59720800000000000000
+      internalID: 2852380386907013908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_2
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 553
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 738251470720ba500800000000000000
+      internalID: 408422873214298167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_3
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 553
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26e7238ae50bea320800000000000000
+      internalID: 2571186357870427746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 493
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41597123b276daf30800000000000000
+      internalID: 4588437030582064404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_5
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 493
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c36e774803d0ec7b0800000000000000
+      internalID: -5202206017534302660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_6
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 493
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 503c89a3f11cb4950800000000000000
+      internalID: 6434448832500122373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_7
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 493
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 348905bd27a47c2d0800000000000000
+      internalID: -3258553948213045181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 433
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 727238ca054352570800000000000000
+      internalID: 8441210597672167207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_9
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 433
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 718e143fb4568e960800000000000000
+      internalID: 7631460945457440791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_10
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 433
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e663b054c3333cde0800000000000000
+      internalID: -1314150332312635794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_11
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 433
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86a0e86e17a9c9f40800000000000000
+      internalID: 5736629839353219688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_12
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 433
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaf53bb1923997980800000000000000
+      internalID: -8540633413563752530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_13
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 433
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d54252e9b60a0260800000000000000
+      internalID: 7064466360919803352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_14
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 433
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12606c9db61844ae0800000000000000
+      internalID: -1565984470202972639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 373
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb3e214abf9179530800000000000000
+      internalID: 3861583774073676732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_16
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 373
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 684313a0c5faae6b0800000000000000
+      internalID: -5266204004413524858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_17
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 373
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ad6c31711bbd29b0800000000000000
+      internalID: -5103217119152280154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_18
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 373
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7c114576b013eba0800000000000000
+      internalID: -6060982297673261954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_19
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 373
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 710b4811c35803900800000000000000
+      internalID: 662175638261903383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_20
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 373
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 065ba5d882a09ebb0800000000000000
+      internalID: -4906379149756943008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_21
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 373
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df23ce2c08a6b6bd0800000000000000
+      internalID: -2635896055636675843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_22
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 313
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb113fcaca3091580800000000000000
+      internalID: -8856043152076500549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_23
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 313
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47300cded6beb6690800000000000000
+      internalID: -7607728288139574412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_24
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 313
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f89df7c8961f4fa0800000000000000
+      internalID: -5814403748465895182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_25
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 313
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a246a197f38c120a0800000000000000
+      internalID: -6908020178469362646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_26
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 313
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99e10b9859a794b70800000000000000
+      internalID: 8883766522643750553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_27
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 313
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf905133d1ec1d180800000000000000
+      internalID: -9092259547877930500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_28
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 313
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca23f80253b9d1090800000000000000
+      internalID: -8062117105441492308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_29
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 253
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83f9b5cb9e5a82d60800000000000000
+      internalID: 7865719172508655416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_30
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 253
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4839bee39289f060800000000000000
+      internalID: 6987759868718954571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_31
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 253
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9e74e6ca4b4eeda0800000000000000
+      internalID: -5913706476154356070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_32
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 253
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffb9319f61ec6f5a0800000000000000
+      internalID: -6487771615117206529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_33
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 253
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4d072934e0162510800000000000000
+      internalID: 1523924096308940108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_34
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 253
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81a5e228fcd7829e0800000000000000
+      internalID: -1645927333608138216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_35
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 253
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d672f9ba37ad80b00800000000000000
+      internalID: 795125524566321005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 193
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4ebfaefc63e5e4c0800000000000000
+      internalID: -4258747815340032433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_37
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 193
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f930b14da2d61020800000000000000
+      internalID: 2312267100274571761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_38
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 193
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd2a8548ec9e6e380800000000000000
+      internalID: -8942202936904604961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_39
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 193
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbbd1fd04cc956260800000000000000
+      internalID: 7090245554226191293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_40
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 193
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ead70dfc087d8a060800000000000000
+      internalID: 6965053771970805166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_41
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 193
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e6b3fc050cd6a800800000000000000
+      internalID: 623427512687638240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_42
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 193
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc7b0a0c7b1798400800000000000000
+      internalID: 326917481985783757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_43
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 133
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d97889c5b6dedc2c0800000000000000
+      internalID: -4409607414755063907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_44
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 133
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 695ab55759fa2b9e0800000000000000
+      internalID: -1607029060563917418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_45
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 133
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f959f1195cd112b0800000000000000
+      internalID: -5615464985242543631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_46
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 133
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c640d2424980bb740800000000000000
+      internalID: 5168734429692888172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_47
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 133
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dbf7abb00e316070800000000000000
+      internalID: 8097821777858132948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_48
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 133
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36e83d794690c72a0800000000000000
+      internalID: -6738500614804500893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_49
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 133
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c5a52bd134c16c20800000000000000
+      internalID: 3198052928818881987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 73
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8914806168eea1fb0800000000000000
+      internalID: -4676163003408170600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_51
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 73
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 723a855f03424bb50800000000000000
+      internalID: 6607946345952617255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_52
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 73
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6ee5f1bc4264b420800000000000000
+      internalID: 2644846962716044911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_53
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 73
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f475d1738c91a7a00800000000000000
+      internalID: 754944235246802767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_54
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 73
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 189f7f6b1252e3440800000000000000
+      internalID: 4917408669869013377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_55
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 73
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 660f055386de8a9f0800000000000000
+      internalID: -456854330351226778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_56
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 73
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9591922ad047450a0800000000000000
+      internalID: -6893757527693387431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_57
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 13
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cee94ef639fef9b0800000000000000
+      internalID: -5044320518018568509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_58
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 13
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65c0d6c532164a0c0800000000000000
+      internalID: -4565417317744440234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_59
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 13
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6619a42e8400da230800000000000000
+      internalID: 3651575185901523302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_broadcast_60
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 13
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47081f484c75976f0800000000000000
+      internalID: -686420966641663884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

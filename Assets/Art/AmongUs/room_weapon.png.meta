@@ -1,0 +1,1352 @@
+fileFormatVersion: 2
+guid: ddffca1c89ff80645884d4e0686eb361
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8709233948145619447
+    second: room_weapon_0
+  - first:
+      213: 8669623467065594519
+    second: room_weapon_1
+  - first:
+      213: 169254595142836962
+    second: room_weapon_2
+  - first:
+      213: -3418139772619017023
+    second: room_weapon_3
+  - first:
+      213: -5216314436246018385
+    second: room_weapon_4
+  - first:
+      213: -3219509295014372830
+    second: room_weapon_5
+  - first:
+      213: 5079689265416499155
+    second: room_weapon_6
+  - first:
+      213: 6521408625056994892
+    second: room_weapon_7
+  - first:
+      213: 5999457415506847506
+    second: room_weapon_8
+  - first:
+      213: 8063709552888451956
+    second: room_weapon_9
+  - first:
+      213: -7413451831217210684
+    second: room_weapon_10
+  - first:
+      213: -9177848246583531709
+    second: room_weapon_11
+  - first:
+      213: -5073606047961548027
+    second: room_weapon_12
+  - first:
+      213: -5247836902943046034
+    second: room_weapon_13
+  - first:
+      213: -9101563474707907664
+    second: room_weapon_14
+  - first:
+      213: 1718687894101821212
+    second: room_weapon_15
+  - first:
+      213: -1735117648776146366
+    second: room_weapon_16
+  - first:
+      213: -413033142928087835
+    second: room_weapon_17
+  - first:
+      213: 637278189529923818
+    second: room_weapon_18
+  - first:
+      213: -8564067067817169585
+    second: room_weapon_19
+  - first:
+      213: -6806521538988479499
+    second: room_weapon_20
+  - first:
+      213: 4207116719451422509
+    second: room_weapon_21
+  - first:
+      213: 6710415472546117301
+    second: room_weapon_22
+  - first:
+      213: 2655544236194413553
+    second: room_weapon_23
+  - first:
+      213: 4066006093507635100
+    second: room_weapon_24
+  - first:
+      213: -6335363180774902853
+    second: room_weapon_25
+  - first:
+      213: -4460055799441261576
+    second: room_weapon_26
+  - first:
+      213: -448858000286639970
+    second: room_weapon_27
+  - first:
+      213: -6094777835302068902
+    second: room_weapon_28
+  - first:
+      213: 3903653210931452651
+    second: room_weapon_29
+  - first:
+      213: 8925655252566900302
+    second: room_weapon_30
+  - first:
+      213: -110213933319593911
+    second: room_weapon_31
+  - first:
+      213: -2386137191303815162
+    second: room_weapon_32
+  - first:
+      213: -7571634239059236531
+    second: room_weapon_33
+  - first:
+      213: 630238025920902407
+    second: room_weapon_34
+  - first:
+      213: 5384300127044209107
+    second: room_weapon_35
+  - first:
+      213: -6438666786940403102
+    second: room_weapon_36
+  - first:
+      213: 5476548348084066419
+    second: room_weapon_37
+  - first:
+      213: 8715929272426498914
+    second: room_weapon_38
+  - first:
+      213: 887196124054417864
+    second: room_weapon_39
+  - first:
+      213: 7377964020512429851
+    second: room_weapon_40
+  - first:
+      213: 2062418248592358578
+    second: room_weapon_41
+  - first:
+      213: 1301448358551327080
+    second: room_weapon_42
+  - first:
+      213: -1990569301356324286
+    second: room_weapon_43
+  - first:
+      213: -785423534260245654
+    second: room_weapon_44
+  - first:
+      213: 5756989672132753795
+    second: room_weapon_45
+  - first:
+      213: 218382141039452936
+    second: room_weapon_46
+  - first:
+      213: -8957998356906789550
+    second: room_weapon_47
+  - first:
+      213: 3128163821804291743
+    second: room_weapon_48
+  - first:
+      213: 5851443873125101384
+    second: room_weapon_49
+  - first:
+      213: 1234925667654286476
+    second: room_weapon_50
+  - first:
+      213: -2228733774893123429
+    second: room_weapon_51
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 35
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: room_weapon_0
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 536
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90ee10f1ed5922780800000000000000
+      internalID: -8709233948145619447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_1
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 536
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 792d5d21c90b05870800000000000000
+      internalID: 8669623467065594519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_2
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 466
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e267145820595200800000000000000
+      internalID: 169254595142836962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_3
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 466
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c4b864acf35090d0800000000000000
+      internalID: -3418139772619017023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_4
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 466
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa660de48adeb97b0800000000000000
+      internalID: -5216314436246018385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_5
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 466
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22a99979a510253d0800000000000000
+      internalID: -3219509295014372830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_6
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 396
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dfe38a397eae7640800000000000000
+      internalID: 5079689265416499155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_7
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 396
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c46d0b3b792b08a50800000000000000
+      internalID: 6521408625056994892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_8
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 396
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2176e50abba524350800000000000000
+      internalID: 5999457415506847506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_9
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 396
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47317df6d1d08ef60800000000000000
+      internalID: 8063709552888451956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_10
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 396
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ca34d076d02e1990800000000000000
+      internalID: -7413451831217210684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_11
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 396
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34762f365abb1a080800000000000000
+      internalID: -9177848246583531709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_12
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 396
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50b7af43e2ee699b0800000000000000
+      internalID: -5073606047961548027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 326
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e66c4e81420fb27b0800000000000000
+      internalID: -5247836902943046034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_14
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 326
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bb7d5ded30c0b180800000000000000
+      internalID: -9101563474707907664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_15
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 326
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1704bf98810ad710800000000000000
+      internalID: 1718687894101821212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_16
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 326
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 242df2501bf9be7e0800000000000000
+      internalID: -1735117648776146366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_17
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 326
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e4ee4b7b8c944af0800000000000000
+      internalID: -413033142928087835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_18
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 326
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae0090e032118d800800000000000000
+      internalID: 637278189529923818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_19
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 326
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4de22e4062562980800000000000000
+      internalID: -8564067067817169585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_20
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 326
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fbeb8809b06a81a0800000000000000
+      internalID: -6806521538988479499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_21
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 256
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2f3287bd5ea26a30800000000000000
+      internalID: 4207116719451422509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_22
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 256
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b67568a15f202d50800000000000000
+      internalID: 6710415472546117301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_23
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 256
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fb34b3c9636ad420800000000000000
+      internalID: 2655544236194413553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_24
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 256
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c97a81adffa5d6830800000000000000
+      internalID: 4066006093507635100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_25
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 256
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb3b2d6d0c44418a0800000000000000
+      internalID: -6335363180774902853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_26
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 256
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fbf1eb71e2ba12c0800000000000000
+      internalID: -4460055799441261576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_27
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 256
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e989252e60655c9f0800000000000000
+      internalID: -448858000286639970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 186
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5d55eda9dffa6ba0800000000000000
+      internalID: -6094777835302068902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_29
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 186
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bead1e3b9ef8c2630800000000000000
+      internalID: 3903653210931452651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_30
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 186
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4e79dc792c4edb70800000000000000
+      internalID: 8925655252566900302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_31
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 186
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 940ef27f201787ef0800000000000000
+      internalID: -110213933319593911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_32
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 186
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 600ecf6eddcb2eed0800000000000000
+      internalID: -2386137191303815162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_33
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 186
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4960bb96c62ce690800000000000000
+      internalID: -7571634239059236531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_34
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 186
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70575fa352e0fb800800000000000000
+      internalID: 630238025920902407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_35
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 186
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d98f843070e8ba40800000000000000
+      internalID: 5384300127044209107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 116
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 262cf49bba245a6a0800000000000000
+      internalID: -6438666786940403102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_37
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 116
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3789dc2e4bb900c40800000000000000
+      internalID: 5476548348084066419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_38
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 116
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26b096a8e7335f870800000000000000
+      internalID: 8715929272426498914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_39
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 116
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c1fd5c9c24ff4c00800000000000000
+      internalID: 887196124054417864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_40
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 116
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b179140cf2bc36660800000000000000
+      internalID: 7377964020512429851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_41
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 116
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bc71ad487e2f9c10800000000000000
+      internalID: 2062418248592358578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_42
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 116
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86197f0036caf0210800000000000000
+      internalID: 1301448358551327080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_43
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 116
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24adbd354c31064e0800000000000000
+      internalID: -1990569301356324286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_44
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 46
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6baf2af47d9915f0800000000000000
+      internalID: -785423534260245654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_45
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 46
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 389b01fda9fe4ef40800000000000000
+      internalID: 5756989672132753795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_46
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 46
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80322f57669d70300800000000000000
+      internalID: 218382141039452936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_47
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 46
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 255b906b4fbcea380800000000000000
+      internalID: -8957998356906789550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_48
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 46
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f968fd51c68796b20800000000000000
+      internalID: 3128163821804291743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_49
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 46
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84fe1c84331843150800000000000000
+      internalID: 5851443873125101384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_50
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 46
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8cbb801a56532110800000000000000
+      internalID: 1234925667654286476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_weapon_51
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 46
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b987498a072f111e0800000000000000
+      internalID: -2228733774893123429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

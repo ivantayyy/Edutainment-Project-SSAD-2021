@@ -1,0 +1,2207 @@
+fileFormatVersion: 2
+guid: 01214640a26a9b14993964cbfa56f158
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6311705439579507378
+    second: room_O2_0
+  - first:
+      213: -688748100668740613
+    second: room_O2_1
+  - first:
+      213: -5383466386313528316
+    second: room_O2_2
+  - first:
+      213: -4626405684219944654
+    second: room_O2_3
+  - first:
+      213: 1370756485307191413
+    second: room_O2_4
+  - first:
+      213: 1549360214493716813
+    second: room_O2_5
+  - first:
+      213: -2144825375615086837
+    second: room_O2_6
+  - first:
+      213: 366640626488911364
+    second: room_O2_7
+  - first:
+      213: -7824379621001027149
+    second: room_O2_8
+  - first:
+      213: -4336362277589123747
+    second: room_O2_9
+  - first:
+      213: -1243569413166523481
+    second: room_O2_10
+  - first:
+      213: -7442704656957084118
+    second: room_O2_11
+  - first:
+      213: -9139838445379568148
+    second: room_O2_12
+  - first:
+      213: -2674893119811845699
+    second: room_O2_13
+  - first:
+      213: -8026490556048642092
+    second: room_O2_14
+  - first:
+      213: -3119194328703383887
+    second: room_O2_15
+  - first:
+      213: 5902389089594351670
+    second: room_O2_16
+  - first:
+      213: 4505421802949114760
+    second: room_O2_17
+  - first:
+      213: -7430864890701962886
+    second: room_O2_18
+  - first:
+      213: -2189005639022843678
+    second: room_O2_19
+  - first:
+      213: 1989843822183852742
+    second: room_O2_20
+  - first:
+      213: -5065589373662941366
+    second: room_O2_21
+  - first:
+      213: -2961106679702933338
+    second: room_O2_22
+  - first:
+      213: -487082702358975339
+    second: room_O2_23
+  - first:
+      213: -3305052856622980598
+    second: room_O2_24
+  - first:
+      213: 2682110693829188266
+    second: room_O2_25
+  - first:
+      213: 8036404972207776219
+    second: room_O2_26
+  - first:
+      213: -3228460148153159033
+    second: room_O2_27
+  - first:
+      213: 3614833082223211146
+    second: room_O2_28
+  - first:
+      213: 6494361586820236654
+    second: room_O2_29
+  - first:
+      213: 5375950434076278344
+    second: room_O2_30
+  - first:
+      213: -1044853584258683540
+    second: room_O2_31
+  - first:
+      213: 4102608488428200326
+    second: room_O2_32
+  - first:
+      213: 4538227569619764290
+    second: room_O2_33
+  - first:
+      213: -4282813929089000092
+    second: room_O2_34
+  - first:
+      213: 1831977928511154805
+    second: room_O2_35
+  - first:
+      213: 1665799511979057937
+    second: room_O2_36
+  - first:
+      213: -5871137831327469917
+    second: room_O2_37
+  - first:
+      213: -7771249003161983131
+    second: room_O2_38
+  - first:
+      213: 1833841539848113702
+    second: room_O2_39
+  - first:
+      213: -1031059088895935018
+    second: room_O2_40
+  - first:
+      213: 2570249404336951823
+    second: room_O2_41
+  - first:
+      213: 5891646295455696958
+    second: room_O2_42
+  - first:
+      213: 499445252695518517
+    second: room_O2_43
+  - first:
+      213: -7811884882470291951
+    second: room_O2_44
+  - first:
+      213: -1285963251199770802
+    second: room_O2_45
+  - first:
+      213: 2848057334401462274
+    second: room_O2_46
+  - first:
+      213: -4851714610197612842
+    second: room_O2_47
+  - first:
+      213: -1934885630359957212
+    second: room_O2_48
+  - first:
+      213: 9124264306161789298
+    second: room_O2_49
+  - first:
+      213: 7193732801717932521
+    second: room_O2_50
+  - first:
+      213: 6167707167508214046
+    second: room_O2_51
+  - first:
+      213: 8709428760193453770
+    second: room_O2_52
+  - first:
+      213: -1336178735583514979
+    second: room_O2_53
+  - first:
+      213: -7451263263908198539
+    second: room_O2_54
+  - first:
+      213: 8086325084082842153
+    second: room_O2_55
+  - first:
+      213: -2747416873342973123
+    second: room_O2_56
+  - first:
+      213: -2757326104491651410
+    second: room_O2_57
+  - first:
+      213: 5654574815581076665
+    second: room_O2_58
+  - first:
+      213: -1519702364095661838
+    second: room_O2_59
+  - first:
+      213: -3957873896606758010
+    second: room_O2_60
+  - first:
+      213: -9114506528732501414
+    second: room_O2_61
+  - first:
+      213: 5457026699108618536
+    second: room_O2_62
+  - first:
+      213: 6829232797127290668
+    second: room_O2_63
+  - first:
+      213: -8573334904624037309
+    second: room_O2_64
+  - first:
+      213: 1868156195961366691
+    second: room_O2_65
+  - first:
+      213: 5698969162808741405
+    second: room_O2_66
+  - first:
+      213: -4145893328994710926
+    second: room_O2_67
+  - first:
+      213: -9206827471308264107
+    second: room_O2_68
+  - first:
+      213: 8958063839506835650
+    second: room_O2_69
+  - first:
+      213: -9218838389203799901
+    second: room_O2_70
+  - first:
+      213: -1737185035983461342
+    second: room_O2_71
+  - first:
+      213: -1155841444210862240
+    second: room_O2_72
+  - first:
+      213: -3344222977038063931
+    second: room_O2_73
+  - first:
+      213: 3602614930307611441
+    second: room_O2_74
+  - first:
+      213: 2414653823840041882
+    second: room_O2_75
+  - first:
+      213: -1908072986338771196
+    second: room_O2_76
+  - first:
+      213: 5795620181715868728
+    second: room_O2_77
+  - first:
+      213: -51877844510946048
+    second: room_O2_78
+  - first:
+      213: -5902542259258643879
+    second: room_O2_79
+  - first:
+      213: -2414040125894765970
+    second: room_O2_80
+  - first:
+      213: -5566430062949039659
+    second: room_O2_81
+  - first:
+      213: 6374148365704122395
+    second: room_O2_82
+  - first:
+      213: -1534596309299110234
+    second: room_O2_83
+  - first:
+      213: 5613873189897433474
+    second: room_O2_84
+  - first:
+      213: -8917892084923813471
+    second: room_O2_85
+  - first:
+      213: -8581755039059694810
+    second: room_O2_86
+  - first:
+      213: 8491580413984646210
+    second: room_O2_87
+  - first:
+      213: 8777053629405642467
+    second: room_O2_88
+  - first:
+      213: -7964324501254215895
+    second: room_O2_89
+  - first:
+      213: -3490822510169636222
+    second: room_O2_90
+  - first:
+      213: -4338530712436398573
+    second: room_O2_91
+  - first:
+      213: 8681052847898459255
+    second: room_O2_92
+  - first:
+      213: -2178240549858971748
+    second: room_O2_93
+  - first:
+      213: 135188419535042266
+    second: room_O2_94
+  - first:
+      213: 5116671392376439243
+    second: room_O2_95
+  - first:
+      213: -4180749271701633151
+    second: room_O2_96
+  - first:
+      213: 5352711269211989593
+    second: room_O2_97
+  - first:
+      213: -128788769876547526
+    second: room_O2_98
+  - first:
+      213: -8513110783615661661
+    second: room_O2_99
+  - first:
+      213: 4596602438261067267
+    second: room_O2_100
+  - first:
+      213: -4990717070898106473
+    second: room_O2_101
+  - first:
+      213: 3000865024023586644
+    second: room_O2_102
+  - first:
+      213: 2960461219606340931
+    second: room_O2_103
+  - first:
+      213: -1634088947675949014
+    second: room_O2_104
+  - first:
+      213: 940925853470870813
+    second: room_O2_105
+  - first:
+      213: -2056492865392141903
+    second: room_O2_106
+  - first:
+      213: 8823293045137072471
+    second: room_O2_107
+  - first:
+      213: -7566200522251431707
+    second: room_O2_108
+  - first:
+      213: -1671173684015224154
+    second: room_O2_109
+  - first:
+      213: -9070537906961234527
+    second: room_O2_110
+  - first:
+      213: 1655950076772010214
+    second: room_O2_111
+  - first:
+      213: 8669024691574615359
+    second: room_O2_112
+  - first:
+      213: -8032077631565635348
+    second: room_O2_113
+  - first:
+      213: -1957242698740079331
+    second: room_O2_114
+  - first:
+      213: -5336298089326407084
+    second: room_O2_115
+  - first:
+      213: -3592694887427718055
+    second: room_O2_116
+  - first:
+      213: -6074977557751384056
+    second: room_O2_117
+  - first:
+      213: -4985802994507264330
+    second: room_O2_118
+  - first:
+      213: 4613096649739371387
+    second: room_O2_119
+  - first:
+      213: 5887951491082154742
+    second: room_O2_120
+  - first:
+      213: -672887122310457209
+    second: room_O2_121
+  - first:
+      213: -949777468304773268
+    second: room_O2_122
+  - first:
+      213: -1131761214955242818
+    second: room_O2_123
+  - first:
+      213: -1422198982527306761
+    second: room_O2_124
+  - first:
+      213: 860413006684216589
+    second: room_O2_125
+  - first:
+      213: 3192749418058836408
+    second: room_O2_126
+  - first:
+      213: 2816541760836886136
+    second: room_O2_127
+  - first:
+      213: -7541075838801540645
+    second: room_O2_128
+  - first:
+      213: -2117885231002048210
+    second: room_O2_129
+  - first:
+      213: -440994693255086722
+    second: room_O2_130
+  - first:
+      213: 1144764086921497646
+    second: room_O2_131
+  - first:
+      213: -1493153328434114387
+    second: room_O2_132
+  - first:
+      213: 1717250177048716749
+    second: room_O2_133
+  - first:
+      213: -985735729053379557
+    second: room_O2_134
+  - first:
+      213: 7035568543538480045
+    second: room_O2_135
+  - first:
+      213: -5152219105358322152
+    second: room_O2_136
+  - first:
+      213: 7429000730888977234
+    second: room_O2_137
+  - first:
+      213: -6061994724457428755
+    second: room_O2_138
+  - first:
+      213: -3478260259499722983
+    second: room_O2_139
+  - first:
+      213: -8879755101892232802
+    second: room_O2_140
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 35
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: room_O2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1106
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4576f2f7515868a0800000000000000
+      internalID: -6311705439579507378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_1
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 1106
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfb2ae760431176f0800000000000000
+      internalID: -688748100668740613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_2
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 1106
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40cb68f28d51a45b0800000000000000
+      internalID: -5383466386313528316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_3
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 1106
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 231e83dba84bbcfb0800000000000000
+      internalID: -4626405684219944654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_4
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 1106
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5705c44c2c7e50310800000000000000
+      internalID: 1370756485307191413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1016
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d41650ef7ee608510800000000000000
+      internalID: 1549360214493716813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_6
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 1016
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0f08354fac0c32e0800000000000000
+      internalID: -2144825375615086837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_7
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 1016
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 406291e05b1961500800000000000000
+      internalID: 366640626488911364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_8
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 1016
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b1ad66a0383a6390800000000000000
+      internalID: -7824379621001027149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_9
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 1016
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5d75eacb7522d3c0800000000000000
+      internalID: -4336362277589123747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 926
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ab1baa1534fdbee0800000000000000
+      internalID: -1243569413166523481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_11
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 926
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2e6de13c8336b890800000000000000
+      internalID: -7442704656957084118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_12
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 926
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ced31bedb55c82180800000000000000
+      internalID: -9139838445379568148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_13
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 926
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db18a7531eed0ead0800000000000000
+      internalID: -2674893119811845699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_14
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 926
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4df61bd8d5d2c9090800000000000000
+      internalID: -8026490556048642092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 836
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b6c834c84566b4d0800000000000000
+      internalID: -3119194328703383887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_16
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 836
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 630a963da9f79e150800000000000000
+      internalID: 5902389089594351670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_17
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 836
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88bf4105249768e30800000000000000
+      internalID: 4505421802949114760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_18
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 836
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a71a9c790c340e890800000000000000
+      internalID: -7430864890701962886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_19
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 836
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e867ba18f61f91e0800000000000000
+      internalID: -2189005639022843678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 746
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ca26c3e9685d9b10800000000000000
+      internalID: 1989843822183852742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_21
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 746
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4fa3d4ad4963b9b0800000000000000
+      internalID: -5065589373662941366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_22
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 746
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a03546d92908e6d0800000000000000
+      internalID: -2961106679702933338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_23
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 746
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59ce7a5ecd88d39f0800000000000000
+      internalID: -487082702358975339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_24
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 746
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a02e81510f71222d0800000000000000
+      internalID: -3305052856622980598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_25
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 746
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaa17f13775c83520800000000000000
+      internalID: 2682110693829188266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_26
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 746
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd1a0a75ebb078f60800000000000000
+      internalID: 8036404972207776219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 656
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78273d1b9943233d0800000000000000
+      internalID: -3228460148153159033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_28
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 656
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a82be3c39877a2230800000000000000
+      internalID: 3614833082223211146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_29
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 656
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e65cc51647b902a50800000000000000
+      internalID: 6494361586820236654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_30
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 656
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84e3931df663b9a40800000000000000
+      internalID: 5375950434076278344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_31
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 656
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6da7f3733fef71f0800000000000000
+      internalID: -1044853584258683540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_32
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 656
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 681e3450fa46fe830800000000000000
+      internalID: 4102608488428200326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_33
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 656
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24402151ee50bfe30800000000000000
+      internalID: 4538227569619764290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_34
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 566
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46d1e8d3c636094c0800000000000000
+      internalID: -4282813929089000092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_35
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 566
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57a6341483e7c6910800000000000000
+      internalID: 1831977928511154805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_36
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 566
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 113e78294db1e1710800000000000000
+      internalID: 1665799511979057937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_37
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 566
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ae6e50cf37858ea0800000000000000
+      internalID: -5871137831327469917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_38
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 566
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 567eb69943af62490800000000000000
+      internalID: -7771249003161983131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_39
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 566
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62e80051a2d137910800000000000000
+      internalID: 1833841539848113702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_40
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 566
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dd7befa831f0b1f0800000000000000
+      internalID: -1031059088895935018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_41
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 476
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f02d9a9273c5ba320800000000000000
+      internalID: 2570249404336951823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_42
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 476
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3802e6271553c150800000000000000
+      internalID: 5891646295455696958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_43
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 476
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53deba7afc26ee600800000000000000
+      internalID: 499445252695518517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_44
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 476
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1163d1aa61c969390800000000000000
+      internalID: -7811884882470291951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_45
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 476
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4ff7028c37572ee0800000000000000
+      internalID: -1285963251199770802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_46
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 476
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 200f1f45e05568720800000000000000
+      internalID: 2848057334401462274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_47
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 476
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d6399b744f3bacb0800000000000000
+      internalID: -4851714610197612842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 386
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 421136945c7e525e0800000000000000
+      internalID: -1934885630359957212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_49
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 386
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 279ac854b06ef9e70800000000000000
+      internalID: 9124264306161789298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_50
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 386
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e1197f7ed545d360800000000000000
+      internalID: 7193732801717932521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_51
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 386
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1135fdadf8189550800000000000000
+      internalID: 6167707167508214046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_52
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 386
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acec6e7105b1ed870800000000000000
+      internalID: 8709428760193453770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_53
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 386
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9e2d15f480f47de0800000000000000
+      internalID: -1336178735583514979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_54
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 386
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57785da3a8bc79890800000000000000
+      internalID: -7451263263908198539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_55
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 296
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92aa61f12d5683070800000000000000
+      internalID: 8086325084082842153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_56
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 296
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3b4a7ef8e63fd9d0800000000000000
+      internalID: -2747416873342973123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_57
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 296
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eae0dd354820cb9d0800000000000000
+      internalID: -2757326104491651410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_58
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 296
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bc7496e5d5197e40800000000000000
+      internalID: 5654574815581076665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_59
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 296
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f8b1c760cee8eae0800000000000000
+      internalID: -1519702364095661838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_60
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 296
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68b86f629aec219c0800000000000000
+      internalID: -3957873896606758010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_61
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 296
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5aabe35a94c28180800000000000000
+      internalID: -9114506528732501414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_62
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 206
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 821113aced04bbb40800000000000000
+      internalID: 5457026699108618536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_63
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 206
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2f2831db0f46ce50800000000000000
+      internalID: 6829232797127290668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_64
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 206
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3424d65e355650980800000000000000
+      internalID: -8573334904624037309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_65
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 206
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a8e83d89260de910800000000000000
+      internalID: 1868156195961366691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_66
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 206
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1ece17524ec61f40800000000000000
+      internalID: 5698969162808741405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_67
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 206
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27acb90bbf3d676c0800000000000000
+      internalID: -4145893328994710926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_68
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 116
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55dec58d137ca3080800000000000000
+      internalID: -9206827471308264107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_69
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 116
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c8a315a99f615c70800000000000000
+      internalID: 8958063839506835650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_70
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 116
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a0f5c9145b101080800000000000000
+      internalID: -9218838389203799901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_71
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 116
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 224e41de96744e7e0800000000000000
+      internalID: -1737185035983461342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_72
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 116
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06713259450a5ffe0800000000000000
+      internalID: -1155841444210862240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_73
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 116
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c662fbbbeee691d0800000000000000
+      internalID: -3344222977038063931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_74
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 26
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13bf08f013f0ff130800000000000000
+      internalID: 3602614930307611441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_75
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 26
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9b36810cd2928120800000000000000
+      internalID: 2414653823840041882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_76
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 26
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40f32c37ab92585e0800000000000000
+      internalID: -1908072986338771196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_77
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 26
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83c524849dd2e6050800000000000000
+      internalID: 5795620181715868728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_78
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 26
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00d46321061b74ff0800000000000000
+      internalID: -51877844510946048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: room_O2_79
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 26
+        width: 90
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95a28259615f51ea0800000000000000
+      internalID: -5902542259258643879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
