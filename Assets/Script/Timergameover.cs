@@ -16,8 +16,14 @@ public class Timergameover : MonoBehaviour
 
     public Text PlayerScore;
     private PlayerScorescript playerScoreScript;
+    private PlayerScorescript player2ScoreScript;
     public GameObject EnemyScore;
     private Scorepersec enemyScoreScript;
+
+    private bool isMultiplayer;
+    private bool isCustom;
+    private GameObject mainMenuScript;
+    
 
     public GameObject gameOverUI;
 
@@ -25,17 +31,29 @@ public class Timergameover : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        mainMenuScript = GameObject.Find("MainMenuScript");
+        isCustom = mainMenuScript.GetComponent<MainMenu>().isCustom;
+        isMultiplayer = mainMenuScript.GetComponent<MainMenu>().isMultiplayer;
+
         countDownTimer();
-        // Find the Scorepersec script attached to "EnemyScore"
-        enemyScoreScript = EnemyScore.GetComponent<Scorepersec>();
-        // Find the PlayerScorescript attached to "PlayerScore"
+        
+        // Find the PlayerScorescript attached to "PlayerScore" for player 1
         playerScoreScript = PlayerScore.GetComponent<PlayerScorescript>();
+        if (!isMultiplayer && !isCustom) //ifsingle player
+        {
+            // Find the Scorepersec script attached to "EnemyScore"
+            enemyScoreScript = EnemyScore.GetComponent<Scorepersec>();
+        }
+  
     }
     
     void Update()
     {
         playerscore = playerScoreScript.scoreValue;
-        enemyscore = enemyScoreScript.scoreAmount;
+        if (!isMultiplayer && !isCustom) //ifsingle player
+            enemyscore = enemyScoreScript.scoreAmount;
+        else
+            enemyscore = (float)PhotonPlayer.Find(2).CustomProperties["PlayerScore"];
     }
 
     void countDownTimer()
@@ -51,14 +69,20 @@ public class Timergameover : MonoBehaviour
 
             if (enemyscore == 15)
             {
-                finalText.text = "Enemy Wins!";
+                if (!isMultiplayer && !isCustom)
+                    finalText.text = "Game over! Enemy Wins!";
+                else
+                    finalText.text = "Game over! Player 2 Wins!";
                 countDownStartValue = 0;
                 gameOverUI.SetActive(true);
             }
 
             if (playerscore == 15)
             {
-                finalText.text = "Player Wins!";
+                if (!isMultiplayer && !isCustom)
+                    finalText.text = "Game over! Player Wins!";
+                else
+                    finalText.text = "Game over! Player 1 Wins!";
                 countDownStartValue = 0;
                 gameOverUI.SetActive(true);
             }
@@ -66,15 +90,21 @@ public class Timergameover : MonoBehaviour
         }
         else
         {
-            
             if (enemyscore > playerscore)
             {
-                finalText.text = "Game over! Enemy wins!";
+                if (!isMultiplayer && !isCustom)
+                    finalText.text = "Game over! Enemy Wins!";
+                else
+                    finalText.text = "Game over! Player 2 Wins!";
+
                 gameOverUI.SetActive(true);
             }
             else if (playerscore > enemyscore)
             {
-                finalText.text = "Game over! Player wins!";
+                if (!isMultiplayer && !isCustom)
+                    finalText.text = "Game over! Player Wins!";
+                else
+                    finalText.text = "Game over! Player 1 Wins!";
                 gameOverUI.SetActive(true);
             }
             else

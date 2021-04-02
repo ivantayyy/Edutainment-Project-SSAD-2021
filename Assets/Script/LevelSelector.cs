@@ -1,61 +1,106 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-
-
-
 public class LevelSelector : MonoBehaviour
 {
-    public GameObject Master;
-    public GameObject Client;
-    public Button[] levelButtons;
-    
-    
-    private void Awake()
-    {
 
-        //StartCoroutine(LateStart(1.2f));
-        
-    }
-    void Start()
+    public Button[] levelButtons;
+
+    void Start ()
     {
-        if(PhotonNetwork.isMasterClient)
-        { int levelReached = PlayerPrefs.GetInt("levelReached", 1);
+        int levelReached = PlayerPrefs.GetInt("levelReached", 1);
+        int currentLevel = PlayerPrefs.GetInt("currentLevel", 1);
         Debug.Log(PlayerPrefs.GetInt("levelReached"));
         Debug.Log(levelReached);
-            //for locking level selections
         for (int i = 0; i < levelButtons.Length; i++)
         {
-            if (i + 1 > levelReached)
+            if( i+1 >levelReached)
                 levelButtons[i].interactable = false;
         }
-        }
     }
-    public void backButton()
+   
+   public void backButton()
+    {
+        PhotonNetwork.LeaveRoom();
+    }
+    void OnLeftRoom()
     {
         PhotonNetwork.LoadLevel("Main Menu");
     }
-    //TODO  Change from scenemanager to photonnetwaork.load
-    public void Select(string levelName)
+    public void Select1(string levelName)
     {
+        PlayerPrefs.SetInt("currentLevel", 1);
         SceneManager.LoadScene(levelName);
     }
-    //not used.
-    IEnumerator LateStart(float waitTime)
+    public void Select2(string levelName)
     {
-        yield return new WaitForSeconds(waitTime);
-        if (PhotonNetwork.isMasterClient)
-        {
-            Master.SetActive(true);
-            Client.SetActive(false);
-        }
-        else
-        {
-            Master.SetActive(false);
-            Client.SetActive(true);
-        }
-
+        PlayerPrefs.SetInt("currentLevel", 2);
+        SceneManager.LoadScene(levelName);
+    }
+    public void Select3(string levelName)
+    {
+        PlayerPrefs.SetInt("currentLevel", 3);
+        SceneManager.LoadScene(levelName);
+    }
+    public void Select4(string levelName)
+    {
+        PlayerPrefs.SetInt("currentLevel", 4);
+        SceneManager.LoadScene(levelName);
+    }
+    public void Select5(string levelName)
+    {
+        PlayerPrefs.SetInt("currentLevel", 5);
+        SceneManager.LoadScene(levelName);
+    }
+    public void Select6(string levelName)
+    {
+        PlayerPrefs.SetInt("currentLevel", 6);
+        SceneManager.LoadScene(levelName);
+    }
+    public void Select7(string levelName)
+    {
+        PlayerPrefs.SetInt("currentLevel", 7);
+        SceneManager.LoadScene(levelName);
+    }
+    public void Select8(string levelName)
+    {
+        PlayerPrefs.SetInt("currentLevel", 8);
+        SceneManager.LoadScene(levelName);
+    }
+    public void Select9(string levelName)
+    {
+        PlayerPrefs.SetInt("currentLevel", 9);
+        SceneManager.LoadScene(levelName);
+    }
+    public void Select10(string levelName)
+    {
+        PlayerPrefs.SetInt("currentLevel", 10);
+        SceneManager.LoadScene(levelName);
+    }
+    public void Select11(string levelName)
+    {
+        PlayerPrefs.SetInt("currentLevel", 11);
+        SceneManager.LoadScene(levelName);
+    }
+    public void Select12(string levelName)
+    {
+        PlayerPrefs.SetInt("currentLevel", 12);
+        SceneManager.LoadScene(levelName);
+    }
+    public void Select13(string levelName)
+    {
+        PlayerPrefs.SetInt("currentLevel", 13);
+        SceneManager.LoadScene(levelName);
+    }
+    public void Select14(string levelName)
+    {
+        PlayerPrefs.SetInt("currentLevel", 14);
+        SceneManager.LoadScene(levelName);
+    }
+    public void Select15(string levelName)
+    {
+        PlayerPrefs.SetInt("currentLevel", 15);
+        SceneManager.LoadScene(levelName);
     }
 }

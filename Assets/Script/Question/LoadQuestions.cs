@@ -58,11 +58,31 @@ public class LoadQuestions : MonoBehaviour
             {
                 idToken = response.idToken;
                 localId = response.localId;
+                Debug.Log("start response done");
             }).Catch(error =>
             {
                 Debug.Log(error);
             });
-
+        StartCoroutine(LateStart(0.5f));
+    }
+    IEnumerator LateStart(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        //Your Function You Want to Call
+        Debug.Log("late start");
+        getAllQuestions();
+        StartCoroutine(assignQuestions(1f));
+    }
+    IEnumerator assignQuestions(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        //assign questions from lists to each abstractquizmanager QnA list
+        MCQ1.QnA = MCQList.GetRange(0, 3);
+        MCQ2.QnA = MCQList.GetRange(3, 3);
+        MCQ3.QnA = MCQList.GetRange(6, 3);
+        SAQ1.QnA = SAQList.GetRange(0, 3);
+        SAQ2.QnA = SAQList.GetRange(3, 3);
+        Debug.Log("questions assigned");
     }
 
     private void GetQuestionsFromDB(int i)
@@ -75,7 +95,7 @@ public class LoadQuestions : MonoBehaviour
         //Debug.Log("question " + i.ToString() + questions.Question + " " + questions.Answer + " " + questions.Options + " ");
         QandAList[i - 1] = new QuestionAndAnswer(questions.Question, questions.Options.Split(';'), questions.Answer);
         //Debug.Log("REACHED" + QandAList[i - 1].Questions); // checking if QAndAList values were added
-        Debug.Log(QandAList[i - 1].Questions + " options length =" + QandAList[i - 1].Answers.Length);
+        //Debug.Log(QandAList[i - 1].Questions + " options length =" + QandAList[i - 1].Answers.Length);
         if (QandAList[i - 1].Answers.Length == 1) //change this when QuestionAndAnswer type changes
         {
             SAQList.Add(QandAList[i - 1]);        
@@ -88,7 +108,7 @@ public class LoadQuestions : MonoBehaviour
         }
         });
     }
-    public void OnSubmit()
+    public void getAllQuestions()
     {
         Debug.Log("button");
         //load all questions from DB
@@ -98,13 +118,5 @@ public class LoadQuestions : MonoBehaviour
         }
     }
 
-    public void assignQuestion()
-    {
-        //assign questions from lists to each abstractquizmanager QnA list
-        MCQ1.QnA = MCQList.GetRange(0, 3);
-        MCQ2.QnA = MCQList.GetRange(3, 3);
-        MCQ3.QnA = MCQList.GetRange(6, 3);
-        SAQ1.QnA = SAQList.GetRange(0, 3);
-        SAQ2.QnA = SAQList.GetRange(3, 3);
-    }
+    
 }

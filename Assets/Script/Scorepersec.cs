@@ -41,8 +41,5 @@ public class Scorepersec : MonoBehaviour
             }
             timer = 0;
         }
-       
-          
-        
     }
 }

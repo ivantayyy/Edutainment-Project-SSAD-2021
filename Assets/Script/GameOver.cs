@@ -17,9 +17,6 @@ public class GameOver : MonoBehaviour
         nextSceneLoad = SceneManager.GetActiveScene().buildIndex + 1;
         level = PlayerPrefs.GetInt("levelReached", 1);
     }
-
-    
-
     public void Continue ()
     {
         if (currentLevel < level)
@@ -32,7 +29,6 @@ public class GameOver : MonoBehaviour
             }
             else
             {
-
                 currentLevel += 1;
                 PlayerPrefs.SetInt("currentLevel", currentLevel);
                 SceneManager.LoadScene(subSceneLoad);
@@ -72,7 +68,6 @@ public class GameOver : MonoBehaviour
                 }
             }
         }
-
     }
 
     public void Quit ()

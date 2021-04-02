@@ -418,13 +418,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5197962803100796796}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2c6a314dbabb1d40b16879519c58a37, type: 3}
+  m_Script: {fileID: 11500000, guid: 70ae3cd74b1c50144b33377e1bf42f18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   photonView: {fileID: 2208564179237884458}
   playerCamera: {fileID: 5172688352901734433}
   playerName: {fileID: 0}
-  speed: 20
+  speed: 10
   myRigidbody: {fileID: 0}
   animator: {fileID: 0}
   canMove: 1
