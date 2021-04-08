@@ -107,7 +107,7 @@ public class Timergameover : MonoBehaviour
                     finalText.text = "Game over! Player 1 Wins!";
                 gameOverUI.SetActive(true);
             }
-            else
+            else if (playerscore == enemyscore && playerscore == 15)
             {
                 finalText.text = "Game over! It's a draw!";
                 gameOverUI.SetActive(true);
