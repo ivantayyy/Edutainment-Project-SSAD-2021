@@ -203,7 +203,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1187340576}
+      - m_Target: {fileID: 1647448760}
         m_MethodName: RegisterButton
         m_Mode: 1
         m_Arguments:
@@ -389,7 +389,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1187340576}
+      - m_Target: {fileID: 1647448760}
         m_MethodName: DropDownButtonClass
         m_Mode: 1
         m_Arguments:
@@ -1711,7 +1711,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1187340576}
+      - m_Target: {fileID: 0}
         m_MethodName: LoginButton
         m_Mode: 1
         m_Arguments:
@@ -1919,7 +1919,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1187340576}
+      - m_Target: {fileID: 0}
         m_MethodName: summaryReportButton
         m_Mode: 1
         m_Arguments:
@@ -2289,7 +2289,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1839271244}
   m_HandleRect: {fileID: 1839271243}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2491,7 +2491,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 673676272}
   m_HandleRect: {fileID: 673676271}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2762,7 +2762,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1187340576}
+      - m_Target: {fileID: 0}
         m_MethodName: SignOutButton
         m_Mode: 1
         m_Arguments:
@@ -2773,7 +2773,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1187340576}
+      - m_Target: {fileID: 0}
         m_MethodName: SignOutButton
         m_Mode: 1
         m_Arguments:
@@ -3636,8 +3636,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 519283996}
   m_HandleRect: {fileID: 519283995}
   m_Direction: 0
-  m_Value: 1
-  m_Size: 0.9999999
+  m_Value: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4758,8 +4758,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 148448943}
   m_HandleRect: {fileID: 148448942}
   m_Direction: 0
-  m_Value: 1
-  m_Size: 0.9999999
+  m_Value: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5036,8 +5036,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1073703154}
   m_HandleRect: {fileID: 1073703153}
   m_Direction: 0
-  m_Value: 0
-  m_Size: 0.9999999
+  m_Value: 1
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5643,7 +5643,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 425523400}
   m_HandleRect: {fileID: 425523399}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -6075,78 +6075,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1156401846}
   m_CullTransparentMesh: 0
---- !u!1 &1187340574
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1187340575}
-  - component: {fileID: 1187340576}
-  m_Layer: 0
-  m_Name: FirebaseManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1187340575
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1187340574}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 278.4, y: 164.1}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1187340576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1187340574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87dcb6969f0309143ae71f55c8a84d68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dependencyStatus: 0
-  emailLoginField: {fileID: 1205085322}
-  passwordLoginField: {fileID: 1769203218}
-  warningLoginText: {fileID: 573443481}
-  confirmLoginText: {fileID: 573443481}
-  ddClass: {fileID: 45612290}
-  ddReg: {fileID: 1509391757}
-  usernameRegisterField: {fileID: 102832016}
-  emailRegisterField: {fileID: 996203244}
-  passwordRegisterField: {fileID: 1773935746}
-  passwordRegisterVerifyField: {fileID: 148292447}
-  warningRegisterText: {fileID: 1498964004}
-  scoreElement: {fileID: 1126955867294110485, guid: 4a3a2f86b84c9274bb15368514174f1d,
-    type: 3}
-  scoreboardCustomContent: {fileID: 2033874881}
-  scoreboardMultiContent: {fileID: 2124543515}
-  scoreboardSingleContent: {fileID: 1567620830}
-  classElement: {fileID: 8441567259296956713, guid: 652a378187a01444883995e710d4f0ce,
-    type: 3}
-  studentNameElement: {fileID: 5415058557658025662, guid: 752dc4951abc6e443b11d7526d97fa1b,
-    type: 3}
-  studentDataElement: {fileID: 0}
-  classContent: {fileID: 939919641}
-  studentNameContent: {fileID: 2060485568}
 --- !u!1 &1205085321
 GameObject:
   m_ObjectHideFlags: 0
@@ -6595,7 +6523,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1187340576}
+      - m_Target: {fileID: 0}
         m_MethodName: LeaderBoardButton
         m_Mode: 1
         m_Arguments:
@@ -8274,7 +8202,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1187340576}
+      - m_Target: {fileID: 1647448760}
         m_MethodName: DropDownButtonRegister
         m_Mode: 1
         m_Arguments:
@@ -8367,7 +8295,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 756879195}
   m_HandleRect: {fileID: 756879194}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -8838,6 +8766,69 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1615797259}
   m_CullTransparentMesh: 0
+--- !u!1 &1647448758
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1647448761}
+  - component: {fileID: 1647448760}
+  m_Layer: 0
+  m_Name: LoginManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1647448760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647448758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44f0ff364e433634c841ea89ced68fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emailLoginField: {fileID: 0}
+  passwordLoginField: {fileID: 0}
+  warningLoginText: {fileID: 0}
+  confirmLoginText: {fileID: 0}
+  ddClass: {fileID: 45612290}
+  ddReg: {fileID: 1509391757}
+  usernameRegisterField: {fileID: 102832016}
+  emailRegisterField: {fileID: 996203244}
+  passwordRegisterField: {fileID: 1773935746}
+  passwordRegisterVerifyField: {fileID: 148292447}
+  warningRegisterText: {fileID: 1498964004}
+  scoreElement: {fileID: 0}
+  scoreboardCustomContent: {fileID: 0}
+  scoreboardMultiContent: {fileID: 0}
+  scoreboardSingleContent: {fileID: 0}
+  classElement: {fileID: 0}
+  studentNameElement: {fileID: 0}
+  studentDataElement: {fileID: 0}
+  classContent: {fileID: 0}
+  studentNameContent: {fileID: 0}
+--- !u!4 &1647448761
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647448758}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 464.43277, y: 158.682, z: -81.26202}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1668588215
 GameObject:
   m_ObjectHideFlags: 0
@@ -9995,7 +9986,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1252033124}
   m_HandleRect: {fileID: 1252033123}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

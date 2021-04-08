@@ -14,6 +14,6 @@ public class ClassElement : MonoBehaviour
     public void OnClick()
     {
         UnityEngine.Debug.Log("you have chosen "+ class_name.text);
-        FirebaseManager.instance.LoadStudentNameBtn(class_name.text);
+        //FirebaseManager.LoadStudentNameBtn(class_name.text);
     }
 }
