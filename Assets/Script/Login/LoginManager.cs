@@ -46,11 +46,12 @@ public class LoginManager : MonoBehaviour
     }
 
     //Function for the login button
-    //public void LoginButton()
-    //{
-    //    //Call the login coroutine passing the email and password
-    //    StartCoroutine(FirebaseManager.Login(emailLoginField.text, passwordLoginField.text));
-    //}
+    public async void LoginButton()
+    {
+        //Call the login coroutine passing the email and password
+        string message = await FirebaseManager.LoginAsync(emailLoginField.text, passwordLoginField.text);
+        warningRegisterText.text = message;
+    }
 
     //Dropdown button for Register page
     public void DropDownButtonRegister()
