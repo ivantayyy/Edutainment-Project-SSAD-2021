@@ -117,25 +117,27 @@ public static class FirebaseManager
     }
 
     //testing use Student and LFd7xpb0fWVY1rC0L9H7AOrplFh2
-    public static void GetUser(string uid, string acctype)
+    // TODO test this function
+    async public static Task<InitUser> GetUser(string uid, string acctype)
     {
         
         InitUser currentUser = new InitUser();
-        DBreference.Child(acctype).Child(uid).GetValueAsync().ContinueWithOnMainThread(task =>
+        Task<DataSnapshot> task = DBreference.Child(acctype).Child(uid).GetValueAsync();
+        DataSnapshot snapshot = await task;
+        if (task.IsFaulted)
         {
-            if (task.IsFaulted)
-            {
-                UnityEngine.Debug.Log(task.Exception);
-            }
-            else
-            {
-                string jsonstring = task.Result.GetRawJsonValue();
-                UnityEngine.Debug.Log(jsonstring);
-                UnityEngine.Debug.Log(currentUser.classSubscribed);
-                currentUser = JsonConvert.DeserializeObject<InitUser>(jsonstring);
-                UnityEngine.Debug.Log(currentUser.classSubscribed);
-            }
-        });                
+            UnityEngine.Debug.Log(task.Exception);
+            currentUser = null;
+        }
+        else
+        {
+            string jsonstring = task.Result.GetRawJsonValue();
+            UnityEngine.Debug.Log(jsonstring);
+            UnityEngine.Debug.Log(currentUser.classSubscribed);
+            currentUser = JsonConvert.DeserializeObject<InitUser>(jsonstring);
+            UnityEngine.Debug.Log(currentUser.classSubscribed)
+        }
+        return currentUser;
     }
 
     //public static void GetLeaderBoardFromDatabase(string gameMode)
