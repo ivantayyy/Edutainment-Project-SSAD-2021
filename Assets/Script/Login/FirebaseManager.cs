@@ -13,6 +13,7 @@ using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.SocialPlatforms.Impl;
 using System.Dynamic;
+using System.Linq;
 
 public static class FirebaseManager
 {
@@ -223,7 +224,7 @@ public static class FirebaseManager
 
             //update the database
             string updatedUserScore = JsonConvert.SerializeObject(DBScore);
-            DBreference.Child("Student").Child(userid).Child(gamemode).SetRawJsonValueAsync(updatedUserScore);
+            await DBreference.Child("Student").Child(userid).Child(gamemode).SetRawJsonValueAsync(updatedUserScore);
         }
 
         //DEBUG
@@ -252,43 +253,21 @@ public static class FirebaseManager
         return maxLevelReached;
     }
 
-    //public static void GetLeaderBoardFromDatabase(string gameMode)
-    //{
-    //    var DBTask = DBreference.Child("Student").OrderByChild($"{gameMode}/totalPoints").LimitToLast(10).GetValueAsync();
-
-    //    yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
-
-    //    if (DBTask.Exception != null)
-    //    {
-    //        Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
-    //    }
-    //    else
-    //    {
-    //        //Data has been retrieved
-    //        DataSnapshot snapshot = DBTask.Result;
-
-    //        //Destroy any existing scoreboard elements
-    //        foreach (Transform child in scoreboardContent.transform)
-    //        {
-    //            UnityEngine.Debug.Log("reached before transform loop");
-    //            Destroy(child.gameObject);
-    //            UnityEngine.Debug.Log("reached after transform loop");
-    //        }
-
-    //        //Loop through every users UID
-    //        foreach (DataSnapshot childSnapshot in snapshot.Children.Reverse<DataSnapshot>())
-    //        {
-    //            string username = childSnapshot.Child("username").Value.ToString();
-    //            int score = int.Parse(childSnapshot.Child(gameMode).Child("totalPoints").Value.ToString());
-    //            UnityEngine.Debug.Log(score.ToString());
-    //            UnityEngine.Debug.Log(username);
-
-    //            //Instantiate new scoreboard elements
-    //            GameObject scoreBoardElement = Instantiate(scoreElement, scoreboardContent);
-    //            scoreBoardElement.GetComponent<ScoreElement>().NewScoreElement(username, score);
-    //        }
-    //    }
-    //}
+    async public static Task<List<InitUser>> GetLeaderBoardFromDatabase(string gameMode)
+    {
+        DataSnapshot LeaderBoardSnapShot = await DBreference.Child("Student").OrderByChild($"{gameMode}/totalPoints").LimitToLast(10).GetValueAsync();
+        //Loop through every users UID
+        List<InitUser> LeaderBoardUsers = new List<InitUser>();
+        UnityEngine.Debug.Log(LeaderBoardSnapShot.ChildrenCount);
+        foreach (DataSnapshot childSnapshot in LeaderBoardSnapShot.Children.Reverse<DataSnapshot>())
+        {
+            string childJsonString = childSnapshot.GetRawJsonValue();
+            UnityEngine.Debug.Log(childJsonString);
+            LeaderBoardUsers.Add(JsonConvert.DeserializeObject<InitUser>(childJsonString));
+        }
+        UnityEngine.Debug.Log("Debug hhere"+LeaderBoardUsers.Count.ToString());
+        return LeaderBoardUsers;
+    }
 
 
 

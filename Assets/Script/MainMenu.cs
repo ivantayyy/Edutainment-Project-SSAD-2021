@@ -50,6 +50,15 @@ public class MainMenu : MonoBehaviour
         backbtn.SetActive(true);
 
     }
+
+        //Leaderboard button
+    //public void LeaderBoardButton()
+    //{
+    //    StartCoroutine(LoadLeaderBoardData("customPlayer", scoreboardCustomContent));
+    //    StartCoroutine(LoadLeaderBoardData("multiPlayer", scoreboardMultiContent));
+    //    StartCoroutine(LoadLeaderBoardData("singlePlayer", scoreboardSingleContent));
+    //}
+
     public void leaderBoard()
     {
         leaderboard.SetActive(true);

@@ -203,7 +203,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1647448760}
+      - m_Target: {fileID: 0}
         m_MethodName: RegisterButton
         m_Mode: 1
         m_Arguments:
@@ -389,7 +389,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1647448760}
+      - m_Target: {fileID: 1647448759}
         m_MethodName: DropDownButtonClass
         m_Mode: 1
         m_Arguments:
@@ -1711,7 +1711,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1647448760}
+      - m_Target: {fileID: 1647448759}
         m_MethodName: LoginButton
         m_Mode: 1
         m_Arguments:
@@ -2762,7 +2762,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1647448759}
         m_MethodName: SignOutButton
         m_Mode: 1
         m_Arguments:
@@ -5161,7 +5161,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1868555944}
+      - m_Target: {fileID: 0}
         m_MethodName: mainScreen
         m_Mode: 1
         m_Arguments:
@@ -7482,7 +7482,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1868555944}
+      - m_Target: {fileID: 0}
         m_MethodName: LoginScreen
         m_Mode: 1
         m_Arguments:
@@ -8202,7 +8202,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1647448760}
+      - m_Target: {fileID: 1647448759}
         m_MethodName: DropDownButtonRegister
         m_Mode: 1
         m_Arguments:
@@ -8775,7 +8775,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1647448761}
-  - component: {fileID: 1647448760}
+  - component: {fileID: 1647448759}
   m_Layer: 0
   m_Name: LoginManager
   m_TagString: Untagged
@@ -8783,7 +8783,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1647448760
+--- !u!114 &1647448759
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8806,15 +8806,6 @@ MonoBehaviour:
   passwordRegisterField: {fileID: 1773935746}
   passwordRegisterVerifyField: {fileID: 148292447}
   warningRegisterText: {fileID: 1498964004}
-  scoreElement: {fileID: 0}
-  scoreboardCustomContent: {fileID: 0}
-  scoreboardMultiContent: {fileID: 0}
-  scoreboardSingleContent: {fileID: 0}
-  classElement: {fileID: 0}
-  studentNameElement: {fileID: 0}
-  studentDataElement: {fileID: 0}
-  classContent: {fileID: 0}
-  studentNameContent: {fileID: 0}
 --- !u!4 &1647448761
 Transform:
   m_ObjectHideFlags: 0
