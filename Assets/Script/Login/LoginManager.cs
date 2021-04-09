@@ -45,13 +45,25 @@ public class LoginManager : MonoBehaviour
         FirebaseManager.CheckFirebaseDependencies();
     }
 
+    //helper function for instantiating Photon user
+    public void instantiatePhotonUser()
+    {
+        string userid = FirebaseManager.auth.CurrentUser.UserId;
+        PhotonNetwork.player.UserId = userid;
+
+        string username = FirebaseManager.auth.CurrentUser.DisplayName;
+        PhotonNetwork.player.NickName = username;
+    }
+
     //Function for the login button
     public async void LoginButton()
     {
         //Call the login coroutine passing the email and password
         string message = await FirebaseManager.LoginAsync(emailLoginField.text, passwordLoginField.text);
+        instantiatePhotonUser();
         warningRegisterText.text = message;
     }
+
 
     //Dropdown button for Register page
     public void DropDownButtonRegister()

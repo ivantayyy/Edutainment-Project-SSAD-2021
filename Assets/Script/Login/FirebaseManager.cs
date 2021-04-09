@@ -10,7 +10,9 @@ using UnityEngine.SceneManagement;
 using System;
 using System.Threading.Tasks;
 using UnityEngine;
-using System.Runtime.Remoting.Messaging;
+using UnityEngine.PlayerLoop;
+using UnityEngine.SocialPlatforms.Impl;
+using System.Dynamic;
 
 public static class FirebaseManager
 {
@@ -33,6 +35,7 @@ public static class FirebaseManager
         Debug.Log("Set up Firebase Auth successfully");
     }
 
+    //Helper function for checking dependencies 
     public static void CheckFirebaseDependencies()
     {
         UnityEngine.Debug.Log("Firebase Manager Awake is called");
@@ -52,6 +55,7 @@ public static class FirebaseManager
         });
     }
 
+    //login function
     async public static Task<string> LoginAsync(string _email, string _password)
     {
         //Call the Firebase auth signin function passing the email and password
@@ -111,6 +115,7 @@ public static class FirebaseManager
         return message;
     }
 
+    //Signout function
     public static void SignOut()
     {
         auth.SignOut();
@@ -135,9 +140,116 @@ public static class FirebaseManager
             UnityEngine.Debug.Log(jsonstring);
             UnityEngine.Debug.Log(currentUser.classSubscribed);
             currentUser = JsonConvert.DeserializeObject<InitUser>(jsonstring);
-            UnityEngine.Debug.Log(currentUser.classSubscribed)
+            UnityEngine.Debug.Log(currentUser.classSubscribed);
         }
         return currentUser;
+    }
+
+    //set Score
+    async public static void updateScoreOnDatabaseAsync(string gamemode, string userid, int new_level,float new_timeTaken,float new_points)
+    {
+        UnityEngine.Debug.Log("reached a");
+        UnityEngine.Debug.Log(userid);
+
+        Scores DBScore = new Scores();
+        //Scores finalScore = new Scores();
+        //implement max function next time
+        Task<DataSnapshot> scoreTask = DBreference.Child("Student").Child(userid).Child(gamemode).GetValueAsync();
+        UnityEngine.Debug.Log("reached b");
+        DataSnapshot playerScore = await scoreTask;
+        //Do eXception handling
+        string DBPlayerScorejsonString = playerScore.GetRawJsonValue();
+        UnityEngine.Debug.Log(DBPlayerScorejsonString);
+
+        DBScore = JsonConvert.DeserializeObject<Scores>(DBPlayerScorejsonString);
+
+        //increase attempts by obe
+        int curSubStage = DBScore.curSubstage;
+        float totalPoints = DBScore.totalPoints;
+        List<int> attempts = DBScore.attempts;
+        List<float> points = DBScore.points;
+        List<float> timeTaken = DBScore.timeTaken;
+        
+        
+        //extract old stats from db for this try at this level
+        
+
+        //If player has cleared his max substage
+        if (new_level == DBScore.curSubstage)
+        {
+            DBScore.attempts.Add(1);
+            DBScore.points.Add(new_points);
+            DBScore.timeTaken.Add(new_timeTaken);
+
+            //calculate total points
+            float new_totalPoints = 0;
+            foreach(float StagePoint in points)
+            {
+                new_totalPoints += StagePoint;
+            }
+            DBScore.totalPoints = new_totalPoints;
+
+            //increment curSubstage to unlock next level
+            DBScore.curSubstage += 1;
+        }else // means replaying a previously cleared level
+        {
+            //if achieved new highscore
+            if (new_points < points[new_level - 1])
+            {
+                //increase attempts for that level by 1
+                DBScore.attempts[new_level - 1] = DBScore.attempts[new_level - 1] + 1;
+
+                //update lower values for timetaken
+                DBScore.timeTaken[new_level - 1] = new_timeTaken;
+
+                //update new points
+                DBScore.points[new_level - 1] = new_points;
+
+                //update new total points
+                float newTotalPoints = 0;
+                foreach(float stagePoint in points)
+                {
+                    newTotalPoints += stagePoint;
+                }
+                DBScore.totalPoints = newTotalPoints;
+
+
+            }
+            else//if never achieve new highscore
+            {
+                DBScore.attempts[new_level - 1] = DBScore.attempts[new_level - 1] + 1;
+
+            }
+
+            //update the database
+            string updatedUserScore = JsonConvert.SerializeObject(DBScore);
+            DBreference.Child("Student").Child(userid).Child(gamemode).SetRawJsonValueAsync(updatedUserScore);
+        }
+
+        //DEBUG
+        UnityEngine.Debug.Log(curSubStage);
+        UnityEngine.Debug.Log(totalPoints);
+        UnityEngine.Debug.Log(attempts[new_level-1]);
+        UnityEngine.Debug.Log(points[new_level-1]);
+        UnityEngine.Debug.Log(timeTaken[new_level-1]);
+        UnityEngine.Debug.Log("reached z");
+
+
+
+        //update new Score
+        //string finalScores = JsonConvert.SerializeObject(finalScores);
+        //DBreference.Child("Student").Child(userid).Child(userid).Child(gamemode).SetRawJsonValueAsync(finalScores);
+    }
+
+    //get users current max level
+    async public static Task<int> getUserMaxLevelReachedAsync(string gamemode)
+    {
+        UnityEngine.Debug.Log("reached");
+        string uid = PhotonNetwork.player.UserId;
+        DataSnapshot snapshot = await DBreference.Child("Student").Child(uid).Child(gamemode).Child("curSubstage").GetValueAsync();
+        int maxLevelReached = JsonConvert.DeserializeObject<int>(snapshot.GetRawJsonValue());;
+
+        return maxLevelReached;
     }
 
     //public static void GetLeaderBoardFromDatabase(string gameMode)
@@ -179,8 +291,18 @@ public static class FirebaseManager
     //}
 
 
+
+
+    //Helper function for checking username exist in database for registration
+    async public static Task<bool> CheckUsernameExistsInDatabaseAsync(string _username)
+    {
+        Task<DataSnapshot> usernameTask = await DBreference.Child("Usernames").GetValueAsync().ContinueWith(t=>t);
+        bool res = usernameTask.Result.Child(_username).Exists;
+        return res;
+    }
+
     //This method adds an intialised user data to firebase database
-    private static void InitialiseUserData(string acctype, string username, string uid,string classSubscribed)
+    private static void InitialiseUserData(string acctype, string username, string uid, string classSubscribed)
     {
         InitUser initialuser = new InitUser(acctype, username, uid, classSubscribed);
         var userjson = JsonConvert.SerializeObject(initialuser);
@@ -199,14 +321,6 @@ public static class FirebaseManager
             }
 
         });
-    }
-
-    //Helper function for checking username exist in database for registration
-   async public static Task<bool> CheckUsernameExistsInDatabaseAsync(string _username)
-    {
-        Task<DataSnapshot> usernameTask = await DBreference.Child("Usernames").GetValueAsync().ContinueWith(t=>t);
-        bool res = usernameTask.Result.Child(_username).Exists;
-        return res;
     }
 
     //authentication Registers 
@@ -253,7 +367,7 @@ public static class FirebaseManager
             if (User != null)
             {
                 //Create a user profile and set the username
-                UserProfile profile = new UserProfile { DisplayName = _username };
+                Firebase.Auth.UserProfile profile = new Firebase.Auth.UserProfile { DisplayName = _username };
 
                 //Call the Firebase auth update user profile function passing the profile with the username
                 Task ProfileTask = await User.UpdateUserProfileAsync(profile).ContinueWith(t=>t);

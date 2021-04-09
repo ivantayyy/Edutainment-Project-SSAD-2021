@@ -45,7 +45,7 @@ public class MultiplayerMenu : MonoBehaviour
     public void joinGame()
     {
         
-        PhotonNetwork.JoinRoom(joinGameInput.text);
+        PhotonNetwork.JoinOrCreateRoom(joinGameInput.text, new RoomOptions() { maxPlayers = 2 }, null);
         PhotonNetwork.LoadLevel("Lobby");
     }
 

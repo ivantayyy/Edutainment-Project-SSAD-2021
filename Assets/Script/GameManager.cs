@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
         SelectedCharacter s = sel.GetComponent<SelectedCharacter>();
         this.selection = s.selection;
 
+
     }
     private void Start()
     {

@@ -15,6 +15,13 @@ public class Scores
     public Scores()
     {
         //cursubstage is length of points/timetaken/attempts
+        //points for current available stage always set to 0 intially
+        this.points = new List<float>();
+        this.timeTaken = new List<float>();
+        this.attempts = new List<int>();
+    }
+    public void init()
+    {
         this.curSubstage = 1;
         //points for current available stage always set to 0 intially
         this.points = new List<float>()
