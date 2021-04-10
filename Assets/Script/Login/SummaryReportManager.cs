@@ -1,67 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SummaryReportManager : MonoBehaviour
 {
     [Header("SummaryReport")]
     public GameObject classElement;
     public GameObject studentNameElement;
-    public GameObject studentDataElement;
     public Transform classContent;
     public Transform studentNameContent;
+
+    public static SummaryReportManager instance;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (instance == null)
+        {
+            LoadClassList();
+            instance = this;
+        }
     }
-    //Loads studentNames for the summary report
-    //public void LoadStudentNameBtn(string className)
-    //{
-    //    StartCoroutine(FirebaseManager.LoadStudentNames(className));
-    //}
-
+    
     //loads class list
-
-
-    //loads all student names in class
-
-    //public static IEnumerator LoadStudentNames(string className)
-    //{
-    //    UnityEngine.Debug.Log("reached inside LOAdstudentNames function");
-    //    var task = DBreference.Child("Student").OrderByChild("classSubscribed").EqualTo(className).GetValueAsync();
-    //    yield return new WaitUntil(predicate: () => task.IsCompleted);
-
-    //    if (task.Exception != null)
-    //    {
-    //        UnityEngine.Debug.Log(task.Exception);
-    //    }
-    //    else
-    //    {
-
-    //        DataSnapshot snapshot = task.Result;
-    //        UnityEngine.Debug.Log(task.Result.GetRawJsonValue());
-    //        foreach (Transform child in studentNameContent.transform)
-    //        {
-    //            Destroy(child.gameObject);
-    //            UnityEngine.Debug.Log("Destroyed a child");
-    //        }
-    //        //Need to instantiate prefab dynamically
-    //        foreach (DataSnapshot student in snapshot.Children.Reverse<DataSnapshot>())
-    //        {
-    //            string username = student.Child("username").Value.ToString();
-    //            UnityEngine.Debug.Log(username);
-    //            GameObject nameBoardElement = Instantiate(studentNameElement, this.studentNameContent);
-    //            nameBoardElement.GetComponent<StudentNameElement>().NewStudentNameElement(username);
-    //        }
-    //    }
-    //}
-    public void summaryReportButton()
-    {
-        LoadClassList();
-        UIManager.instance.summaryReportScreen();
-    }
     private void LoadClassList()
     {
         List<string> classList = new List<string>() {
@@ -79,6 +41,41 @@ public class SummaryReportManager : MonoBehaviour
             classBoardElement.GetComponent<ClassElement>().NewClassElement(className);
         }
     }
+    //Button that Loads studentNames for the summary report
+    
+
+    
+
+    //loads all student names in class
+
+    public async void LoadStudentNames(string className)
+    {
+        UnityEngine.Debug.Log("reached inside LOAdstudentNames function");
+        Dictionary<string,string> StudentNames;
+        StudentNames = await FirebaseManager.loadStudentNames(className);
+        foreach (Transform child in studentNameContent.transform)
+        {
+            Destroy(child.gameObject);
+            UnityEngine.Debug.Log("Destroyed a child");
+        }
+        //Need to instantiate prefab dynamically
+        foreach (var item in StudentNames)
+        {
+            string username = item.Value;
+            string userid = item.Key;
+            UnityEngine.Debug.Log($"LoadStudentNames() username:{username}");
+            UnityEngine.Debug.Log($"LoadStudentNames() userid:{userid}");
+            GameObject nameBoardElement = Instantiate(studentNameElement, studentNameContent);
+            nameBoardElement.GetComponent<StudentNameElement>().NewStudentNameElement(username,userid);
+        }
+    }
+
+    public void summaryReportButton()
+    {
+        LoadClassList();
+        UIManager.instance.summaryReportScreen();
+    }
+    
 
     // Update is called once per frame
     void Update()

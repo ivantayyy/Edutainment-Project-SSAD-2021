@@ -67,9 +67,5 @@ public class UIManager : MonoBehaviour
         clearscreen();
         summaryReportUI.SetActive(true);
     }
-    //public void scoreboardscreen() //scoreboard button
-    //{
-    //    clearscreen();
-    //    scoreboardui.setactive(true);
-    //}
+    
 }

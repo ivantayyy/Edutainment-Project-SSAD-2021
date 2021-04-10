@@ -126,23 +126,13 @@ public static class FirebaseManager
     // TODO test this function
     async public static Task<InitUser> GetUser(string uid, string acctype)
     {
-        
-        InitUser currentUser = new InitUser();
-        Task<DataSnapshot> task = DBreference.Child(acctype).Child(uid).GetValueAsync();
-        DataSnapshot snapshot = await task;
-        if (task.IsFaulted)
-        {
-            UnityEngine.Debug.Log(task.Exception);
-            currentUser = null;
-        }
-        else
-        {
-            string jsonstring = task.Result.GetRawJsonValue();
-            UnityEngine.Debug.Log(jsonstring);
-            UnityEngine.Debug.Log(currentUser.classSubscribed);
-            currentUser = JsonConvert.DeserializeObject<InitUser>(jsonstring);
-            UnityEngine.Debug.Log(currentUser.classSubscribed);
-        }
+        UnityEngine.Debug.Log("Reached GetUser() Function");
+        InitUser currentUser;
+        DataSnapshot task = await DBreference.Child(acctype).Child(uid).GetValueAsync();
+        string userjsonstring = task.GetRawJsonValue();
+        UnityEngine.Debug.Log($"Json string returned in GetUser() with: {userjsonstring}");
+
+        currentUser = JsonConvert.DeserializeObject<InitUser>(userjsonstring);
         return currentUser;
     }
 
@@ -242,6 +232,7 @@ public static class FirebaseManager
         //DBreference.Child("Student").Child(userid).Child(userid).Child(gamemode).SetRawJsonValueAsync(finalScores);
     }
 
+
     //get users current max level
     async public static Task<int> getUserMaxLevelReachedAsync(string gamemode)
     {
@@ -267,6 +258,22 @@ public static class FirebaseManager
         }
         UnityEngine.Debug.Log("Debug hhere"+LeaderBoardUsers.Count.ToString());
         return LeaderBoardUsers;
+    }
+
+    async public static Task<Dictionary<string ,string>> loadStudentNames(string className)
+    {
+        DataSnapshot StudentsInClassSnapshot = await DBreference.Child("Student").OrderByChild("classSubscribed").EqualTo(className).GetValueAsync();
+        Dictionary<string, string> StudentsInfo = new Dictionary<string, string>();
+        UnityEngine.Debug.Log(StudentsInClassSnapshot.ChildrenCount);
+        foreach (DataSnapshot childSnapshot in StudentsInClassSnapshot.Children.Reverse<DataSnapshot>())
+        {
+            string childJsonString = childSnapshot.GetRawJsonValue();
+            UnityEngine.Debug.Log(childJsonString);
+            InitUser child = JsonConvert.DeserializeObject<InitUser>(childJsonString);
+            StudentsInfo.Add(child.id, child.username);
+        }
+        UnityEngine.Debug.Log($"Total Number of students in {className} is {StudentsInfo.Count.ToString()}");
+        return StudentsInfo;
     }
 
 

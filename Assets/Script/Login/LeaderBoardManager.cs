@@ -5,7 +5,7 @@ using UnityEngine;
 public class LeaderBoardManager : MonoBehaviour
 {
     //LeaderBoard variables
-    public LeaderBoardManager instance;
+    public static LeaderBoardManager instance;
     [Header("LeaderBoard")]
     public GameObject scoreElement;
     public Transform scoreboardCustomContent;
@@ -16,7 +16,11 @@ public class LeaderBoardManager : MonoBehaviour
 
     void Start()
     {
-        loadAllLeaderBoards();
+        if(instance == null)
+        {
+            loadAllLeaderBoards();
+            instance = this;
+        }
     }
     public void loadAllLeaderBoards()
     {
