@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class LeaderBoardManager : MonoBehaviour
@@ -18,26 +19,33 @@ public class LeaderBoardManager : MonoBehaviour
     {
         if(instance == null)
         {
-            loadAllLeaderBoards();
             instance = this;
+            Debug.Log("leaderBoard Manager instantiated");
+            //preloading all leaderboards at main menu
+            loadAllLeaderBoards();
         }
     }
-    public void loadAllLeaderBoards()
+    async public void loadAllLeaderBoards()
     {
-        LoadLeaderBoardData("customPlayer", scoreboardCustomContent);
-        LoadLeaderBoardData("multiPlayer", scoreboardMultiContent);
-        LoadLeaderBoardData("singlePlayer", scoreboardSingleContent);
+        var customPlayerTask = LoadLeaderBoardData("customPlayer", scoreboardCustomContent);
+        var multiPlayerTask = LoadLeaderBoardData("multiPlayer", scoreboardMultiContent);
+        var singlePlayerTask = LoadLeaderBoardData("singlePlayer", scoreboardSingleContent);
+
+        await Task.WhenAll(customPlayerTask, multiPlayerTask, singlePlayerTask);
+        Debug.Log("Preloading of leaderBoard is done");
     }
-    async public void LoadLeaderBoardData(string gameMode, Transform scoreboardContent)
+    async public Task LoadLeaderBoardData(string gameMode, Transform scoreboardContent)
     {
         //Get all the users data ordered by score amount
         List<InitUser> LeaderBoardUsers = new List<InitUser>();
-        LeaderBoardUsers = await FirebaseManager.GetLeaderBoardFromDatabase(gameMode);
+        var LeaderBoardUsersTask = FirebaseManager.GetLeaderBoardFromDatabase(gameMode);
+        LeaderBoardUsers = await LeaderBoardUsersTask;
+        Debug.Log("successfully returned from GetLeaderBoardFromDatabase");
+
         foreach (Transform child in scoreboardContent.transform)
         {
-            UnityEngine.Debug.Log("reached before transform loop");
             Destroy(child.gameObject);
-            UnityEngine.Debug.Log("reached after transform loop");
+            UnityEngine.Debug.Log($"Destroyed child in leaderboard {gameMode}");
         }
         //Loop through every users UID
         foreach (InitUser user in LeaderBoardUsers)
@@ -58,12 +66,12 @@ public class LeaderBoardManager : MonoBehaviour
             {
                 totalPoints = user.multiPlayer.totalPoints;
             }
-            UnityEngine.Debug.Log(totalPoints.ToString());
-            UnityEngine.Debug.Log(username);
+            UnityEngine.Debug.Log($"{username} sucessfully loaded into leaderboard {gameMode} with {totalPoints.ToString()}" );
 
             //Instantiate new scoreboard elements
             GameObject scoreBoardElement = Instantiate(scoreElement, scoreboardContent);
             scoreBoardElement.GetComponent<ScoreElement>().NewScoreElement(username, totalPoints);
+            UnityEngine.Debug.Log($"instantiating {username} on {gameMode} leaderboard");
         }
     }
 

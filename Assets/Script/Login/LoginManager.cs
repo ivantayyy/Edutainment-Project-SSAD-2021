@@ -7,6 +7,8 @@ using UnityEditor;
 using System.Threading.Tasks;
 using System;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
+
 
 public class LoginManager : MonoBehaviour
 {
@@ -30,6 +32,7 @@ public class LoginManager : MonoBehaviour
     
     void Start()
     {
+        Debug.Log("LoginManager instantiated");
         FirebaseManager.CheckFirebaseDependencies();
     }
 
@@ -47,9 +50,34 @@ public class LoginManager : MonoBehaviour
     public async void LoginButton()
     {
         //Call the login coroutine passing the email and password
-        string message = await FirebaseManager.LoginAsync(emailLoginField.text, passwordLoginField.text);
-        instantiatePhotonUser();
-        warningRegisterText.text = message;
+        var LoginTask = FirebaseManager.LoginAsync(emailLoginField.text, passwordLoginField.text);
+        string message = await LoginTask;
+        if (LoginTask.IsFaulted) {
+            Debug.Log("Login Task on Login Button() fked up");
+            warningRegisterText.text = message;
+        }
+        else
+        {
+            Debug.Log("Login Task on Login Button() completed sucessfully proceeding to instantiate photon user");
+            instantiatePhotonUser();
+            warningRegisterText.text = message;
+            // wait for 2 seconds
+            new WaitForSeconds(2);
+            //redirects to next screen
+            var isTeacherTask = await FirebaseManager.isTeacher();
+            bool isTeacher = isTeacherTask;
+            if (isTeacher)
+            {
+                //go to teacher menu
+                Debug.Log("The user is teacher");
+            }
+            else
+            {
+                SceneManager.LoadScene("Main Menu");
+            }
+            //UnityEngine.Debug.Log("Login reached 4");
+        }
+
     }
 
 

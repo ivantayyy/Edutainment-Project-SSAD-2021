@@ -17,6 +17,7 @@ public class MainMenu : MonoBehaviour
     {
         if (instance == null)
         {
+            Debug.Log("Main Menu Manager instantiated");
             DontDestroyOnLoad(transform.gameObject);
             //connect to photon
             PhotonNetwork.ConnectUsingSettings(versionName);
@@ -56,12 +57,12 @@ public class MainMenu : MonoBehaviour
     {
         clearscreen();
         main.SetActive(true);
+        backbtn.SetActive(true);
     }
     public void summaryReport()
     {
         clearscreen();
         summary.SetActive(true);
-        backbtn.SetActive(true);
     }
 
     public void leaderBoard()

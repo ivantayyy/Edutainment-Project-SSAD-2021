@@ -7,19 +7,24 @@ public class StudentNameElement : MonoBehaviour
 {
     // Start is called before the first frame update
     public Text studentName;
-    private string userid;
+    public Text userid;
     public void NewStudentNameElement(string _studentName,string _userid)
     {
         this.studentName.text = _studentName;
-        this.userid = _userid;
+        this.userid.text = _userid;
+        userid.gameObject.SetActive(false); ;
     }
 
     public void OnClick()
     {
-        UnityEngine.Debug.Log(studentName.text);
-        UnityEngine.Debug.Log($"Onclick function: {userid}");
+        UnityEngine.Debug.Log($"Inside StudentNameElement onClick() username: {studentName.text}");
+        UnityEngine.Debug.Log($"Inside StudentNameElement onClick() userid: {userid.text}");
+        if(userid.text == null)
+        {
+            Debug.Log("USERIDISNULL");
+        }
         //loads specific student info
-        StudentSummaryReportManager.instance.loadStudentInfo(userid);
+        StudentSummaryReportManager.instance.loadStudentInfo(userid.text);
         MainMenu.instance.studentSummaryReportScreen();
 
     }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,13 +19,17 @@ public class SummaryReportManager : MonoBehaviour
     {
         if (instance == null)
         {
-            LoadClassList();
             instance = this;
+            Debug.Log("SummaryReportManager instantiated");
+            Debug.Log("Loading Class Lists in Summary Report UI");
+            LoadClassList();
+            Debug.Log("Preloading Class Lists in Summary Report UI Done");
+
         }
     }
     
     //loads class list
-    private void LoadClassList()
+    public void LoadClassList()
     {
         List<string> classList = new List<string>() {
             "FS6","FS7","FS8","FS9"
@@ -48,11 +53,13 @@ public class SummaryReportManager : MonoBehaviour
 
     //loads all student names in class
 
-    public async void LoadStudentNames(string className)
+    async public Task LoadStudentNamesAsync(string className)
     {
-        UnityEngine.Debug.Log("reached inside LOAdstudentNames function");
+        UnityEngine.Debug.Log("reached inside LoadstudentNames function");
         Dictionary<string,string> StudentNames;
-        StudentNames = await FirebaseManager.loadStudentNames(className);
+        var StudentNamesTask = FirebaseManager.LoadStudentNamesAsync(className);
+        StudentNames = await StudentNamesTask;
+
         foreach (Transform child in studentNameContent.transform)
         {
             Destroy(child.gameObject);
@@ -63,17 +70,17 @@ public class SummaryReportManager : MonoBehaviour
         {
             string username = item.Value;
             string userid = item.Key;
-            UnityEngine.Debug.Log($"LoadStudentNames() username:{username}");
-            UnityEngine.Debug.Log($"LoadStudentNames() userid:{userid}");
+            UnityEngine.Debug.Log($"LoadStudentNamesAsync() in SummaryReport: Successfully loaded  with username:{username} and \n userid:{userid}");
             GameObject nameBoardElement = Instantiate(studentNameElement, studentNameContent);
             nameBoardElement.GetComponent<StudentNameElement>().NewStudentNameElement(username,userid);
+            UnityEngine.Debug.Log($"Successfully instantiated classelement on Summary Report with for username: {username}");
         }
     }
 
     public void summaryReportButton()
     {
         LoadClassList();
-        UIManager.instance.summaryReportScreen();
+        MainMenu.instance.summaryReport();
     }
     
 
