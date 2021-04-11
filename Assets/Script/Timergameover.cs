@@ -20,8 +20,8 @@ public class Timergameover : MonoBehaviour
     public GameObject EnemyScore;
     private Scorepersec enemyScoreScript;
 
-    private bool isMultiplayer;
-    private bool isCustom;
+
+    private int mode;
     private GameObject mainMenuScript;
     
 
@@ -32,14 +32,13 @@ public class Timergameover : MonoBehaviour
     void Start()
     {
         mainMenuScript = GameObject.Find("MainMenuScript");
-        isCustom = mainMenuScript.GetComponent<MainMenu>().isCustom;
-        isMultiplayer = mainMenuScript.GetComponent<MainMenu>().isMultiplayer;
+        mode = mainMenuScript.GetComponent<MainMenu>().mode;
 
         countDownTimer();
         
         // Find the PlayerScorescript attached to "PlayerScore" for player 1
         playerScoreScript = PlayerScore.GetComponent<PlayerScorescript>();
-        if (!isMultiplayer && !isCustom) //ifsingle player
+        if (mode == 0) //if single player
         {
             // Find the Scorepersec script attached to "EnemyScore"
             enemyScoreScript = EnemyScore.GetComponent<Scorepersec>();
@@ -50,7 +49,7 @@ public class Timergameover : MonoBehaviour
     void Update()
     {
         playerscore = playerScoreScript.scoreValue;
-        if (!isMultiplayer && !isCustom) //ifsingle player
+        if (mode == 0) //ifsingle player
             enemyscore = enemyScoreScript.scoreAmount;
         else
             enemyscore = (float)PhotonPlayer.Find(2).CustomProperties["PlayerScore"];
@@ -69,7 +68,7 @@ public class Timergameover : MonoBehaviour
 
             if (enemyscore == 15)
             {
-                if (!isMultiplayer && !isCustom)
+                if (mode == 0)// if single player
                     finalText.text = "Game over! Enemy Wins!";
                 else
                     finalText.text = "Game over! Player 2 Wins!";
@@ -79,7 +78,7 @@ public class Timergameover : MonoBehaviour
 
             if (playerscore == 15)
             {
-                if (!isMultiplayer && !isCustom)
+                if (mode == 0)// if single player
                     finalText.text = "Game over! Player Wins!";
                 else
                     finalText.text = "Game over! Player 1 Wins!";
@@ -92,7 +91,7 @@ public class Timergameover : MonoBehaviour
         {
             if (enemyscore > playerscore)
             {
-                if (!isMultiplayer && !isCustom)
+                if (mode == 0)// if single player
                     finalText.text = "Game over! Enemy Wins!";
                 else
                     finalText.text = "Game over! Player 2 Wins!";
@@ -101,7 +100,7 @@ public class Timergameover : MonoBehaviour
             }
             else if (playerscore > enemyscore)
             {
-                if (!isMultiplayer && !isCustom)
+                if (mode == 0)// if single player
                     finalText.text = "Game over! Player Wins!";
                 else
                     finalText.text = "Game over! Player 1 Wins!";

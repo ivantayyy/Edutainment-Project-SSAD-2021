@@ -81,7 +81,7 @@ public class WeaponsQuizManager : AbstractQuizManager
         SetAnswers();
     }
     */
-    public void checkAns()
+    public override void checkAns()
     {
         int correct = int.Parse(QnA[currentQuestion].CorrectAnswer);
         //Debug.Log("correct1 = " + QnA[currentQuestion].CorrectAnswer);

@@ -25,7 +25,7 @@ public class lobbyController : MonoBehaviour
         PhotonNetwork.player.SetCustomProperties(playerProperties);
         Debug.Log((bool)PhotonNetwork.player.CustomProperties["PlayerReady"]);
 
-        StartCoroutine(LateStart(1.5f));
+        StartCoroutine(LateStart(2.5f));
 
     }
     IEnumerator LateStart(float waitTime)
@@ -38,6 +38,7 @@ public class lobbyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(PhotonNetwork.room.Name);
         if (allPlayersReady()&&PhotonNetwork.isMasterClient)
         {
             startButton.SetActive(true);
@@ -45,7 +46,6 @@ public class lobbyController : MonoBehaviour
         for (int i=0;i< PhotonNetwork.playerList.Length; i++)
         {
             playerText[i].SetActive(true);
-            Debug.Log(PhotonNetwork.player.ID);
             if ((bool)PhotonNetwork.playerList[i].CustomProperties["PlayerReady"])
             {
                 ReadyText[PhotonNetwork.playerList[i].ID - 1].SetActive(true);
@@ -62,6 +62,8 @@ public class lobbyController : MonoBehaviour
     }
     public void backButton()
     {
+        Destroy(GameObject.Find("MainMenuScript"));
+        PhotonNetwork.LeaveRoom();
         PhotonNetwork.LoadLevel("Main Menu");
     }
 
@@ -70,10 +72,7 @@ public class lobbyController : MonoBehaviour
     {
         if (PhotonNetwork.isMasterClient)
         {
-            Debug.Log("load level");
-
             PhotonNetwork.LoadLevel("ChooseCharacters"); 
-
         }
     }
     private bool allPlayersReady()

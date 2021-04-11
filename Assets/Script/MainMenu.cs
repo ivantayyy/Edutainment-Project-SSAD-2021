@@ -5,8 +5,7 @@ using UnityEngine;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private string versionName = "0.2";
-    public bool isMultiplayer = false;
-    public bool isCustom = false;
+    public int mode = 0; //mode 0 = singleplayer, 1 = multiplayer, 2 = custom, 3 = assignment
     // Start is called before the first frame update
     public GameObject summary, leaderboard, main;
     public GameObject backbtn;
@@ -24,23 +23,22 @@ public class MainMenu : MonoBehaviour
     public void singlePlayer()//link to single player button
     {
         //when select sinngleplayer, go to singple player page
-        isMultiplayer = false;
-        isCustom = false;
+        this.mode = 0;
+        Debug.Log("mode = " + mode);
         //LOAD LEVEL IN PHOTON
         PhotonNetwork.LoadLevel("ChooseCharacters");
     }
     public void multiPlayer()
     {
-
-        isMultiplayer = true;
-        isCustom = false;
-        Debug.Log("mm multi = " + isMultiplayer);
+        this.mode = 1;
+        
+        Debug.Log("mode = " + mode);
         PhotonNetwork.LoadLevel("Multiplayer");
     }
     public void custom()
     {
-        isCustom = true;
-        isMultiplayer = false;
+        this.mode = 2;
+        Debug.Log("mode = " + mode);
         PhotonNetwork.LoadLevel("CustomLobbyCreation");
     }
     public void summaryReport()

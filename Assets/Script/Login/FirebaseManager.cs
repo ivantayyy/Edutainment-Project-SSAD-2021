@@ -162,6 +162,7 @@ public class FirebaseManager : MonoBehaviour
     {
         //Call the login coroutine passing the email and password
         StartCoroutine(Login(emailLoginField.text, passwordLoginField.text));
+        UnityEngine.Debug.Log("afterlgogin");
     }
 
     //Function for the register button
@@ -191,7 +192,7 @@ public class FirebaseManager : MonoBehaviour
         var LoginTask = auth.SignInWithEmailAndPasswordAsync(_email, _password);
         //Wait until the task completes
         yield return new WaitUntil(predicate: () => LoginTask.IsCompleted);
-
+        UnityEngine.Debug.Log("directly after login");
         if (LoginTask.Exception != null)
         {
             //If there are errors handle them
