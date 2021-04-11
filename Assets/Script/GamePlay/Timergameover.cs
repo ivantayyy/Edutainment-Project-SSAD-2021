@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Pathfinding;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.XR;
 
 public class Timergameover : MonoBehaviour
 {
@@ -27,6 +28,8 @@ public class Timergameover : MonoBehaviour
 
     public GameObject gameOverUI;
 
+    private string GameMode;
+
     //public int currentTime;
     // Start is called before the first frame update
     void Start()
@@ -42,6 +45,11 @@ public class Timergameover : MonoBehaviour
         {
             // Find the Scorepersec script attached to "EnemyScore"
             enemyScoreScript = EnemyScore.GetComponent<Scorepersec>();
+            GameMode = "singlePlayer";
+        }
+        else//multiplayer
+        {
+            GameMode = "multiPlayer";
         }
   
     }
@@ -57,6 +65,7 @@ public class Timergameover : MonoBehaviour
 
     void countDownTimer()
     {
+        
         //currentTime = countDownStartValue;
         if (countDownStartValue > 0)
         {
@@ -80,10 +89,13 @@ public class Timergameover : MonoBehaviour
             {
                 if (mode == 0)// if single player
                     finalText.text = "Game over! Player Wins!";
+                    
                 else
                     finalText.text = "Game over! Player 1 Wins!";
                 countDownStartValue = 0;
                 gameOverUI.SetActive(true);
+                //Only need to update this instance's winning player
+                UpdateWin();
             }
 
         }
@@ -105,6 +117,8 @@ public class Timergameover : MonoBehaviour
                 else
                     finalText.text = "Game over! Player 1 Wins!";
                 gameOverUI.SetActive(true);
+                //updates win asynchronously
+                UpdateWin();
             }
             else
             {
@@ -117,12 +131,24 @@ public class Timergameover : MonoBehaviour
         
     }
 
-    //endGame(userID, substageID, finalPscore)
-    //{
-      //  substageId = 1;
-        //userID = 1;
-        //finalPscore = playerscore;
-        //return;
-    //}
+    
+    //Helper function for updateing scores when winning
+    async private void UpdateWin()
+    {
+        //Need find a way to generate dynamically the mode type
+        string uid= PhotonNetwork.player.UserId;
+        int currLevelCleared = PlayerPrefs.GetInt("levelReached",1);
+        float timeTaken = 160F;
+        var updateTask = FirebaseManager.updateScoreOnDatabaseAsync(GameMode, uid, currLevelCleared, timeTaken, playerscore);
+        await updateTask;
+        if (updateTask.IsFaulted)
+        {
+            Debug.LogError(updateTask.Exception);
+        }
+        else
+        {
+            Debug.Log($"Successfully updated score {playerscore} for userid: {uid} to the database");
+        }
+    }
 
 }
