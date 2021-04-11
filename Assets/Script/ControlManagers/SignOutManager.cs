@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SignOutManager : MonoBehaviour
 {
@@ -8,5 +9,7 @@ public class SignOutManager : MonoBehaviour
     public void SignOutButton()
     {
         FirebaseManager.SignOut();
+        Debug.Log("Successfully signed out");
+        SceneManager.LoadScene("Login");
     }
 }

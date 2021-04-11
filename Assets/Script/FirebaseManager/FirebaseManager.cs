@@ -59,20 +59,28 @@ public static class FirebaseManager
     //login function
     async public static Task<string> LoginAsync(string _email, string _password)
     {
+        string message = "";
+
         //Call the Firebase auth signin function passing the email and password
         //Wait until the task completes
         //UnityEngine.Debug.Log("Login reached 1");
+        Debug.Log("reached0");
+
         var LoginTask = auth.SignInWithEmailAndPasswordAsync(_email, _password);
-        User = await LoginTask;
-        
-        string message = "";
-        if (LoginTask.IsFaulted)
+        try
         {
-            Debug.Log("LoginTask in FirebaseManager.LoginAsync fked up");
-            Debug.Log(LoginTask.Exception);
-            //If there are errors handle them
-            Debug.LogWarning(message: $"Failed to register task with {LoginTask.Exception}");
+            await LoginTask;
+        }
+        catch (Exception err)
+        {
+            Debug.Log("reached3");
+            Debug.Log($"Failed to register task with {LoginTask.Exception}");
             FirebaseException firebaseEx = LoginTask.Exception.GetBaseException() as FirebaseException;
+            Debug.Log("LoginTask in FirebaseManager.LoginAsync fked up");
+            message = $"Failed to register task with {LoginTask.Exception}";
+
+
+            //If there are errors handle them
             AuthError errorCode = (AuthError)firebaseEx.ErrorCode;
 
             message = "Login Failed!";
@@ -94,9 +102,13 @@ public static class FirebaseManager
                     message = "Account does not exist";
                     break;
             }
+            Debug.Log("Result: "+message);
+            return message;
         }
-        else
+
+        if (LoginTask == null)
         {
+            User = LoginTask.Result;
             //User is now logged in
             //Now get the result
             //UnityEngine.Debug.Log("Login reached 3");

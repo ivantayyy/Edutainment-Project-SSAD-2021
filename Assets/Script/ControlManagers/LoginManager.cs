@@ -49,35 +49,42 @@ public class LoginManager : MonoBehaviour
     //Function for the login button
     public async void LoginButton()
     {
+        if (emailLoginField.text == "")
+        {
+            //clear previous text
+            warningLoginText.text = "";
+            warningLoginText.text = "No Email Provided";
+            return;
+        }else if(passwordLoginField.text == "")
+        {
+            warningLoginText.text = "";
+            warningLoginText.text = "No Password Provided";
+            return;
+        }
         //Call the login coroutine passing the email and password
         var LoginTask = FirebaseManager.LoginAsync(emailLoginField.text, passwordLoginField.text);
         string message = await LoginTask;
-        if (LoginTask.IsFaulted) {
-            Debug.Log("Login Task on Login Button() fked up");
-            warningRegisterText.text = message;
+        Debug.Log("message is" + message);
+        warningLoginText.text = "";
+        warningLoginText.text = message;
+        Debug.Log("Login Task on Login Button() completed sucessfully proceeding to instantiate photon user");
+        instantiatePhotonUser();
+        // wait for 2 seconds
+        //redirects to next screen
+        var isTeacherTask = FirebaseManager.isTeacher();
+        bool isTeacher = await isTeacherTask;
+        if (isTeacher)
+        {
+            //go to teacher menu
+            SceneManager.LoadScene("Teacher Menu");
+            Debug.Log("The user is teacher");
         }
         else
         {
-            Debug.Log("Login Task on Login Button() completed sucessfully proceeding to instantiate photon user");
-            instantiatePhotonUser();
-            warningRegisterText.text = message;
-            // wait for 2 seconds
             new WaitForSeconds(2);
-            //redirects to next screen
-            var isTeacherTask = await FirebaseManager.isTeacher();
-            bool isTeacher = isTeacherTask;
-            if (isTeacher)
-            {
-                //go to teacher menu
-                SceneManager.LoadScene("Teacher Menu");
-                Debug.Log("The user is teacher");
-            }
-            else
-            {
-                SceneManager.LoadScene("Main Menu");
-            }
-            //UnityEngine.Debug.Log("Login reached 4");
+            SceneManager.LoadScene("Main Menu");
         }
+            //UnityEngine.Debug.Log("Login reached 4");
 
     }
 
