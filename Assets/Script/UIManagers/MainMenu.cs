@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private string versionName = "0.2";
     public int mode = 0; //mode 0 = singleplayer, 1 = multiplayer, 2 = custom, 3 = assignment
     // Start is called before the first frame update
-    public GameObject summary, leaderboard, main,studentSummaryReport;
+    public GameObject leaderboard, main;
     public GameObject backbtn;
 
     public static MainMenu instance;
@@ -57,11 +57,6 @@ public class MainMenu : MonoBehaviour
         main.SetActive(true);
         backbtn.SetActive(true);
     }
-    public void summaryReport()
-    {
-        clearscreen();
-        summary.SetActive(true);
-    }
 
     public void leaderBoard()
     {
@@ -75,16 +70,10 @@ public class MainMenu : MonoBehaviour
     }
     public void clearscreen()
     {
-        summary.SetActive(false);
-        studentSummaryReport.SetActive(false);
         leaderboard.SetActive(false);
         main.SetActive(false);
     }
 
-    public void studentSummaryReportScreen() //scoreboard button
-    {
-        clearscreen();
-        studentSummaryReport.SetActive(true);
-    }
+    
 
 }

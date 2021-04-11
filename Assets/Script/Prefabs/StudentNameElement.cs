@@ -25,7 +25,7 @@ public class StudentNameElement : MonoBehaviour
         }
         //loads specific student info
         StudentSummaryReportManager.instance.loadStudentInfo(userid.text);
-        MainMenu.instance.studentSummaryReportScreen();
+        TeacherMenuUIManager.instance.studentSummaryReportScreen();
 
     }
 }

@@ -25,6 +25,7 @@ public class StudentSummaryReportManager : MonoBehaviour
     {
         if(instance == null)
         {
+            
             instance = this;
             Debug.Log("StudentSummaryReportManager instantiated");
         }

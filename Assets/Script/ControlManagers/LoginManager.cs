@@ -69,6 +69,7 @@ public class LoginManager : MonoBehaviour
             if (isTeacher)
             {
                 //go to teacher menu
+                SceneManager.LoadScene("Teacher Menu");
                 Debug.Log("The user is teacher");
             }
             else

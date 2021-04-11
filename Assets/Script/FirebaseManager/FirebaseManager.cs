@@ -268,9 +268,10 @@ public static class FirebaseManager
     {
         UnityEngine.Debug.Log("reached");
         string uid = PhotonNetwork.player.UserId;
-        DataSnapshot snapshot = await DBreference.Child("Student").Child(uid).Child(gamemode).Child("curSubstage").GetValueAsync();
+        var snapshotTask = DBreference.Child("Student").Child(uid).Child(gamemode).Child("curSubstage").GetValueAsync();
+        DataSnapshot snapshot = await snapshotTask;
         int maxLevelReached = JsonConvert.DeserializeObject<int>(snapshot.GetRawJsonValue());;
-
+        Debug.Log($"The maxLevelReached that was returned from database for {gamemode} is {maxLevelReached}");
         return maxLevelReached;
     }
 
@@ -334,9 +335,11 @@ public static class FirebaseManager
     //Helper function for checking username exist in database for registration
     async public static Task<bool> CheckUsernameExistsInDatabaseAsync(string _username)
     {
-        Task<DataSnapshot> usernameTask = await DBreference.Child("Usernames").GetValueAsync().ContinueWith(t=>t);
-        bool res = usernameTask.Result.Child(_username).Exists;
-        return res;
+        var usernameTask = DBreference.Child("Usernames").GetValueAsync();
+        DataSnapshot username = await usernameTask;
+        bool hasUsername = username.Child(_username).Exists;
+        Debug.Log($"Does username exist in database? {hasUsername}");
+        return hasUsername;
     }
 
     //This method adds an intialised user data to firebase database

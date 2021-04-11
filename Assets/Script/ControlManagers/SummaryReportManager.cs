@@ -80,7 +80,7 @@ public class SummaryReportManager : MonoBehaviour
     public void summaryReportButton()
     {
         LoadClassList();
-        MainMenu.instance.summaryReport();
+        TeacherMenuUIManager.instance.summaryReport();
     }
     
 
