@@ -7,7 +7,7 @@ public class ScoreElement : MonoBehaviour
     public Text usernameText;
     public Text scoreText;
 
-    public void NewScoreElement(string _username, int _score)
+    public void NewScoreElement(string _username, float _score)
     {
         usernameText.text = _username;
         scoreText.text = _score.ToString();

@@ -9,9 +9,6 @@ public class UIManager : MonoBehaviour
     //Screen object variables
     public GameObject loginUI;
     public GameObject registerUI;
-    public GameObject leaderBoardUI;
-    public GameObject mainUI;
-    public GameObject summaryReportUI;
 
     private void Awake()
     {
@@ -44,32 +41,8 @@ public class UIManager : MonoBehaviour
 
     public void clearscreen() //turn off all screens
     {
-        summaryReportUI.SetActive(false);
         loginUI.SetActive(false);
         registerUI.SetActive(false);
-        leaderBoardUI.SetActive(false);
-        mainUI.SetActive(false);
     }
-
-    public void leaderBoardScreen() //logged in
-    {
-        clearscreen();
-        leaderBoardUI.SetActive(true);
-    }
-
-    public void mainScreen() //logged in
-    {
-        clearscreen();
-        mainUI.SetActive(true);
-    }
-    public void summaryReportScreen()
-    {
-        clearscreen();
-        summaryReportUI.SetActive(true);
-    }
-    //public void scoreboardscreen() //scoreboard button
-    //{
-    //    clearscreen();
-    //    scoreboardui.setactive(true);
-    //}
+    
 }

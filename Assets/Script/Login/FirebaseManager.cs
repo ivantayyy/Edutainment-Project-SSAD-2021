@@ -1,154 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using Firebase;
 using Firebase.Auth;
 using Firebase.Database;
-using System.Linq;
-using UnityEditor;
-using System.Threading.Tasks;
-
-using System;
 using Firebase.Extensions;
 using Newtonsoft.Json;
-using UnityEngine.SceneManagement;
+using System;
+using System.Threading.Tasks;
+using UnityEngine;
+using UnityEngine.PlayerLoop;
+using UnityEngine.SocialPlatforms.Impl;
+using System.Dynamic;
+using System.Linq;
 
-public class FirebaseManager : MonoBehaviour
+public static class FirebaseManager
 {
-    public static FirebaseManager instance;
     //Firebase variables
-    [Header("Firebase")]
-    public DependencyStatus dependencyStatus;
-    public FirebaseAuth auth;
-    public FirebaseUser User;
-    public DatabaseReference DBreference;
+    public static DependencyStatus dependencyStatus;
+    public static FirebaseAuth auth;
+    public static FirebaseUser User;
+    public static DatabaseReference DBreference;
     //public UserDatabaseReference UserDBreference;
 
-    //Login variables
-    [Header("Login")]
-    public InputField emailLoginField;
-    public InputField passwordLoginField;
-    public Text warningLoginText;
-    public Text confirmLoginText;
-
-    //Register variables
-    [Header("Register")]
-    public Dropdown ddClass;
-    public Dropdown ddReg;
-    public InputField usernameRegisterField;
-    public InputField emailRegisterField;
-    public InputField passwordRegisterField;
-    public InputField passwordRegisterVerifyField;
-    public Text warningRegisterText;
-
-    //LeaderBoard variables
-    [Header("LeaderBoard")]
-    public GameObject scoreElement;
-    public Transform scoreboardCustomContent;
-    public Transform scoreboardMultiContent;
-    public Transform scoreboardSingleContent;
-
-    [Header("SummaryReport")]
-    public GameObject classElement;
-    public GameObject studentNameElement;
-    public GameObject studentDataElement;
-    public Transform classContent;
-    public Transform studentNameContent;
-
-
-    void Awake()
-    {
-        instance = this;
-        UnityEngine.Debug.Log("Firebase Manager Awake is called");
-        //Check that all of the necessary dependencies for Firebase are present on the system
-        FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task =>
-        {
-            dependencyStatus = task.Result;
-            if (dependencyStatus == DependencyStatus.Available)
-            {
-                //If they are avalible Initialize Firebase
-                InitializeFirebase();
-            }
-            else
-            {
-                Debug.LogError("Could not resolve all Firebase dependencies: " + dependencyStatus);
-            }
-        });
-    }
-
-    //Dropdown button for Register page
-    public void DropDownButtonRegister()
-    {
-        DropDownCheck(ddReg);
-    }
-    public void DropDownButtonClass()
-    {
-        DropDownCheck(ddClass);
-    }
-
-    //Visual debug of dropdown button
-    private void DropDownCheck(Dropdown dd)
-    {
-        if (dd.value == 0)
-        {
-            UnityEngine.Debug.Log("No Dropdown value chosen");
-        }
-        if (dd.value == 1)
-        {
-            UnityEngine.Debug.Log("Student chosen");
-        }
-        if (dd.value == 2)
-        {
-            UnityEngine.Debug.Log("Teacher chosen");
-        }
-    }
-
     
-    //gets acctype from dropdown button
-    //3 choices available
-    private string getAccType(Dropdown dd)
-    {
-        string res;
-        if (dd.value == 0)
-        {
-            res = "none";
-        }
-        else if (dd.value == 1)
-        {
-            res = "Student";
-        }
-        else
-        {
-            res = "Teacher";
-        }
-        return res;
-    }
 
-    private string GetClassSubscribed(Dropdown dd)
-    {
-        string res;
-        if (dd.value == 0)
-        {
-            res = "none";
-        }else if(dd.value == 1)
-        {
-            res = "FS6";
-        }else if(dd.value == 2)
-        {
-            res = "FS7";
-        }else if (dd.value == 3)
-        {
-            res = "FS8";
-        }
-        else
-        {
-            res = "FS9";
-        }
-        return res;
-    }
-
-    private void InitializeFirebase()
+    //Initialises Firebase
+    private static void InitializeFirebase()
     {
         Debug.Log("Setting up Firebase Auth");
         //Set the authentication instance object
@@ -157,50 +35,47 @@ public class FirebaseManager : MonoBehaviour
         Debug.Log("Set up Firebase Auth successfully");
     }
 
-    //Function for the login button
-    public void LoginButton()
+    //Helper function for checking dependencies 
+    public static void CheckFirebaseDependencies()
     {
-        //Call the login coroutine passing the email and password
-        StartCoroutine(Login(emailLoginField.text, passwordLoginField.text));
-        UnityEngine.Debug.Log("afterlgogin");
+        UnityEngine.Debug.Log("Firebase Manager Awake is called");
+        //Check that all of the necessary dependencies for Firebase are present on the system
+        FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task =>
+        {
+            dependencyStatus = task.Result;
+            if (dependencyStatus == DependencyStatus.Available)
+            {
+                Debug.Log("Dependencies available for use");
+                //If they are avalible Initialize Firebase
+                FirebaseManager.InitializeFirebase();
+            }
+            else
+            {
+                Debug.LogError("Could not resolve all Firebase dependencies: " + dependencyStatus);
+            }
+        });
     }
 
-    //Function for the register button
-    public void RegisterButton()
-    {
-        string acctype = getAccType(ddReg);
-        string classSubscribed = GetClassSubscribed(ddClass);
-        if (acctype == "none")
-        {
-            UnityEngine.Debug.Log("No Account inputted in dropdown");
-            warningLoginText.text = "Please select a valid account type in the Dropdown menu";
-        }else if(classSubscribed == "none")
-        {
-            UnityEngine.Debug.Log("No class inputted in dropdown");
-            warningLoginText.text = "Please select a valid account type in the Dropdown menu";
-        }
-        else
-        {
-            //Call the register coroutine passing the email, password, and username
-            StartCoroutine(Register(emailRegisterField.text, passwordRegisterField.text, usernameRegisterField.text,acctype,classSubscribed));
-        }
-    }
-
-    private IEnumerator Login(string _email, string _password)
+    //login function
+    async public static Task<string> LoginAsync(string _email, string _password)
     {
         //Call the Firebase auth signin function passing the email and password
-        var LoginTask = auth.SignInWithEmailAndPasswordAsync(_email, _password);
         //Wait until the task completes
-        yield return new WaitUntil(predicate: () => LoginTask.IsCompleted);
-        UnityEngine.Debug.Log("directly after login");
-        if (LoginTask.Exception != null)
+        //UnityEngine.Debug.Log("Login reached 1");
+        var LoginTask = auth.SignInWithEmailAndPasswordAsync(_email, _password);
+        User = await LoginTask;
+        
+        string message = "";
+        if (LoginTask.IsFaulted)
         {
+            Debug.Log("LoginTask in FirebaseManager.LoginAsync fked up");
+            Debug.Log(LoginTask.Exception);
             //If there are errors handle them
             Debug.LogWarning(message: $"Failed to register task with {LoginTask.Exception}");
             FirebaseException firebaseEx = LoginTask.Exception.GetBaseException() as FirebaseException;
             AuthError errorCode = (AuthError)firebaseEx.ErrorCode;
 
-            string message = "Login Failed!";
+            message = "Login Failed!";
             switch (errorCode)
             {
                 case AuthError.MissingEmail:
@@ -219,50 +94,253 @@ public class FirebaseManager : MonoBehaviour
                     message = "Account does not exist";
                     break;
             }
-            warningLoginText.text = message;
         }
         else
         {
             //User is now logged in
             //Now get the result
-            User = LoginTask.Result;
+            //UnityEngine.Debug.Log("Login reached 3");
+            //User = LoginTask.Result;
             Debug.LogFormat("User signed in successfully: {0} ({1})", User.DisplayName, User.Email);
-            warningLoginText.text = "";
-            confirmLoginText.text = "Logged In";
-
-            //redirects to next screen
-            yield return new WaitForSeconds(2);
-            SceneManager.LoadScene("Main Menu");
-            
+            message = "Logged In";
         }
+        return message;
+    }
+
+    //Signout function
+    public static void SignOut()
+    {
+        auth.SignOut();
     }
 
     //testing use Student and LFd7xpb0fWVY1rC0L9H7AOrplFh2
-    public void GetUser(string uid, string acctype)
+    // TODO test this function
+    async public static Task<InitUser> GetUser(string uid, string acctype)
     {
+        UnityEngine.Debug.Log("Reached GetUser() Function");
+        InitUser currentUser;
+        var task = DBreference.Child(acctype).Child(uid).GetValueAsync();
+        DataSnapshot userSnapShot = await task;
+        string userjsonstring = userSnapShot.GetRawJsonValue();
+        UnityEngine.Debug.Log($"Json string returned in GetUser() with: {userjsonstring}");
+
+        currentUser = JsonConvert.DeserializeObject<InitUser>(userjsonstring);
+        UnityEngine.Debug.Log($"Json string deserialised. Returning User to StudentSummaryREport Manager");
+        return currentUser;
+    }
+    //checks if User is teacher or student
+
+    async public static Task<bool> isTeacher()
+    {
+        var Task = DBreference.Child("Teacher").Child(User.UserId).GetValueAsync();
+        DataSnapshot existsDataSnapshot = await Task;
+        bool exist = existsDataSnapshot.Exists;
+
+        Debug.Log($"The {User.UserId} is a teacher? {exist} ");
+        //if (Task.IsFaulted)
+        //{
+        //    Debug.Log("isTeachher function is fked");
+        //}
+
+        return exist;
         
-        InitUser currentUser = new InitUser();
-        DBreference.Child(acctype).Child(uid).GetValueAsync().ContinueWithOnMainThread(task =>
+    }
+    
+
+    //updates Score
+    async public static Task updateScoreOnDatabaseAsync(string gamemode, string userid, int justFinishedlevel,float new_timeTaken,float new_points)
+    {
+        UnityEngine.Debug.Log("reached a");
+        UnityEngine.Debug.Log(userid);
+
+        Scores DBScore = new Scores();
+        //Scores finalScore = new Scores();
+        //implement max function next time
+        var scoreTask = DBreference.Child("Student").Child(userid).Child(gamemode).GetValueAsync();
+        DataSnapshot playerScore = await scoreTask;
+
+        if (scoreTask.IsFaulted)
         {
-            if (task.IsFaulted)
+            Debug.Log("updateScoreOnDatabaseAsync is fked");
+        }
+        else
+        {
+            string DBPlayerScorejsonString = playerScore.GetRawJsonValue();
+            UnityEngine.Debug.Log(DBPlayerScorejsonString);
+
+            DBScore = JsonConvert.DeserializeObject<Scores>(DBPlayerScorejsonString);
+
+            //increase attempts by obe
+            int curSubStage = DBScore.curSubstage;
+            float totalPoints = DBScore.totalPoints;
+            List<int> attempts = DBScore.attempts;
+            List<float> points = DBScore.points;
+            List<float> timeTaken = DBScore.timeTaken;
+
+            //Debug
+            foreach (int attempt in attempts)
             {
-                UnityEngine.Debug.Log(task.Exception);
+                Debug.Log($"Attempt for updating function {attempt}");
             }
-            else
+            foreach (int point in points)
             {
-                string jsonstring = task.Result.GetRawJsonValue();
-                UnityEngine.Debug.Log(jsonstring);
-                UnityEngine.Debug.Log(currentUser.classSubscribed);
-                currentUser = JsonConvert.DeserializeObject<InitUser>(jsonstring);
-                UnityEngine.Debug.Log(currentUser.classSubscribed);
+                Debug.Log($"points for updating function {point}");
             }
-        });                
+            foreach (int time in timeTaken)
+            {
+                Debug.Log($"timetaken for stage for updating function {time}");
+            }
+
+            //If player has cleared his max substage
+            if (justFinishedlevel == DBScore.curSubstage)
+            {
+                //add  1 attempt to curr stage then add 0 to new stage
+                DBScore.attempts[justFinishedlevel - 1] = DBScore.attempts[justFinishedlevel - 1] + 1;
+                DBScore.attempts.Add(0);
+                DBScore.points.Add(new_points);
+                DBScore.timeTaken.Add(new_timeTaken);
+
+                //calculate total points
+                float new_totalPoints = 0;
+                foreach (float StagePoint in points)
+                {
+                    new_totalPoints += StagePoint;
+                }
+                DBScore.totalPoints = new_totalPoints;
+
+                //increment curSubstage to unlock next level
+                DBScore.curSubstage += 1;
+            }
+            else // means replaying a previously cleared level
+            {
+                //if achieved new highscore
+                if (new_points < points[justFinishedlevel - 1])
+                {
+                    //increase attempts for that level by 1
+                    DBScore.attempts[justFinishedlevel - 1] = DBScore.attempts[justFinishedlevel - 1] + 1;
+
+                    //update lower values for timetaken
+                    DBScore.timeTaken[justFinishedlevel - 1] = new_timeTaken;
+
+                    //update new points
+                    DBScore.points[justFinishedlevel - 1] = new_points;
+
+                    //update new total points
+                    float newTotalPoints = 0;
+                    foreach (float stagePoint in points)
+                    {
+                        newTotalPoints += stagePoint;
+                    }
+                    DBScore.totalPoints = newTotalPoints;
+
+
+                }
+                else//if never achieve new highscore
+                {
+                    DBScore.attempts[justFinishedlevel - 1] = DBScore.attempts[justFinishedlevel - 1] + 1;
+
+                }
+
+                //update the database
+                string updatedUserScore = JsonConvert.SerializeObject(DBScore);
+                DBreference.Child("Student").Child(userid).Child(gamemode).SetRawJsonValueAsync(updatedUserScore);
+
+                //DEBUG
+                UnityEngine.Debug.Log(curSubStage);
+                UnityEngine.Debug.Log(totalPoints);
+                UnityEngine.Debug.Log(attempts[justFinishedlevel - 1]);
+                UnityEngine.Debug.Log(points[justFinishedlevel - 1]);
+                UnityEngine.Debug.Log(timeTaken[justFinishedlevel - 1]);
+                UnityEngine.Debug.Log("reached z");
+            }
+        }
+
+
+
+        //update new Score
+        //string finalScores = JsonConvert.SerializeObject(finalScores);
+        //DBreference.Child("Student").Child(userid).Child(userid).Child(gamemode).SetRawJsonValueAsync(finalScores);
+    }
+
+
+    //get users current max level
+    async public static Task<int> getUserMaxLevelReachedAsync(string gamemode)
+    {
+        UnityEngine.Debug.Log("reached");
+        string uid = PhotonNetwork.player.UserId;
+        DataSnapshot snapshot = await DBreference.Child("Student").Child(uid).Child(gamemode).Child("curSubstage").GetValueAsync();
+        int maxLevelReached = JsonConvert.DeserializeObject<int>(snapshot.GetRawJsonValue());;
+
+        return maxLevelReached;
+    }
+
+    async public static Task<List<InitUser>> GetLeaderBoardFromDatabase(string gameMode)
+    {
+        List<InitUser> LeaderBoardUsers = new List<InitUser>();
+        Debug.Log("Loading LeaderBoardSnapShot Task in FirebaseManager");
+        var LeaderBoardSnapShotTask = DBreference.Child("Student").OrderByChild($"{gameMode}/totalPoints").LimitToLast(10).GetValueAsync();
+        DataSnapshot LeaderBoardSnapShot = await LeaderBoardSnapShotTask;
+        if (LeaderBoardSnapShotTask.IsFaulted)
+        {
+            Debug.Log("LeaderBoardSnapShot Task in FirebaseManager fked up");
+        }
+        else
+        {
+            //Loop through every users UID
+            UnityEngine.Debug.Log($"The Number of students returned from firebase in {gameMode} leaderboard is {LeaderBoardSnapShot.ChildrenCount}");
+            foreach (DataSnapshot childSnapshot in LeaderBoardSnapShot.Children.Reverse<DataSnapshot>())
+            {
+                string childJsonString = childSnapshot.GetRawJsonValue();
+                UnityEngine.Debug.Log(childJsonString);
+                InitUser LeaderBoardUser = JsonConvert.DeserializeObject<InitUser>(childJsonString);
+                LeaderBoardUsers.Add(LeaderBoardUser);
+            }
+        }
+        return LeaderBoardUsers;
+    }
+
+    async public static Task<Dictionary<string ,string>> LoadStudentNamesAsync(string className)
+    {
+        Debug.Log("Sucessfully reached LoadStudentNamesAsync which is for Summary Report in FirebaseManager");
+        Dictionary<string, string> StudentsInfo = new Dictionary<string, string>();
+
+        var StudentsInClassSnapshotTask = DBreference.Child("Student").OrderByChild("classSubscribed").EqualTo(className).GetValueAsync();
+        DataSnapshot StudentsInClassSnapShot = await StudentsInClassSnapshotTask;
+
+        if (StudentsInClassSnapshotTask.IsFaulted)
+        {
+            Debug.Log("The Task to get Students for summary report page is fked");
+        }
+        else
+        {
+            UnityEngine.Debug.Log($"Students successfully loaded from Database \n There are{StudentsInClassSnapShot.ChildrenCount} Students in class {className}");
+
+            Debug.Log($"There are {StudentsInClassSnapShot.ChildrenCount} in class {className}");
+            foreach (DataSnapshot childSnapshot in StudentsInClassSnapShot.Children.Reverse<DataSnapshot>())
+            {
+                string childJsonString = childSnapshot.GetRawJsonValue();
+                UnityEngine.Debug.Log(childJsonString);
+                InitUser child = JsonConvert.DeserializeObject<InitUser>(childJsonString);
+                StudentsInfo.Add(child.id, child.username);
+            }
+            Debug.Log("Completed Json Conversion. Returning control to SummaryReportManager");
+        }
+        return StudentsInfo;
     }
 
 
 
+
+    //Helper function for checking username exist in database for registration
+    async public static Task<bool> CheckUsernameExistsInDatabaseAsync(string _username)
+    {
+        Task<DataSnapshot> usernameTask = await DBreference.Child("Usernames").GetValueAsync().ContinueWith(t=>t);
+        bool res = usernameTask.Result.Child(_username).Exists;
+        return res;
+    }
+
     //This method adds an intialised user data to firebase database
-    private void InitialiseUserData(string acctype, string username, string uid,string classSubscribed)
+    private static void InitialiseUserData(string acctype, string username, string uid, string classSubscribed)
     {
         InitUser initialuser = new InitUser(acctype, username, uid, classSubscribed);
         var userjson = JsonConvert.SerializeObject(initialuser);
@@ -284,392 +362,87 @@ public class FirebaseManager : MonoBehaviour
     }
 
     //authentication Registers 
-    private IEnumerator Register(string _email, string _password, string _username,string _acctype,string _classSubscribed)
+    async public static Task<string> RegisterAsync(string _email, string _password, string _username,string _acctype,string _classSubscribed)
     {
-        if (_username == "")
+        UnityEngine.Debug.Log("Reached2");
+
+        //Call the Firebase auth signin function passing the email and password
+        Task<FirebaseUser> RegisterTask = await auth.CreateUserWithEmailAndPasswordAsync(_email, _password).ContinueWith(t=>t);
+        //supposed to wait for Register Task to finish
+        string message = "";
+        if (RegisterTask.Exception != null)
         {
-            //If the username field is blank show a warning
-            warningRegisterText.text = "Missing Username";
-        }
-        else if (passwordRegisterField.text != passwordRegisterVerifyField.text)
-        {
-            //If the password does not match show a warning
-            warningRegisterText.text = "Password Does Not Match!";
+            //If there are errors handle them
+            Debug.LogWarning(message: $"Failed to register task with {RegisterTask.Exception}");
+            FirebaseException firebaseEx = RegisterTask.Exception.GetBaseException() as FirebaseException;
+            AuthError errorCode = (AuthError)firebaseEx.ErrorCode;
+
+            switch (errorCode)
+            {
+                case AuthError.MissingEmail:
+                    message = "Missing Email";
+                    break;
+                case AuthError.MissingPassword:
+                    message = "Missing Password";
+                    break;
+                case AuthError.WeakPassword:
+                    message = "Weak Password";
+                    break;
+                case AuthError.EmailAlreadyInUse:
+                    message = "Email Already In Use";
+                    break;
+            }
         }
         else
         {
-            //checks username exists
-            var DBTask = DBreference.Child("Usernames").GetValueAsync();
-            yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
+            //User has now been created
+            //Now get the result
+            UnityEngine.Debug.Log("Reached3");
 
-            if(DBTask.Exception != null)
+            User = RegisterTask.Result;
+            UnityEngine.Debug.Log("Reached4");
+
+            if (User != null)
             {
-                UnityEngine.Debug.Log(DBTask.Exception);
-            }
-            else
-            {
-                UnityEngine.Debug.Log("Username database retrieved successfully");
-                bool res = DBTask.Result.Child(_username).Exists;
-                //if username exists
-                if (res == true)
+                //Create a user profile and set the username
+                Firebase.Auth.UserProfile profile = new Firebase.Auth.UserProfile { DisplayName = _username };
+
+                //Call the Firebase auth update user profile function passing the profile with the username
+                Task ProfileTask = await User.UpdateUserProfileAsync(profile).ContinueWith(t=>t);
+
+                //update the username child
+                Task task = await DBreference.Child("Usernames").Child(_username).SetValueAsync(1).ContinueWithOnMainThread(t => t);
+                if (task.IsFaulted)
                 {
-                    warningRegisterText.text = "Username is already taken.Choose another username";
+                    UnityEngine.Debug.Log("Task is faulted 2");
                 }
-                //if username does not exist continue authentication
                 else
                 {
-                    //Call the Firebase auth signin function passing the email and password
-                    var RegisterTask = auth.CreateUserWithEmailAndPasswordAsync(_email, _password);
-                    //Wait until the task completes
-                    yield return new WaitUntil(predicate: () => RegisterTask.IsCompleted);
+                    UnityEngine.Debug.Log(User.UserId + _acctype + _username);
+                    InitialiseUserData(_acctype, _username, User.UserId, _classSubscribed);
 
-                    if (RegisterTask.Exception != null)
+                    if (ProfileTask.Exception != null)
                     {
                         //If there are errors handle them
-                        Debug.LogWarning(message: $"Failed to register task with {RegisterTask.Exception}");
-                        FirebaseException firebaseEx = RegisterTask.Exception.GetBaseException() as FirebaseException;
+                        Debug.LogWarning(message: $"Failed to register task with {ProfileTask.Exception}");
+                        FirebaseException firebaseEx = ProfileTask.Exception.GetBaseException() as FirebaseException;
                         AuthError errorCode = (AuthError)firebaseEx.ErrorCode;
-
-                        string message = "Register Failed!";
-                        switch (errorCode)
-                        {
-                            case AuthError.MissingEmail:
-                                message = "Missing Email";
-                                break;
-                            case AuthError.MissingPassword:
-                                message = "Missing Password";
-                                break;
-                            case AuthError.WeakPassword:
-                                message = "Weak Password";
-                                break;
-                            case AuthError.EmailAlreadyInUse:
-                                message = "Email Already In Use";
-                                break;
-                        }
-                        warningRegisterText.text = message;
+                        message = "Username Set Failed!";
                     }
                     else
                     {
-                        //User has now been created
-                        //Now get the result
-                        User = RegisterTask.Result;
-
-                        if (User != null)
-                        {
-                            //Create a user profile and set the username
-                            UserProfile profile = new UserProfile { DisplayName = _username };
-
-                            //Call the Firebase auth update user profile function passing the profile with the username
-                            var ProfileTask = User.UpdateUserProfileAsync(profile);
-
-                            //update the username child
-                            DBreference.Child("Usernames").Child(_username).SetValueAsync(1);
-                            //Exception handling not present
-                            //Wait until the task completes
-                            yield return new WaitUntil(predicate: () => ProfileTask.IsCompleted);
-
-                            //initialise user data in relational database
-                            UnityEngine.Debug.Log(User.UserId + _acctype+_username);
-
-                            //function called here
-                            InitialiseUserData(_acctype,_username,User.UserId,_classSubscribed);
-
-                            if (ProfileTask.Exception != null)
-                            {
-                                //If there are errors handle them
-                                Debug.LogWarning(message: $"Failed to register task with {ProfileTask.Exception}");
-                                FirebaseException firebaseEx = ProfileTask.Exception.GetBaseException() as FirebaseException;
-                                AuthError errorCode = (AuthError)firebaseEx.ErrorCode;
-                                warningRegisterText.text = "Username Set Failed!";
-                            }
-                            else
-                            {
-                                //Username is now set
-                                //Now return to login screen
-                                UIManager.instance.LoginScreen();
-                                warningRegisterText.text = "";
-                            }
-                        }
+                        //Username is now set
+                        //Now return to login screen
+                        UIManager.instance.LoginScreen();
+                        message = "";
                     }
                 }
             }
-        }
-    }
-
-
-
-    //Signout method
-    public void SignOutButton()
-    {
-        auth.SignOut();
-        UIManager.instance.LoginScreen();
-        ClearRegisterFields();
-        ClearLoginFields();
-    }
-    // clears the login an register fields
-    public void ClearLoginFields()
-    {
-        emailLoginField.text = "";
-        passwordLoginField.text = "";
-        //clear dropdown Account info
-    }
-    public void ClearRegisterFields()
-    {
-        usernameRegisterField.text = "";
-        emailRegisterField.text = "";
-        passwordRegisterField.text = "";
-        passwordRegisterVerifyField.text = "";
-        //clear dropdown Account info
-        ddReg.value = 0;
-    }
-
-
-    public void LeaderBoardButton()
-    {
-        StartCoroutine(LoadLeaderBoardData("customPlayer", scoreboardCustomContent));
-        StartCoroutine(LoadLeaderBoardData("multiPlayer", scoreboardMultiContent));
-        StartCoroutine(LoadLeaderBoardData("singlePlayer", scoreboardSingleContent));
-    }
-
-    private IEnumerator LoadLeaderBoardData(string gameMode, Transform scoreboardContent)
-    {
-        //Get all the users data ordered by score amount
-        var DBTask = DBreference.Child("Student").OrderByChild($"{gameMode}/totalPoints").LimitToLast(10).GetValueAsync();
-
-        yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
-
-        if (DBTask.Exception != null)
-        {
-            Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
-        }
-        else
-        {
-            //Data has been retrieved
-            DataSnapshot snapshot = DBTask.Result;
-
-            //Destroy any existing scoreboard elements
-            foreach (Transform child in scoreboardContent.transform)
+            else
             {
-                UnityEngine.Debug.Log("reached before transform loop");
-                Destroy(child.gameObject);
-                UnityEngine.Debug.Log("reached after transform loop");
-            }
-
-            //Loop through every users UID
-            foreach (DataSnapshot childSnapshot in snapshot.Children.Reverse<DataSnapshot>())
-            {
-                string username = childSnapshot.Child("username").Value.ToString();
-                int score = int.Parse(childSnapshot.Child(gameMode).Child("totalPoints").Value.ToString());
-                UnityEngine.Debug.Log(score.ToString());
-                UnityEngine.Debug.Log(username);
-
-                //Instantiate new scoreboard elements
-                GameObject scoreBoardElement = Instantiate(scoreElement, scoreboardContent);
-                scoreBoardElement.GetComponent<ScoreElement>().NewScoreElement(username, score);
+                message = "registration success but User is null";
             }
         }
-    }
-
-    //button ui to go to summary report page
-    public void summaryReportButton()
-    {
-        LoadClassList();
-        UIManager.instance.summaryReportScreen();
-    }
-
-
-    //loads class list
-    private void LoadClassList()
-    {
-        List<string> classList = new List<string>() {
-            "FS6","FS7","FS8","FS9"
-        };
-        foreach (Transform child in this.classContent.transform)
-        {
-            UnityEngine.Debug.Log("reached before transform loop");
-            Destroy(child.gameObject);
-            UnityEngine.Debug.Log("reached after transform loop");
-        }
-        foreach (string className in classList)
-        {
-            GameObject classBoardElement = Instantiate(classElement, this.classContent);
-            classBoardElement.GetComponent<ClassElement>().NewClassElement(className);
-        }
-    }
-
-    //loads all student names in class
-
-    public IEnumerator LoadStudentNames(string className)
-    {
-        UnityEngine.Debug.Log("reached inside LOAdstudentNames function");
-        var task = DBreference.Child("Student").OrderByChild("classSubscribed").EqualTo(className).GetValueAsync();
-        yield return new WaitUntil(predicate: () => task.IsCompleted);
-
-        if (task.Exception != null)
-        {
-            UnityEngine.Debug.Log(task.Exception);
-        }
-        else
-        {
-
-            DataSnapshot snapshot = task.Result;
-            UnityEngine.Debug.Log(task.Result.GetRawJsonValue());
-            foreach (Transform child in studentNameContent.transform)
-            {
-                Destroy(child.gameObject);
-                UnityEngine.Debug.Log("Destroyed a child");
-            }
-            //Need to instantiate prefab dynamically
-            foreach (DataSnapshot student in snapshot.Children.Reverse<DataSnapshot>())
-            {
-                string username = student.Child("username").Value.ToString();
-                UnityEngine.Debug.Log(username);
-                GameObject nameBoardElement = Instantiate(studentNameElement, this.studentNameContent);
-                nameBoardElement.GetComponent<StudentNameElement>().NewStudentNameElement(username);
-            }
-        }
-    }
-
-    public void LoadStudentNameBtn(string className)
-    {
-        StartCoroutine(LoadStudentNames(className));
-    }
-
-    /*
-     * 
-     * retrieving and getting data
-     */
-
-    // for updating username in auth
-    //private IEnumerator UpdateUsernameAuth(string _username)
-    //{
-    //    //Create a user profile and set the username
-    //    UserProfile profile = new UserProfile { DisplayName = _username };
-
-    //    //Call the Firebase auth update user profile function passing the profile with the username
-    //    var ProfileTask = User.UpdateUserProfileAsync(profile);
-    //    //Wait until the task completes
-    //    yield return new WaitUntil(predicate: () => ProfileTask.IsCompleted);
-
-    //    if (ProfileTask.Exception != null)
-    //    {
-    //        Debug.LogWarning(message: $"Failed to register task with {ProfileTask.Exception}");
-    //    }
-    //    else
-    //    {
-    //        //Auth username is now updated
-    //    }
-    //}
-
-
-    //// for updating username in scoreboard
-    //private IEnumerator UpdateUsernameDatabase(string _username)
-    //{
-    //    //Set the currently logged in user username in the database
-    //    var DBTask = DBreference.Child("users").Child(User.UserId).Child("username").SetValueAsync(_username);
-
-    //    yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
-
-    //    if (DBTask.Exception != null)
-    //    {
-    //        Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
-    //    }
-    //    else
-    //    {
-    //        //Database username is now updated
-    //    }
-    //}
-
-
-    ////TODO to cheange
-    ////Function for the save button
-    //public void SaveDataButton()
-    //{
-    //    StartCoroutine(UpdateUsernameAuth(usernameField.text));
-    //    StartCoroutine(UpdateUsernameDatabase(usernameField.text));
-
-    //    StartCoroutine(UpdateXp(int.Parse(xpField.text)));
-    //    StartCoroutine(UpdateKills(int.Parse(killsField.text)));
-    //    StartCoroutine(UpdateDeaths(int.Parse(deathsField.text)));
-    //}
-
-    //private IEnumerator UpdateXp(int _xp)
-    //{
-    //    //Set the currently logged in user xp
-    //    var DBTask = DBreference.Child("users").Child(User.UserId).Child("xp").SetValueAsync(_xp);
-
-    //    yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
-
-    //    if (DBTask.Exception != null)
-    //    {
-    //        Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
-    //    }
-    //    else
-    //    {
-    //        //Xp is now updated
-    //    }
-    //}
-
-    //private IEnumerator UpdateKills(int _kills)
-    //{
-    //    //Set the currently logged in user kills
-    //    var DBTask = DBreference.Child("users").Child(User.UserId).Child("kills").SetValueAsync(_kills);
-
-    //    yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
-
-    //    if (DBTask.Exception != null)
-    //    {
-    //        Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
-    //    }
-    //    else
-    //    {
-    //        //Kills are now updated
-    //    }
-    //}
-
-    //private IEnumerator UpdateDeaths(int _deaths)
-    //{
-    //    //Set the currently logged in user deaths
-    //    var DBTask = DBreference.Child("users").Child(User.UserId).Child("deaths").SetValueAsync(_deaths);
-
-    //    yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
-
-    //    if (DBTask.Exception != null)
-    //    {
-    //        Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
-    //    }
-    //    else
-    //    {
-    //        //Deaths are now updated
-    //    }
-    //}
-
-    //private IEnumerator LoadUserData()
-    //{
-    //    //Get the currently logged in user data
-    //    var DBTask = DBreference.Child("Student").Child(User.UserId).GetValueAsync();
-
-    //    yield return new WaitUntil(predicate: () => DBTask.IsCompleted);
-
-    //    if (DBTask.Exception != null)
-    //    {
-    //        Debug.LogWarning(message: $"Failed to register task with {DBTask.Exception}");
-    //    }
-    //    else if (DBTask.Result.Value == null)
-    //    {
-
-    //    }
-    //    else
-    //    {
-    //        //Data has been retrieved
-    //        DataSnapshot snapshot = DBTask.Result;
-
-    //        xpField.text = snapshot.Child("xp").Value.ToString();
-    //        killsField.text = snapshot.Child("kills").Value.ToString();
-    //        deathsField.text = snapshot.Child("deaths").Value.ToString();
-    //    }
-    //}
-
-
-
+        return message;
+    } 
 }

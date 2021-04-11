@@ -34,8 +34,11 @@ public class InitUser
         this.username = _username;
         this.id = _id;
         this.multiPlayer = new Scores();
+        this.multiPlayer.init();
         this.singlePlayer = new Scores();
+        this.singlePlayer.init();
         this.customPlayer = new Scores();
+        this.customPlayer.init();
     }
 
 }

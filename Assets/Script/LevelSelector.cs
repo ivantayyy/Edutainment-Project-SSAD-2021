@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Threading.Tasks;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -7,9 +8,14 @@ public class LevelSelector : MonoBehaviour
 
     public Button[] levelButtons;
 
-    void Start ()
+    async void Start ()
     {
-        int levelReached = PlayerPrefs.GetInt("levelReached", 1);
+        int levelReached = await FirebaseManager.getUserMaxLevelReachedAsync("singlePlayer");
+        //Debug
+        UnityEngine.Debug.Log("sucess level reached " + levelReached.ToString());
+
+
+        PlayerPrefs.GetInt("levelReached", levelReached);
         int currentLevel = PlayerPrefs.GetInt("currentLevel", 1);
         Debug.Log(PlayerPrefs.GetInt("levelReached"));
         Debug.Log(levelReached);

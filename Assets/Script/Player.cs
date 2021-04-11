@@ -13,16 +13,24 @@ public class Player : Photon.MonoBehaviour
     private Vector3 change;
     public Animator animator;
     public bool canMove = true;
-    
+    public Text UserName;
     
 
     public virtual void Awake()
     {
-        if(photonView.isMine)
+        //check add UserId to the player
+        
+
+        //if the master client is me
+        if (photonView.isMine)
         {
             playerCamera.SetActive(true);
+            UserName.text = PhotonNetwork.player.NickName;
         }
-        
+        // if im not the master client;
+        else{
+            UserName.text = photonView.owner.NickName;
+        }
     }
   
     // Start is called before the first frame update

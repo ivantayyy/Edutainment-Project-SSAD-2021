@@ -18,6 +18,9 @@ public class CharacterSelection : MonoBehaviour
     private int mode;
     public GameObject displayText;
 
+    private string player1_id;
+    private string player2_id;
+
     private void Awake()
     {
         //find do not destroy object and get values
@@ -28,13 +31,24 @@ public class CharacterSelection : MonoBehaviour
     {
         //scenes will sync for all photon players
         PhotonNetwork.automaticallySyncScene = true;
-        //playerProperties.Add("PlayerReady", readyState);
 
+        //playerProperties.Add("PlayerReady", readyState);
+        //check add UserId to the player
+        string userid = FirebaseManager.auth.CurrentUser.UserId;
+        UnityEngine.Debug.Log(userid);
+        PhotonNetwork.player.UserId = userid;
+
+        string username = FirebaseManager.auth.CurrentUser.DisplayName;
+        UnityEngine.Debug.Log(username);
+        //Photon Netwrok is a static class
+        //Set player name
+        PhotonNetwork.player.NickName = username;
 
         if (mode == 1 || mode == 2)
         {
             for (int i = 0; i < PhotonNetwork.playerList.Length; i++)
             {
+                
                 playerProperties["PlayerReady"] = false;
                 PhotonNetwork.player.SetCustomProperties(playerProperties);
             }
@@ -50,6 +64,7 @@ public class CharacterSelection : MonoBehaviour
             {
                 startButton.SetActive(true);
             }
+            //Check both are ready
             for (int i = 0; i < PhotonNetwork.playerList.Length; i++)
             {
                 playerText[i].SetActive(true);
@@ -100,6 +115,8 @@ public class CharacterSelection : MonoBehaviour
         //playerProperties["SelCharacter"] = "john";
         //PhotonNetwork.player.SetCustomProperties(playerProperties);
     }
+
+
     public void startGame()
     {
         if (mode == 0)
@@ -121,6 +138,7 @@ public class CharacterSelection : MonoBehaviour
         }
         
     }
+
     public void readyClick()
     {
         if (mode == 1 || mode == 2)
