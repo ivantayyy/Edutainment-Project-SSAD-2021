@@ -32,12 +32,13 @@ public class MultiplayerMenu : MonoBehaviour
     }*/
     public void backButton()
     {
+        Destroy(GameObject.Find("MainMenuScript"));
         PhotonNetwork.LoadLevel("Main Menu");
     }
 
     public void createGame()
     {
-        PhotonNetwork.CreateRoom(createGameInput.text, new RoomOptions() { maxPlayers = 2 }, null);
+        PhotonNetwork.CreateRoom(createGameInput.text, new RoomOptions() { MaxPlayers = 2 }, null);
         PhotonNetwork.SetMasterClient(PhotonNetwork.player);
         PhotonNetwork.LoadLevel("Lobby");
     }
@@ -45,7 +46,7 @@ public class MultiplayerMenu : MonoBehaviour
     public void joinGame()
     {
         
-        PhotonNetwork.JoinRoom(joinGameInput.text);
+        PhotonNetwork.JoinOrCreateRoom(joinGameInput.text, new RoomOptions() { MaxPlayers = 2 }, null);
         PhotonNetwork.LoadLevel("Lobby");
     }
 

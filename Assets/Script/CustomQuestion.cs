@@ -59,7 +59,7 @@ public class CustomQuestion : MonoBehaviour
         Debug.Log("Connected");
     }*/
     private void Start()
-    { 
+    {
         string userData = "{\"email\":\"" + userEmail + "\",\"password\":\"" + userPassword + "\",\"returnSecureToken\":true}";
         RestClient.Post<SignResponse>("https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=" + AuthKey, userData).Then(
             response =>
@@ -77,6 +77,7 @@ public class CustomQuestion : MonoBehaviour
         //if 1 question created, continue button set active (for testing only)
         /*if (quizCounters == 1 && questionCounters == 2)
             allQuestionsCreated = true;*/
+        allQuestionsCreated = true;
         if (allQuestionsCreated)
             continueButton.SetActive(true);
     }
@@ -102,6 +103,7 @@ public class CustomQuestion : MonoBehaviour
 
     public void backButton()
     {
+        Destroy(GameObject.Find("MainMenuScript"));
         PhotonNetwork.LoadLevel("Main Menu");
     }
     private void PostToDatabase()

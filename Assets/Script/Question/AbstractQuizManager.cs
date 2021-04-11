@@ -41,6 +41,7 @@ abstract public class AbstractQuizManager : MonoBehaviour
         SetAnswers();
     }
     abstract public void SetAnswers();
+    abstract public void checkAns();
     public int getNumCorrect()
     {
         return numCorrect;

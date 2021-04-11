@@ -22,6 +22,7 @@ public class LevelSelector : MonoBehaviour
    
    public void backButton()
     {
+        Destroy(GameObject.Find("MainMenuScript"));
         PhotonNetwork.LeaveRoom();
     }
     void OnLeftRoom()

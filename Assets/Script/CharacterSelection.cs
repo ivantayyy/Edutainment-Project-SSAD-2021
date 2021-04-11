@@ -14,18 +14,15 @@ public class CharacterSelection : MonoBehaviour
     public GameObject[] readyText;
     public GameObject startButton;
     private bool readyState = false;
-    private bool isMultiplayer;
     private GameObject mainMenuScript;
+    private int mode;
     public GameObject displayText;
-    private bool isCustom;
 
     private void Awake()
     {
         //find do not destroy object and get values
         mainMenuScript = GameObject.Find("MainMenuScript");
-        isCustom = mainMenuScript.GetComponent<MainMenu>().isCustom;
-        isMultiplayer = mainMenuScript.GetComponent<MainMenu>().isMultiplayer;
-        Debug.Log("is multi = " + isMultiplayer);
+        mode = mainMenuScript.GetComponent<MainMenu>().mode;
     }
     public void Start()
     {
@@ -34,7 +31,7 @@ public class CharacterSelection : MonoBehaviour
         //playerProperties.Add("PlayerReady", readyState);
 
 
-        if (isMultiplayer || isCustom)
+        if (mode == 1 || mode == 2)
         {
             for (int i = 0; i < PhotonNetwork.playerList.Length; i++)
             {
@@ -47,7 +44,7 @@ public class CharacterSelection : MonoBehaviour
     }
     public void Update()
     {
-        if (isMultiplayer || isCustom)
+        if (mode == 1 || mode == 2)
         {
             if (allPlayersReady() && PhotonNetwork.isMasterClient)
             {
@@ -87,25 +84,25 @@ public class CharacterSelection : MonoBehaviour
     public void aPress()
     {
         sel.selection = "alexis";
-        playerProperties["SelCharacter"]="alexis";
-        PhotonNetwork.player.SetCustomProperties(playerProperties);
+        //playerProperties["SelCharacter"]="alexis";
+        //PhotonNetwork.player.SetCustomProperties(playerProperties);
         
     }
     public void cPress()
     {
         sel.selection = "chubs";
-        playerProperties["SelCharacter"] = "chubs";
-        PhotonNetwork.player.SetCustomProperties(playerProperties);
+        //playerProperties["SelCharacter"] = "chubs";
+        //PhotonNetwork.player.SetCustomProperties(playerProperties);
     }
     public void jPress()
     {
         sel.selection = "john";
-        playerProperties["SelCharacter"] = "john";
-        PhotonNetwork.player.SetCustomProperties(playerProperties);
+        //playerProperties["SelCharacter"] = "john";
+        //PhotonNetwork.player.SetCustomProperties(playerProperties);
     }
     public void startGame()
     {
-        if (!isMultiplayer && !isCustom)
+        if (mode == 0)
         {
             RoomOptions roomOptions = new RoomOptions();
             roomOptions.maxPlayers = 2;
@@ -126,7 +123,7 @@ public class CharacterSelection : MonoBehaviour
     }
     public void readyClick()
     {
-        if (isMultiplayer || isCustom)
+        if (mode == 1 || mode == 2)
         {
             playerProperties["PlayerReady"] = true;
             PhotonNetwork.player.SetCustomProperties(playerProperties);
@@ -150,6 +147,9 @@ public class CharacterSelection : MonoBehaviour
     }
     public void backButton()
     {
+        if(mode == 1|| mode == 2)
+            PhotonNetwork.LeaveRoom();
+        Destroy(GameObject.Find("MainMenuScript"));
         PhotonNetwork.LoadLevel("Main Menu");
     }
 
