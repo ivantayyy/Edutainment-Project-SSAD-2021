@@ -20,7 +20,7 @@ public class InitUser
     public Scores multiPlayer;
     public Scores singlePlayer;
     public Scores customPlayer;
-
+    public List<string> assignments;
 
 
     public InitUser()
@@ -39,6 +39,8 @@ public class InitUser
         this.singlePlayer.init();
         this.customPlayer = new Scores();
         this.customPlayer.init();
+        this.assignments = new List<string>();
+        this.assignments.Add("NONE");
     }
 
 }

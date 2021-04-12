@@ -44,5 +44,10 @@ public class UIManager : MonoBehaviour
         loginUI.SetActive(false);
         registerUI.SetActive(false);
     }
-    
+
+    public void backButton()
+    {
+        clearscreen();
+        loginUI.SetActive(true);
+    }
 }

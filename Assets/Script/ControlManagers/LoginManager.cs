@@ -224,20 +224,12 @@ public class LoginManager : MonoBehaviour
         }
         else
         {
-            UnityEngine.Debug.Log("reached1");
             //Call the register coroutine passing the email, password, and username
             Task<string> messageTask = FirebaseManager.RegisterAsync(emailRegisterField.text, passwordRegisterField.text, usernameRegisterField.text, acctype, classSubscribed);
             string message = await messageTask;
-            UnityEngine.Debug.Log("reached5");
             warningRegisterText.text = message;
         }
     }
-
-
-
-
-    
-
 
     // Update is called once per frame
 
