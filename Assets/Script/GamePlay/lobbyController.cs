@@ -38,7 +38,7 @@ public class lobbyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(PhotonNetwork.room.Name);
+        //Debug.Log(PhotonNetwork.room.Name);
         if (allPlayersReady()&&PhotonNetwork.isMasterClient)
         {
             startButton.SetActive(true);

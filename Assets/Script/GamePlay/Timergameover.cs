@@ -15,7 +15,7 @@ public class Timergameover : MonoBehaviour
     public float enemyscore;
     public float playerscore;
 
-    public Text PlayerScore;
+    public GameObject PlayerScore;
     private PlayerScorescript playerScoreScript;
     private PlayerScorescript player2ScoreScript;
     public GameObject EnemyScore;
@@ -24,8 +24,6 @@ public class Timergameover : MonoBehaviour
 
     private int mode;
     private GameObject mainMenuScript;
-    
-
     public GameObject gameOverUI;
 
     private string GameMode;
@@ -44,11 +42,14 @@ public class Timergameover : MonoBehaviour
         if (mode == 0) //if single player
         {
             // Find the Scorepersec script attached to "EnemyScore"
-            enemyScoreScript = EnemyScore.GetComponent<Scorepersec>();
+            //enemyScoreScript = EnemyScore.GetComponent<Scorepersec>();
+            enemyscore = playerScoreScript.enemyScore;
             GameMode = "singlePlayer";
         }
         else//multiplayer
         {
+            string score = playerScoreScript.player2ScoreText.text;
+            enemyscore = float.Parse(score.Substring(15,2));
             GameMode = "multiPlayer";
         }
   
@@ -56,11 +57,23 @@ public class Timergameover : MonoBehaviour
     
     void Update()
     {
-        playerscore = playerScoreScript.scoreValue;
+        //playerscore = (float)PhotonPlayer.Find(1).CustomProperties["PlayerScore"];
+        
+        //Debug.Log("playerscore = " + playerscore);
         if (mode == 0) //ifsingle player
-            enemyscore = enemyScoreScript.scoreAmount;
+        {
+            playerscore = playerScoreScript.playerScore;
+            enemyscore = playerScoreScript.enemyScore;
+        }
+            
         else
-            enemyscore = (float)PhotonPlayer.Find(2).CustomProperties["PlayerScore"];
+        {
+            string p1score = playerScoreScript.player1ScoreText.text;
+            playerscore = float.Parse(p1score.Substring(14));
+            string p2score = playerScoreScript.player2ScoreText.text;
+            enemyscore = float.Parse(p2score.Substring(14));
+            Debug.Log("playerscore = " + p1score.Substring(14) + " p2score = " + p2score);
+        }
     }
 
     void countDownTimer()

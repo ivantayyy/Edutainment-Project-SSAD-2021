@@ -2783,7 +2783,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1363874971
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 6443478014243272461, guid: c0dc8ddd6c1100a4d9de3efbe27f64ba,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4237,7 +4237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4473cfc4c945fdc4d91077c59751c94a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreValue: 0
+  playerScore: 0
   MCQ1: {fileID: 1167955719}
   MCQ2: {fileID: 2026504523}
   MCQ3: {fileID: 893377129}
@@ -4245,6 +4245,7 @@ MonoBehaviour:
   SAQ2: {fileID: 2089929381}
   player2ScoreText: {fileID: 1884397018}
   player1ScoreText: {fileID: 1439397950}
+  enemyScore: 0
 --- !u!1 &553402629
 GameObject:
   m_ObjectHideFlags: 0
@@ -5141,7 +5142,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1363874971
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -5768021111311247062, guid: 4bb619df4c47e4e468c3e2a6a1214857,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5312,7 +5313,7 @@ MonoBehaviour:
   finalText: {fileID: 1025734401}
   enemyscore: 0
   playerscore: 0
-  PlayerScore: {fileID: 1439397950}
+  PlayerScore: {fileID: 552700461}
   EnemyScore: {fileID: 100521397}
   gameOverUI: {fileID: 837605193}
 --- !u!1 &654359598
@@ -44145,7 +44146,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1363874971
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 6443478014243272461, guid: c0dc8ddd6c1100a4d9de3efbe27f64ba,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -44545,7 +44546,7 @@ GameObject:
   - component: {fileID: 1439397949}
   - component: {fileID: 1439397948}
   m_Layer: 5
-  m_Name: PlayerScore
+  m_Name: PlayerScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44582,7 +44583,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4473cfc4c945fdc4d91077c59751c94a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreValue: 0
+  playerScore: 0
   MCQ1: {fileID: 1167955719}
   MCQ2: {fileID: 2026504523}
   MCQ3: {fileID: 893377129}
@@ -44590,6 +44591,7 @@ MonoBehaviour:
   SAQ2: {fileID: 2089929381}
   player2ScoreText: {fileID: 0}
   player1ScoreText: {fileID: 0}
+  enemyScore: 0
 --- !u!114 &1439397949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47096,7 +47098,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1363874971
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -5768021111311247062, guid: 4bb619df4c47e4e468c3e2a6a1214857,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -48326,7 +48328,7 @@ GameObject:
   - component: {fileID: 1884397018}
   - component: {fileID: 1884397017}
   m_Layer: 5
-  m_Name: EnemyScore
+  m_Name: EnemyScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48784,7 +48786,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1363874971
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -5768021111311247062, guid: 4bb619df4c47e4e468c3e2a6a1214857,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

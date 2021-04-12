@@ -711,7 +711,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &522032791
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1346,7 +1346,7 @@ GameObject:
   - component: {fileID: 1221148426}
   - component: {fileID: 1221148425}
   m_Layer: 0
-  m_Name: Button
+  m_Name: backButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2211,6 +2211,7 @@ MonoBehaviour:
   - {fileID: 2084487176}
   - {fileID: 1394068705}
   startButton: {fileID: 1604235210}
+  readyButton: {fileID: 522032790}
   displayText: {fileID: 1324911349}
 --- !u!1 &1853207668
 GameObject:

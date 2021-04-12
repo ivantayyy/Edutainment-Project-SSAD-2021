@@ -76,7 +76,7 @@ public class LoadQuestions : MonoBehaviour
         //Your Function You Want to Call
         Debug.Log("late start");
         getAllQuestions();
-        StartCoroutine(assignQuestions(1f));
+        StartCoroutine(assignQuestions(2f));
     }
     IEnumerator assignQuestions(float waitTime)
     {
@@ -100,7 +100,7 @@ public class LoadQuestions : MonoBehaviour
             //Debug.Log("question " + i.ToString() + questions.Question + " " + questions.Answer + " " + questions.Options + " ");
             QandAList[i - 1] = new QuestionAndAnswer(questions.Question, questions.Options.Split(';'), questions.Answer);
             //Debug.Log("REACHED" + QandAList[i - 1].Questions); // checking if QAndAList values were added
-            //Debug.Log(QandAList[i - 1].Questions + " options length =" + QandAList[i - 1].Answers.Length);
+            Debug.Log(QandAList[i - 1].Questions + " options length =" + QandAList[i - 1].Answers.Length);
             if (QandAList[i - 1].Answers.Length == 1) //change this when QuestionAndAnswer type changes
             {
                 SAQList.Add(QandAList[i - 1]);
@@ -141,7 +141,7 @@ public class LoadQuestions : MonoBehaviour
         Debug.Log("button");
         Debug.Log("mode = " + mode);
         //load all questions from DB
-        if (mode == 1)
+        if (mode == 0 || mode ==1)
         {
             for (int i = 1; i < 16; i++)
             {

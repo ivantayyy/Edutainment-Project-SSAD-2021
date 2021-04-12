@@ -49,7 +49,7 @@ public class MainMenu : MonoBehaviour
     {
         this.mode = 2;
         Debug.Log("mode = " + mode);
-        PhotonNetwork.LoadLevel("CustomLobbyCreation");
+        PhotonNetwork.LoadLevel("CustomLobby");
     }
     public void mainUI()
     {

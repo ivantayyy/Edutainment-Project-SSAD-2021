@@ -10,6 +10,7 @@ public class LevelSelector : MonoBehaviour
 
     async void Start ()
     {
+
         var levelReachedTask = FirebaseManager.getUserMaxLevelReachedAsync("singlePlayer");
         int levelReached = await levelReachedTask;
         //Debug

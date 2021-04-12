@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class SelectedCharacter : MonoBehaviour
 {
-    public string selection;
+    public string selection = null;
     
     private void Awake()
     {

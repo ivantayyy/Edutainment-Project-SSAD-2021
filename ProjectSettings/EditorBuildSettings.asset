@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Login.unity
     guid: 29c4134cba2cd6f44bd21d001261c3fc
   - enabled: 1
@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level_select.unity
     guid: affbb90022415554eb2a81dca389f675
+  - enabled: 1
+    path: Assets/Scenes/CustomLobby.unity
+    guid: 99c96a027c2414b428f6637dd04fdfd6
   - enabled: 1
     path: Assets/Scenes/CustomLobbyCreation.unity
     guid: 8651d680397e58048981a09bcae9da5f

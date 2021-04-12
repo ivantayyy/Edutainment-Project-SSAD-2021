@@ -13,6 +13,7 @@ public class CharacterSelection : MonoBehaviour
     public GameObject[] playerText;
     public GameObject[] readyText;
     public GameObject startButton;
+    public GameObject readyButton;
     private bool readyState = false;
     private GameObject mainMenuScript;
     private int mode;
@@ -26,9 +27,23 @@ public class CharacterSelection : MonoBehaviour
         //find do not destroy object and get values
         mainMenuScript = GameObject.Find("MainMenuScript");
         mode = mainMenuScript.GetComponent<MainMenu>().mode;
+        Debug.Log("mode = " + mode);
+        if (mode == 1 || mode == 2)
+        {
+            for (int i = 0; i < PhotonNetwork.playerList.Length; i++)
+            {
+
+                playerProperties["PlayerReady"] = false;
+                PhotonNetwork.player.SetCustomProperties(playerProperties);
+               
+            }
+        }
+  
+
     }
     public void Start()
     {
+       
         //scenes will sync for all photon players
         PhotonNetwork.automaticallySyncScene = true;
 
@@ -44,20 +59,19 @@ public class CharacterSelection : MonoBehaviour
         //Set player name
         PhotonNetwork.player.NickName = username;
 
-        if (mode == 1 || mode == 2)
-        {
-            for (int i = 0; i < PhotonNetwork.playerList.Length; i++)
-            {
-                
-                playerProperties["PlayerReady"] = false;
-                PhotonNetwork.player.SetCustomProperties(playerProperties);
-            }
-        }
-
+        
 
     }
     public void Update()
     {
+        checkInputs();
+    }
+
+    public void checkInputs()
+    {
+        if (sel.selection != "")
+            readyButton.SetActive(true);
+
         if (mode == 1 || mode == 2)
         {
             if (allPlayersReady() && PhotonNetwork.isMasterClient)
@@ -96,6 +110,7 @@ public class CharacterSelection : MonoBehaviour
                 break;
         }
     }
+
     public void aPress()
     {
         sel.selection = "alexis";

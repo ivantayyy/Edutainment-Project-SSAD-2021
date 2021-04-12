@@ -7,7 +7,7 @@ using Hashtable = ExitGames.Client.Photon.Hashtable;
 public class PlayerScorescript : MonoBehaviour
 
 {
-    public int scoreValue = 0;
+    public int playerScore = 0;
     public AbstractQuizManager MCQ1;
     public AbstractQuizManager MCQ2;
     public AbstractQuizManager MCQ3;
@@ -18,7 +18,7 @@ public class PlayerScorescript : MonoBehaviour
 
     public Text player2ScoreText;
     public Text player1ScoreText;
-    private float scoreAmount;
+    public float enemyScore=0;
     private float pointIncreased;
     private float timer;
     private static bool isWaiting; // reference to variable in Enemy script
@@ -32,18 +32,20 @@ public class PlayerScorescript : MonoBehaviour
     private int mode;
     private GameObject mainMenuScript;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        scoreAmount = 0f;
-        pointIncreased = 1f;
-
         //get is multiplayer bool
         mainMenuScript = GameObject.Find("MainMenuScript");
         mode = mainMenuScript.GetComponent<MainMenu>().mode;
-    
+        Debug.Log("mode = " + mode);
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+        enemyScore = 0f;
+        pointIncreased = 1f;
 
-        playerProperties.Add("PlayerScore", scoreValue);
+        playerProperties.Add("PlayerScore", playerScore);
         PhotonNetwork.player.SetCustomProperties(playerProperties);
     }
 
@@ -51,7 +53,7 @@ public class PlayerScorescript : MonoBehaviour
     void Update()
     {
         if(mode == 0)
-            enemyScore();
+            calculateEnemyScore();
 
         updatePlayerScore();      
         displayScore();
@@ -67,7 +69,7 @@ public class PlayerScorescript : MonoBehaviour
             }
             else
             {
-                scoreValue += 3;
+                playerScore += 3;
                 MCQ1Score += 3;
             }
         }
@@ -80,7 +82,7 @@ public class PlayerScorescript : MonoBehaviour
             }
             else
             {
-                scoreValue += 3;
+                playerScore += 3;
                 MCQ2Score += 3;
             }
         }
@@ -92,7 +94,7 @@ public class PlayerScorescript : MonoBehaviour
             }
             else
             {
-                scoreValue += 3;
+                playerScore += 3;
                 MCQ3Score += 3;
             }
         }
@@ -104,7 +106,7 @@ public class PlayerScorescript : MonoBehaviour
             }
             else
             {
-                scoreValue += 3;
+                playerScore += 3;
                 SAQ1Score += 3;
             }
         }
@@ -116,32 +118,32 @@ public class PlayerScorescript : MonoBehaviour
             }
             else
             {
-                scoreValue += 3;
+                playerScore += 3;
                 SAQ2Score += 3;
             }
         }
-        playerProperties["PlayerScore"] = scoreValue;
+        playerProperties["PlayerScore"] = playerScore;
         PhotonNetwork.player.SetCustomProperties(playerProperties);
-        player1ScoreText.text = $"PlayerScore: {scoreValue}";
+        //player1ScoreText[0].text = $"PlayerScore: {playerScore}";
         
     }
 
-    public void enemyScore()
+    public void calculateEnemyScore()
     {
         isWaiting = Enemy.isWaiting;
         timer += Time.deltaTime;
-        player2ScoreText.text = $"EnemyScore: {(int)scoreAmount}";
+        player2ScoreText.text = $"EnemyScore: {(int)enemyScore}";
         if (timer > 8f)
         {
             if (isWaiting == true) // only increment if enemy is waiting at quiz
             {
-                if (scoreAmount == 15)
+                if (enemyScore == 15)
                 {
-                    scoreAmount = 15;
+                    enemyScore = 15;
                 }
                 else
                 {
-                    scoreAmount += pointIncreased;
+                    enemyScore += pointIncreased;
                     player2ScoreText.text = player2ScoreText.ToString();
                 }
             }
@@ -152,13 +154,30 @@ public class PlayerScorescript : MonoBehaviour
     {
         if(mode == 1 || mode == 2)//take score from here
         {
-            player1ScoreText.text = $"Player1 Score: {PhotonPlayer.Find(1).CustomProperties["PlayerScore"]}";
-            player2ScoreText.text = $"Player2 Score: {PhotonPlayer.Find(2).CustomProperties["PlayerScore"]}";
+            
+            for (int i = 0; i < PhotonNetwork.playerList.Length; i++)
+            {
+                if(PhotonNetwork.playerList[i].isMasterClient)
+                {
+                    player1ScoreText.text = $"Player1 Score: {(int)PhotonNetwork.playerList[i].CustomProperties["PlayerScore"]}";
+                }
+                else
+                    player2ScoreText.text = $"Player2 Score: {PhotonNetwork.playerList[i].CustomProperties["PlayerScore"]}";
+                //player1ScoreText.text = $"{PhotonNetwork.playerList[i].NickName} Score: {PhotonNetwork.playerList[i].CustomProperties["PlayerScore"]}";  
+            }
+            string p1score = player1ScoreText.text;
+            float playerscore = float.Parse(p1score.Substring(15, 2));
+            string p2score = player2ScoreText.text;
+            float enemyscore = float.Parse(p2score.Substring(15, 2));
+            Debug.Log("playerscore = " + playerscore + " p2score = " + enemyscore);
+
+            //player1ScoreText.text = $"Player1 Score: {PhotonPlayer.Find(1).CustomProperties["PlayerScore"]}";
+            //player2ScoreText.text = $"Player2 Score: {PhotonPlayer.Find(2).CustomProperties["PlayerScore"]}";
         }
         else
         {
-            player1ScoreText.text = $"PlayerScore: {scoreValue}";
-            player2ScoreText.text = $"EnemyScore: {(int)scoreAmount}";
+            player1ScoreText.text = $"PlayerScore: {playerScore}";
+            player2ScoreText.text = $"EnemyScore: {(int)enemyScore}";
         }
     }
 
