@@ -25,6 +25,11 @@ public class MainMenu : MonoBehaviour
         }
         
     }
+
+    public async void updateButton()
+    {
+        FirebaseManager.updateScoreOnDatabaseAsync("singlePlayer", "LFd7xpb0fWVY1rC0L9H7AOrplFh2", 4, 150F, 15F);
+    }
     private void OnConnectedToMaster()//when connected to photon netwoek
     {
         PhotonNetwork.JoinLobby(TypedLobby.Default);//define lobby tyoe of photon
