@@ -27,15 +27,14 @@ public class CharacterSelection : MonoBehaviour
         //find do not destroy object and get values
         mainMenuScript = GameObject.Find("MainMenuScript");
         mode = mainMenuScript.GetComponent<MainMenu>().mode;
-        Debug.Log("mode = " + mode);
-        if (mode == 1 || mode == 2)
+
+        if (mode == 1 || mode == 2)//if multiplayer or custom mode
         {
+            //set all player's playerReady property to false
             for (int i = 0; i < PhotonNetwork.playerList.Length; i++)
             {
-
                 playerProperties["PlayerReady"] = false;
                 PhotonNetwork.player.SetCustomProperties(playerProperties);
-               
             }
         }
   
@@ -58,10 +57,8 @@ public class CharacterSelection : MonoBehaviour
         //Photon Netwrok is a static class
         //Set player name
         PhotonNetwork.player.NickName = username;
-
-        
-
     }
+
     public void Update()
     {
         checkInputs();
@@ -69,20 +66,21 @@ public class CharacterSelection : MonoBehaviour
 
     public void checkInputs()
     {
+        //ready button is hidden until player chooses a character
         if (sel.selection != "")
             readyButton.SetActive(true);
 
-        if (mode == 1 || mode == 2)
+        if (mode == 1 || mode == 2) // if multiplayer or custom game
         {
+            //if all players are ready and player is master client, show start button
             if (allPlayersReady() && PhotonNetwork.isMasterClient)
             {
                 startButton.SetActive(true);
             }
-            //Check both are ready
+            //check when a player is ready and display ready text under name
             for (int i = 0; i < PhotonNetwork.playerList.Length; i++)
             {
                 playerText[i].SetActive(true);
-                //Debug.Log("character selection "+ PhotonNetwork.player.ID);
                 if ((bool)PhotonNetwork.playerList[i].CustomProperties["PlayerReady"])
                 {
                     readyText[PhotonNetwork.playerList[i].ID - 1].SetActive(true);
@@ -93,6 +91,7 @@ public class CharacterSelection : MonoBehaviour
                 }
             }
         }
+        //display character selection choice on screen
         switch (sel.selection)
         {
             case "alexis":
@@ -111,42 +110,36 @@ public class CharacterSelection : MonoBehaviour
         }
     }
 
+    //save character selection when player clicks button corresponding to the character
     public void aPress()
     {
-        sel.selection = "alexis";
-        //playerProperties["SelCharacter"]="alexis";
-        //PhotonNetwork.player.SetCustomProperties(playerProperties);
-        
+        sel.selection = "alexis";    
     }
     public void cPress()
     {
         sel.selection = "chubs";
-        //playerProperties["SelCharacter"] = "chubs";
-        //PhotonNetwork.player.SetCustomProperties(playerProperties);
     }
     public void jPress()
     {
         sel.selection = "john";
-        //playerProperties["SelCharacter"] = "john";
-        //PhotonNetwork.player.SetCustomProperties(playerProperties);
     }
 
 
     public void startGame()
     {
-        if (mode == 0)
+        if (mode == 0)// if single player
         {
+            //create and join room for single player
             RoomOptions roomOptions = new RoomOptions();
-            roomOptions.maxPlayers = 2;
-            PhotonNetwork.JoinOrCreateRoom("single", roomOptions, TypedLobby.Default);
+            PhotonNetwork.CreateRoom(null, roomOptions, TypedLobby.Default);
             PhotonNetwork.LoadLevel("Level_select");
         }
-        else
+        else //if multiplayer or custom game
         {
+            //load Level_select scene
             if (PhotonNetwork.isMasterClient)
             {
                 Debug.Log("load level");
-
                 PhotonNetwork.LoadLevel("Level_select");
             }
             
@@ -156,8 +149,9 @@ public class CharacterSelection : MonoBehaviour
 
     public void readyClick()
     {
-        if (mode == 1 || mode == 2)
+        if (mode == 1 || mode == 2)// if multiplayer or custom
         {
+            //set player properties "playerReady" to true
             playerProperties["PlayerReady"] = true;
             PhotonNetwork.player.SetCustomProperties(playerProperties);
         }
@@ -167,6 +161,7 @@ public class CharacterSelection : MonoBehaviour
     }
     private bool allPlayersReady()
     {
+        //check if all players have their player properties "player ready" to be true
         {
             foreach (var photonPlayer in PhotonNetwork.playerList)
             {
@@ -180,7 +175,8 @@ public class CharacterSelection : MonoBehaviour
     }
     public void backButton()
     {
-        if(mode == 1|| mode == 2)
+        //return user to main menu and leave photon network room if multiplayer or custom
+        if (mode == 1|| mode == 2)
             PhotonNetwork.LeaveRoom();
         Destroy(GameObject.Find("MainMenuScript"));
         PhotonNetwork.LoadLevel("Main Menu");

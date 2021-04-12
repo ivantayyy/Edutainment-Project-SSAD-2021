@@ -1,22 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TeacherMenuUIManager : MonoBehaviour
 {
     public static TeacherMenuUIManager instance;
 
     [Header("Teacher Main Menu UIs")]
+    public bool isTeacher = false;
     public GameObject SummaryReportUI;
     public GameObject StudentSummaryReportUI;
     public GameObject TeacherMenuUI;
     void Start()
     {
+        
         if(instance == null)
         {
             instance = this;
             clearscreen();
             TeacherMenuUI.SetActive(true);
+            DontDestroyOnLoad(transform.gameObject);
+            isTeacher = true;
         }
     }
 
@@ -41,5 +46,9 @@ public class TeacherMenuUIManager : MonoBehaviour
     {
         clearscreen();
         StudentSummaryReportUI.SetActive(true);
+    }
+    public void createAssignment()
+    {
+        SceneManager.LoadScene("CustomLobbyCreation");
     }
 }
