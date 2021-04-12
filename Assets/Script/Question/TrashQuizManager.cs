@@ -7,7 +7,7 @@ public class TrashQuizManager : AbstractQuizManager
 {
     public GameObject inputField;
     private string inputAns;
-    private bool correct = false;
+    public bool correct = false;
     public QuestionAndAnswer[] questions = new QuestionAndAnswer[4];
 
     // Start is called before the first frame update
@@ -53,17 +53,18 @@ public class TrashQuizManager : AbstractQuizManager
     {
         //check answer with inputfield
         inputAns = inputField.GetComponent<InputField>().text;
+       
         if (inputAns.CompareTo(QnA[currentQuestion].CorrectAnswer) == 0)
         {
-            Debug.Log(inputAns);
-            Debug.Log(QnA[currentQuestion].Answers[0]);
             correct = true;
         }
-        correct = false;
+        else
+            correct = false;
     }
 
     public override void SetAnswers()
     {
+        checkAns();
         //if answer correct, set button isCorrect to true
         if (correct)
         {

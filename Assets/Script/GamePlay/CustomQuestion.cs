@@ -32,6 +32,7 @@ public class CustomQuestion : MonoBehaviour
     public Dropdown selectQuestion;
     public Dropdown selectQuiz;
     public GameObject continueButton;
+    public GameObject classAssign;
 
     public int quizCounters = 1;
     public int questionCounters = 1;
@@ -46,20 +47,21 @@ public class CustomQuestion : MonoBehaviour
     int questionCounterHolder = -1;
     bool allQuestionsCreated=false;
 
-
+    private GameObject teacherMenuUIScript;
+    private bool isTeacher;
     MCQData questionData = new MCQData();
-    /*private void Awake()
+    private void Awake()
     {
+        teacherMenuUIScript = GameObject.Find("TeacherMenuUIManager");
+        isTeacher = teacherMenuUIScript.GetComponent<TeacherMenuUIManager>().isTeacher;
         PhotonNetwork.ConnectUsingSettings("0.2");
+        if (isTeacher)
+            classAssign.SetActive(true);
     }
 
-    private void OnConnectedToMaster()
-    {
-        PhotonNetwork.JoinLobby(TypedLobby.Default);
-        Debug.Log("Connected");
-    }*/
     private void Start()
     {
+
         string userData = "{\"email\":\"" + userEmail + "\",\"password\":\"" + userPassword + "\",\"returnSecureToken\":true}";
         RestClient.Post<SignResponse>("https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=" + AuthKey, userData).Then(
             response =>
@@ -80,6 +82,14 @@ public class CustomQuestion : MonoBehaviour
         allQuestionsCreated = true;
         if (allQuestionsCreated)
             continueButton.SetActive(true);
+        if (string.Compare(questionTypeSelection.options[questionTypeSelection.value].text, "Short Answer")==0) 
+        {
+            getOptions.interactable = false;
+        }
+        else
+        {
+            getOptions.interactable = true;
+        }
     }
     public void nextScene()
     {
