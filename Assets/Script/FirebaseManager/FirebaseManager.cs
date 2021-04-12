@@ -106,7 +106,7 @@ public static class FirebaseManager
             return message;
         }
 
-        if (LoginTask == null)
+        if (LoginTask.Exception == null)
         {
             User = LoginTask.Result;
             //User is now logged in
