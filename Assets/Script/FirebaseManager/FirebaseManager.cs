@@ -73,8 +73,6 @@ public static class FirebaseManager
         }
         catch (Exception err)
         {
-            Debug.Log("reached3");
-            Debug.Log($"Failed to register task with {LoginTask.Exception}");
             FirebaseException firebaseEx = LoginTask.Exception.GetBaseException() as FirebaseException;
             Debug.Log("LoginTask in FirebaseManager.LoginAsync fked up");
             message = $"Failed to register task with {LoginTask.Exception}";
@@ -162,7 +160,7 @@ public static class FirebaseManager
     //updates Score
     async public static Task updateScoreOnDatabaseAsync(string gamemode, string userid, int justFinishedlevel,float new_timeTaken,float new_points)
     {
-        UnityEngine.Debug.Log("reached a");
+        UnityEngine.Debug.Log("reached updateScoreOnDatabaseAsync");
         UnityEngine.Debug.Log(userid);
 
         Scores DBScore = new Scores();
@@ -170,6 +168,7 @@ public static class FirebaseManager
         //implement max function next time
         var scoreTask = DBreference.Child("Student").Child(userid).Child(gamemode).GetValueAsync();
         DataSnapshot playerScore = await scoreTask;
+        UnityEngine.Debug.Log("Task returned successfully");
 
         if (scoreTask.IsFaulted)
         {
@@ -202,16 +201,26 @@ public static class FirebaseManager
             {
                 Debug.Log($"timetaken for stage for updating function {time}");
             }
-
+            Debug.Log($"Current stage in database is {curSubStage}");
             //If player has cleared his max substage
-            if (justFinishedlevel == DBScore.curSubstage)
+            if (justFinishedlevel == curSubStage)
             {
+                Debug.Log($"User cleared his max substage {curSubStage}");
                 //add  1 attempt to curr stage then add 0 to new stage
-                DBScore.attempts[justFinishedlevel - 1] = DBScore.attempts[justFinishedlevel - 1] + 1;
+                DBScore.attempts[justFinishedlevel - 2] += 1;
+                //Add another element for new stage
                 DBScore.attempts.Add(0);
-                DBScore.points.Add(new_points);
-                DBScore.timeTaken.Add(new_timeTaken);
 
+                DBScore.points[justFinishedlevel - 2] = new_points;
+                DBScore.points.Add(0);
+
+                DBScore.timeTaken[justFinishedlevel - 2] = new_timeTaken;
+                DBScore.timeTaken.Add(0);
+
+                foreach(int attempt in DBScore.attempts)
+                {
+                    Debug.Log(attempt);
+                }
                 //calculate total points
                 float new_totalPoints = 0;
                 foreach (float StagePoint in points)
@@ -219,7 +228,7 @@ public static class FirebaseManager
                     new_totalPoints += StagePoint;
                 }
                 DBScore.totalPoints = new_totalPoints;
-
+                Debug.Log($"Total Points for this user is {DBScore.totalPoints}");
                 //increment curSubstage to unlock next level
                 DBScore.curSubstage += 1;
             }
@@ -252,18 +261,19 @@ public static class FirebaseManager
                     DBScore.attempts[justFinishedlevel - 1] = DBScore.attempts[justFinishedlevel - 1] + 1;
 
                 }
+            }
 
-                //update the database
-                string updatedUserScore = JsonConvert.SerializeObject(DBScore);
-                DBreference.Child("Student").Child(userid).Child(gamemode).SetRawJsonValueAsync(updatedUserScore);
-
-                //DEBUG
-                UnityEngine.Debug.Log(curSubStage);
-                UnityEngine.Debug.Log(totalPoints);
-                UnityEngine.Debug.Log(attempts[justFinishedlevel - 1]);
-                UnityEngine.Debug.Log(points[justFinishedlevel - 1]);
-                UnityEngine.Debug.Log(timeTaken[justFinishedlevel - 1]);
-                UnityEngine.Debug.Log("reached z");
+            //update the database
+            string updatedUserScore = JsonConvert.SerializeObject(DBScore);
+            var Task = DBreference.Child("Student").Child(userid).Child(gamemode).SetRawJsonValueAsync(updatedUserScore);
+            await Task;
+            if (Task.IsFaulted)
+            {
+                Debug.Log("Unable to update user");
+            }
+            else
+            {
+                Debug.Log("User's score is successfully updated");
             }
         }
 

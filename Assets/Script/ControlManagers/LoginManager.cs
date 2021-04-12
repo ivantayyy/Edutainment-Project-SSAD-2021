@@ -46,6 +46,8 @@ public class LoginManager : MonoBehaviour
         PhotonNetwork.player.NickName = username;
     }
 
+   
+
     //Function for the login button
     public async void LoginButton()
     {
