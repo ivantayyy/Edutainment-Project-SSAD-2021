@@ -66,12 +66,10 @@ public class LeaderBoardManager : MonoBehaviour
             {
                 totalPoints = user.multiPlayer.totalPoints;
             }
-            UnityEngine.Debug.Log($"{username} sucessfully loaded into leaderboard {gameMode} with {totalPoints.ToString()}" );
-
             //Instantiate new scoreboard elements
             GameObject scoreBoardElement = Instantiate(scoreElement, scoreboardContent);
             scoreBoardElement.GetComponent<ScoreElement>().NewScoreElement(username, totalPoints);
-            UnityEngine.Debug.Log($"instantiating {username} on {gameMode} leaderboard");
+            UnityEngine.Debug.Log($"instantiating {username} on {gameMode} leaderboard with {totalPoints}");
         }
     }
 
