@@ -38,7 +38,7 @@ public class LoadQuestions : MonoBehaviour
     private string customDBURL = "https://fir-auth-9c8cd-default-rtdb.firebaseio.com/CustomLobbyQuestions/";
     private string AuthKey = "AIzaSyCp3-tVb1biSiZ4fASGQ_gUit-IZhko5mM";
     private string teacherPassword = "password123";
-    private string teacherEmail = "teacher8@gmail.com";
+    private string teacherEmail = "teacher123@gmail.com";
 
     public static fsSerializer serializer = new fsSerializer();
 
