@@ -25,8 +25,8 @@ public class CharacterSelection : MonoBehaviour
     private void Awake()
     {
         //find do not destroy object and get values
-        mainMenuScript = GameObject.Find("MainMenuManager");
-        mode = mainMenuScript.GetComponent<MainMenuManager>().mode;
+        mainMenuScript = GameObject.Find("MainMenuScript");
+        mode = mainMenuScript.GetComponent<MainMenu>().mode;
 
         if (mode == 1 || mode == 2)//if multiplayer or custom mode
         {

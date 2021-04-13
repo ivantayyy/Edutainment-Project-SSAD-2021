@@ -19,8 +19,8 @@ public class GameManager : MonoBehaviour
     private int mode;
     private void Awake()
     {
-        mainMenuScript = GameObject.Find("MainMenuManager");
-        mode = mainMenuScript.GetComponent<MainMenuManager>().mode;
+        mainMenuScript = GameObject.Find("MainMenuScript");
+        mode = mainMenuScript.GetComponent<MainMenu>().mode;
         sel = GameObject.Find("SelectedCharacter");
         SelectedCharacter s = sel.GetComponent<SelectedCharacter>();
         this.selection = s.selection;

@@ -32,8 +32,8 @@ public class Timergameover : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        mainMenuScript = GameObject.Find("MainMenuManager");
-        mode = mainMenuScript.GetComponent<MainMenuManager>().mode;
+        mainMenuScript = GameObject.Find("MainMenuScript");
+        mode = mainMenuScript.GetComponent<MainMenu>().mode;
 
         countDownTimer();
         
