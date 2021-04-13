@@ -389,11 +389,56 @@ public static class FirebaseManager
         }
     }
 
+    async public static Task updateAssignmentScoreAsync(string userid, string assignmentID, int newPoints)
+    {
+        
+        AssignmentResults DBResult = new AssignmentResults();
+        var resultTask = DBreference.Child("AssignmentScore").Child(assignmentID).Child(userid).GetValueAsync();
+        DataSnapshot playerScore = await resultTask;
+        Debug.Log("get assignment score");
+        string DBPlayerScorejsonString = playerScore.GetRawJsonValue();
+        // UnityEngine.Debug.Log(DBPlayerScorejsonString);
+        if(DBPlayerScorejsonString==null)
+        {
+            DBResult.attempts = 1;
+            DBResult.points.Add(newPoints);
+            DBResult.maxPoint = newPoints;
+            
+        }
+        else
+        {
+            DBResult = JsonConvert.DeserializeObject<AssignmentResults>(DBPlayerScorejsonString);
 
-    /*
-     * This Function Gets the Users' Max Level(maximum uncleared stage) from the database
-     */
-    async public static Task<int> getUserMaxLevelReachedAsync(string gamemode)
+            int attempts = DBResult.attempts;
+            List<int> points = DBResult.points;
+
+            DBResult.attempts++;
+            DBResult.points.Add(newPoints);
+
+            if (DBResult.points.Count == 0)
+                DBResult.maxPoint = newPoints;
+            else
+            {
+                foreach (float point in DBResult.points)
+                {
+                    if (newPoints > point)
+                        DBResult.maxPoint = newPoints;
+                }
+            }
+        }
+        
+        string updatedUserScore = JsonConvert.SerializeObject(DBResult);
+        var Task = DBreference.Child("AssignmentScore").Child(assignmentID).Child(userid).SetRawJsonValueAsync(updatedUserScore);
+        await Task;
+        Debug.Log("updated assignment score");
+
+
+    }
+
+        /*
+         * This Function Gets the Users' Max Level(maximum uncleared stage) from the database
+         */
+        async public static Task<int> getUserMaxLevelReachedAsync(string gamemode)
     {
         UnityEngine.Debug.Log("reached");
         string uid = PhotonNetwork.player.UserId;

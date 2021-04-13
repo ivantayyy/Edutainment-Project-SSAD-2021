@@ -26,13 +26,9 @@ public class MainMenu : MonoBehaviour
 
     public async void Start()
     {
-        string uid = PhotonNetwork.player.UserId;
-        assignmentList = await FirebaseManager.getAssignmentName(uid);
-        foreach(string i in assignmentList)
-        {
-            Debug.Log("main");
-            Debug.Log("get assignment + uid = " + uid +" "+i);
-        }
+        //string uid = PhotonNetwork.player.UserId;
+        //await FirebaseManager.updateAssignmentScoreAsync(uid,"AssignmentID",12);
+
     }
 
     private void OnConnectedToMaster()//when connected to photon netwoek
