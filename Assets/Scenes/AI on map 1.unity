@@ -693,6 +693,7 @@ MonoBehaviour:
   ScoreTxt: {fileID: 2046710360}
   completed: 0
   inputField: {fileID: 1740452164}
+  correct: 0
 --- !u!1 &52744825
 GameObject:
   m_ObjectHideFlags: 0
@@ -2707,7 +2708,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6.375, y: 5.75}
+    oldSize: {x: 6.6666665, y: 6.6666665}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2733,7 +2734,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6.375, y: 5.75}
+    oldSize: {x: 6.6666665, y: 6.6666665}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -2781,8 +2782,7 @@ SpriteRenderer:
   m_SortingLayerID: 1363874971
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 6443478014243272461, guid: c0dc8ddd6c1100a4d9de3efbe27f64ba,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: b9538266561602248b369360b7682423, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -44068,7 +44068,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6.375, y: 5.75}
+    oldSize: {x: 6.6666665, y: 6.6666665}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -44094,7 +44094,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6.375, y: 5.75}
+    oldSize: {x: 6.6666665, y: 6.6666665}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -44142,8 +44142,7 @@ SpriteRenderer:
   m_SortingLayerID: 1363874971
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 6443478014243272461, guid: c0dc8ddd6c1100a4d9de3efbe27f64ba,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: b9538266561602248b369360b7682423, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -49884,6 +49883,7 @@ MonoBehaviour:
   ScoreTxt: {fileID: 2046710360}
   completed: 0
   inputField: {fileID: 1740452164}
+  correct: 0
 --- !u!1 &2110271199
 GameObject:
   m_ObjectHideFlags: 0
