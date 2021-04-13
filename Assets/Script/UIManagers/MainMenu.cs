@@ -19,7 +19,7 @@ public class MainMenu : MonoBehaviour
             Debug.Log("Main Menu Manager instantiated");
             DontDestroyOnLoad(transform.gameObject);
             //connect to photon
-            PhotonNetwork.ConnectUsingSettings(versionName);
+            PhotonNetworkMngr.connectUsingSettings(versionName);
             mainUI();
             instance = this;
         }
@@ -33,7 +33,7 @@ public class MainMenu : MonoBehaviour
     }
     private void OnConnectedToMaster()//when connected to photon netwoek
     {
-        PhotonNetwork.JoinLobby(TypedLobby.Default);//define lobby tyoe of photon
+        PhotonNetworkMngr.joinLobby(TypedLobby.Default);//define lobby tyoe of photon
         Debug.Log("Connected");
     }
     public void singlePlayer()//link to single player button
@@ -42,20 +42,20 @@ public class MainMenu : MonoBehaviour
         this.mode = 0;
         Debug.Log("mode = " + mode);
         //LOAD LEVEL IN PHOTON
-        PhotonNetwork.LoadLevel("ChooseCharacters");
+        PhotonNetworkMngr.loadLevel("ChooseCharacters");
     }
     public void multiPlayer()
     {
         this.mode = 1;
         
         Debug.Log("mode = " + mode);
-        PhotonNetwork.LoadLevel("Multiplayer");
+        PhotonNetworkMngr.loadLevel("Multiplayer");
     }
     public void custom()
     {
         this.mode = 2;
         Debug.Log("mode = " + mode);
-        PhotonNetwork.LoadLevel("CustomLobby");
+        PhotonNetworkMngr.loadLevel("CustomLobby");
     }
     public void mainUI()
     {

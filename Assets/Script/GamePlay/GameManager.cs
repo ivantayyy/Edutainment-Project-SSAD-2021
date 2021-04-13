@@ -37,13 +37,13 @@ public class GameManager : MonoBehaviour
     }
     public void Update()
     {
-        pingText.text = "Ping:" + PhotonNetwork.GetPing();
+        pingText.text = "Ping:" + PhotonNetworkMngr.getPing();
 
     }
 
     public void spawnEnemy()
     {
-        PhotonNetwork.Instantiate(enemy.name, new Vector2(18, 15), Quaternion.identity, 0);
+        PhotonNetworkMngr.instantiatePlayer(enemy.name, new Vector2(18, 15), Quaternion.identity, 0);
     }
     public void spawnPlayer()
     {
@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
             case "alexis":
                 Debug.Log("Spawn Player");
                 random = Random.Range(-1f, 1f);
-                PhotonNetwork.Instantiate(alexis.name, new Vector2(11, 16), Quaternion.identity, 0);  
+                PhotonNetworkMngr.instantiatePlayer(alexis.name, new Vector2(11, 16), Quaternion.identity, 0);  
                 sceneCamera.SetActive(true);
 
                 break;
@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
             case "chubs":
                 Debug.Log("Spawn Player");
                 random = Random.Range(-1f, 1f);
-                PhotonNetwork.Instantiate(chubs.name, new Vector2(17, 15), Quaternion.identity, 0);
+                PhotonNetworkMngr.instantiatePlayer(chubs.name, new Vector2(17, 15), Quaternion.identity, 0);
 
                 sceneCamera.SetActive(true);
                 //character = Instantiate(chubs) as GameObject;
@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
             case "john":
                 Debug.Log("Spawn Player");
                 random = Random.Range(-1f, 1f);
-                PhotonNetwork.Instantiate(john.name, new Vector2(0, 0), Quaternion.identity, 0);
+                PhotonNetworkMngr.instantiatePlayer(john.name, new Vector2(0, 0), Quaternion.identity, 0);
                 sceneCamera.SetActive(true);
                 //character = Instantiate(john) as GameObject;
                 //character.transform.position = new Vector2(0f, 0f);

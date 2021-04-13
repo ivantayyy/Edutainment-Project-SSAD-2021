@@ -54,7 +54,7 @@ public class CustomQuestion : MonoBehaviour
     {
         teacherMenuUIScript = GameObject.Find("TeacherMenuUIManager");
         isTeacher = teacherMenuUIScript.GetComponent<TeacherMenuUIManager>().isTeacher;
-        PhotonNetwork.ConnectUsingSettings("0.2");
+        PhotonNetworkMngr.connectUsingSettings("0.2");
         if (isTeacher)
             classAssign.SetActive(true);
     }
@@ -93,8 +93,8 @@ public class CustomQuestion : MonoBehaviour
     }
     public void nextScene()
     {
-        PhotonNetwork.CreateRoom(getLobbyName.text, new RoomOptions() { maxPlayers = 2 }, null);
-        PhotonNetwork.LoadLevel("Lobby");
+        PhotonNetworkMngr.createRoom(getLobbyName.text, new RoomOptions() { maxPlayers = 2 }, null);
+        PhotonNetworkMngr.loadLevel("Lobby");
     }
     public void OnSubmit()
     {
@@ -114,7 +114,7 @@ public class CustomQuestion : MonoBehaviour
     public void backButton()
     {
         Destroy(GameObject.Find("MainMenuScript"));
-        PhotonNetwork.LoadLevel("Main Menu");
+        PhotonNetworkMngr.loadLevel("Main Menu");
     }
     private void PostToDatabase()
     {

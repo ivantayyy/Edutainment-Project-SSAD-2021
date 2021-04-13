@@ -1,7 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static PhotonNetworkManager;
+
 
 public class Player : Photon.MonoBehaviour
 {
@@ -19,18 +22,15 @@ public class Player : Photon.MonoBehaviour
     public virtual void Awake()
     {
         //check add UserId to the player
-        
+        UserName.text = PhotonNetworkMngr.getPhotonPlayerNickName(photonView);
 
         //if the master client is me
-        if (photonView.isMine)
+        if (PhotonNetworkMngr.checkPhotonView(photonView))
         {
             playerCamera.SetActive(true);
-            UserName.text = PhotonNetwork.player.NickName;
         }
-        // if im not the master client;
-        else{
-            UserName.text = photonView.owner.NickName;
-        }
+
+        
     }
   
     // Start is called before the first frame update
@@ -97,7 +97,7 @@ public class Player : Photon.MonoBehaviour
             animator.SetBool("isKicked", true);
             canMove = false;
             StartCoroutine(stun());
-            
+  
             
 
         }

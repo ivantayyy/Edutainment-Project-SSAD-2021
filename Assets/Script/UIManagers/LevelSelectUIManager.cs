@@ -15,7 +15,7 @@ public class LevelSelectUIManager : Photon.PunBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(PhotonNetwork.inRoom)
+        if(PhotonNetworkMngr.isInRoom())
         {
             if (PhotonNetwork.isMasterClient)
             {
@@ -33,7 +33,7 @@ public class LevelSelectUIManager : Photon.PunBehaviour
     {
         Debug.Log("room joined");
         base.OnJoinedRoom();
-        if (PhotonNetwork.isMasterClient)
+        if (PhotonNetworkMngr.checkIsMasterClient())
         {
             Master.SetActive(true);
             Client.SetActive(false);

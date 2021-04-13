@@ -10,18 +10,18 @@ public class CustomLobbyManager : MonoBehaviour
     public void createCustom()
     {
         //loads customl lobby creation scene for player to create custom questions
-        PhotonNetwork.LoadLevel("CustomLobbyCreation");
+        PhotonNetworkMngr.loadLevel("CustomLobbyCreation");
     }
     public void joinCustom()
     {
         //join a photon network room from input text.
-        PhotonNetwork.JoinOrCreateRoom(joinGameInput.text, new RoomOptions() { MaxPlayers = 2 }, null);
-        PhotonNetwork.LoadLevel("Lobby");
+        PhotonNetworkMngr.joinRoom(joinGameInput.text, new RoomOptions() { MaxPlayers = 2 }, "Lobby");
     }
     public void backButton()
     {
         //return user to main menu
         Destroy(GameObject.Find("MainMenuScript"));
-        PhotonNetwork.LoadLevel("Main Menu");
+        PhotonNetworkMngr.loadLevel("Main Menu");
     }
+
 }
