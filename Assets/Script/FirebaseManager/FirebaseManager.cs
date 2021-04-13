@@ -263,14 +263,14 @@ public static class FirebaseManager
         Debug.Log($"The {User.UserId} is a teacher? {exist} ");
 
         return exist;
-        
+
     }
-    
+
 
     /*
      * Function updates the Student's score upon successful completion of a stage
      */
-    async public static Task updateScoreOnDatabaseAsync(string gamemode, string userid, int justFinishedlevel,float new_timeTaken,float new_points)
+    async public static Task updateScoreOnDatabaseAsync(string gamemode, string userid, int justFinishedlevel, float new_timeTaken, float new_points)
     {
         UnityEngine.Debug.Log("reached updateScoreOnDatabaseAsync");
         UnityEngine.Debug.Log(userid);
@@ -399,7 +399,7 @@ public static class FirebaseManager
         string uid = PhotonNetwork.player.UserId;
         var snapshotTask = DBreference.Child("Student").Child(uid).Child(gamemode).Child("curSubstage").GetValueAsync();
         DataSnapshot snapshot = await snapshotTask;
-        int maxLevelReached = JsonConvert.DeserializeObject<int>(snapshot.GetRawJsonValue());;
+        int maxLevelReached = JsonConvert.DeserializeObject<int>(snapshot.GetRawJsonValue()); ;
         Debug.Log($"The maxLevelReached that was returned from database for {gamemode} is {maxLevelReached}");
         return maxLevelReached;
     }
@@ -437,7 +437,7 @@ public static class FirebaseManager
      * This function gets a List of Student's Names from the Database
      * Can be deprecated and use CClasses CChild to get All uid Then Get all the Names
      */
-    async public static Task<Dictionary<string ,string>> LoadStudentNamesAsync(string className)
+    async public static Task<Dictionary<string, string>> LoadStudentNamesAsync(string className)
     {
         Debug.Log("Sucessfully reached LoadStudentNamesAsync which is for Summary Report in FirebaseManager");
         Dictionary<string, string> StudentsInfo = new Dictionary<string, string>();
@@ -471,14 +471,58 @@ public static class FirebaseManager
      * This function creates an assignment for a Teacher
      * Not Tested
      */
-    async public static Task createAssignmentAsync()
+    public static string getAssignmentKey()
     {
         string AssignmentID = DBreference.Child("Assignments").Push().Key;
-        await DBreference.Child("Assignments").Child(AssignmentID).SetValueAsync(1);
-        Debug.Log($"Successfully set Assignment with Assignment ID {AssignmentID}");
-        //Add code to questions database here
-
+        Debug.Log("Assignment Id is: " + AssignmentID);
+        return AssignmentID;
     }
+
+    public async static Task addToAllSubscribedStudents(string className, string AssignmentID)
+    {
+        List<string> UsersInClass;
+        //get all classes here
+        var classTask = DBreference.Child("Classes").Child(className).GetValueAsync();
+        DataSnapshot classSnapshot = await classTask;
+        string inputjson = classSnapshot.GetRawJsonValue();
+        Debug.Log($"The students in the class json is {inputjson}");
+
+        UsersInClass = JsonConvert.DeserializeObject<List<string>>(inputjson);
+
+        foreach (string uid in UsersInClass)
+        {
+            var task = GetUser(uid, "Student");
+            InitUser user = await task;
+            if (!user.assignments.Contains(AssignmentID))
+            {
+                Debug.Log($"Student with {uid} successfully assigned assignment with {AssignmentID}");
+                //if there are no assignments in student's assignment
+                if (user.assignments.Contains("NONE"))
+                {
+                    user.assignments[0] = AssignmentID;
+                }
+                else
+                {
+                    user.assignments.Add(AssignmentID);
+                }
+
+                string updated_user = JsonConvert.SerializeObject(user.assignments);
+                var updatetask = DBreference.Child("Student").Child(uid).Child("assignments").SetRawJsonValueAsync(updated_user);
+                await updatetask;
+            }
+            else
+            {
+                Debug.Log("Assignment already in student's assignment List");
+            }
+        }
+    }
+    //async public static Task createAssignmentAsync(string AssignmentID)
+    //{
+    //    DBreference.Child("Assignments").Child(AssignmentID);
+    //    await DBreference.Child("Assignments").Child(AssignmentID).SetValueAsync(1);
+    //    Debug.Log($"Successfully set Assignment with Assignment ID {AssignmentID}");
+    //    //Add code to questions database 
+    //}
 
     /*
      * Helper function for checking username exist in database for registration
@@ -564,10 +608,20 @@ public static class FirebaseManager
         return singleQuestion;
     }
 
-    public async static Task<DBQT> getQuestionFromCustomDB(string roomName, string quizNo,string qnNo, string idToken)
+    public async static Task<DBQT> getQuestionFromCustomDB(string roomName, string quizNo, string qnNo, string idToken)
     {
         DBQT singleQuestion;
-        var Task = DBreference.Child("Questions").Child(roomName).Child(quizNo).Child(idToken).GetValueAsync();
+        var Task = DBreference.Child("CustomLobbyQuestions").Child(roomName).Child(quizNo).Child(idToken).GetValueAsync();
+        DataSnapshot singleQuestionSnapshot = await Task;
+        string sqstr = singleQuestionSnapshot.GetRawJsonValue();
+        singleQuestion = JsonConvert.DeserializeObject<DBQT>(sqstr);
+        return singleQuestion;
+    }
+
+    public async static Task<DBQT> getQuestionFromAssignmentDB(string roomName, string quizNo, string qnNo, string idToken)
+    {
+        DBQT singleQuestion;
+        var Task = DBreference.Child("Assignments").Child(roomName).Child(quizNo).Child(idToken).GetValueAsync();
         DataSnapshot singleQuestionSnapshot = await Task;
         string sqstr = singleQuestionSnapshot.GetRawJsonValue();
         singleQuestion = JsonConvert.DeserializeObject<DBQT>(sqstr);
