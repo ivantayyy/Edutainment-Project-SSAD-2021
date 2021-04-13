@@ -33,21 +33,20 @@ public class MultiplayerMenu : MonoBehaviour
     public void backButton()
     {
         Destroy(GameObject.Find("MainMenuScript"));
-        PhotonNetwork.LoadLevel("Main Menu");
+        PhotonNetworkMngr.loadLevel("Main Menu");
     }
 
     public void createGame()
     {
-        PhotonNetwork.CreateRoom(createGameInput.text, new RoomOptions() { MaxPlayers = 2 }, null);
-        PhotonNetwork.SetMasterClient(PhotonNetwork.player);
-        PhotonNetwork.LoadLevel("Lobby");
+        PhotonNetworkMngr.createRoom(createGameInput.text, new RoomOptions() { MaxPlayers = 2 }, null);
+        PhotonNetworkMngr.setMasterClient(PhotonNetwork.player);
+        PhotonNetworkMngr.loadLevel("Lobby");
     }
 
     public void joinGame()
     {
         
-        PhotonNetwork.JoinOrCreateRoom(joinGameInput.text, new RoomOptions() { MaxPlayers = 2 }, null);
-        PhotonNetwork.LoadLevel("Lobby");
+        PhotonNetworkMngr.joinRoom(joinGameInput.text, new RoomOptions() { MaxPlayers = 2 }, "Lobby");
     }
 
     private void OnJoinedRoom()

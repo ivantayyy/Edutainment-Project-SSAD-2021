@@ -20,10 +20,10 @@ public class lobbyController : MonoBehaviour
     void Start()
     {
         //sync loading scene for all players in same photonnetwork room
-        PhotonNetwork.automaticallySyncScene = true;
+        PhotonNetworkMngr.setAutomaticallySyncScene(true);
         //add readystate to player's custom properties
         playerProperties.Add("PlayerReady", readyState);
-        PhotonNetwork.player.SetCustomProperties(playerProperties);
+        PhotonNetworkMngr.setPlayerPropertiesForCurrentPlayer(playerProperties);
         //Debug.Log((bool)PhotonNetwork.player.CustomProperties["PlayerReady"]);
 
         StartCoroutine(LateStart(2.5f));
@@ -34,7 +34,7 @@ public class lobbyController : MonoBehaviour
         // coroutine to display roomname, delay needed as it takes time for photonnetwork to connect
         yield return new WaitForSeconds(waitTime);
         //Your Function You Want to Call
-        roomNameText.text = "Room: " + PhotonNetwork.room.Name;
+        roomNameText.text = "Room: " + PhotonNetworkMngr.getRoomName();
     }
 
     // Update is called once per frame

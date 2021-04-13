@@ -40,10 +40,10 @@ public class LoginManager : MonoBehaviour
     public void instantiatePhotonUser()
     {
         string userid = FirebaseManager.auth.CurrentUser.UserId;
-        PhotonNetwork.player.UserId = userid;
+        PhotonNetworkMngr.setUserId(userid);
 
         string username = FirebaseManager.auth.CurrentUser.DisplayName;
-        PhotonNetwork.player.NickName = username;
+        PhotonNetworkMngr.setNickName(username);
     }
 
    
