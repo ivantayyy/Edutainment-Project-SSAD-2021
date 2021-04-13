@@ -96,7 +96,7 @@ public static class FirebaseManager
             {
                 //Username is now set
                 //Now return to login screen
-                UIManager.instance.LoginScreen();
+                LoginUIManager.instance.LoginScreen();
                 message = "Successfully Registered";
             }
             await InitialiseUserData(_acctype, _username, User.UserId, _classSubscribed);

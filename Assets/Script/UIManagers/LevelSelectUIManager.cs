@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class OnConnected : Photon.PunBehaviour
+public class LevelSelectUIManager : Photon.PunBehaviour
 {
     // Start is called before the first frame update
     public GameObject Master, Client;

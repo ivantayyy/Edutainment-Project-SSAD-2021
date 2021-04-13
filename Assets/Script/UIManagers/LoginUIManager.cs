@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIManager : MonoBehaviour
+public class LoginUIManager : MonoBehaviour
 {
-    public static UIManager instance;
+    public static LoginUIManager instance;
 
     //Screen object variables
     public GameObject loginUI;
