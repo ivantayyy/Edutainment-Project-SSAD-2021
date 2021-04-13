@@ -35,8 +35,8 @@ public class PlayerScorescript : MonoBehaviour
     private void Awake()
     {
         //get is multiplayer bool
-        mainMenuScript = GameObject.Find("MainMenuScript");
-        mode = mainMenuScript.GetComponent<MainMenu>().mode;
+        mainMenuScript = GameObject.Find("MainMenuManager");
+        mode = mainMenuScript.GetComponent<MainMenuManager>().mode;
         Debug.Log("mode = " + mode);
     }
     // Start is called before the first frame update
