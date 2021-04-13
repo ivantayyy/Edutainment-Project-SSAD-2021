@@ -608,24 +608,24 @@ public static class FirebaseManager
         return singleQuestion;
     }
 
-    public async static Task<DBQT> getQuestionFromCustomDB(string roomName, string quizNo, string qnNo, string idToken)
+    public async static Task<DBQT> getQuestionFromCustomDB(string roomName, string quizNo, string qnNo)
     {
         DBQT singleQuestion;
-        var Task = DBreference.Child("CustomLobbyQuestions").Child(roomName).Child(quizNo).Child(idToken).GetValueAsync();
+        var Task = DBreference.Child("CustomLobbyQuestions").Child(roomName).Child(quizNo).GetValueAsync();
         DataSnapshot singleQuestionSnapshot = await Task;
         string sqstr = singleQuestionSnapshot.GetRawJsonValue();
         singleQuestion = JsonConvert.DeserializeObject<DBQT>(sqstr);
         return singleQuestion;
     }
 
-    public async static Task<DBQT> getQuestionFromAssignmentDB(string roomName, string quizNo, string qnNo, string idToken)
+    public async static Task<DBQT> getQuestionFromAssignmentDB(string roomName, string quizNo, string qnNo)
     {
         DBQT singleQuestion;
-        var Task = DBreference.Child("Assignments").Child(roomName).Child(quizNo).Child(qnNo).Child(idToken).GetValueAsync();
+        var Task = DBreference.Child("Assignments").Child(roomName).Child(quizNo).Child(qnNo).GetValueAsync();
         DataSnapshot singleQuestionSnapshot = await Task;
         string sqstr = singleQuestionSnapshot.GetRawJsonValue();
         singleQuestion = JsonConvert.DeserializeObject<DBQT>(sqstr);
-        Debug.Log("fbmanager assignments");
+        //Debug.Log("fbmanager assignments");
         return singleQuestion;
     }
 

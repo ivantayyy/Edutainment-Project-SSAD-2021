@@ -50,7 +50,7 @@ public class CustomQuestion : MonoBehaviour
     private GameObject teacherMenuUIScript;
     private bool isTeacher;
     MCQData questionData = new MCQData();
-    public Dropdown className;
+    public Text assignmenText;
     private void Awake()
     {
         teacherMenuUIScript = GameObject.Find("TeacherMenuUIManager");
@@ -110,6 +110,7 @@ public class CustomQuestion : MonoBehaviour
             Debug.Log($"class assigned is{ classAssigned}");
             await FirebaseManager.addToAllSubscribedStudents(classAssigned, assignmentID);
             Debug.Log("All students' assignmentlist updated");
+            assignmenText.text = "Assignment ID: " + assignmentID;
 
         }
         else
@@ -176,13 +177,15 @@ public class CustomQuestion : MonoBehaviour
 
         if (isTeacher)
         {
-            RestClient.Put("https://fir-auth-9c8cd-default-rtdb.firebaseio.com/Assignments/" + assignmentID + "/" + "quiz_" + quizCounters.ToString() + "/" + questionCounters.ToString() + "/" + localId + ".json?auth=" + idToken, mcqData);
+            //RestClient.Put("https://fir-auth-9c8cd-default-rtdb.firebaseio.com/Assignments/" + assignmentID + "/" + "quiz_" + quizCounters.ToString() + "/" + questionCounters.ToString() + "/" + localId + ".json?auth=" + idToken, mcqData);
             //Insert add assignment to student lsit
+            RestClient.Put("https://fir-auth-9c8cd-default-rtdb.firebaseio.com/Assignments/" + assignmentID + "/" + "quiz_" + quizCounters.ToString() + "/" + questionCounters.ToString() + ".json?auth=" + idToken, mcqData);
 
         }
         else
         {
-            RestClient.Put(databaseURL + getLobbyName.text + "/" + "quiz_" + quizCounters.ToString() + "/" + questionCounters.ToString() + "/" + localId + ".json?auth=" + idToken, mcqData);
+            //RestClient.Put(databaseURL + getLobbyName.text + "/" + "quiz_" + quizCounters.ToString() + "/" + questionCounters.ToString() + "/" + localId + ".json?auth=" + idToken, mcqData);
+            RestClient.Put(databaseURL + getLobbyName.text + "/" + "quiz_" + quizCounters.ToString() + "/" + questionCounters.ToString() + ".json?auth=" + idToken, mcqData);
         }
 
         if (questionCounters == 3)

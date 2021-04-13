@@ -82,10 +82,12 @@ public class LoadQuestions : MonoBehaviour
         //Debug.Log("late start");
         var task = getAllQuestions();
         await task;
+
         assignQuestions();
     }
     void assignQuestions()
     {
+        Debug.Log("start assign");
         //assign questions from lists to each abstractquizmanager QnA list
         MCQ1.QnA = MCQList.GetRange(0, 3);
         MCQ2.QnA = MCQList.GetRange(3, 3);
@@ -135,7 +137,7 @@ public class LoadQuestions : MonoBehaviour
         }
 
     }
-    private async void GetQuestionsFromCustomDB(string roomName, int i, int j, string localId)
+    private async Task GetQuestionsFromCustomDB(string roomName, int i, int j)
     {
         //Debug.Log("correct " + customDBURL + PhotonNetwork.room.Name + "/" + "quiz_" + i.ToString() +
         //    "/" + j.ToString() + "/" + localId + ".json?auth=" + idToken);
@@ -157,7 +159,7 @@ public class LoadQuestions : MonoBehaviour
         //        Debug.Log("Added MCQ" + QandAList[i - 1].Questions);
         //    }
         //});
-        var getTask = FirebaseManager.getQuestionFromCustomDB(roomName, $"quiz_{i}", j.ToString(), localId);
+        var getTask = FirebaseManager.getQuestionFromCustomDB(roomName, $"quiz_{i}", j.ToString());
         DBQT question = await getTask;
         QandAList[i - 1] = new QuestionAndAnswer(question.Question, question.Options.Split(';'), question.Answer);
         Debug.Log("REACHED" + QandAList[i - 1].Questions); // checking if QAndAList values were added
@@ -175,9 +177,9 @@ public class LoadQuestions : MonoBehaviour
 
     }
 
-    private async void GetAssignmentFromDB(string roomName, int i, int j, string localId)
+    private async Task GetAssignmentFromDB(string roomName, int i, int j)
     {
-        var getTask = FirebaseManager.getQuestionFromAssignmentDB(roomName, $"quiz_{i}", j.ToString(), localId);
+        var getTask = FirebaseManager.getQuestionFromAssignmentDB(roomName, $"quiz_{i}", j.ToString());
         DBQT question = await getTask;
         QandAList[i - 1] = new QuestionAndAnswer(question.Question, question.Options.Split(';'), question.Answer);
         Debug.Log("REACHED" + QandAList[i - 1].Questions); // checking if QAndAList values were added
@@ -213,7 +215,8 @@ public class LoadQuestions : MonoBehaviour
             {
                 for (int j = 1; j < 4; j++)
                 {
-                    GetQuestionsFromCustomDB(PhotonNetwork.room.Name, i, j, localId);
+                    var task =GetQuestionsFromCustomDB(PhotonNetwork.room.Name, i, j);
+                    await task;
                 }
             }
         }
@@ -224,9 +227,11 @@ public class LoadQuestions : MonoBehaviour
             {
                 for (int j = 1; j < 4; j++)
                 {
-                    GetAssignmentFromDB(PhotonNetwork.room.Name, i, j, localId);
+                    var task = GetAssignmentFromDB(PhotonNetwork.room.Name, i, j);
+                    await task;
                 }
             }
+            Debug.Log("load all questions done");
         }
 
     }

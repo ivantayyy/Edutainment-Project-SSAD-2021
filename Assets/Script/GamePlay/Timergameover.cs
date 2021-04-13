@@ -46,7 +46,7 @@ public class Timergameover : MonoBehaviour
             enemyscore = playerScoreScript.enemyScore;
             GameMode = "singlePlayer";
         }
-        else//multiplayer
+        else if(mode==1||mode==2)//multiplayer or custom
         {
             string score = playerScoreScript.player2ScoreText.text;
             enemyscore = float.Parse(score.Substring(15,2));
@@ -66,7 +66,7 @@ public class Timergameover : MonoBehaviour
             enemyscore = playerScoreScript.enemyScore;
         }
             
-        else
+        else if (mode ==1||mode==2)
         {
             string p1score = playerScoreScript.player1ScoreText.text;
             playerscore = float.Parse(p1score.Substring(14));

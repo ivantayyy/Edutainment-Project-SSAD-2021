@@ -4298,7 +4298,7 @@ GameObject:
   - component: {fileID: 844004328}
   - component: {fileID: 844004331}
   m_Layer: 0
-  m_Name: customLobby
+  m_Name: customLobbyManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4378,7 +4378,7 @@ MonoBehaviour:
   classAssign: {fileID: 65101606}
   quizCounters: 1
   questionCounters: 1
-  className: {fileID: 0}
+  assignmenText: {fileID: 1815681538}
 --- !u!1 &920147891
 GameObject:
   m_ObjectHideFlags: 0
