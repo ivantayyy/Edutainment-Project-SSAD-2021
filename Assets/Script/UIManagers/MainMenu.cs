@@ -28,7 +28,8 @@ public class MainMenu : MonoBehaviour
 
     public async void updateButton()
     {
-        FirebaseManager.updateScoreOnDatabaseAsync("singlePlayer", "LFd7xpb0fWVY1rC0L9H7AOrplFh2", 4, 150F, 15F);
+        await FirebaseManager.updateScoreOnDatabaseAsync("singlePlayer", "BDE01kF5WGVzIVO0RnNlYeGlsgn1", 1, 150F, 15F);
+        Debug.Log("successfully updated");
     }
     private void OnConnectedToMaster()//when connected to photon netwoek
     {

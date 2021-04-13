@@ -318,14 +318,14 @@ public static class FirebaseManager
             {
                 Debug.Log($"User cleared his max substage {curSubStage}");
                 // add  1 attempt to curr stage then add 0 to new stage
-                DBScore.attempts[justFinishedlevel - 2] += 1;
+                DBScore.attempts[justFinishedlevel - 1] += 1;
                 // Add another element for new stage
                 DBScore.attempts.Add(0);
 
-                DBScore.points[justFinishedlevel - 2] = new_points;
+                DBScore.points[justFinishedlevel - 1] = new_points;
                 DBScore.points.Add(0);
 
-                DBScore.timeTaken[justFinishedlevel - 2] = new_timeTaken;
+                DBScore.timeTaken[justFinishedlevel - 1] = new_timeTaken;
                 DBScore.timeTaken.Add(0);
 
                 //foreach(int attempt in DBScore.attempts)
@@ -477,6 +477,7 @@ public static class FirebaseManager
         await DBreference.Child("Assignments").Child(AssignmentID).SetValueAsync(1);
         Debug.Log($"Successfully set Assignment with Assignment ID {AssignmentID}");
         //Add code to questions database here
+
     }
 
     /*
@@ -549,4 +550,9 @@ public static class FirebaseManager
         }
 
     }
+
+    /*
+     * Samuel's load questions
+     */
+
 }
