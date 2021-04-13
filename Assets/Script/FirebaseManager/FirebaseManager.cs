@@ -554,5 +554,25 @@ public static class FirebaseManager
     /*
      * Samuel's load questions
      */
+    public async static Task<DBQT> getQuestionFromNormalDB(string stage, string substage, string questionNo)
+    {
+        DBQT singleQuestion;
+        var Task = DBreference.Child("Questions").Child(stage).Child(substage).Child(questionNo).GetValueAsync();
+        DataSnapshot singleQuestionSnapshot = await Task;
+        string sqstr = singleQuestionSnapshot.GetRawJsonValue();
+        singleQuestion = JsonConvert.DeserializeObject<DBQT>(sqstr);
+        return singleQuestion;
+    }
+
+    public async static Task<DBQT> getQuestionFromCustomDB(string roomName, string quizNo,string qnNo, string idToken)
+    {
+        DBQT singleQuestion;
+        var Task = DBreference.Child("Questions").Child(roomName).Child(quizNo).Child(idToken).GetValueAsync();
+        DataSnapshot singleQuestionSnapshot = await Task;
+        string sqstr = singleQuestionSnapshot.GetRawJsonValue();
+        singleQuestion = JsonConvert.DeserializeObject<DBQT>(sqstr);
+        return singleQuestion;
+    }
+
 
 }
