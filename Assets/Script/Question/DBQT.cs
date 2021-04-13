@@ -10,11 +10,19 @@ public class DBQT
     public string Options;
     public string Question;
 
-    public DBQT(string _question, string _answer, string _options)
+    //public DBQT(string _question, string _answer, string _options)
+    //{
+    //    Question = _question;
+    //    Answer = _answer;
+    //    Options = _options;
+
+    //}
+
+    public DBQT()
     {
-        Question = _question;
-        Answer = _answer;
-        Options = _options;
+        Question = LoadQuestions.Question;
+        Answer = LoadQuestions.Answer;
+        Options = LoadQuestions.Options;
 
     }
 }

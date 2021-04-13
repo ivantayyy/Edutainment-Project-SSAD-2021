@@ -5432,7 +5432,7 @@ GameObject:
   - component: {fileID: 1868555943}
   - component: {fileID: 1868555944}
   m_Layer: 0
-  m_Name: UIManager
+  m_Name: LoginUIManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
