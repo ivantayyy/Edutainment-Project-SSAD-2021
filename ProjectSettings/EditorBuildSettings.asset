@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/ChooseCharacters.unity
     guid: 1a9354d19fd97c04e9e87fed65e08b1d
   - enabled: 1
+    path: Assets/Scenes/Assignment.unity
+    guid: e38464cfea9308247a7231eda01e8e49
+  - enabled: 1
     path: Assets/Scenes/Wait_Level.unity
     guid: db161b84ea0682246be9713beeb7140e
   - enabled: 1

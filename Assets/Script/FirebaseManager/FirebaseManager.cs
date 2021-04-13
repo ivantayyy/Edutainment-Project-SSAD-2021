@@ -621,12 +621,29 @@ public static class FirebaseManager
     public async static Task<DBQT> getQuestionFromAssignmentDB(string roomName, string quizNo, string qnNo, string idToken)
     {
         DBQT singleQuestion;
-        var Task = DBreference.Child("Assignments").Child(roomName).Child(quizNo).Child(idToken).GetValueAsync();
+        var Task = DBreference.Child("Assignments").Child(roomName).Child(quizNo).Child(qnNo).Child(idToken).GetValueAsync();
         DataSnapshot singleQuestionSnapshot = await Task;
         string sqstr = singleQuestionSnapshot.GetRawJsonValue();
         singleQuestion = JsonConvert.DeserializeObject<DBQT>(sqstr);
+        Debug.Log("fbmanager assignments");
         return singleQuestion;
     }
 
+    public async static Task<List<String>> getAssignmentName(string uid)
+    {
+        var Task = DBreference.Child("Student").Child(uid).Child("assignments").GetValueAsync();
+        DataSnapshot assignment = await Task;
+        string sqtr = assignment.GetRawJsonValue();
+        List<string> assignmentList = JsonConvert.DeserializeObject<List<string>>(sqtr);
+        List<string> returnList = new List<string>();
+        foreach (string i in assignmentList)
+        {
+            
+            //Debug.Log(i);
+            returnList.Add(i);
+        }
+        return returnList;
+
+    }
 
 }

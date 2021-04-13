@@ -10,27 +10,31 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     public GameObject leaderboard, main;
     public GameObject backbtn;
+    private List<string> assignmentList;
 
     public static MainMenu instance;
     private void Awake()
     {
-        if (instance == null)
-        {
-            Debug.Log("Main Menu Manager instantiated");
-            DontDestroyOnLoad(transform.gameObject);
-            //connect to photon
-            PhotonNetworkMngr.connectUsingSettings(versionName);
-            mainUI();
-            instance = this;
-        }
+       
+        Debug.Log("Main Menu Manager instantiated");
+        DontDestroyOnLoad(transform.gameObject);
+        //connect to photon
+        PhotonNetworkMngr.connectUsingSettings(versionName);
+
         
     }
 
-    public async void updateButton()
+    public async void Start()
     {
-        await FirebaseManager.updateScoreOnDatabaseAsync("singlePlayer", "BDE01kF5WGVzIVO0RnNlYeGlsgn1", 1, 150F, 15F);
-        Debug.Log("successfully updated");
+        string uid = PhotonNetwork.player.UserId;
+        assignmentList = await FirebaseManager.getAssignmentName(uid);
+        foreach(string i in assignmentList)
+        {
+            Debug.Log("main");
+            Debug.Log("get assignment + uid = " + uid +" "+i);
+        }
     }
+
     private void OnConnectedToMaster()//when connected to photon netwoek
     {
         PhotonNetworkMngr.joinLobby(TypedLobby.Default);//define lobby tyoe of photon
@@ -57,7 +61,12 @@ public class MainMenu : MonoBehaviour
         Debug.Log("mode = " + mode);
         PhotonNetworkMngr.loadLevel("CustomLobby");
     }
-    public void mainUI()
+    public void assignment()
+    {
+        this.mode = 3;
+        PhotonNetworkMngr.loadLevel("Assignment");
+    }
+    /*public void mainUI()
     {
         clearscreen();
         main.SetActive(true);
@@ -79,7 +88,7 @@ public class MainMenu : MonoBehaviour
         leaderboard.SetActive(false);
         main.SetActive(false);
     }
-
+    */
     
 
 }

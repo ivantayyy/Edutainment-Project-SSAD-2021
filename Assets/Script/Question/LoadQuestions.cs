@@ -174,6 +174,26 @@ public class LoadQuestions : MonoBehaviour
         }
 
     }
+
+    private async void GetAssignmentFromDB(string roomName, int i, int j, string localId)
+    {
+        var getTask = FirebaseManager.getQuestionFromAssignmentDB(roomName, $"quiz_{i}", j.ToString(), localId);
+        DBQT question = await getTask;
+        QandAList[i - 1] = new QuestionAndAnswer(question.Question, question.Options.Split(';'), question.Answer);
+        Debug.Log("REACHED" + QandAList[i - 1].Questions); // checking if QAndAList values were added
+        Debug.Log(QandAList[i - 1].Questions + " options length =" + QandAList[i - 1].Answers.Length);
+        if (QandAList[i - 1].Answers.Length == 1) //change this when QuestionAndAnswer type changes
+        {
+            SAQList.Add(QandAList[i - 1]);
+            Debug.Log("Added SAQ" + QandAList[i - 1].Questions + QandAList[i - 1].CorrectAnswer);
+        }
+        else
+        {
+            MCQList.Add(QandAList[i - 1]);
+            Debug.Log("Added MCQ" + QandAList[i - 1].Questions);
+        }
+
+    }
     public async Task getAllQuestions()
     {
         Debug.Log("button");
@@ -194,6 +214,17 @@ public class LoadQuestions : MonoBehaviour
                 for (int j = 1; j < 4; j++)
                 {
                     GetQuestionsFromCustomDB(PhotonNetwork.room.Name, i, j, localId);
+                }
+            }
+        }
+        else if (mode == 3)
+        {
+            Debug.Log("mode = 3");
+            for (int i = 1; i < 6; i++)
+            {
+                for (int j = 1; j < 4; j++)
+                {
+                    GetAssignmentFromDB(PhotonNetwork.room.Name, i, j, localId);
                 }
             }
         }

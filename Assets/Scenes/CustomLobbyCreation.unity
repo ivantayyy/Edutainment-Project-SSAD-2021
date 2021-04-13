@@ -4376,9 +4376,9 @@ MonoBehaviour:
   selectQuiz: {fileID: 663853545}
   continueButton: {fileID: 1385187228}
   classAssign: {fileID: 65101606}
-  AssignmentID: {fileID: 1815681538}
   quizCounters: 1
   questionCounters: 1
+  className: {fileID: 0}
 --- !u!1 &920147891
 GameObject:
   m_ObjectHideFlags: 0

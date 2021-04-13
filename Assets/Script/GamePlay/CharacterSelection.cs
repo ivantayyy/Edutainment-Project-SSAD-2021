@@ -127,7 +127,7 @@ public class CharacterSelection : MonoBehaviour
 
     public void startGame()
     {
-        if (mode == 0)// if single player
+        if (mode == 0||mode==3)// if single player
         {
             //create and join room for single player
             RoomOptions roomOptions = new RoomOptions();
