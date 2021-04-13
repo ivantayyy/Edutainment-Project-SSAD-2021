@@ -55,8 +55,8 @@ public class LoadQuestions : MonoBehaviour
     // Start is called before the first frame update 
     private void Start()
     {
-        mainMenuScript = GameObject.Find("MainMenuScript");
-        mode = mainMenuScript.GetComponent<MainMenu>().mode;
+        mainMenuScript = GameObject.Find("MainMenuManager");
+        mode = mainMenuScript.GetComponent<MainMenuManager>().mode;
         string userData = "{\"email\":\"" + teacherEmail + "\",\"password\":\"" + teacherPassword + "\",\"returnSecureToken\":true}";
         RestClient.Post<SignResponse>("https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=" + AuthKey, userData).Then(
             response =>
