@@ -150,8 +150,9 @@ public class Timergameover : MonoBehaviour
     {
         //Need find a way to generate dynamically the mode type
         string uid= PhotonNetwork.player.UserId;
-        int currLevelCleared = PlayerPrefs.GetInt("levelReached",1);
+        int currLevelCleared = PlayerPrefs.GetInt("currentLevel",1);
         float timeTaken = 160F;
+        Debug.Log("Current level cleared is: " + currLevelCleared);
         var updateTask = FirebaseManager.updateScoreOnDatabaseAsync(GameMode, uid, currLevelCleared, timeTaken, playerscore);
         await updateTask;
         if (updateTask.IsFaulted)

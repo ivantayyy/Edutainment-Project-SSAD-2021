@@ -10,11 +10,11 @@ public class DBQT
     public string Options;
     public string Question;
 
-    public DBQT()
+    public DBQT(string _question, string _answer, string _options)
     {
-        Question = LoadQuestions.Question;
-        Answer = LoadQuestions.Answer;
-        Options = LoadQuestions.Options;
+        Question = _question;
+        Answer = _answer;
+        Options = _options;
 
     }
 }
