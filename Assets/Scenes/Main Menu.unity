@@ -422,7 +422,7 @@ MonoBehaviour:
   leaderboard: {fileID: 741527256}
   main: {fileID: 515427722}
   backbtn: {fileID: 1207001238}
-  modeObject: {fileID: 0}
+  modeObject: {fileID: 1572847017}
 --- !u!4 &88845143
 Transform:
   m_ObjectHideFlags: 0

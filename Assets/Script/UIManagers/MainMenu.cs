@@ -6,11 +6,11 @@ using UnityEngine;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private string versionName = "0.2";
-    public int mode = 0; //mode 0 = singleplayer, 1 = multiplayer, 2 = custom, 3 = assignment
+    
     // Start is called before the first frame update
     public GameObject leaderboard, main;
     public GameObject backbtn;
-    public mode modeObject;
+    public mode modeObject;  //mode 0 = singleplayer, 1 = multiplayer, 2 = custom, 3 = assignment
     private List<string> assignmentList;
 
     public static MainMenu instance;
@@ -40,30 +40,27 @@ public class MainMenu : MonoBehaviour
     public void singlePlayer()//link to single player button
     {
         //when select sinngleplayer, go to singple player page
-        this.mode = 0;
-        modeObject.modeType = mode;
-        Debug.Log("mode = " + mode);
+        
+        modeObject.modeType = 0;
         //LOAD LEVEL IN PHOTON
         PhotonNetworkMngr.loadLevel("ChooseCharacters");
     }
     public void multiPlayer()
     {
-        this.mode = 1;
-        modeObject.modeType = mode;
-        Debug.Log("mode = " + mode);
+        
+        modeObject.modeType = 1;
         PhotonNetworkMngr.loadLevel("Multiplayer");
     }
     public void custom()
     {
-        this.mode = 2;
-        modeObject.modeType = mode;
-        Debug.Log("mode = " + mode);
+        
+        modeObject.modeType = 2;
         PhotonNetworkMngr.loadLevel("CustomLobby");
     }
     public void assignment()
     {
-        this.mode = 3;
-        modeObject.modeType = mode;
+        
+        modeObject.modeType = 3;
         PhotonNetworkMngr.loadLevel("Assignment");
     }
     /*public void mainUI()
