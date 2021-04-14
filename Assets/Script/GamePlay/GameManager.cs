@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 namespace Assets
 {
+    /**
+     * GameManager handles character display, and update of ping.
+     */
     public class GameManager : MonoBehaviour
     {
         public GameObject player;
@@ -28,6 +31,12 @@ namespace Assets
 
 
         }
+
+        /**
+         * Start() is called before the first frame update.
+         * instantiates player character.
+         * instantiates enemy character if in multiplayer mode.
+         */
         private void Start()
         {
 
@@ -36,16 +45,27 @@ namespace Assets
             if (mode == 0 || mode == 3)
                 spawnEnemy();
         }
+
+        /**
+         * Function to update ping.
+         */
         public void Update()
         {
             pingText.text = "Ping:" + PhotonNetworkMngr.getPing();
 
         }
 
+        /**
+         * Function to instantiate enemy character
+         */
         public void spawnEnemy()
         {
             PhotonNetworkMngr.instantiatePlayer(enemy.name, new Vector2(18, 15), Quaternion.identity, 0);
         }
+
+        /**
+         * Function to instantiate player character
+         */
         public void spawnPlayer()
         {
             switch (this.selection)

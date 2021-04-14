@@ -7,9 +7,11 @@ using UnityEngine.SceneManagement;
 
 namespace Assets
 {
+    /**
+     * CharacterSelection handles user's selection of character for a game.
+     */
     public class CharacterSelection : MonoBehaviour
     {
-        // Start is called before the first frame update
         public SelectedCharacter sel;
         private Hashtable playerProperties = new Hashtable();
         public GameObject[] playerText;
@@ -42,6 +44,11 @@ namespace Assets
 
 
         }
+
+        /**
+         * Start() is called before the first frame update
+         * Scenes will sync for all photon players
+         */
         public void Start()
         {
 
@@ -61,11 +68,20 @@ namespace Assets
             PhotonNetworkMngr.setNickName(username);
         }
 
+        /**
+         * Function to update UI when user inputs.
+         */
         public void Update()
         {
             checkInputs();
         }
 
+        /**
+         * Function to check inputs from user.
+         * Displays name of chosen character.
+         * Ready button is shown after player has chosen a character.
+         * When player(single player) or players(multiplayer) are ready, a Start button is shown.
+         */
         public void checkInputs()
         {
             //ready button is hidden until player chooses a character
@@ -112,7 +128,9 @@ namespace Assets
             }
         }
 
-        //save character selection when player clicks button corresponding to the character
+        /**
+         * Function to save character selection when player clicks button corresponding to the character
+         */
         public void aPress()
         {
             sel.selection = "alexis";
@@ -126,7 +144,11 @@ namespace Assets
             sel.selection = "john";
         }
 
-
+        /**
+         * Function to start game.
+         * Create and join room for single player.
+         * Load level-select scene if multiplayer or custom lobby.
+         */
         public void startGame()
         {
             if (mode == 0 || mode == 3)// if single player
@@ -149,6 +171,9 @@ namespace Assets
 
         }
 
+        /**
+         * Function to update player properties when ready button is clicked.
+         */
         public void readyClick()
         {
             if (mode == 1 || mode == 2)// if multiplayer or custom
@@ -161,6 +186,10 @@ namespace Assets
                 startButton.SetActive(true);
 
         }
+
+        /**
+         * Function to check if all players have their player properties "player ready" to be true.
+         */
         private bool allPlayersReady()
         {
             //check if all players have their player properties "player ready" to be true
@@ -176,9 +205,13 @@ namespace Assets
                 return true;
             }
         }
+
+        /** 
+         *  Brings user back to main menu.
+         *  Leaves photon network room if multiplayer or custom lobby.
+         */
         public void backButton()
         {
-            //return user to main menu and leave photon network room if multiplayer or custom
             if (mode == 1 || mode == 2)
                 PhotonNetworkMngr.leaveRoom();
             Destroy(GameObject.Find("modeObject"));
