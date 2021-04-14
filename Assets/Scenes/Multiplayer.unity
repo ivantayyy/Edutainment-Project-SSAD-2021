@@ -158,8 +158,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 200, y: 118}
-  m_SizeDelta: {x: 120, y: 30}
+  m_AnchoredPosition: {x: 214.3, y: 107.1}
+  m_SizeDelta: {x: 148.66693, y: 51.78689}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &25263325
 MonoBehaviour:
@@ -745,8 +745,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 11, y: 118}
-  m_SizeDelta: {x: 115, y: 30}
+  m_AnchoredPosition: {x: 33.9, y: 104.2}
+  m_SizeDelta: {x: 160.86719, y: 57.520325}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &796676115
 MonoBehaviour:
@@ -874,8 +874,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -201.97, y: -148.73}
-  m_SizeDelta: {x: 144.05841, y: 46.531982}
+  m_AnchoredPosition: {x: -211.7, y: -146.4}
+  m_SizeDelta: {x: 124.56488, y: 51.118713}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &852665100
 MonoBehaviour:
@@ -1037,7 +1037,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter text...
+  m_Text: Enter room number...
 --- !u!222 &916593819
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1083,8 +1083,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 200, y: 32}
-  m_SizeDelta: {x: 120, y: 30}
+  m_AnchoredPosition: {x: 214.9, y: 22.3}
+  m_SizeDelta: {x: 149.81369, y: 49.493538}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &917994022
 MonoBehaviour:
@@ -1287,8 +1287,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 11, y: 32}
-  m_SizeDelta: {x: 115, y: 30}
+  m_AnchoredPosition: {x: 36.7, y: 20.7}
+  m_SizeDelta: {x: 164.30722, y: 58.667}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1494269585
 MonoBehaviour:
@@ -1695,7 +1695,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter text...
+  m_Text: Enter room number...
 --- !u!222 &2071949297
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -27,7 +27,7 @@ EditorBuildSettings:
     path: Assets/Scenes/CustomLobby.unity
     guid: 99c96a027c2414b428f6637dd04fdfd6
   - enabled: 1
-    path: Assets/Scenes/CustomLobbyCreation.unity
+    path: Assets/Scenes/CustomLobbyQuestionCreation.unity
     guid: 8651d680397e58048981a09bcae9da5f
   - enabled: 1
     path: Assets/Scenes/Multiplayer.unity
