@@ -23,7 +23,7 @@ public class Timergameover : MonoBehaviour
 
 
     private int mode;
-    private GameObject mainMenuScript;
+    private GameObject modeObject;
     public GameObject gameOverUI;
 
     private string GameMode;
@@ -32,8 +32,8 @@ public class Timergameover : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        mainMenuScript = GameObject.Find("MainMenuScript");
-        mode = mainMenuScript.GetComponent<MainMenu>().mode;
+        modeObject = GameObject.Find("modeObject");
+        mode = modeObject.GetComponent<mode>().modeType;
 
         countDownTimer();
         

@@ -15,12 +15,12 @@ public class GameManager : MonoBehaviour
     public string selection;
     private GameObject sel;
     float random;
-    private GameObject mainMenuScript;
+    private GameObject modeObject;
     private int mode;
     private void Awake()
     {
-        mainMenuScript = GameObject.Find("MainMenuScript");
-        mode = mainMenuScript.GetComponent<MainMenu>().mode;
+        modeObject = GameObject.Find("modeObject");
+        mode = modeObject.GetComponent<mode>().modeType;
         sel = GameObject.Find("SelectedCharacter");
         SelectedCharacter s = sel.GetComponent<SelectedCharacter>();
         this.selection = s.selection;
@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
 
         Debug.Log("GameManager start");
         spawnPlayer();
-        if (mode == 0)
+        if (mode == 0||mode ==3)
             spawnEnemy();
     }
     public void Update()

@@ -65,7 +65,7 @@ public class LobbyManager : MonoBehaviour
     public void backButton()
     {
         //return user to main menu and leave photon network room
-        Destroy(GameObject.Find("MainMenuScript"));
+        Destroy(GameObject.Find("modeObject"));
         PhotonNetwork.LeaveRoom();
         PhotonNetwork.LoadLevel("Main Menu");
     }

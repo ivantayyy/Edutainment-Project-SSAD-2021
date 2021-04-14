@@ -113,6 +113,7 @@ public class AssignmentResultsManager : MonoBehaviour
 
     public void backBtn()
     {
+        Destroy(GameObject.Find("TeacherObject"));
         SceneManager.LoadScene("Teacher Menu");
     }
 

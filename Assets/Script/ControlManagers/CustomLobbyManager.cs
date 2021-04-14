@@ -20,7 +20,7 @@ public class CustomLobbyManager : MonoBehaviour
     public void backButton()
     {
         //return user to main menu
-        Destroy(GameObject.Find("MainMenuScript"));
+        Destroy(GameObject.Find("modeObject"));
         PhotonNetworkMngr.loadLevel("Main Menu");
     }
 

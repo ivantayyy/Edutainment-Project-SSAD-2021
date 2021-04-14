@@ -32,7 +32,7 @@ public class MultiplayerMenu : MonoBehaviour
     }*/
     public void backButton()
     {
-        Destroy(GameObject.Find("MainMenuScript"));
+        Destroy(GameObject.Find("modeObject"));
         PhotonNetworkMngr.loadLevel("Main Menu");
     }
 

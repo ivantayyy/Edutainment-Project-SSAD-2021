@@ -15,7 +15,7 @@ public class CharacterSelection : MonoBehaviour
     public GameObject startButton;
     public GameObject readyButton;
     private bool readyState = false;
-    private GameObject mainMenuScript;
+    private GameObject modeObject;
     private int mode;
     public GameObject displayText;
 
@@ -25,8 +25,8 @@ public class CharacterSelection : MonoBehaviour
     private void Awake()
     {
         //find do not destroy object and get values
-        mainMenuScript = GameObject.Find("MainMenuScript");
-        mode = mainMenuScript.GetComponent<MainMenu>().mode;
+        modeObject = GameObject.Find("modeObject");
+        mode = modeObject.GetComponent<mode>().modeType;
 
         if (mode == 1 || mode == 2)//if multiplayer or custom mode
         {
@@ -179,7 +179,7 @@ public class CharacterSelection : MonoBehaviour
         //return user to main menu and leave photon network room if multiplayer or custom
         if (mode == 1|| mode == 2)
             PhotonNetworkMngr.leaveRoom();
-        Destroy(GameObject.Find("MainMenuScript"));
+        Destroy(GameObject.Find("modeObject"));
         PhotonNetworkMngr.loadLevel("Main Menu");
     }
 

@@ -47,14 +47,14 @@ public class CustomQuestion : MonoBehaviour
     int questionCounterHolder = -1;
     bool allQuestionsCreated = false;
     private string assignmentID;
-    private GameObject teacherMenuUIScript;
+    private GameObject teacherObject;
     private bool isTeacher;
     MCQData questionData = new MCQData();
     public Text assignmenText;
     private void Awake()
     {
-        teacherMenuUIScript = GameObject.Find("TeacherMenuUIManager");
-        isTeacher = teacherMenuUIScript.GetComponent<TeacherMenuUIManager>().isTeacher;
+        teacherObject = GameObject.Find("TeacherObject");
+        isTeacher = teacherObject.GetComponent<isTeacherObject>().isTeacher;
         PhotonNetwork.ConnectUsingSettings("0.2");
         if (isTeacher)
         {
@@ -137,8 +137,18 @@ public class CustomQuestion : MonoBehaviour
 
     public void backButton()
     {
-        Destroy(GameObject.Find("MainMenuScript"));
-        PhotonNetwork.LoadLevel("Main Menu");
+        if(isTeacher)
+        {
+            Destroy(GameObject.Find("TeacherObject"));
+            PhotonNetwork.LoadLevel("Teacher Menu");
+        }
+        else
+        {
+            Destroy(GameObject.Find("modeObject"));
+            PhotonNetwork.LoadLevel("Main Menu");
+        }
+        
+        
     }
     private void PostToDatabase()
     {
@@ -262,7 +272,7 @@ public class CustomQuestion : MonoBehaviour
 
         if (isTeacher)
         {
-            RestClient.Get<MCQData>("https://fir-auth-9c8cd-default-rtdb.firebaseio.com/Assignments/" + assignmentID + "/" + "quiz_" + quizNo.ToString() + "/" + questionNo.ToString() + "/" + localId + ".json?auth=" + idToken).Then(response =>
+            RestClient.Get<MCQData>("https://fir-auth-9c8cd-default-rtdb.firebaseio.com/Assignments/" + assignmentID + "/" + "quiz_" + quizNo.ToString() + "/" + questionNo.ToString() + "/" + ".json?auth=" + idToken).Then(response =>
             {
                 Debug.Log("hello");
                 questionData = response;

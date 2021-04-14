@@ -15,12 +15,17 @@ public class EmailFactory : MonoBehaviour
     public GameObject EmailUI;
     [SerializeField] Button btnSubmit;
     [SerializeField] bool sendDirect;
+    private GameObject teacherObject;
+    private bool isTeacher;
 
     const string kSenderEmailAddress = "ButterflyImpact.Adm@gmail.com";
     const string kSenderPassword = "Admin.123";
 
     void Start()
     {
+        teacherObject = GameObject.Find("TeacherObject");
+        isTeacher = teacherObject.GetComponent<isTeacherObject>().isTeacher;
+
         UnityEngine.Assertions.Assert.IsNotNull(txtData);
         UnityEngine.Assertions.Assert.IsNotNull(btnSubmit);
         UnityEngine.Assertions.Assert.IsNotNull(receiverEmail);
@@ -77,7 +82,8 @@ public class EmailFactory : MonoBehaviour
 
     public void inviteEmail()
     {
-        txtData.text = "Hi, join me for a game at room: "+PhotonNetwork.room.Name;
+        if(!isTeacher)
+            txtData.text = "Hi, join me for a game at room: "+PhotonNetwork.room.Name;
         EmailUI.SetActive(true);
     }
 }

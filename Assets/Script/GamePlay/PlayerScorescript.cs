@@ -30,13 +30,13 @@ public class PlayerScorescript : MonoBehaviour
     private int SAQ2Score = 0;
 
     private int mode;
-    private GameObject mainMenuScript;
+    private GameObject modeObject;
 
     private void Awake()
     {
         //get is multiplayer bool
-        mainMenuScript = GameObject.Find("MainMenuScript");
-        mode = mainMenuScript.GetComponent<MainMenu>().mode;
+        modeObject = GameObject.Find("modeObject");
+        mode = modeObject.GetComponent<mode>().modeType;
         Debug.Log("mode = " + mode);
     }
     // Start is called before the first frame update

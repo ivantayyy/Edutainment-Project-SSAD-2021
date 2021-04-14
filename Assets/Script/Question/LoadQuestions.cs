@@ -49,15 +49,15 @@ public class LoadQuestions : MonoBehaviour
     private string qnNoDBURL = "https://semaindb-default-rtdb.firebaseio.com/MCQuestionNo/";
     private string qn1URL = "https://semaindb-default-rtdb.firebaseio.com/Questions/Stage_1/Substage_1/4/";
     */
-    private GameObject mainMenuScript;
+    private GameObject modeObject;
     private int mode;
     private int currentlevel;
 
     // Start is called before the first frame update 
     private async void Start()
     {
-        mainMenuScript = GameObject.Find("MainMenuScript");
-        mode = mainMenuScript.GetComponent<MainMenu>().mode;
+        modeObject = GameObject.Find("modeObject");
+        mode = modeObject.GetComponent<mode>().modeType;
         Debug.Log(PlayerPrefs.GetInt("currentLevel", 1));
         currentlevel = PlayerPrefs.GetInt("currentLevel", 1);
 

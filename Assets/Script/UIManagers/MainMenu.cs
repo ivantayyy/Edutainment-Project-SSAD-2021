@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     public GameObject leaderboard, main;
     public GameObject backbtn;
+    public mode modeObject;
     private List<string> assignmentList;
 
     public static MainMenu instance;
@@ -17,7 +18,7 @@ public class MainMenu : MonoBehaviour
     {
        
         Debug.Log("Main Menu Manager instantiated");
-        DontDestroyOnLoad(transform.gameObject);
+        
         //connect to photon
         PhotonNetworkMngr.connectUsingSettings(versionName);
 
@@ -40,6 +41,7 @@ public class MainMenu : MonoBehaviour
     {
         //when select sinngleplayer, go to singple player page
         this.mode = 0;
+        modeObject.modeType = mode;
         Debug.Log("mode = " + mode);
         //LOAD LEVEL IN PHOTON
         PhotonNetworkMngr.loadLevel("ChooseCharacters");
@@ -47,19 +49,21 @@ public class MainMenu : MonoBehaviour
     public void multiPlayer()
     {
         this.mode = 1;
-        
+        modeObject.modeType = mode;
         Debug.Log("mode = " + mode);
         PhotonNetworkMngr.loadLevel("Multiplayer");
     }
     public void custom()
     {
         this.mode = 2;
+        modeObject.modeType = mode;
         Debug.Log("mode = " + mode);
         PhotonNetworkMngr.loadLevel("CustomLobby");
     }
     public void assignment()
     {
         this.mode = 3;
+        modeObject.modeType = mode;
         PhotonNetworkMngr.loadLevel("Assignment");
     }
     /*public void mainUI()

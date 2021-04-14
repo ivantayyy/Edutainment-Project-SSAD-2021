@@ -8,10 +8,10 @@ public class TeacherMenuUIManager : MonoBehaviour
     public static TeacherMenuUIManager instance;
 
     [Header("Teacher Main Menu UIs")]
-    public bool isTeacher = false;
     public GameObject SummaryReportUI;
     public GameObject StudentSummaryReportUI;
     public GameObject TeacherMenuUI;
+    public isTeacherObject isTeacherObj;
     void Start()
     {
         
@@ -20,8 +20,7 @@ public class TeacherMenuUIManager : MonoBehaviour
             instance = this;
             clearscreen();
             TeacherMenuUI.SetActive(true);
-            DontDestroyOnLoad(transform.gameObject);
-            isTeacher = true;
+            isTeacherObj.isTeacher = true;
         }
     }
 
