@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
             case "alexis":
                 Debug.Log("Spawn Player");
                 random = Random.Range(-1f, 1f);
-                PhotonNetworkMngr.instantiatePlayer(alexis.name, new Vector2(11, 16), Quaternion.identity, 0);  
+                PhotonNetworkMngr.instantiatePlayer(alexis.name, new Vector2(11, 14), Quaternion.identity, 0);  
                 sceneCamera.SetActive(true);
 
                 break;

@@ -291,7 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f4bf094fef18d41ba1bec24827e74e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countDownStartValue: 3
+  countDownStartValue: 100
   timerUI: {fileID: 1850691392}
   finalText: {fileID: 1661625872}
   enemyscore: 0
