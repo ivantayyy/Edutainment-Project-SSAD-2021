@@ -10,7 +10,7 @@ using UnityEngine.UI;
 namespace Assets
 {
     /**
-    *  LoadQuestions loads the questions from Firebase for the all game modes.
+    *  LoadQuestions loads the questions from Firebase for all game modes.
     */
     public class LoadQuestions : MonoBehaviour
     {
