@@ -2,16 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuestionAndAnswer
+namespace Assets
 {
-    public string Questions;
-    public string[] Answers;
-    public string CorrectAnswer;
-
-    public QuestionAndAnswer(string question, string[] answers, string correctAns)
+    public class QuestionAndAnswer
     {
-        Questions = question;
-        Answers = answers;
-        CorrectAnswer = correctAns;
+        public string Questions;
+        public string[] Answers;
+        public string CorrectAnswer;
+
+
+        public QuestionAndAnswer(string question, string[] answers, string correctAns)
+        {
+            Questions = question;
+            Answers = answers;
+            CorrectAnswer = correctAns;
+        }
     }
 }

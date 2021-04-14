@@ -2,52 +2,55 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LoginUIManager : MonoBehaviour
+namespace Assets
 {
-    public static LoginUIManager instance;
-
-    //Screen object variables
-    public GameObject loginUI;
-    public GameObject registerUI;
-
-    private void Awake()
+    public class LoginUIManager : MonoBehaviour
     {
-        //DEBUG
-        if (instance == null)
+        public static LoginUIManager instance;
+
+        //Screen object variables
+        public GameObject loginUI;
+        public GameObject registerUI;
+
+        private void Awake()
         {
-            instance = this;
-            LoginScreen();            
+            //DEBUG
+            if (instance == null)
+            {
+                instance = this;
+                LoginScreen();
+            }
+            else if (instance != null)
+            {
+                Debug.Log("Instance already exists, destroying object!");
+                Destroy(this);
+                LoginScreen();
+
+            }
         }
-        else if (instance != null)
+
+        //Functions to change the login screen UI
+        public void LoginScreen() //Back button
         {
-            Debug.Log("Instance already exists, destroying object!");
-            Destroy(this);
-            LoginScreen();
-
+            clearscreen();
+            loginUI.SetActive(true);
         }
-    }
+        public void RegisterScreen() // Regester button
+        {
+            clearscreen();
+            registerUI.SetActive(true);
+        }
 
-    //Functions to change the login screen UI
-    public void LoginScreen() //Back button
-    {
-        clearscreen();
-        loginUI.SetActive(true);
-    }
-    public void RegisterScreen() // Regester button
-    {
-        clearscreen();
-        registerUI.SetActive(true);
-    }
+        public void clearscreen() //turn off all screens
+        {
+            loginUI.SetActive(false);
+            registerUI.SetActive(false);
+        }
 
-    public void clearscreen() //turn off all screens
-    {
-        loginUI.SetActive(false);
-        registerUI.SetActive(false);
-    }
-
-    public void backButton()
-    {
-        clearscreen();
-        loginUI.SetActive(true);
+        public void backButton()
+        {
+            clearscreen();
+            loginUI.SetActive(true);
+        }
     }
 }

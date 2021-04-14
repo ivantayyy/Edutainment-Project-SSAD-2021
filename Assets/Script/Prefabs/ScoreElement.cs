@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class ScoreElement : MonoBehaviour
+namespace Assets
 {
-    public Text usernameText;
-    public Text scoreText;
-
-    public void NewScoreElement(string _username, float _score)
+    public class ScoreElement : MonoBehaviour
     {
-        usernameText.text = _username;
-        scoreText.text = _score.ToString();
+        public Text usernameText;
+        public Text scoreText;
+
+        public void NewScoreElement(string _username, float _score)
+        {
+            usernameText.text = _username;
+            scoreText.text = _score.ToString();
+        }
     }
 }

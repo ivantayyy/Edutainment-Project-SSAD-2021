@@ -2,30 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-abstract public class AbstractAnswer : MonoBehaviour
+namespace Assets
 {
-    public bool isCorrect = false;
-    public AbstractQuizManager quizManager;
-    public GameObject[] animObj;
-    public Animator[] anim;
-    private string number;
-
-    public void answer()
+    abstract public class AbstractAnswer : MonoBehaviour
     {
-        if (isCorrect)
+        public bool isCorrect = false;
+        public AbstractQuizManager quizManager;
+        public GameObject[] animObj;
+        public Animator[] anim;
+        private string number;
+
+        public void answer()
         {
-            //play animation when answer correct
-            playAnimation();
-            Debug.Log("Correct Answer");
-            //generate next question and update score
-            quizManager.correct();
+            if (isCorrect)
+            {
+                //play animation when answer correct
+                playAnimation();
+                Debug.Log("Correct Answer");
+                //generate next question and update score
+                quizManager.correct();
+            }
+            else
+            {
+                Debug.Log("Wrong Answer");
+                quizManager.wrong();
+            }
         }
-        else
-        {
-            Debug.Log("Wrong Answer");
-            quizManager.wrong();
-        }
+        abstract public void playAnimation();
+
     }
-    abstract public void playAnimation();
-   
 }

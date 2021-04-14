@@ -2,22 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class LevelSelectUIManager : Photon.PunBehaviour
+namespace Assets
 {
-    // Start is called before the first frame update
-    public GameObject Master, Client;
-    void Start()
+    public class LevelSelectUIManager : Photon.PunBehaviour
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(PhotonNetworkMngr.isInRoom())
+        // Start is called before the first frame update
+        public GameObject Master, Client;
+        void Start()
         {
-            if (PhotonNetwork.isMasterClient)
+
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            if (PhotonNetworkMngr.isInRoom())
+            {
+                if (PhotonNetwork.isMasterClient)
+                {
+                    Master.SetActive(true);
+                    Client.SetActive(false);
+                }
+                else
+                {
+                    Master.SetActive(false);
+                    Client.SetActive(true);
+                }
+            }
+        }
+        public override void OnJoinedRoom()
+        {
+            Debug.Log("room joined");
+            base.OnJoinedRoom();
+            if (PhotonNetworkMngr.checkIsMasterClient())
             {
                 Master.SetActive(true);
                 Client.SetActive(false);
@@ -28,22 +45,7 @@ public class LevelSelectUIManager : Photon.PunBehaviour
                 Client.SetActive(true);
             }
         }
+
+
     }
-    public override void OnJoinedRoom()
-    {
-        Debug.Log("room joined");
-        base.OnJoinedRoom();
-        if (PhotonNetworkMngr.checkIsMasterClient())
-        {
-            Master.SetActive(true);
-            Client.SetActive(false);
-        }
-        else
-        {
-            Master.SetActive(false);
-            Client.SetActive(true);
-        }
-    }
-   
-    
 }

@@ -6,156 +6,159 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class PlayerScores : MonoBehaviour
+namespace Assets
 {
-    public Text scoreText;
-    public InputField getScoreText;
-
-    public InputField emailText;
-    public InputField usernameText;
-    public InputField passwordText;
-    public InputField accountSelection;
-    
-
-    private System.Random random = new System.Random();
-
-    User user = new User();
-   
-
-    private string databaseURL = "https://fir-auth-9c8cd-default-rtdb.firebaseio.com/";
-    private string AuthKey = "AIzaSyCp3-tVb1biSiZ4fASGQ_gUit-IZhko5mM";
-
-    public static fsSerializer serializer = new fsSerializer();
-
-
-    public static int playerScore;
-    public static string playerName;
-    public static string accountType;
-    
-    private string idToken;
-
-    public static string localId;
-
-    private string getLocalId;
-
-
-    private void Start()
+    public class PlayerScores : MonoBehaviour
     {
-        playerScore = random.Next(0, 101);
-        scoreText.text = "Score: " + playerScore;
-    }
+        public Text scoreText;
+        public InputField getScoreText;
 
-    public void OnSubmit()
-    {
-        PostToDatabase();
-    }
+        public InputField emailText;
+        public InputField usernameText;
+        public InputField passwordText;
+        public InputField accountSelection;
 
-    public void OnGetScore()
-    {
-       
-        GetLocalId();
-    }
 
-    private void UpdateScore()
-    {
-        scoreText.text = "Score: " + user.userScore;
-    }
-
-    private void PostToDatabase(bool emptyScore = false)
-    {
+        private System.Random random = new System.Random();
 
         User user = new User();
 
-        if (emptyScore)
+
+        private string databaseURL = "https://fir-auth-9c8cd-default-rtdb.firebaseio.com/";
+        private string AuthKey = "AIzaSyCp3-tVb1biSiZ4fASGQ_gUit-IZhko5mM";
+
+        public static fsSerializer serializer = new fsSerializer();
+
+
+        public static int playerScore;
+        public static string playerName;
+        public static string accountType;
+
+        private string idToken;
+
+        public static string localId;
+
+        private string getLocalId;
+
+
+        private void Start()
         {
-            user.userScore = 0;
+            playerScore = random.Next(0, 101);
+            scoreText.text = "Score: " + playerScore;
         }
-        string test = accountSelection.text;
-        RestClient.Put(databaseURL + accountSelection.text +  "/" + localId + ".json?auth=" + idToken, user);
-    }
 
-    private void RetrieveFromDatabase()
-    {
-        RestClient.Get<User>(databaseURL + accountSelection.text + "/" + getLocalId + ".json?auth=" + idToken).Then(response =>
+        public void OnSubmit()
         {
-            user = response;
-            UpdateScore();
-        });
-    }
+            PostToDatabase();
+        }
 
-    public void SignUpUserButton()
-    {
-        SignUpUser(emailText.text, usernameText.text, passwordText.text);
-    }
-
-    public void SignInUserButton()
-    {
-        SignInUser(emailText.text, passwordText.text);
-    }
-
-    private void SignUpUser(string email, string username, string password)
-    {
-        string userData = "{\"email\":\"" + email + "\",\"password\":\"" + password + "\",\"returnSecureToken\":true}";
-        RestClient.Post<SignResponse>("https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=" + AuthKey, userData).Then(
-            response =>
-            {
-                idToken = response.idToken;
-                localId = response.localId;
-                playerName = username;
-                PostToDatabase(true);
-
-            }).Catch(error =>
-            {
-                Debug.Log(error);
-            });
-    }
-
-    private void SignInUser(string email, string password)
-    {
-        
-        string userData = "{\"email\":\"" + email + "\",\"password\":\"" + password + "\",\"returnSecureToken\":true}";
-        RestClient.Post<SignResponse>("https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=" + AuthKey, userData).Then(
-            response =>
-            {
-                idToken = response.idToken;
-                localId = response.localId;
-                GetUsername();
-            }).Catch(error =>
-            {
-                Debug.Log(error);
-            });
-    }
-
-    private void GetUsername()
-    {
-        RestClient.Get<User>(databaseURL + accountSelection.text + "/" + localId + ".json?auth=" + idToken).Then(response =>
+        public void OnGetScore()
         {
-            playerName = response.userName;
-        });
-    }
 
-    private void GetLocalId()
-    {
-        RestClient.Get(databaseURL+ accountSelection.text + ".json?auth=" + idToken).Then(response =>
+            GetLocalId();
+        }
+
+        private void UpdateScore()
         {
-            var username = getScoreText.text;
+            scoreText.text = "Score: " + user.userScore;
+        }
 
-            fsData userData = fsJsonParser.Parse(response.Text);
-            Dictionary<string, User> users = null;
-            serializer.TryDeserialize(userData, ref users);
+        private void PostToDatabase(bool emptyScore = false)
+        {
 
-            foreach (var user in users.Values)
+            User user = new User();
+
+            if (emptyScore)
             {
-                if (user.userName == username)
-                {
-                    getLocalId = user.localId;
-                    RetrieveFromDatabase();
-                    break;
-                }
+                user.userScore = 0;
             }
-        }).Catch(error =>
+            string test = accountSelection.text;
+            RestClient.Put(databaseURL + accountSelection.text + "/" + localId + ".json?auth=" + idToken, user);
+        }
+
+        private void RetrieveFromDatabase()
         {
-            Debug.Log(error);
-        });
+            RestClient.Get<User>(databaseURL + accountSelection.text + "/" + getLocalId + ".json?auth=" + idToken).Then(response =>
+            {
+                user = response;
+                UpdateScore();
+            });
+        }
+
+        public void SignUpUserButton()
+        {
+            SignUpUser(emailText.text, usernameText.text, passwordText.text);
+        }
+
+        public void SignInUserButton()
+        {
+            SignInUser(emailText.text, passwordText.text);
+        }
+
+        private void SignUpUser(string email, string username, string password)
+        {
+            string userData = "{\"email\":\"" + email + "\",\"password\":\"" + password + "\",\"returnSecureToken\":true}";
+            RestClient.Post<SignResponse>("https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=" + AuthKey, userData).Then(
+                response =>
+                {
+                    idToken = response.idToken;
+                    localId = response.localId;
+                    playerName = username;
+                    PostToDatabase(true);
+
+                }).Catch(error =>
+                {
+                    Debug.Log(error);
+                });
+        }
+
+        private void SignInUser(string email, string password)
+        {
+
+            string userData = "{\"email\":\"" + email + "\",\"password\":\"" + password + "\",\"returnSecureToken\":true}";
+            RestClient.Post<SignResponse>("https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=" + AuthKey, userData).Then(
+                response =>
+                {
+                    idToken = response.idToken;
+                    localId = response.localId;
+                    GetUsername();
+                }).Catch(error =>
+                {
+                    Debug.Log(error);
+                });
+        }
+
+        private void GetUsername()
+        {
+            RestClient.Get<User>(databaseURL + accountSelection.text + "/" + localId + ".json?auth=" + idToken).Then(response =>
+            {
+                playerName = response.userName;
+            });
+        }
+
+        private void GetLocalId()
+        {
+            RestClient.Get(databaseURL + accountSelection.text + ".json?auth=" + idToken).Then(response =>
+             {
+                 var username = getScoreText.text;
+
+                 fsData userData = fsJsonParser.Parse(response.Text);
+                 Dictionary<string, User> users = null;
+                 serializer.TryDeserialize(userData, ref users);
+
+                 foreach (var user in users.Values)
+                 {
+                     if (user.userName == username)
+                     {
+                         getLocalId = user.localId;
+                         RetrieveFromDatabase();
+                         break;
+                     }
+                 }
+             }).Catch(error =>
+             {
+                 Debug.Log(error);
+             });
+        }
     }
 }

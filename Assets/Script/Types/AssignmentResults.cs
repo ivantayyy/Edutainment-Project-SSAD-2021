@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AssignmentResults 
+namespace Assets
 {
-    public List<int> points;
-    public int attempts;
-    public int maxPoint;
-    
-    public AssignmentResults()
+    public class AssignmentResults
     {
-        this.points = new List<int>();
+        public List<int> points;
+        public int attempts;
+        public int maxPoint;
+
+        public AssignmentResults()
+        {
+            this.points = new List<int>();
+        }
     }
 }

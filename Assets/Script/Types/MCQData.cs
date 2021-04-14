@@ -3,19 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[Serializable]
-public class MCQData
+namespace Assets
 {
-    public string Options;
-    public string Question;
-    public string Answer;
-    
-
-    public MCQData()
+    [Serializable]
+    public class MCQData
     {
-        Question = MCQCreation.question;
-        Answer = MCQCreation.answer;
-        Options = MCQCreation.options;
-        
+        public string Options;
+        public string Question;
+        public string Answer;
+
+
+        public MCQData()
+        {
+            Question = MCQCreation.question;
+            Answer = MCQCreation.answer;
+            Options = MCQCreation.options;
+
+        }
     }
 }

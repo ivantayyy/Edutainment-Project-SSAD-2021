@@ -3,17 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[Serializable]
-public class User
+namespace Assets
 {
-    public string userName;
-    public int userScore;
-    public string localId;
-
-    public User()
+    [Serializable]
+    public class User
     {
-        userName = PlayerScores.playerName;
-        userScore = PlayerScores.playerScore;
-        localId = PlayerScores.localId;
+        public string userName;
+        public int userScore;
+        public string localId;
+
+        public User()
+        {
+            userName = PlayerScores.playerName;
+            userScore = PlayerScores.playerScore;
+            localId = PlayerScores.localId;
+        }
     }
 }

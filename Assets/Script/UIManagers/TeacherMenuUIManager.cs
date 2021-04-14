@@ -3,55 +3,58 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TeacherMenuUIManager : MonoBehaviour
+namespace Assets
 {
-    public static TeacherMenuUIManager instance;
-
-    [Header("Teacher Main Menu UIs")]
-    public GameObject SummaryReportUI;
-    public GameObject StudentSummaryReportUI;
-    public GameObject TeacherMenuUI;
-    public isTeacherObject isTeacherObj;
-    void Start()
+    public class TeacherMenuUIManager : MonoBehaviour
     {
-        
-        if(instance == null)
+        public static TeacherMenuUIManager instance;
+
+        [Header("Teacher Main Menu UIs")]
+        public GameObject SummaryReportUI;
+        public GameObject StudentSummaryReportUI;
+        public GameObject TeacherMenuUI;
+        public isTeacherObject isTeacherObj;
+        void Start()
         {
-            instance = this;
+
+            if (instance == null)
+            {
+                instance = this;
+                clearscreen();
+                TeacherMenuUI.SetActive(true);
+                isTeacherObj.isTeacher = true;
+            }
+        }
+
+        // Update is called once per frame
+        public void summaryReport()
+        {
+            clearscreen();
+            SummaryReportUI.SetActive(true);
+        }
+        public void back()
+        {
             clearscreen();
             TeacherMenuUI.SetActive(true);
-            isTeacherObj.isTeacher = true;
         }
-    }
-  
-    // Update is called once per frame
-    public void summaryReport()
-    {
-        clearscreen();
-        SummaryReportUI.SetActive(true);
-    }
-    public void back()
-    {
-        clearscreen();
-        TeacherMenuUI.SetActive(true);
-    }
-    public void clearscreen()
-    {
-        SummaryReportUI.SetActive(false);
-        StudentSummaryReportUI.SetActive(false);
-        TeacherMenuUI.SetActive(false);
-    }
-    public void studentSummaryReportScreen() //scoreboard button
-    {
-        clearscreen();
-        StudentSummaryReportUI.SetActive(true);
-    }
-    public void createAssignment()
-    {
-        SceneManager.LoadScene("CustomLobbyQuestionCreation");
-    }
-    public void assignmentResults()
-    {
-        SceneManager.LoadScene("AssignmentResults");
+        public void clearscreen()
+        {
+            SummaryReportUI.SetActive(false);
+            StudentSummaryReportUI.SetActive(false);
+            TeacherMenuUI.SetActive(false);
+        }
+        public void studentSummaryReportScreen() //scoreboard button
+        {
+            clearscreen();
+            StudentSummaryReportUI.SetActive(true);
+        }
+        public void createAssignment()
+        {
+            SceneManager.LoadScene("CustomLobbyQuestionCreation");
+        }
+        public void assignmentResults()
+        {
+            SceneManager.LoadScene("AssignmentResults");
+        }
     }
 }
