@@ -8,10 +8,6 @@ using Firebase.Extensions;
 using Newtonsoft.Json;
 using System;
 using System.Threading.Tasks;
-using UnityEngine;
-using UnityEngine.PlayerLoop;
-using UnityEngine.SocialPlatforms.Impl;
-using System.Dynamic;
 using System.Linq;
 
 namespace Assets
