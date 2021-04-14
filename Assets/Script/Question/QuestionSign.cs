@@ -66,6 +66,8 @@ public class QuestionSign : MonoBehaviour
         if (other.CompareTag("Player")) //if sign's box collider collides with player's box collider (exiting)
         {
             playerInRange = false;
+            WeaponQuiz.SetActive(false);
+            quizManager.enabled = false;
             //Debug.Log("Player left range");
             Event.SetActive(false);
             for (int i = 0; i < options.Length; i++)

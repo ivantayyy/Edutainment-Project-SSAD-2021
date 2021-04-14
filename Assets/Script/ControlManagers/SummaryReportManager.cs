@@ -34,6 +34,7 @@ public class SummaryReportManager : MonoBehaviour
         List<string> classList = new List<string>() {
             "FS6","FS7","FS8","FS9"
         };
+        ClassElement element = new ClassElement();
         foreach (Transform child in this.classContent.transform)
         {
             UnityEngine.Debug.Log("reached before transform loop");
@@ -42,14 +43,24 @@ public class SummaryReportManager : MonoBehaviour
         }
         foreach (string className in classList)
         {
+            //get instantiated gameobject
             GameObject classBoardElement = Instantiate(classElement, this.classContent);
-            classBoardElement.GetComponent<ClassElement>().NewClassElement(className);
+            //add and get script to gameobject
+            element = classBoardElement.AddComponent<ClassElement>();
+            //assign script's text to gameobject's child's text
+            element.TextName = classBoardElement.transform.GetChild(0).GetComponent<Text>();
+            //edit text
+            element.NewElement(className);
+            //add onclick function to gameobject which will load student names
+            classBoardElement.GetComponent<Button>().onClick.AddListener(async delegate 
+            {
+                await LoadStudentNamesAsync(className);
+                
+            });
         }
     }
-    //Button that Loads studentNames for the summary report
-    
 
-    
+    //Button that Loads studentNames for the summary report
 
     //loads all student names in class
 

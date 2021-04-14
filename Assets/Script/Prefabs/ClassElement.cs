@@ -6,19 +6,20 @@ using UnityEngine.UI;
 public class ClassElement : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Text className;
+    public Text TextName;
 
-    public void NewClassElement(string classname)
+    public void NewElement(string classname)
     {
-        this.className.text = classname;
+        this.TextName.text = classname;
     }
-    async public void LoadStudentNameBtn()
+    /*async public void OnClick()
     {
+        Debug.Log("clicked");
         string classname = className.text;
         UnityEngine.Debug.Log(classname);
         var Task = SummaryReportManager.instance.LoadStudentNamesAsync(classname);
         await Task;
-    }
+    }*/
 
 
 }

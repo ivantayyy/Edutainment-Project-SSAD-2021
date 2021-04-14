@@ -688,7 +688,62 @@ public static class FirebaseManager
             returnList.Add(i);
         }
         return returnList;
+    }
 
+    public async static Task<List<String>> getAllAssignmentName()
+    {
+        List<string> assignmentList = new List<String>();
+        var Task = DBreference.Child("Assignments").GetValueAsync();
+        DataSnapshot assignment = await Task;
+
+        Debug.Log($"There are {assignment.ChildrenCount} and {assignment.Reference.ToString()}");
+        foreach (DataSnapshot childSnapShot in assignment.Children)
+        {
+            Debug.Log($"There are {assignment.ChildrenCount} and {childSnapShot.Reference.ToString()}");
+            //string snapURL = childSnapShot.Reference.ToString();
+            //string oneAssignment = snapURL.Substring(64);
+            string oneAssignment = childSnapShot.Key;
+            Debug.Log("one assignment = " + oneAssignment);
+            //string childJsonString = childSnapShot.GetRawJsonValue();
+            //string oneAssignment = JsonConvert.DeserializeObject<string>(childJsonString);
+
+            assignmentList.Add(oneAssignment);
+        }
+
+        return assignmentList;
+    }
+    public async static Task<List<String>> getAllStudentFromAssignments(string assignmentID)
+    {
+        List<string> studentList = new List<String>();
+        var Task = DBreference.Child("AssignmentScore").Child(assignmentID).GetValueAsync();
+        DataSnapshot students = await Task;
+        
+        foreach (DataSnapshot childSnapShot in students.Children)
+        {
+            Debug.Log($"There are {students.ChildrenCount} and {childSnapShot.Reference.ToString()}");
+            //string snapURL = childSnapShot.Reference.ToString();
+            //string oneStudent = snapURL.Substring(89);
+
+            string studentResult = childSnapShot.Key;
+            Debug.Log(studentResult);
+                //Debug.Log("one assignment = " + oneAssignment);
+            //string childJsonString = childSnapShot.GetRawJsonValue();
+            //string oneAssignment = JsonConvert.DeserializeObject<string>(childJsonString);
+
+            studentList.Add(studentResult);
+        }
+        return studentList;
+    }
+
+    public async static Task<AssignmentResults> getAssignmentResults(string assignmentID, string studentName)
+    {
+        AssignmentResults results;
+        var Task = DBreference.Child("AssignmentScore").Child(assignmentID).Child(studentName).GetValueAsync();
+        DataSnapshot singleQuestionSnapshot = await Task;
+        string sqstr = singleQuestionSnapshot.GetRawJsonValue();
+        results = JsonConvert.DeserializeObject<AssignmentResults>(sqstr);
+        //Debug.Log("fbmanager assignments");
+        return results;
     }
 
 }

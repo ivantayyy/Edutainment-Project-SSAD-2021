@@ -50,25 +50,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AI on map 5.unity
     guid: 70d0d6306621cc541bb141a9750c9d56
-  - enabled: 0
-    path: Assets/Scenes/1st_map.unity
-    guid: 032d537da662c5f42ae88b21da0d542d
-  - enabled: 0
-    path: Assets/Scenes/2nd_map.unity
-    guid: 142e6a9a142a93348bbfe5cf0cba5f4b
-  - enabled: 0
-    path: Assets/Scenes/3rd_map.unity
-    guid: 257f92a6568f30b4d9d959ba79db7f3d
   - enabled: 1
     path: Assets/Scenes/Teacher Menu.unity
     guid: a405bc6bba8a5644fa0832b4a77ea46a
-  - enabled: 0
-    path: Assets/Scenes/4th_map.unity
-    guid: 88ee92c5bba27d14c8305b2022d64fb3
-  - enabled: 0
-    path: Assets/Scenes/5th_map.unity
-    guid: 7ba371eb9ccef664f823efde797aa6f8
   - enabled: 1
-    path: Assets/Scenes/map1.unity
-    guid: b6eb3bfc4a09bf8458727a0a538a0281
+    path: Assets/Scenes/AssignmentResults.unity
+    guid: 7da88c80daf013746a830ec9b50aaaf8
   m_configObjects: {}

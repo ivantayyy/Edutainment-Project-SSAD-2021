@@ -109,14 +109,7 @@ public class Timergameover : MonoBehaviour
                 countDownStartValue = 0;
                 gameOverUI.SetActive(true);
                 //Only need to update this instance's winning player
-                
-                if(mode == 3)
-                {
-                    Debug.Log("take 1");
-                    takeAssignmentScore(); 
-                }
-                else
-                    UpdateWin();
+                //UpdateWin();
             }
 
         }
@@ -142,7 +135,6 @@ public class Timergameover : MonoBehaviour
                 
                 if (mode == 3)
                 {
-                    Debug.Log("take 2");
                     takeAssignmentScore();
                 }
                 else
@@ -183,7 +175,7 @@ public class Timergameover : MonoBehaviour
     async private void takeAssignmentScore()
     {
         string assignmentID = PhotonNetwork.room.Name;
-        string uid = PhotonNetwork.player.UserId;
+        string uid = PhotonNetwork.player.NickName;
         var updateTask = FirebaseManager.updateAssignmentScoreAsync(uid, assignmentID, (int)playerscore);
         await updateTask;
         if (updateTask.IsFaulted)

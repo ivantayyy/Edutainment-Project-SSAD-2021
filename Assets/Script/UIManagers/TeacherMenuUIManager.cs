@@ -51,4 +51,8 @@ public class TeacherMenuUIManager : MonoBehaviour
     {
         SceneManager.LoadScene("CustomLobbyCreation");
     }
+    public void assignmentResults()
+    {
+        SceneManager.LoadScene("AssignmentResults");
+    }
 }
