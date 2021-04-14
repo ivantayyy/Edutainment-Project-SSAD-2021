@@ -7,6 +7,9 @@ using UnityEngine.UI;
 
 namespace Assets
 {
+    /**
+    *  Player controls the movements and animations of the player with the use of the keyboard.
+    */
     public class Player : Photon.MonoBehaviour
     {
         public PhotonView photonView;
@@ -34,14 +37,20 @@ namespace Assets
 
         }
 
-        // Start is called before the first frame update
+        /**
+        *  Start() is called before the first frame update.
+        *  It gets the Animator component and Rigidbody2D component from the player object.
+        */
         public virtual void Start()
         {
             animator = GetComponent<Animator>();        //animation for player
             myRigidbody = GetComponent<Rigidbody2D>();  //rigidbody for player
         }
 
-        // Update is called once per frame
+        /**
+        *  Update() is called once per frame.
+        *  It calls the checkInput() function when photonView.isMine && canMove == true.
+        */
         public virtual void Update()
         {
             if (photonView.isMine && canMove == true)
@@ -51,6 +60,9 @@ namespace Assets
 
         }
 
+        /**
+        *  This function gets the x and y axis movement of the player and calls UpdateAnimationAndMove() to change the players animations and movements.
+        */
         public void checkInput()
         {
             change = Vector3.zero;      //resets placement to zero every update
@@ -60,6 +72,9 @@ namespace Assets
             UpdateAnimationAndMove();
         }
 
+        /**
+        *  This function updates the players animations and movements according to the keyboard input.
+        */
         void UpdateAnimationAndMove()   //player animation for movement
         {
             if (change != Vector3.zero) //if player is moving
@@ -74,6 +89,10 @@ namespace Assets
                 animator.SetBool("moving", false);
             }
         }
+
+        /**
+        *  This function moves the players position on the screen.
+        */
         void MoveCharacter()
         {
             //player movement
