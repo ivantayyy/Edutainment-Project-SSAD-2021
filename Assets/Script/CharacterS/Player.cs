@@ -61,7 +61,7 @@ namespace Assets
         }
 
         /**
-        *  This function gets the x and y axis movement of the player and calls UpdateAnimationAndMove() to change the players animations and movements.
+        *  This function gets the x and y axis movements of the player and calls UpdateAnimationAndMove() to change the players animations and movements.
         */
         public void checkInput()
         {
@@ -91,7 +91,7 @@ namespace Assets
         }
 
         /**
-        *  This function moves the players position on the screen.
+        *  This function moves the player's position on the screen.
         */
         void MoveCharacter()
         {

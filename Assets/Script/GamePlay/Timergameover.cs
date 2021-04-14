@@ -7,6 +7,11 @@ using UnityEngine.UI;
 using UnityEngine.XR;
 namespace Assets
 {
+    /**
+    *  Timergameover controls the timer text on the screen.
+    *  It also controls and displays the player and enemy scores for the single player mode, and Player1 and Player2 scores for the Head-To-Head or Custom Lobby modes.
+    *  It displays the final text when the game is over.
+    */
     public class Timergameover : MonoBehaviour
     {
         public int countDownStartValue;
