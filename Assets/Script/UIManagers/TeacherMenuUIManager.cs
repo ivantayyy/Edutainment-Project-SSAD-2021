@@ -26,32 +26,54 @@ namespace Assets
             }
         }
 
-        // Update is called once per frame
+        /**
+         * Displays summary report UI.
+         */
         public void summaryReport()
         {
             clearscreen();
             SummaryReportUI.SetActive(true);
         }
+
+        /**
+         * Returns to teacher menu UI.
+         */
         public void back()
         {
             clearscreen();
             TeacherMenuUI.SetActive(true);
         }
+
+        /**
+         * Clears all screens
+         */
         public void clearscreen()
         {
             SummaryReportUI.SetActive(false);
             StudentSummaryReportUI.SetActive(false);
             TeacherMenuUI.SetActive(false);
         }
+
+        /**
+         * Displays student summary report UI
+         */
         public void studentSummaryReportScreen() //scoreboard button
         {
             clearscreen();
             StudentSummaryReportUI.SetActive(true);
         }
+
+        /**
+         * Displays custom lobby question creation UI.
+         */
         public void createAssignment()
         {
             SceneManager.LoadScene("CustomLobbyQuestionCreation");
         }
+
+        /**
+         * Displays assignment results UI.
+         */
         public void assignmentResults()
         {
             SceneManager.LoadScene("AssignmentResults");

@@ -17,8 +17,9 @@ namespace Assets
 
         public static MainMenu instance;
 
-        /*!\brief Awake function is called before start
-         *          connect to photonNetowrk server
+        /**
+         * Awake function is called before start.
+         * Connect to photonNetowrk server
          */
         private void Awake()
         {
@@ -26,12 +27,10 @@ namespace Assets
             Debug.Log("Main Menu Manager instantiated");
 
             //connect to photon
-
-
-
         }
-        /*!\brief when connected to photon network, join lobby
-         *          and calls instantiatePhotonUser
+
+        /** 
+         * When connected to photon network, join lobby and calls instantiate PhotonUser
          */
         private void OnConnectedToMaster()//when connected to photon netwoek
         {
@@ -40,8 +39,8 @@ namespace Assets
             Debug.Log("Connected");
         }
 
-        /*!\brief set photon userid and nickname to firebase user's userid and username
-         *          
+        /**
+         * Set photon userid and nickname to firebase user's userid and username        
          */
         public void instantiatePhotonUser()
         {
@@ -51,19 +50,21 @@ namespace Assets
             string username = FirebaseManager.auth.CurrentUser.DisplayName;
             PhotonNetworkMngr.setNickName(username);
         }
-        /*!\brief go to single player page when called
-         *          
+
+        /**
+         * Go to single player page when called        
          */
         public void singlePlayer()//link to single player button
         {
-            //when select sinngleplayer, go to singple player page
+            //when select singleplayer, go to singple player page
 
             modeObject.modeType = 0;
             //LOAD LEVEL IN PHOTON
             PhotonNetworkMngr.loadLevel("ChooseCharacters");
         }
-        /*!\brief go to multiplayer page when called
-         *          
+
+        /**
+         * Go to multiplayer page when called       
          */
         public void multiPlayer()
         {
@@ -71,8 +72,9 @@ namespace Assets
             modeObject.modeType = 1;
             PhotonNetworkMngr.loadLevel("Multiplayer");
         }
-        /*!\brief go to custom lobby page when called
-         *          
+
+        /**
+         * Go to custom lobby page when called       
          */
         public void custom()
         {
@@ -80,8 +82,9 @@ namespace Assets
             modeObject.modeType = 2;
             PhotonNetworkMngr.loadLevel("CustomLobby");
         }
-        /*!\brief go to student assignment page when called
-         *          
+
+        /**
+         * Go to student assignment page when called     
          */
         public void assignment()
         {
