@@ -2,22 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Alexis : Player
+namespace Assets
 {
-    // Start is called before the first frame update
-    public override void Awake()
+    public class Alexis : Player
     {
-        base.Awake();
-        this.speed = 20f;
-    }
-    public override void Start()
-    {
-        base.Start();
+        // Start is called before the first frame update
+        public override void Awake()
+        {
+            base.Awake();
+            this.speed = 20f;
+        }
+        public override void Start()
+        {
+            base.Start();
+        }
+
+        // Update is called once per frame
+        public override void Update()
+        {
+            base.Update();
+        }
     }
 
-    // Update is called once per frame
-    public override void Update()
-    {
-        base.Update();
-    }
 }

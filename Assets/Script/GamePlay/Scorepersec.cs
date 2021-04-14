@@ -2,44 +2,47 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-public class Scorepersec : MonoBehaviour
+namespace Assets
 {
-    public Text scoreText;
-    public float scoreAmount;
-    public float pointIncreased;
-    private float timer;
-    private static bool isWaiting; // reference to variable in Enemy script
-
-    // Start is called before the first frame update
-    void Start()
+    public class Scorepersec : MonoBehaviour
     {
-        scoreAmount = 0f;
-        pointIncreased = 1f;
+        public Text scoreText;
+        public float scoreAmount;
+        public float pointIncreased;
+        private float timer;
+        private static bool isWaiting; // reference to variable in Enemy script
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        isWaiting = Enemy.isWaiting;
-        timer += Time.deltaTime;
-        scoreText.text = $"EnemyScore: {(int)scoreAmount}";
-        if (timer > 8f)
+        // Start is called before the first frame update
+        void Start()
         {
-            if (isWaiting == true) // only increment if enemy is waiting at quiz
+            scoreAmount = 0f;
+            pointIncreased = 1f;
+
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            isWaiting = Enemy.isWaiting;
+            timer += Time.deltaTime;
+            scoreText.text = $"EnemyScore: {(int)scoreAmount}";
+            if (timer > 8f)
             {
-                if (scoreAmount == 15)
+                if (isWaiting == true) // only increment if enemy is waiting at quiz
                 {
-                    scoreAmount = 15;
+                    if (scoreAmount == 15)
+                    {
+                        scoreAmount = 15;
+                    }
+                    else
+                    {
+                        scoreAmount += pointIncreased;
+                        scoreText.text = scoreText.ToString();
+                    }
                 }
-                else
-                {
-                    scoreAmount += pointIncreased;
-                    scoreText.text = scoreText.ToString();
-                }
+                timer = 0;
             }
-            timer = 0;
         }
     }
+
 }

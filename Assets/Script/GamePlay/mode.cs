@@ -1,16 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class mode : MonoBehaviour
+namespace Assets
 {
-    public int modeType = 0;
-    // Start is called before the first frame update
-    void Awake()
+    public class mode : MonoBehaviour
     {
-        DontDestroyOnLoad(transform.gameObject);
-    }
+        public int modeType = 0;
+        // Start is called before the first frame update
+        void Awake()
+        {
+            DontDestroyOnLoad(transform.gameObject);
+        }
 
-    // Update is called once per frame
+        // Update is called once per frame
+
+    }
 
 }

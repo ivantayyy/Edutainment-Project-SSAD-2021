@@ -2,76 +2,79 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-public class GameOver : MonoBehaviour
+namespace Assets
 {
-    public int nextSceneLoad;
-    public int subSceneLoad;
-    public int level;
-    public int currentLevel;
+    public class GameOver : MonoBehaviour
+    {
+        public int nextSceneLoad;
+        public int subSceneLoad;
+        public int level;
+        public int currentLevel;
 
-    void Start()
-    {
-        currentLevel = PlayerPrefs.GetInt("currentLevel", 1);
-        subSceneLoad = SceneManager.GetActiveScene().buildIndex;
-        nextSceneLoad = SceneManager.GetActiveScene().buildIndex + 1;
-        level = PlayerPrefs.GetInt("levelReached", 1);
-    }
-    public void Continue ()
-    {
-        if (currentLevel < level)
+        void Start()
         {
-            if(currentLevel%3 == 0)
-            {
-                currentLevel += 1;
-                PlayerPrefs.SetInt("currentLevel", currentLevel);
-                SceneManager.LoadScene(nextSceneLoad);
-            }
-            else
-            {
-                currentLevel += 1;
-                PlayerPrefs.SetInt("currentLevel", currentLevel);
-                SceneManager.LoadScene(subSceneLoad);
-            }
+            currentLevel = PlayerPrefs.GetInt("currentLevel", 1);
+            subSceneLoad = SceneManager.GetActiveScene().buildIndex;
+            nextSceneLoad = SceneManager.GetActiveScene().buildIndex + 1;
+            level = PlayerPrefs.GetInt("levelReached", 1);
         }
-        else
+        public void Continue()
         {
-            
-            if (level == 15)
+            if (currentLevel < level)
             {
-                Debug.Log("YOU WIN GAME");
-                PlayerPrefs.DeleteAll();
-            }
-            else
-            {
-                if (level % 3 == 0)
+                if (currentLevel % 3 == 0)
                 {
-                    SceneManager.LoadScene(nextSceneLoad);
-                    level += 1;
                     currentLevel += 1;
                     PlayerPrefs.SetInt("currentLevel", currentLevel);
-                    Debug.Log(level);
+                    SceneManager.LoadScene(nextSceneLoad);
                 }
                 else
                 {
-                    SceneManager.LoadScene(subSceneLoad);
-                    level += 1;
                     currentLevel += 1;
                     PlayerPrefs.SetInt("currentLevel", currentLevel);
-                    Debug.Log(level);
+                    SceneManager.LoadScene(subSceneLoad);
                 }
+            }
+            else
+            {
 
-
-                if (level > PlayerPrefs.GetInt("levelReached"))
+                if (level == 15)
                 {
-                    PlayerPrefs.SetInt("levelReached", level);
+                    Debug.Log("YOU WIN GAME");
+                    PlayerPrefs.DeleteAll();
+                }
+                else
+                {
+                    if (level % 3 == 0)
+                    {
+                        SceneManager.LoadScene(nextSceneLoad);
+                        level += 1;
+                        currentLevel += 1;
+                        PlayerPrefs.SetInt("currentLevel", currentLevel);
+                        Debug.Log(level);
+                    }
+                    else
+                    {
+                        SceneManager.LoadScene(subSceneLoad);
+                        level += 1;
+                        currentLevel += 1;
+                        PlayerPrefs.SetInt("currentLevel", currentLevel);
+                        Debug.Log(level);
+                    }
+
+
+                    if (level > PlayerPrefs.GetInt("levelReached"))
+                    {
+                        PlayerPrefs.SetInt("levelReached", level);
+                    }
                 }
             }
         }
+
+        public void Quit()
+        {
+            SceneManager.LoadScene("Level_select");
+        }
     }
 
-    public void Quit ()
-    {
-        SceneManager.LoadScene("Level_select");
-    }
 }

@@ -3,101 +3,104 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
-
-public class SummaryReportManager : MonoBehaviour
+namespace Assets
 {
-    [Header("SummaryReport")]
-    public GameObject classElement;
-    public GameObject studentNameElement;
-    public Transform classContent;
-    public Transform studentNameContent;
-
-    public static SummaryReportManager instance;
-
-    // Start is called before the first frame update
-    void Start()
+    public class SummaryReportManager : MonoBehaviour
     {
-        if (instance == null)
+        [Header("SummaryReport")]
+        public GameObject classElement;
+        public GameObject studentNameElement;
+        public Transform classContent;
+        public Transform studentNameContent;
+
+        public static SummaryReportManager instance;
+
+        // Start is called before the first frame update
+        void Start()
         {
-            instance = this;
-            Debug.Log("SummaryReportManager instantiated");
-            Debug.Log("Loading Class Lists in Summary Report UI");
-            LoadClassList();
-            Debug.Log("Preloading Class Lists in Summary Report UI Done");
+            if (instance == null)
+            {
+                instance = this;
+                Debug.Log("SummaryReportManager instantiated");
+                Debug.Log("Loading Class Lists in Summary Report UI");
+                LoadClassList();
+                Debug.Log("Preloading Class Lists in Summary Report UI Done");
 
+            }
         }
-    }
-    
-    //loads class list
-    public void LoadClassList()
-    {
-        List<string> classList = new List<string>() {
+
+        //loads class list
+        public void LoadClassList()
+        {
+            List<string> classList = new List<string>() {
             "FS6","FS7","FS8","FS9"
         };
-        ClassElement element = new ClassElement();
-        foreach (Transform child in this.classContent.transform)
-        {
-            UnityEngine.Debug.Log("reached before transform loop");
-            Destroy(child.gameObject);
-            UnityEngine.Debug.Log("reached after transform loop");
-        }
-        foreach (string className in classList)
-        {
-            //get instantiated gameobject
-            GameObject classBoardElement = Instantiate(classElement, this.classContent);
-            //add and get script to gameobject
-            element = classBoardElement.AddComponent<ClassElement>();
-            //assign script's text to gameobject's child's text
-            element.TextName = classBoardElement.transform.GetChild(0).GetComponent<Text>();
-            //edit text
-            element.NewElement(className);
-            //add onclick function to gameobject which will load student names
-            classBoardElement.GetComponent<Button>().onClick.AddListener(async delegate 
+            ClassElement element = new ClassElement();
+            foreach (Transform child in this.classContent.transform)
             {
-                await LoadStudentNamesAsync(className);
-                
-            });
+                UnityEngine.Debug.Log("reached before transform loop");
+                Destroy(child.gameObject);
+                UnityEngine.Debug.Log("reached after transform loop");
+            }
+            foreach (string className in classList)
+            {
+                //get instantiated gameobject
+                GameObject classBoardElement = Instantiate(classElement, this.classContent);
+                //add and get script to gameobject
+                element = classBoardElement.AddComponent<ClassElement>();
+                //assign script's text to gameobject's child's text
+                element.TextName = classBoardElement.transform.GetChild(0).GetComponent<Text>();
+                //edit text
+                element.NewElement(className);
+                //add onclick function to gameobject which will load student names
+                classBoardElement.GetComponent<Button>().onClick.AddListener(async delegate
+                {
+                    await LoadStudentNamesAsync(className);
+
+                });
+            }
         }
-    }
 
-    //Button that Loads studentNames for the summary report
+        //Button that Loads studentNames for the summary report
 
-    //loads all student names in class
+        //loads all student names in class
 
-    async public Task LoadStudentNamesAsync(string className)
-    {
-        UnityEngine.Debug.Log("reached inside LoadstudentNames function");
-        Dictionary<string,string> StudentNames;
-        var StudentNamesTask = FirebaseManager.LoadStudentNamesAsync(className);
-        StudentNames = await StudentNamesTask;
-
-        foreach (Transform child in studentNameContent.transform)
+        async public Task LoadStudentNamesAsync(string className)
         {
-            Destroy(child.gameObject);
-            UnityEngine.Debug.Log("Destroyed a child");
+            UnityEngine.Debug.Log("reached inside LoadstudentNames function");
+            Dictionary<string, string> StudentNames;
+            var StudentNamesTask = FirebaseManager.LoadStudentNamesAsync(className);
+            StudentNames = await StudentNamesTask;
+
+            foreach (Transform child in studentNameContent.transform)
+            {
+                Destroy(child.gameObject);
+                UnityEngine.Debug.Log("Destroyed a child");
+            }
+            //Need to instantiate prefab dynamically
+            foreach (var item in StudentNames)
+            {
+                string username = item.Value;
+                string userid = item.Key;
+                UnityEngine.Debug.Log($"LoadStudentNamesAsync() in SummaryReport: Successfully loaded  with username:{username} and \n userid:{userid}");
+                GameObject nameBoardElement = Instantiate(studentNameElement, studentNameContent);
+                nameBoardElement.GetComponent<StudentNameElement>().NewStudentNameElement(username, userid);
+                UnityEngine.Debug.Log($"Successfully instantiated classelement on Summary Report with for username: {username}");
+            }
         }
-        //Need to instantiate prefab dynamically
-        foreach (var item in StudentNames)
+
+        public void summaryReportButton()
         {
-            string username = item.Value;
-            string userid = item.Key;
-            UnityEngine.Debug.Log($"LoadStudentNamesAsync() in SummaryReport: Successfully loaded  with username:{username} and \n userid:{userid}");
-            GameObject nameBoardElement = Instantiate(studentNameElement, studentNameContent);
-            nameBoardElement.GetComponent<StudentNameElement>().NewStudentNameElement(username,userid);
-            UnityEngine.Debug.Log($"Successfully instantiated classelement on Summary Report with for username: {username}");
+            LoadClassList();
+            TeacherMenuUIManager.instance.summaryReport();
+        }
+
+
+        // Update is called once per frame
+        void Update()
+        {
+
         }
     }
 
-    public void summaryReportButton()
-    {
-        LoadClassList();
-        TeacherMenuUIManager.instance.summaryReport();
-    }
-    
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

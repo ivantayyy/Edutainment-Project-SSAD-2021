@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-public class SelectedCharacter : MonoBehaviour
+namespace Assets
 {
-    public string selection = null;
-    
-    private void Awake()
+    public class SelectedCharacter : MonoBehaviour
     {
-        DontDestroyOnLoad(transform.gameObject);
+        public string selection = null;
+
+        private void Awake()
+        {
+            DontDestroyOnLoad(transform.gameObject);
+        }
+
+
     }
-    
 
 }

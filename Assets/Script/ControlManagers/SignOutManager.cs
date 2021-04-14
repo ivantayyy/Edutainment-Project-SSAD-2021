@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-public class SignOutManager : MonoBehaviour
+namespace Assets
 {
-    // Start is called before the first frame update
-    public void SignOutButton()
+    public class SignOutManager : MonoBehaviour
     {
-        FirebaseManager.SignOut();
-        Debug.Log("Successfully signed out");
-        SceneManager.LoadScene("Login");
+        // Start is called before the first frame update
+        public void SignOutButton()
+        {
+            FirebaseManager.SignOut();
+            Debug.Log("Successfully signed out");
+            SceneManager.LoadScene("Login");
+        }
     }
+
 }

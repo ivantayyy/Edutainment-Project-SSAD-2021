@@ -2,36 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-public class AssignmentManager : MonoBehaviour
+namespace Assets
 {
-    private List<string> assignmentList;
-    private string assignments;
-    public Text assignmentText;
-    [SerializeField] private InputField joinGameInput;
-    // Start is called before the first frame update
-    public async void Start()
+    public class AssignmentManager : MonoBehaviour
     {
-        string uid = FirebaseManager.auth.CurrentUser.UserId;
-        assignmentList = await FirebaseManager.getAssignmentName(uid);
-        foreach (string i in assignmentList)
+        private List<string> assignmentList;
+        private string assignments;
+        public Text assignmentText;
+        [SerializeField] private InputField joinGameInput;
+        // Start is called before the first frame update
+        public async void Start()
         {
-            //Debug.Log("main");
-            Debug.Log("get assignment " + i);
-            assignments += i + "\n";
-            Debug.Log("assigns ="+assignments);
+            string uid = FirebaseManager.auth.CurrentUser.UserId;
+            assignmentList = await FirebaseManager.getAssignmentName(uid);
+            foreach (string i in assignmentList)
+            {
+                //Debug.Log("main");
+                Debug.Log("get assignment " + i);
+                assignments += i + "\n";
+                Debug.Log("assigns =" + assignments);
+            }
+            assignmentText.text = assignments;
         }
-        assignmentText.text = assignments;
-    }
-    public void chooseAssignmentBut()
-    {
-        PhotonNetworkMngr.joinRoom(joinGameInput.text, new RoomOptions() { MaxPlayers = 2 }, "ChooseCharacters");
-        
-    }
-    public void backButton()
-    {
-        Destroy(GameObject.Find("modeObject"));
-        PhotonNetworkMngr.loadLevel("Main Menu");
+        public void chooseAssignmentBut()
+        {
+            PhotonNetworkMngr.joinRoom(joinGameInput.text, new RoomOptions() { MaxPlayers = 2 }, "ChooseCharacters");
+
+        }
+        public void backButton()
+        {
+            Destroy(GameObject.Find("modeObject"));
+            PhotonNetworkMngr.loadLevel("Main Menu");
+        }
+
     }
 
 }
