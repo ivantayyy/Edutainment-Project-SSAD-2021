@@ -19,6 +19,7 @@ namespace Assets
         public Text attemptsText;
         public Text maxPtText;
         public Text ptAttemptText;
+        public Text selectedStudent;
         private string assignmentID;
         private string studentName;
 
@@ -51,7 +52,7 @@ namespace Assets
             }
             foreach (string assignmentName in AssignmentList)
             {
-                this.assignmentID = assignmentName;
+                
                 //get instantiated gameobject
                 GameObject classBoardElement = Instantiate(classElement, this.AssignmentBoardContent);
                 //add and get script to gameobject
@@ -63,6 +64,7 @@ namespace Assets
                 //add onclick function to gameobject which will load student names
                 classBoardElement.GetComponent<Button>().onClick.AddListener(async delegate
                 {
+                    this.assignmentID = classBoardElement.transform.GetChild(0).GetComponent<Text>().text;
                     await LoadStudentNamesAsync(assignmentName);
 
                 });
@@ -102,6 +104,7 @@ namespace Assets
                 classBoardElement.GetComponent<Button>().onClick.AddListener(async delegate
                 {
                     //await LoadStudentNamesAsync(studentName);
+                    selectedStudent.text = "Selected Student: " + studentName;
                     getAssignmentResults(assignmentID, studentName);
 
                 });

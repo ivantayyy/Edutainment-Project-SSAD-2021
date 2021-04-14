@@ -27,6 +27,8 @@ namespace Assets
             Debug.Log("Main Menu Manager instantiated");
 
             //connect to photon
+            PhotonNetwork.ConnectUsingSettings(versionName);
+
         }
 
         /** 

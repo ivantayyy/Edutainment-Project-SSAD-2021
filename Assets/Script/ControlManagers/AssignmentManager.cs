@@ -10,19 +10,17 @@ namespace Assets
 
     public class AssignmentManager : MonoBehaviour
     {
-        private List<string> assignmentList;
-        private string assignments;
-        public Text assignmentText; /** To display List of Assignments */
-        [SerializeField] private InputField joinGameInput;
 
-        /**
-        * Start() is called before the first frame update.
-        * This function fetches the assignment list for the student using their userId.
-        */
+        public GameObject classElement;
+        public Text assignmentText;
+        public Transform AssignmentBoardContent;
+
+        // Start is called before the first frame update
+
         public async void Start()
         {
             string uid = FirebaseManager.auth.CurrentUser.UserId;
-            assignmentList = await FirebaseManager.getAssignmentName(uid);
+            /*assignmentList = await FirebaseManager.getAssignmentName(uid);
             foreach (string i in assignmentList)
             {
                 //Debug.Log("main");
@@ -30,22 +28,48 @@ namespace Assets
                 assignments += i + "\n";
                 Debug.Log("assigns =" + assignments);
             }
-            assignmentText.text = assignments;
+            assignmentText.text = assignments;*/
+            LoadAssignmentList(uid);
         }
 
-        /**
-        * A public function that called when user clicks on 'Choose Assignment'.
-        * It redirects user to join room that is specified.
-        */
-        public void chooseAssignmentBut()
+        public void chooseAssignmentBut(string roomName)
+
         {
-            PhotonNetworkMngr.joinRoom(joinGameInput.text, new RoomOptions() { MaxPlayers = 2 }, "ChooseCharacters");
+            PhotonNetworkMngr.joinRoom(roomName, new RoomOptions() { MaxPlayers = 2 }, "ChooseCharacters");
 
         }
 
-        /**
-        * A public function that brings user back to Main Menu.
-        */
+        public async void LoadAssignmentList(string uid)
+        { 
+            List<string> AssignmentList = await FirebaseManager.getAssignmentName(uid);
+            ClassElement element = new ClassElement();
+            foreach (Transform child in this.AssignmentBoardContent.transform)
+            {
+                UnityEngine.Debug.Log("reached before transform loop");
+                Destroy(child.gameObject);
+                UnityEngine.Debug.Log("reached after transform loop");
+            }
+            foreach (string assignmentName in AssignmentList)
+            {
+                
+                //get instantiated gameobject
+                GameObject classBoardElement = Instantiate(classElement, this.AssignmentBoardContent);
+                //add and get script to gameobject
+                element = classBoardElement.AddComponent<ClassElement>();
+                //assign script's text to gameobject's child's text
+                element.TextName = classBoardElement.transform.GetChild(0).GetComponent<Text>();
+                //edit text
+                element.NewElement(assignmentName);
+                //add onclick function to gameobject which will load student names
+                classBoardElement.GetComponent<Button>().onClick.AddListener(async delegate
+                {
+                    string roomName = classBoardElement.transform.GetChild(0).GetComponent<Text>().text;
+                    chooseAssignmentBut(roomName);
+
+                });
+            }
+        }
+
         public void backButton()
         {
             Destroy(GameObject.Find("modeObject"));

@@ -210,7 +210,7 @@ MonoBehaviour:
     type: 3}
   Shoot: {fileID: 4099541759860258174}
   ShootingPoint: {fileID: 6980451107885211720}
-  camera: {fileID: 0}
+  camera: {fileID: 3809317107508832365}
 --- !u!114 &3538596830352241755
 MonoBehaviour:
   m_ObjectHideFlags: 0

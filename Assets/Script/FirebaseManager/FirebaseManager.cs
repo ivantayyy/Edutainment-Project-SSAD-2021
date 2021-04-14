@@ -445,11 +445,14 @@ namespace Assets
                     DBResult.maxPoint = newPoints;
                 else
                 {
+                    int count = 0;
                     foreach (float point in DBResult.points)
                     {
-                        if (newPoints > point)
-                            DBResult.maxPoint = newPoints;
+                        if (newPoints >= point)
+                            count++;
                     }
+                    if (count == DBResult.points.Count)
+                        DBResult.maxPoint = newPoints;
                 }
             }
 
@@ -808,6 +811,7 @@ namespace Assets
         public async static Task<AssignmentResults> getAssignmentResults(string assignmentID, string studentName)
         {
             AssignmentResults results;
+            Debug.Log("assignmentID= " + assignmentID + " studentname= " + studentName);
             var Task = DBreference.Child("AssignmentScore").Child(assignmentID).Child(studentName).GetValueAsync();
             DataSnapshot singleQuestionSnapshot = await Task;
             string sqstr = singleQuestionSnapshot.GetRawJsonValue();
