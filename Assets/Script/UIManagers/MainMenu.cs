@@ -10,29 +10,30 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     public GameObject leaderboard, main;
     public GameObject backbtn;
+    private List<string> assignmentList;
 
     public static MainMenu instance;
     private void Awake()
     {
-        if (instance == null)
-        {
-            Debug.Log("Main Menu Manager instantiated");
-            DontDestroyOnLoad(transform.gameObject);
-            //connect to photon
-            PhotonNetwork.ConnectUsingSettings(versionName);
-            mainUI();
-            instance = this;
-        }
+       
+        Debug.Log("Main Menu Manager instantiated");
+        DontDestroyOnLoad(transform.gameObject);
+        //connect to photon
+        PhotonNetworkMngr.connectUsingSettings(versionName);
+
         
     }
 
-    public async void updateButton()
+    public async void Start()
     {
-        FirebaseManager.updateScoreOnDatabaseAsync("singlePlayer", "LFd7xpb0fWVY1rC0L9H7AOrplFh2", 4, 150F, 15F);
+        //string uid = PhotonNetwork.player.UserId;
+        //await FirebaseManager.updateAssignmentScoreAsync(uid,"AssignmentID",12);
+
     }
+
     private void OnConnectedToMaster()//when connected to photon netwoek
     {
-        PhotonNetwork.JoinLobby(TypedLobby.Default);//define lobby tyoe of photon
+        PhotonNetworkMngr.joinLobby(TypedLobby.Default);//define lobby tyoe of photon
         Debug.Log("Connected");
     }
     public void singlePlayer()//link to single player button
@@ -41,22 +42,27 @@ public class MainMenu : MonoBehaviour
         this.mode = 0;
         Debug.Log("mode = " + mode);
         //LOAD LEVEL IN PHOTON
-        PhotonNetwork.LoadLevel("ChooseCharacters");
+        PhotonNetworkMngr.loadLevel("ChooseCharacters");
     }
     public void multiPlayer()
     {
         this.mode = 1;
         
         Debug.Log("mode = " + mode);
-        PhotonNetwork.LoadLevel("Multiplayer");
+        PhotonNetworkMngr.loadLevel("Multiplayer");
     }
     public void custom()
     {
         this.mode = 2;
         Debug.Log("mode = " + mode);
-        PhotonNetwork.LoadLevel("CustomLobby");
+        PhotonNetworkMngr.loadLevel("CustomLobby");
     }
-    public void mainUI()
+    public void assignment()
+    {
+        this.mode = 3;
+        PhotonNetworkMngr.loadLevel("Assignment");
+    }
+    /*public void mainUI()
     {
         clearscreen();
         main.SetActive(true);
@@ -78,7 +84,7 @@ public class MainMenu : MonoBehaviour
         leaderboard.SetActive(false);
         main.SetActive(false);
     }
-
+    */
     
 
 }

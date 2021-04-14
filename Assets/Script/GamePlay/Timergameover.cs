@@ -39,19 +39,20 @@ public class Timergameover : MonoBehaviour
         
         // Find the PlayerScorescript attached to "PlayerScore" for player 1
         playerScoreScript = PlayerScore.GetComponent<PlayerScorescript>();
-        if (mode == 0) //if single player
+        if (mode == 0||mode == 3) //if single player
         {
             // Find the Scorepersec script attached to "EnemyScore"
             //enemyScoreScript = EnemyScore.GetComponent<Scorepersec>();
             enemyscore = playerScoreScript.enemyScore;
             GameMode = "singlePlayer";
         }
-        else//multiplayer
+        else if(mode==1||mode==2)//multiplayer or custom
         {
             string score = playerScoreScript.player2ScoreText.text;
             enemyscore = float.Parse(score.Substring(15,2));
             GameMode = "multiPlayer";
         }
+
   
     }
     
@@ -60,7 +61,7 @@ public class Timergameover : MonoBehaviour
         //playerscore = (float)PhotonPlayer.Find(1).CustomProperties["PlayerScore"];
         
         //Debug.Log("playerscore = " + playerscore);
-        if (mode == 0) //ifsingle player
+        if (mode == 0||mode ==3) //ifsingle player
         {
             playerscore = playerScoreScript.playerScore;
             enemyscore = playerScoreScript.enemyScore;
@@ -72,7 +73,7 @@ public class Timergameover : MonoBehaviour
             playerscore = float.Parse(p1score.Substring(14));
             string p2score = playerScoreScript.player2ScoreText.text;
             enemyscore = float.Parse(p2score.Substring(14));
-            Debug.Log("playerscore = " + p1score.Substring(14) + " p2score = " + p2score);
+            //Debug.Log("playerscore = " + p1score.Substring(14) + " p2score = " + p2score);
         }
     }
 
@@ -90,7 +91,7 @@ public class Timergameover : MonoBehaviour
 
             if (enemyscore == 15)
             {
-                if (mode == 0)// if single player
+                if (mode == 0 || mode == 3)// if single player
                     finalText.text = "Game over! Enemy Wins!";
                 else
                     finalText.text = "Game over! Player 2 Wins!";
@@ -100,7 +101,7 @@ public class Timergameover : MonoBehaviour
 
             if (playerscore == 15)
             {
-                if (mode == 0)// if single player
+                if (mode == 0 || mode == 3)// if single player
                     finalText.text = "Game over! Player Wins!";
                     
                 else
@@ -108,7 +109,14 @@ public class Timergameover : MonoBehaviour
                 countDownStartValue = 0;
                 gameOverUI.SetActive(true);
                 //Only need to update this instance's winning player
-                UpdateWin();
+                
+                if(mode == 3)
+                {
+                    Debug.Log("take 1");
+                    takeAssignmentScore(); 
+                }
+                else
+                    UpdateWin();
             }
 
         }
@@ -116,7 +124,7 @@ public class Timergameover : MonoBehaviour
         {
             if (enemyscore > playerscore)
             {
-                if (mode == 0)// if single player
+                if (mode == 0 || mode == 3)// if single player
                     finalText.text = "Game over! Enemy Wins!";
                 else
                     finalText.text = "Game over! Player 2 Wins!";
@@ -125,13 +133,20 @@ public class Timergameover : MonoBehaviour
             }
             else if (playerscore > enemyscore)
             {
-                if (mode == 0)// if single player
+                if (mode == 0||mode == 3)// if single player
                     finalText.text = "Game over! Player Wins!";
                 else
                     finalText.text = "Game over! Player 1 Wins!";
                 gameOverUI.SetActive(true);
                 //updates win asynchronously
-                UpdateWin();
+                
+                if (mode == 3)
+                {
+                    Debug.Log("take 2");
+                    takeAssignmentScore();
+                }
+                else
+                    UpdateWin();
             }
             else
             {
@@ -150,8 +165,9 @@ public class Timergameover : MonoBehaviour
     {
         //Need find a way to generate dynamically the mode type
         string uid= PhotonNetwork.player.UserId;
-        int currLevelCleared = PlayerPrefs.GetInt("levelReached",1);
+        int currLevelCleared = PlayerPrefs.GetInt("currentLevel",1);
         float timeTaken = 160F;
+        Debug.Log("Current level cleared is: " + currLevelCleared);
         var updateTask = FirebaseManager.updateScoreOnDatabaseAsync(GameMode, uid, currLevelCleared, timeTaken, playerscore);
         await updateTask;
         if (updateTask.IsFaulted)
@@ -161,6 +177,22 @@ public class Timergameover : MonoBehaviour
         else
         {
             Debug.Log($"Successfully updated score {playerscore} for userid: {uid} to the database");
+        }
+    }
+
+    async private void takeAssignmentScore()
+    {
+        string assignmentID = PhotonNetwork.room.Name;
+        string uid = PhotonNetwork.player.UserId;
+        var updateTask = FirebaseManager.updateAssignmentScoreAsync(uid, assignmentID, (int)playerscore);
+        await updateTask;
+        if (updateTask.IsFaulted)
+        {
+            Debug.LogError(updateTask.Exception);
+        }
+        else
+        {
+            Debug.Log($"Successfully updated assignment score {playerscore} for userid: {uid} to the database");
         }
     }
 

@@ -14,7 +14,7 @@ public class CustomQuestion : MonoBehaviour
     private string databaseURL = "https://fir-auth-9c8cd-default-rtdb.firebaseio.com/CustomLobbyQuestions/";
     private string AuthKey = "AIzaSyCp3-tVb1biSiZ4fASGQ_gUit-IZhko5mM";
     private string userPassword = "password123";
-    private string userEmail = "teacher8@gmail.com";
+    private string userEmail = "teacher123@gmail.com";
 
     public static fsSerializer serializer = new fsSerializer();
 
@@ -45,18 +45,24 @@ public class CustomQuestion : MonoBehaviour
     private int questionNo = -1;
     int quizCounterHolder = -1;
     int questionCounterHolder = -1;
-    bool allQuestionsCreated=false;
-
+    bool allQuestionsCreated = false;
+    private string assignmentID;
     private GameObject teacherMenuUIScript;
     private bool isTeacher;
     MCQData questionData = new MCQData();
+    public Text assignmenText;
     private void Awake()
     {
         teacherMenuUIScript = GameObject.Find("TeacherMenuUIManager");
         isTeacher = teacherMenuUIScript.GetComponent<TeacherMenuUIManager>().isTeacher;
         PhotonNetwork.ConnectUsingSettings("0.2");
         if (isTeacher)
+        {
             classAssign.SetActive(true);
+            getLobbyName.interactable = false;
+        }
+            
+        assignmentID = FirebaseManager.getAssignmentKey();
     }
 
     private void Start()
@@ -72,7 +78,7 @@ public class CustomQuestion : MonoBehaviour
             {
                 Debug.Log(error);
             });
-        Debug.Log("test2"); 
+        Debug.Log("test2");
     }
     private void Update()
     {
@@ -82,7 +88,7 @@ public class CustomQuestion : MonoBehaviour
         allQuestionsCreated = true;
         if (allQuestionsCreated)
             continueButton.SetActive(true);
-        if (string.Compare(questionTypeSelection.options[questionTypeSelection.value].text, "Short Answer")==0) 
+        if (string.Compare(questionTypeSelection.options[questionTypeSelection.value].text, "Short Answer") == 0)
         {
             getOptions.interactable = false;
         }
@@ -91,10 +97,28 @@ public class CustomQuestion : MonoBehaviour
             getOptions.interactable = true;
         }
     }
-    public void nextScene()
+
+    public async void continueBut()
     {
-        PhotonNetwork.CreateRoom(getLobbyName.text, new RoomOptions() { maxPlayers = 2 }, null);
-        PhotonNetwork.LoadLevel("Lobby");
+        Debug.Log("cont");
+        if (isTeacher)
+        {
+            Dropdown classDrop = classAssign.GetComponent<Dropdown>();
+            string classAssigned = classDrop.options[classDrop.value].text;
+            Debug.Log("class assigned = " + classAssigned);
+            //string classAssigned = classAssign.GetComponent<InputField>().text;
+            Debug.Log($"class assigned is{ classAssigned}");
+            await FirebaseManager.addToAllSubscribedStudents(classAssigned, assignmentID);
+            Debug.Log("All students' assignmentlist updated");
+            assignmenText.text = "Assignment ID: " + assignmentID;
+
+        }
+        else
+        {
+            PhotonNetwork.CreateRoom(getLobbyName.text, new RoomOptions() { maxPlayers = 2 }, null);
+            PhotonNetwork.LoadLevel("Lobby");
+        }
+
     }
     public void OnSubmit()
     {
@@ -118,7 +142,7 @@ public class CustomQuestion : MonoBehaviour
     }
     private void PostToDatabase()
     {
-       
+
         User user = new User();
         MCQData mcqData = new MCQData();
 
@@ -127,7 +151,7 @@ public class CustomQuestion : MonoBehaviour
         mcqData.Options = getOptions.text;
 
         Debug.Log(quizCounters + " " + questionCounters);
-        
+
 
         questionCounterHolder = questionCounters + 1;
         quizCounterHolder = quizCounters;
@@ -150,11 +174,21 @@ public class CustomQuestion : MonoBehaviour
             quizCounterDisplay.text = "Quiz : " + quizCounterHolder.ToString() + " / 5 Quizzes";
             questionCounterDisplay.text = "Question: " + questionCounterHolder.ToString() + " / 3 Questions";
         }
-        
 
-        RestClient.Put(databaseURL + getLobbyName.text + "/" + "quiz_" + quizCounters.ToString() + "/" + questionCounters.ToString() + "/" + localId + ".json?auth=" + idToken, mcqData);
+        if (isTeacher)
+        {
+            //RestClient.Put("https://fir-auth-9c8cd-default-rtdb.firebaseio.com/Assignments/" + assignmentID + "/" + "quiz_" + quizCounters.ToString() + "/" + questionCounters.ToString() + "/" + localId + ".json?auth=" + idToken, mcqData);
+            //Insert add assignment to student lsit
+            RestClient.Put("https://fir-auth-9c8cd-default-rtdb.firebaseio.com/Assignments/" + assignmentID + "/" + "quiz_" + quizCounters.ToString() + "/" + questionCounters.ToString() + ".json?auth=" + idToken, mcqData);
 
-        if (questionCounters == 3 )
+        }
+        else
+        {
+            //RestClient.Put(databaseURL + getLobbyName.text + "/" + "quiz_" + quizCounters.ToString() + "/" + questionCounters.ToString() + "/" + localId + ".json?auth=" + idToken, mcqData);
+            RestClient.Put(databaseURL + getLobbyName.text + "/" + "quiz_" + quizCounters.ToString() + "/" + questionCounters.ToString() + ".json?auth=" + idToken, mcqData);
+        }
+
+        if (questionCounters == 3)
         {
             quizCounters = quizCounters + 1;
         }
@@ -169,9 +203,9 @@ public class CustomQuestion : MonoBehaviour
         }
         else if (questionCounters == 4 && quizCounters <= 5)
         {
-            
+
             questionCounters = 1;
-            
+
         }
     }
 
@@ -185,7 +219,7 @@ public class CustomQuestion : MonoBehaviour
         if (questionTypeCounter == 0)
         {
             questionType = getOptions.text;
-            
+
             if (String.IsNullOrEmpty(questionType))
             {
                 setType = 0;
@@ -194,10 +228,10 @@ public class CustomQuestion : MonoBehaviour
             {
                 setType = 1;
             }
-            
+
         }
         newQuestionType = getOptions.text;
-        if (String.IsNullOrEmpty(newQuestionType) && questionTypeCounter!=0)
+        if (String.IsNullOrEmpty(newQuestionType) && questionTypeCounter != 0)
         {
             checkType = 0;
         }
@@ -206,7 +240,7 @@ public class CustomQuestion : MonoBehaviour
             checkType = 1;
         }
 
-        
+
         if (setType != checkType && questionTypeCounter != 0)
         {
             Debug.Log("Error question type not the same");
@@ -217,7 +251,7 @@ public class CustomQuestion : MonoBehaviour
             warningDisplay.text = "";
         }
         questionTypeCounter += 1;
-        
+
     }
 
     private void retrieveCustomInfo()
@@ -226,16 +260,30 @@ public class CustomQuestion : MonoBehaviour
         questionNo = selectQuestion.value + 1;
         quizNo = selectQuiz.value + 1;
 
-        RestClient.Get<MCQData>(databaseURL + getLobbyName.text + "/" + "quiz_" + quizNo.ToString() + "/" + questionNo.ToString() + "/" + localId + ".json?auth=" + idToken).Then(response =>
+        if (isTeacher)
         {
-            Debug.Log("hello");
-            questionData = response;
-            reInsertQuestion();
+            RestClient.Get<MCQData>("https://fir-auth-9c8cd-default-rtdb.firebaseio.com/Assignments/" + assignmentID + "/" + "quiz_" + quizNo.ToString() + "/" + questionNo.ToString() + "/" + localId + ".json?auth=" + idToken).Then(response =>
+            {
+                Debug.Log("hello");
+                questionData = response;
+                reInsertQuestion();
 
-        });
+            });
+        }
+        else
+        {
+            RestClient.Get<MCQData>(databaseURL + getLobbyName.text + "/" + "quiz_" + quizNo.ToString() + "/" + questionNo.ToString() + "/" + localId + ".json?auth=" + idToken).Then(response =>
+            {
+                Debug.Log("hello");
+                questionData = response;
+                reInsertQuestion();
 
-        
-    }    
+            });
+        }
+
+
+
+    }
     private void reInsertQuestion()
     {
         int quizSelect = selectQuiz.value + 1;

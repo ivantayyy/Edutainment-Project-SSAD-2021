@@ -46,7 +46,7 @@ public class PlayerScorescript : MonoBehaviour
         pointIncreased = 1f;
 
         playerProperties.Add("PlayerScore", playerScore);
-        PhotonNetwork.player.SetCustomProperties(playerProperties);
+        PhotonNetworkMngr.setPlayerPropertiesForCurrentPlayer(playerProperties);
     }
 
     // Update is called once per frame
@@ -123,7 +123,7 @@ public class PlayerScorescript : MonoBehaviour
             }
         }
         playerProperties["PlayerScore"] = playerScore;
-        PhotonNetwork.player.SetCustomProperties(playerProperties);
+        PhotonNetworkMngr.setPlayerPropertiesForCurrentPlayer(playerProperties);
         //player1ScoreText[0].text = $"PlayerScore: {playerScore}";
         
     }
@@ -155,14 +155,14 @@ public class PlayerScorescript : MonoBehaviour
         if(mode == 1 || mode == 2)//take score from here
         {
             
-            for (int i = 0; i < PhotonNetwork.playerList.Length; i++)
+            for (int i = 0; i < PhotonNetworkMngr.checkPlayerListLength(); i++)
             {
-                if(PhotonNetwork.playerList[i].isMasterClient)
+                if(PhotonNetworkMngr.checkIfPlayerIsMasterClient(PhotonNetwork.playerList[i]))
                 {
-                    player1ScoreText.text = $"Player1 Score: {(int)PhotonNetwork.playerList[i].CustomProperties["PlayerScore"]}";
+                    player1ScoreText.text = $"Player1 Score: {(int)PhotonNetworkMngr.getPlayerPropertyForSpecificPlayer(PhotonNetwork.playerList[i], "PlayerScore")}";
                 }
                 else
-                    player2ScoreText.text = $"Player2 Score: {PhotonNetwork.playerList[i].CustomProperties["PlayerScore"]}";
+                    player2ScoreText.text = $"Player2 Score: {(int)PhotonNetworkMngr.getPlayerPropertyForSpecificPlayer(PhotonNetwork.playerList[i], "PlayerScore")}";
                 //player1ScoreText.text = $"{PhotonNetwork.playerList[i].NickName} Score: {PhotonNetwork.playerList[i].CustomProperties["PlayerScore"]}";  
             }
             string p1score = player1ScoreText.text;

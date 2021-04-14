@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using FullSerializer;
 using Proyecto26;
 using UnityEngine;
@@ -38,49 +39,55 @@ public class LoadQuestions : MonoBehaviour
     private string customDBURL = "https://fir-auth-9c8cd-default-rtdb.firebaseio.com/CustomLobbyQuestions/";
     private string AuthKey = "AIzaSyCp3-tVb1biSiZ4fASGQ_gUit-IZhko5mM";
     private string teacherPassword = "password123";
-    private string teacherEmail = "teacher123@gmail.com";
+    private string teacherEmail = "teacher8@gmail.com";
 
-    public static fsSerializer serializer = new fsSerializer();
+    //public static fsSerializer serializer = new fsSerializer();
 
-    private string idToken;
+    //private string idToken;
     public static string localId;
     /*
     private string qnNoDBURL = "https://semaindb-default-rtdb.firebaseio.com/MCQuestionNo/";
     private string qn1URL = "https://semaindb-default-rtdb.firebaseio.com/Questions/Stage_1/Substage_1/4/";
     */
-    DBQT questions = new DBQT();
     private GameObject mainMenuScript;
     private int mode;
 
     // Start is called before the first frame update 
-    private void Start()
+    private async void Start()
     {
         mainMenuScript = GameObject.Find("MainMenuScript");
         mode = mainMenuScript.GetComponent<MainMenu>().mode;
-        string userData = "{\"email\":\"" + teacherEmail + "\",\"password\":\"" + teacherPassword + "\",\"returnSecureToken\":true}";
-        RestClient.Post<SignResponse>("https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=" + AuthKey, userData).Then(
-            response =>
-            {
-                idToken = response.idToken;
-                localId = response.localId;
-                Debug.Log("start response done");
-            }).Catch(error =>
-            {
-                Debug.Log(error);
-            });
-        StartCoroutine(LateStart(0.5f));
+        //string userData = "{\"email\":\"" + teacherEmail + "\",\"password\":\"" + teacherPassword + "\",\"returnSecureToken\":true}";
+        //RestClient.Post<SignResponse>("https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=" + AuthKey, userData).Then(
+        //    response =>
+        //    {
+        //        idToken = response.idToken;
+        //        localId = response.localId;
+        //        Debug.Log("start response done");
+        //    }).Catch(error =>
+        //    {
+        //        Debug.Log(error);
+        //    });
+        //StartCoroutine(LateStart(0.5f));
+        localId = PhotonNetwork.player.UserId;
+        var task = LateStart();
+        await task;
+
+
     }
-    IEnumerator LateStart(float waitTime)
+    async Task LateStart()
     {
-        yield return new WaitForSeconds(waitTime);
-        //Your Function You Want to Call
-        Debug.Log("late start");
-        getAllQuestions();
-        StartCoroutine(assignQuestions(2f));
+        //yield return new WaitForSeconds(waitTime);
+        ////Your Function You Want to Call
+        //Debug.Log("late start");
+        var task = getAllQuestions();
+        await task;
+
+        assignQuestions();
     }
-    IEnumerator assignQuestions(float waitTime)
+    void assignQuestions()
     {
-        yield return new WaitForSeconds(waitTime);
+        Debug.Log("start assign");
         //assign questions from lists to each abstractquizmanager QnA list
         MCQ1.QnA = MCQList.GetRange(0, 3);
         MCQ2.QnA = MCQList.GetRange(3, 3);
@@ -90,75 +97,143 @@ public class LoadQuestions : MonoBehaviour
         Debug.Log("questions assigned");
     }
 
-    private void GetQuestionsFromNormalDB(int i)
+    private async Task GetQuestionsFromNormalDB(int questionNumber, int StageNumber, int SubstageNumber)
     {
-        RestClient.Get<DBQT>(databaseURL + "Stage_" + StageNumber.ToString() + "/" + "Substage_" + SubstageNumber.ToString() +
-        "/" + i.ToString() + "/" + ".json?auth=" + idToken).Then(response =>
+        //RestClient.Get<DBQT>(databaseURL + "Stage_" + StageNumber.ToString() + "/" + "Substage_" + SubstageNumber.ToString() +
+        //"/" + i.ToString() + "/" + ".json?auth=" + idToken).Then(response =>
+        //{
+        //    Debug.Log("inside " + i);
+        //    questions = response;
+        //    Debug.Log("question " + i.ToString() + questions.Question + " " + questions.Answer + " " + questions.Options + " ");
+        //    QandAList[i - 1] = new QuestionAndAnswer(questions.Question, questions.Options.Split(';'), questions.Answer);
+        //    Debug.Log("REACHED" + QandAList[i - 1].Questions); // checking if QAndAList values were added
+        //    Debug.Log(QandAList[i - 1].Questions + " options length =" + QandAList[i - 1].Answers.Length);
+        //    if (QandAList[i - 1].Answers.Length == 1) //change this when QuestionAndAnswer type changes
+        //    {
+        //        SAQList.Add(QandAList[i - 1]);
+        //        Debug.Log("Added SAQ" + QandAList[i - 1].Questions + QandAList[i - 1].CorrectAnswer);
+        //    }
+        //    else
+        //    {
+        //        MCQList.Add(QandAList[i - 1]);
+        //        Debug.Log("Added MCQ" + QandAList[i - 1].Questions);
+        //    }
+        //});
+
+        var getTask = FirebaseManager.getQuestionFromNormalDB($"Stage_{StageNumber}", $"Substage_{SubstageNumber}", questionNumber.ToString());
+        DBQT question = await getTask;
+        QandAList[questionNumber - 1] = new QuestionAndAnswer(question.Question, question.Options.Split(';'), question.Answer);
+        Debug.Log("REACHED" + QandAList[questionNumber - 1].Questions); // checking if QAndAList values were added
+        Debug.Log(QandAList[questionNumber - 1].Questions + " options length =" + QandAList[questionNumber - 1].Answers.Length);
+        if (QandAList[questionNumber - 1].Answers.Length == 1) //change this when QuestionAndAnswer type changes
         {
-            Debug.Log("inside " + i);
-            questions = response;
-            //Debug.Log("question " + i.ToString() + questions.Question + " " + questions.Answer + " " + questions.Options + " ");
-            QandAList[i - 1] = new QuestionAndAnswer(questions.Question, questions.Options.Split(';'), questions.Answer);
-            //Debug.Log("REACHED" + QandAList[i - 1].Questions); // checking if QAndAList values were added
-            //Debug.Log(QandAList[i - 1].Questions + " options length =" + QandAList[i - 1].Answers.Length);
-            if (QandAList[i - 1].Answers.Length == 1) //change this when QuestionAndAnswer type changes
-            {
-                SAQList.Add(QandAList[i - 1]);
-                Debug.Log("Added SAQ" + QandAList[i - 1].Questions+ QandAList[i - 1].CorrectAnswer);
-            }
-            else
-            {
-                MCQList.Add(QandAList[i - 1]);
-                //Debug.Log("Added MCQ" + QandAList[i - 1].Questions);
-            }
-        });
+            SAQList.Add(QandAList[questionNumber - 1]);
+            Debug.Log("Added SAQ" + QandAList[questionNumber - 1].Questions + QandAList[questionNumber - 1].CorrectAnswer);
+        }
+        else
+        {
+            MCQList.Add(QandAList[questionNumber - 1]);
+            Debug.Log("Added MCQ" + QandAList[questionNumber - 1].Questions);
+        }
+
     }
-    private void GetQuestionsFromCustomDB(int i, int j)
+    private async Task GetQuestionsFromCustomDB(string roomName, int i, int j)
     {
-        Debug.Log("correct " + customDBURL + PhotonNetwork.room.Name + "/" + "quiz_" + i.ToString() +
-            "/" + j.ToString() + "/" + localId + ".json?auth=" + idToken);
-        
-        RestClient.Get<DBQT>(customDBURL + PhotonNetwork.room.Name + "/" + "quiz_" + i.ToString() +
-            "/" + j.ToString() + "/" + localId + ".json?auth=" + idToken).Then(response =>
+        //Debug.Log("correct " + customDBURL + PhotonNetwork.room.Name + "/" + "quiz_" + i.ToString() +
+        //    "/" + j.ToString() + "/" + localId + ".json?auth=" + idToken);
+
+        //RestClient.Get<DBQT>(customDBURL + PhotonNetwork.room.Name + "/" + "quiz_" + i.ToString() +
+        //    "/" + j.ToString() + "/" + localId + ".json?auth=" + idToken).Then(response =>
+        //{
+        //    Debug.Log("inside " + i);
+        //    questions = response;
+        //    QandAList[i - 1] = new QuestionAndAnswer(questions.Question, questions.Options.Split(';'), questions.Answer);
+        //    if (QandAList[i - 1].Answers.Length == 1) //change this when QuestionAndAnswer type changes
+        //    {
+        //        SAQList.Add(QandAList[i - 1]);
+        //        Debug.Log("Added SAQ" + QandAList[i - 1].Questions);
+        //    }
+        //    else
+        //    {
+        //        MCQList.Add(QandAList[i - 1]);
+        //        Debug.Log("Added MCQ" + QandAList[i - 1].Questions);
+        //    }
+        //});
+        var getTask = FirebaseManager.getQuestionFromCustomDB(roomName, $"quiz_{i}", j.ToString());
+        DBQT question = await getTask;
+        QandAList[i - 1] = new QuestionAndAnswer(question.Question, question.Options.Split(';'), question.Answer);
+        Debug.Log("REACHED" + QandAList[i - 1].Questions); // checking if QAndAList values were added
+        Debug.Log(QandAList[i - 1].Questions + " options length =" + QandAList[i - 1].Answers.Length);
+        if (QandAList[i - 1].Answers.Length == 1) //change this when QuestionAndAnswer type changes
         {
-            Debug.Log("inside " + i);
-            questions = response;
-            QandAList[i - 1] = new QuestionAndAnswer(questions.Question, questions.Options.Split(';'), questions.Answer);
-            if (QandAList[i - 1].Answers.Length == 1) //change this when QuestionAndAnswer type changes
-            {
-                SAQList.Add(QandAList[i - 1]);
-                Debug.Log("Added SAQ" + QandAList[i - 1].Questions);
-            }
-            else
-            {
-                MCQList.Add(QandAList[i - 1]);
-                Debug.Log("Added MCQ" + QandAList[i - 1].Questions);
-            }
-        });
+            SAQList.Add(QandAList[i - 1]);
+            Debug.Log("Added SAQ" + QandAList[i - 1].Questions + QandAList[i - 1].CorrectAnswer);
+        }
+        else
+        {
+            MCQList.Add(QandAList[i - 1]);
+            Debug.Log("Added MCQ" + QandAList[i - 1].Questions);
+        }
+
     }
-    public void getAllQuestions()
+
+    private async Task GetAssignmentFromDB(string roomName, int i, int j)
+    {
+        var getTask = FirebaseManager.getQuestionFromAssignmentDB(roomName, $"quiz_{i}", j.ToString());
+        DBQT question = await getTask;
+        QandAList[i - 1] = new QuestionAndAnswer(question.Question, question.Options.Split(';'), question.Answer);
+        Debug.Log("REACHED" + QandAList[i - 1].Questions); // checking if QAndAList values were added
+        Debug.Log(QandAList[i - 1].Questions + " options length =" + QandAList[i - 1].Answers.Length);
+        if (QandAList[i - 1].Answers.Length == 1) //change this when QuestionAndAnswer type changes
+        {
+            SAQList.Add(QandAList[i - 1]);
+            Debug.Log("Added SAQ" + QandAList[i - 1].Questions + QandAList[i - 1].CorrectAnswer);
+        }
+        else
+        {
+            MCQList.Add(QandAList[i - 1]);
+            Debug.Log("Added MCQ" + QandAList[i - 1].Questions);
+        }
+
+    }
+    public async Task getAllQuestions()
     {
         Debug.Log("button");
         Debug.Log("mode = " + mode);
         //load all questions from DB
-        if (mode == 0 || mode ==1)
+        if (mode == 0 || mode == 1)
         {
             for (int i = 1; i < 16; i++)
             {
-                GetQuestionsFromNormalDB(i);
+                var task = GetQuestionsFromNormalDB(i, StageNumber, SubstageNumber);
+                await task;
             }
         }
         else if (mode == 2)
         {
-            for(int i = 1;i<6;i++)
+            for (int i = 1; i < 6; i++)
             {
-                for(int j = 1;j<4;j++)
+                for (int j = 1; j < 4; j++)
                 {
-                    GetQuestionsFromCustomDB(i, j);
+                    var task =GetQuestionsFromCustomDB(PhotonNetwork.room.Name, i, j);
+                    await task;
                 }
             }
         }
-            
+        else if (mode == 3)
+        {
+            Debug.Log("mode = 3");
+            for (int i = 1; i < 6; i++)
+            {
+                for (int j = 1; j < 4; j++)
+                {
+                    var task = GetAssignmentFromDB(PhotonNetwork.room.Name, i, j);
+                    await task;
+                }
+            }
+            Debug.Log("load all questions done");
+        }
+
     }
 
 
