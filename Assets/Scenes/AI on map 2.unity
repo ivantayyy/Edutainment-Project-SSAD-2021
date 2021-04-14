@@ -5333,6 +5333,11 @@ PrefabInstance:
       propertyPath: minPosition.y
       value: -30
       objectReference: {fileID: 0}
+    - target: {fileID: 5895786132380155312, guid: 1e8aa0deb00200a42870b27018cb7151,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5895786132380155313, guid: 1e8aa0deb00200a42870b27018cb7151,
         type: 3}
       propertyPath: orthographic
@@ -36844,7 +36849,7 @@ MonoBehaviour:
   - {fileID: 1751349025}
   pendingIcons:
   - {fileID: 358675974}
-  - {fileID: 0}
+  - {fileID: 617832128}
 --- !u!4 &1931421329
 Transform:
   m_ObjectHideFlags: 0
