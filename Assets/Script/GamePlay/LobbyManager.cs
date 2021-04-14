@@ -5,8 +5,7 @@ using UnityEngine.UI;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 using UnityEngine.SceneManagement;
 
-
-public class lobbyController : MonoBehaviour
+public class LobbyManager : MonoBehaviour
 {
     public GameObject startButton;
     private bool readyState = false;
