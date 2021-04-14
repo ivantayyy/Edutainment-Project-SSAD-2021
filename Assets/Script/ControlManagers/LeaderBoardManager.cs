@@ -4,6 +4,10 @@ using System.Threading.Tasks;
 using UnityEngine;
 namespace Assets
 {
+
+    /**
+     * LeaderBoardManager handles the Leaderboard page
+     */
     public class LeaderBoardManager : MonoBehaviour
     {
         //LeaderBoard variables
@@ -13,9 +17,10 @@ namespace Assets
         public Transform scoreboardCustomContent;
         public Transform scoreboardMultiContent;
         public Transform scoreboardSingleContent;
-        // Start is called before the first frame update
 
-
+        /**
+         * Start() is called before the first frame update. Loads all the leaderboards.
+         */
         void Start()
         {
             if (instance == null)
@@ -26,6 +31,10 @@ namespace Assets
                 loadAllLeaderBoards();
             }
         }
+
+        /**
+         * Loads leaderboards for Single Player, Multiplayer and Custom Lobbys.
+         */
         async public void loadAllLeaderBoards()
         {
             var customPlayerTask = LoadLeaderBoardData("customPlayer", scoreboardCustomContent);
@@ -35,9 +44,12 @@ namespace Assets
             await Task.WhenAll(customPlayerTask, multiPlayerTask, singlePlayerTask);
             Debug.Log("Preloading of leaderBoard is done");
         }
+
+        /**
+         * Gets all the users data from Firebase databse, ordered by score values.
+         */
         async public Task LoadLeaderBoardData(string gameMode, Transform scoreboardContent)
         {
-            //Get all the users data ordered by score amount
             List<InitUser> LeaderBoardUsers = new List<InitUser>();
             var LeaderBoardUsersTask = FirebaseManager.GetLeaderBoardFromDatabase(gameMode);
             LeaderBoardUsers = await LeaderBoardUsersTask;

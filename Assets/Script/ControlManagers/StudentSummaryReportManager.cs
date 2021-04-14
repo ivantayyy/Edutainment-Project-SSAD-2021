@@ -6,6 +6,10 @@ using UnityEngine;
 using UnityEngine.UI;
 namespace Assets
 {
+
+    /**
+     * StudentSummaryReportManager handles students' summary reports based on their assignment scores.
+     */
     public class StudentSummaryReportManager : MonoBehaviour
     {
         public static StudentSummaryReportManager instance;
@@ -21,7 +25,9 @@ namespace Assets
 
         public GameObject stageEntryElement;
 
-        // Start is called before the first frame update
+        /**
+         * Start() is called before the first frame update
+         */
         void Start()
         {
             if (instance == null)
@@ -33,6 +39,10 @@ namespace Assets
 
         }
 
+        /**
+         * Loads student idata for all 3 boards.
+         * \params uid string that contains user id to load the user's data.
+         */
         async public void loadStudentInfo(string uid)
         {
             UnityEngine.Debug.Log("Reached LoadStudent Function");
@@ -46,7 +56,9 @@ namespace Assets
 
         }
 
-        //Loads all the student data for all 3 boards
+        /**
+         * Loads all students data for all 3 boards, single player, multiplayer and custom lobby.
+         */
         private void LoadAllStudentData(InitUser student)
         {
             string username = student.username;
@@ -59,7 +71,11 @@ namespace Assets
             LoadSelectGameModeData(student, "customPlayer");
         }
 
-        //Helper function for loading a single gamemode's data
+        /**
+         * Helper function for loading a single gamemode's data
+         * \params student
+         * \params GameMode string to specify game mode, single player, multiplayer of custom lobby.
+         */
         private void LoadSelectGameModeData(InitUser student, string GameMode)
         {
 
