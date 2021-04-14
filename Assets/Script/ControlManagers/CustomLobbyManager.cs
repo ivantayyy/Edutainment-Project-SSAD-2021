@@ -10,7 +10,7 @@ public class CustomLobbyManager : MonoBehaviour
     public void createCustom()
     {
         //loads customl lobby creation scene for player to create custom questions
-        PhotonNetworkMngr.loadLevel("CustomLobbyCreation");
+        PhotonNetworkMngr.loadLevel("CustomLobbyQuestionCreation");
     }
     public void joinCustom()
     {
