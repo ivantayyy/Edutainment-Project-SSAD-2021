@@ -56,7 +56,7 @@ namespace Assets
         // Update is called once per frame
         void Update()
         {
-            if (mode == 0)
+            if (mode == 0||mode == 3)
                 calculateEnemyScore();
 
             updatePlayerScore();

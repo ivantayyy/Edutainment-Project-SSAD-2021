@@ -28,7 +28,7 @@ namespace Assets
             generateQuestion();
         }
 
-        /*
+        
         void Update()
         {
             ScoreTxt.text = numCorrect + "/" + QnA.Count;
@@ -89,11 +89,15 @@ namespace Assets
         public override void checkAns()
         {
             int correct = int.Parse(QnA[currentQuestion].CorrectAnswer);
-            //Debug.Log("correct1 = " + QnA[currentQuestion].CorrectAnswer);
+            Debug.Log("correct1 = " + QnA[currentQuestion].CorrectAnswer);
             for (int i = 0; i < toggle.Length; i++)
             {
                 if (toggle[correct].isOn)
+                {
+                    Debug.Log("correct toggle is on");
                     options[0].GetComponent<WeaponAnswer>().isCorrect = true;
+                }
+                    
                 else if (!toggle[correct].isOn)
                     options[0].GetComponent<WeaponAnswer>().isCorrect = false;
             }

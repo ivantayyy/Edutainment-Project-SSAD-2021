@@ -31,6 +31,7 @@ namespace Assets
         private int mode;
         private GameObject modeObject;
         public GameObject gameOverUI;
+        public GameObject gameOverContButton;
 
         private string GameMode;
 
@@ -103,6 +104,8 @@ namespace Assets
                         finalText.text = "Game over! Player 2 Wins!";
                     countDownStartValue = 0;
                     gameOverUI.SetActive(true);
+                    if (mode == 3)
+                        gameOverContButton.SetActive(false);
                 }
 
                 if (playerscore == 15)
@@ -114,6 +117,8 @@ namespace Assets
                         finalText.text = "Game over! Player 1 Wins!";
                     countDownStartValue = 0;
                     gameOverUI.SetActive(true);
+                    if (mode == 3)
+                        gameOverContButton.SetActive(false);
                     //Only need to update this instance's winning player
                     //UpdateWin();
                 }
@@ -129,6 +134,8 @@ namespace Assets
                         finalText.text = "Game over! Player 2 Wins!";
 
                     gameOverUI.SetActive(true);
+                    if (mode == 3)
+                        gameOverContButton.SetActive(false);
                 }
                 else if (playerscore > enemyscore)
                 {
@@ -142,6 +149,7 @@ namespace Assets
                     if (mode == 3)
                     {
                         takeAssignmentScore();
+                        gameOverContButton.SetActive(false);
                     }
                     else
                         UpdateWin();
@@ -150,6 +158,9 @@ namespace Assets
                 {
                     finalText.text = "Game over! It's a draw!";
                     gameOverUI.SetActive(true);
+                    if (mode == 3)
+                        gameOverContButton.SetActive(false);
+
                 }
 
 
@@ -161,6 +172,12 @@ namespace Assets
         //Helper function for updateing scores when winning
         async private void UpdateWin()
         {
+            if (mode == 0)
+                GameMode = "singlePlayer";
+            else if (mode == 1)
+                GameMode = "multiPlayer";
+            else if (mode == 2)
+                GameMode = "customPlayer";
             //Need find a way to generate dynamically the mode type
             string uid = PhotonNetwork.player.UserId;
             int currLevelCleared = PlayerPrefs.GetInt("currentLevel", 1);

@@ -294,7 +294,7 @@ namespace Assets
         {
             UnityEngine.Debug.Log("reached updateScoreOnDatabaseAsync");
             UnityEngine.Debug.Log(userid);
-
+            Debug.Log("gamemode: " + gamemode);
             Scores DBScore = new Scores();
             var scoreTask = DBreference.Child("Student").Child(userid).Child(gamemode).GetValueAsync();
             DataSnapshot playerScore = await scoreTask;
@@ -721,6 +721,7 @@ namespace Assets
          */
         public async static Task<DBQT> getQuestionFromAssignmentDB(string roomName, string quizNo, string qnNo)
         {
+            Debug.Log("roomName: " + roomName + " quizNo: " + quizNo + " " + qnNo);
             DBQT singleQuestion;
             var Task = DBreference.Child("Assignments").Child(roomName).Child(quizNo).Child(qnNo).GetValueAsync();
             DataSnapshot singleQuestionSnapshot = await Task;

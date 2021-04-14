@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{7215CBC3-DBE0-E036-1A8A-8C75064FD428}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AstarPathfindingProject", "AstarPathfindingProject.csproj", "{4D98DBB4-0243-5F8F-FBBF-4E444556455B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass", "Assembly-CSharp-firstpass.csproj", "{EB808837-B759-C707-0175-093A04C29D58}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AstarPathfindingProjectEditor", "AstarPathfindingProjectEditor.csproj", "{339FBC7B-D0FC-33E2-F355-566B9665E8A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PackageToolsEditor", "PackageToolsEditor.csproj", "{A22975C4-F393-5878-CBFB-2EAD1FA02EFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{B1637841-470D-9B7A-6C29-BDFCF75B265F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NUnitTestProject2", "C:\Users\tay_k\OneDrive\Desktop\School\Object Oriented Design\CZ2002 Lab5\NUnitTestProject2\NUnitTestProject2.csproj", "{EEB2C25D-9E79-4B2A-AB7C-16141008A6DE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7215CBC3-DBE0-E036-1A8A-8C75064FD428}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7215CBC3-DBE0-E036-1A8A-8C75064FD428}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7215CBC3-DBE0-E036-1A8A-8C75064FD428}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7215CBC3-DBE0-E036-1A8A-8C75064FD428}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D98DBB4-0243-5F8F-FBBF-4E444556455B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D98DBB4-0243-5F8F-FBBF-4E444556455B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D98DBB4-0243-5F8F-FBBF-4E444556455B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D98DBB4-0243-5F8F-FBBF-4E444556455B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB808837-B759-C707-0175-093A04C29D58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB808837-B759-C707-0175-093A04C29D58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB808837-B759-C707-0175-093A04C29D58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB808837-B759-C707-0175-093A04C29D58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{339FBC7B-D0FC-33E2-F355-566B9665E8A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{339FBC7B-D0FC-33E2-F355-566B9665E8A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{339FBC7B-D0FC-33E2-F355-566B9665E8A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{339FBC7B-D0FC-33E2-F355-566B9665E8A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A22975C4-F393-5878-CBFB-2EAD1FA02EFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A22975C4-F393-5878-CBFB-2EAD1FA02EFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A22975C4-F393-5878-CBFB-2EAD1FA02EFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A22975C4-F393-5878-CBFB-2EAD1FA02EFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1637841-470D-9B7A-6C29-BDFCF75B265F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1637841-470D-9B7A-6C29-BDFCF75B265F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1637841-470D-9B7A-6C29-BDFCF75B265F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1637841-470D-9B7A-6C29-BDFCF75B265F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEB2C25D-9E79-4B2A-AB7C-16141008A6DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEB2C25D-9E79-4B2A-AB7C-16141008A6DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEB2C25D-9E79-4B2A-AB7C-16141008A6DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEB2C25D-9E79-4B2A-AB7C-16141008A6DE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

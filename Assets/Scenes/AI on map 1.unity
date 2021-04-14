@@ -5312,6 +5312,7 @@ MonoBehaviour:
   PlayerScore: {fileID: 552700461}
   EnemyScore: {fileID: 100521397}
   gameOverUI: {fileID: 837605193}
+  gameOverContButton: {fileID: 2110271199}
 --- !u!1 &654359598
 GameObject:
   m_ObjectHideFlags: 0
