@@ -49,7 +49,7 @@ public class TeacherMenuUIManager : MonoBehaviour
     }
     public void createAssignment()
     {
-        SceneManager.LoadScene("CustomLobbyCreation");
+        SceneManager.LoadScene("CustomLobbyQuestionCreation");
     }
     public void assignmentResults()
     {
