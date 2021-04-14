@@ -24,7 +24,7 @@ public class TeacherMenuUIManager : MonoBehaviour
             isTeacher = true;
         }
     }
-
+  
     // Update is called once per frame
     public void summaryReport()
     {

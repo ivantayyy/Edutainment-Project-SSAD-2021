@@ -28,5 +28,10 @@ public class AssignmentManager : MonoBehaviour
         PhotonNetworkMngr.joinRoom(joinGameInput.text, new RoomOptions() { MaxPlayers = 2 }, "ChooseCharacters");
         
     }
+
+    public void backBtn()
+    {
+        TeacherMenuUIManager.instance.back();
+    }
     
 }
