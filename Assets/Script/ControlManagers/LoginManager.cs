@@ -11,6 +11,9 @@ using UnityEngine.SceneManagement;
 
 namespace Assets
 {
+    /**
+     * LoginManager handles login.
+     */
     public class LoginManager : MonoBehaviour
     {
         //Login variables
@@ -30,7 +33,7 @@ namespace Assets
         public InputField passwordRegisterVerifyField;
         public Text warningRegisterText;
 
-        /*!\brief check firebase dependencies
+        /*! Check firebase dependencies
          *          
          */
         void Start()
@@ -40,7 +43,7 @@ namespace Assets
             FirebaseManager.CheckFirebaseDependencies();
         }
 
-        /*!\brief Function for the login button
+        /**@brief Function for the login button
          *          
          *   Check input fields for email and password before authenticating w firebase
          *   display error message if invalid input/ not a registered user/ wrong password
@@ -90,18 +93,25 @@ namespace Assets
 
         }
 
-
-        //Dropdown button for Register page
+        /**
+         * Dropdown button for Register page
+         */
         public void DropDownButtonRegister()
         {
             DropDownCheck(ddReg);
         }
+
+        /**
+         * Dropdown button for class list
+         */
         public void DropDownButtonClass()
         {
             DropDownCheck(ddClass);
         }
 
-        //Visual debug of dropdown button
+        /**
+         * Visual debug of dropdown button
+         */
         private void DropDownCheck(Dropdown dd)
         {
             if (dd.value == 0)
@@ -118,9 +128,10 @@ namespace Assets
             }
         }
 
-
-        //gets acctype from dropdown button
-        //3 choices available
+        /**
+         * Gets AccType from dropdown button
+         * @param dd options from the dropdown: none, Stduent, Teacher
+         */
         private string getAccType(Dropdown dd)
         {
             string res;
@@ -139,6 +150,10 @@ namespace Assets
             return res;
         }
 
+        /**
+         * Gets Class subscribed, which is the class the student selects.
+         * @param dd List of classes
+         */
         private string GetClassSubscribed(Dropdown dd)
         {
             string res;
@@ -168,8 +183,9 @@ namespace Assets
 
         //button ui to go to summary report page
 
-
-        //Signout method
+        /**
+         * Signout method
+         */
         public void SignOutButton()
         {
             FirebaseManager.SignOut();
@@ -177,13 +193,20 @@ namespace Assets
             ClearRegisterFields();
             ClearLoginFields();
         }
-        // clears the login an register fields
+
+        /**
+         * Clears the login field
+         */
         public void ClearLoginFields()
         {
             emailLoginField.text = "";
             passwordLoginField.text = "";
             //clear dropdown Account info
         }
+
+        /**
+        * Clears the Register field
+        */
         public void ClearRegisterFields()
         {
             usernameRegisterField.text = "";
@@ -194,11 +217,11 @@ namespace Assets
             ddReg.value = 0;
         }
 
-        /*!\brief register new user function
+        /*!\brief Register new user function
          *          
-         *    Check inputs for valid email and password to register new account
-         *    else display error message
-         *    store new user in firebase database
+         *    Check inputs for valid email and password to register new account, 
+         *    else display error message.
+         *    Store new user in firebase database
          */
         public async void RegisterButton()
         {

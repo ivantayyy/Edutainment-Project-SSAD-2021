@@ -9,6 +9,9 @@ using UnityEngine.UI;
 
 namespace Assets
 {
+    /**
+    *  LoadQuestions loads the questions from Firebase for all game modes.
+    */
     public class LoadQuestions : MonoBehaviour
     {
         // variables to input in scene

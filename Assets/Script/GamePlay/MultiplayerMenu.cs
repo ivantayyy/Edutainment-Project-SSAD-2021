@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 namespace Assets
 {
+
+    /**
+     * MultiplayerMenu handles user actions on MultiplayerMenu.
+     */
     public class MultiplayerMenu : MonoBehaviour
     {
         [SerializeField] private string versionName = "0.2";
@@ -31,12 +35,19 @@ namespace Assets
                 startButton.SetActive(true);
             }
         }*/
+
+        /**
+         * Returns user to Main Menu
+         */
         public void backButton()
         {
             Destroy(GameObject.Find("modeObject"));
             PhotonNetworkMngr.loadLevel("Main Menu");
         }
 
+        /**
+         * Function to create room through photonNetworkManager
+         */
         public void createGame()
         {
             PhotonNetworkMngr.createRoom(createGameInput.text, new RoomOptions() { MaxPlayers = 2 }, null);
@@ -44,6 +55,9 @@ namespace Assets
             PhotonNetworkMngr.loadLevel("Lobby");
         }
 
+        /**
+         * Function to join room through photonNetworkManager
+         */
         public void joinGame()
         {
 

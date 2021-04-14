@@ -16,7 +16,11 @@ namespace Assets
         public Text roomNameText;
 
 
-        // Start is called before the first frame update
+        /**
+         * Start() is called before the first frame update.
+         * Syncs loading scene for all players in same photon network room
+         * Add readyState to player's custom properties
+         */
         void Start()
         {
             //sync loading scene for all players in same photonnetwork room
@@ -29,6 +33,10 @@ namespace Assets
             StartCoroutine(LateStart(2.5f));
 
         }
+
+        /**
+         * Coroutine to display room name, delay needed as it takes time for photonnetwork to connect
+         */
         IEnumerator LateStart(float waitTime)
         {
             // coroutine to display roomname, delay needed as it takes time for photonnetwork to connect
@@ -37,7 +45,11 @@ namespace Assets
             roomNameText.text = "Room: " + PhotonNetworkMngr.getRoomName();
         }
 
-        // Update is called once per frame
+        /**
+         * Update is called once per frame.
+         * Show start button (on master client) if all players are ready.
+         * Show ready text when player is ready.
+         */
         void Update()
         {
             //if all players are ready and player is master client, show start button
@@ -57,28 +69,38 @@ namespace Assets
 
         }
 
+        /**
+         * Function to set player properties "player ready" to true.
+         */
         public void readyClick()
         {
-            //when player is ready, set player properties "player ready" to true
             playerProperties["PlayerReady"] = true;
             PhotonNetwork.player.SetCustomProperties(playerProperties);
         }
+
+        /**
+         * Return user to main menu and leave photon network room
+         */
         public void backButton()
         {
-            //return user to main menu and leave photon network room
             Destroy(GameObject.Find("modeObject"));
             PhotonNetwork.LeaveRoom();
             PhotonNetwork.LoadLevel("Main Menu");
         }
 
+        /**
+         * Load choose character scene when startbutton clicked
+         */
         public void characterSelection()
         {
-            //load choose character scene when startbutton clicked
             PhotonNetwork.LoadLevel("ChooseCharacters");
         }
+
+        /**
+         * Check if all players have their player properties "player ready" to be true
+         */
         private bool allPlayersReady()
         {
-            //check if all players have their player properties "player ready" to be true
             {
                 foreach (var photonPlayer in PhotonNetwork.playerList)
                 {

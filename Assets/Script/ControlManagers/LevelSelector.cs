@@ -4,11 +4,18 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 namespace Assets
 {
+
+    /**
+     * LevelSelector loads all the level options, but only allows users to select levels that has been unlocked.
+     */
     public class LevelSelector : MonoBehaviour
     {
 
         public Button[] levelButtons;
 
+        /**
+         * Gets maximum level reached by user, to allow user to only select levels equal or lower that the maximum reached.
+         */
         async void Start()
         {
 
@@ -29,15 +36,23 @@ namespace Assets
             }
         }
 
+        /**
+         * Brings user back to Character Selection scene.
+         */
         public void backButton()
         {
             Destroy(GameObject.Find("modeObject"));
             PhotonNetworkMngr.leaveRoom();
         }
+
+        /**
+         * Brings user back to Main Menu
+         */ 
         void OnLeftRoom()
         {
             PhotonNetworkMngr.loadLevel("Main Menu");
         }
+
         public void Select1(string levelName)
         {
             PlayerPrefs.SetInt("currentLevel", 1);

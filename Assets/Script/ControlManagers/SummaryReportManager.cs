@@ -5,6 +5,9 @@ using UnityEngine;
 using UnityEngine.UI;
 namespace Assets
 {
+    /**
+     * SummaryReportManager handles Summary Report List for students in a class.
+     */
     public class SummaryReportManager : MonoBehaviour
     {
         [Header("SummaryReport")]
@@ -15,7 +18,10 @@ namespace Assets
 
         public static SummaryReportManager instance;
 
-        // Start is called before the first frame update
+        /** 
+         * Start() is called before the first frame update.
+         * Loads class list.
+         */
         void Start()
         {
             if (instance == null)
@@ -29,7 +35,9 @@ namespace Assets
             }
         }
 
-        //loads class list
+        /**
+         * Loads class list with students names.
+         */
         public void LoadClassList()
         {
             List<string> classList = new List<string>() {
@@ -61,9 +69,11 @@ namespace Assets
             }
         }
 
-        //Button that Loads studentNames for the summary report
-
-        //loads all student names in class
+        /**
+         * Button that Loads studentNames for the summary report.
+         * Loads all student names in class.
+         * @param  className contains class name to load student data from that class.
+         */
 
         async public Task LoadStudentNamesAsync(string className)
         {
@@ -89,6 +99,9 @@ namespace Assets
             }
         }
 
+        /**
+         * Button to load class list
+         */
         public void summaryReportButton()
         {
             LoadClassList();

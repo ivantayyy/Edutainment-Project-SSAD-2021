@@ -5,6 +5,9 @@ using UnityEngine.UI;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 namespace Assets
 {
+    /**
+    *  PlayerScorescript controls the score display of the player.
+    */
     public class PlayerScorescript : MonoBehaviour
 
     {
@@ -129,6 +132,9 @@ namespace Assets
 
         }
 
+        /**
+        *  This function increments the enemy's score when the enemy is at a quiz object.
+        */
         public void calculateEnemyScore()
         {
             isWaiting = Enemy.isWaiting;
@@ -151,6 +157,10 @@ namespace Assets
                 timer = 0;
             }
         }
+
+        /**
+        *  This function displays the scores of player1 and player2.
+        */
         public void displayScore()
         {
             if (mode == 1 || mode == 2)//take score from here

@@ -6,6 +6,9 @@ namespace Assets
 {
     public class Enemy : MonoBehaviour
     {
+        /**
+        *  Enemy controls the enemy's path around different quiz objects in the single player mode. It also controls the animation of the enemy.
+        */
         public string enemyName;
         public float speed;
         private int points;
@@ -30,7 +33,10 @@ namespace Assets
         private bool slomo = false; // variable for Chubs
         private float tempspeed; // variable for Chubs
 
-        // Start is called before the first frame update
+        /**
+        * Start() is called before the first frame update.
+        * This function adds the quiz objects as targets so that the enemy can find paths to the different quiz objects using the A* Pathfinding Algorithm.
+        */
         void Start()
         {
             seeker = GetComponent<Seeker>();
@@ -43,6 +49,9 @@ namespace Assets
             InvokeRepeating("UpdatePath", 0f, 30f);
         }
 
+        /**
+        * UpdatePath() is called when the enemy finds a target object to move towards.
+        */
         void UpdatePath()
         {
             if (seeker.IsDone())
@@ -56,6 +65,10 @@ namespace Assets
                 seeker.StartPath(rb.position, nextTarget.transform.position, OnPathComplete);
             }
         }
+
+        /**
+        * OnPathComplete(Path p) is called to get a Vector3 representation of the path.
+        */
         void OnPathComplete(Path p)
         {
             if (!p.error)
@@ -64,7 +77,12 @@ namespace Assets
                 currentWayPoint = 0;
             }
         }
-        // Update is called once per frame
+
+        /**
+        * Update() is called once per frame.
+        * This updates the path when the enemy reaches the end of a path.
+        * It also changes the enemy's animation when the enemy stops at a quiz object and when it starts moving towards another quiz object.
+        */
         void Update()
         {
             if (path == null)
@@ -110,12 +128,18 @@ namespace Assets
             SloMoIsTrue(); // for Chubs
         }
 
+        /**
+        * This function is called to set the vectors of x and y for the enemy's animations.
+        */
         private void SetAnimFloat(Vector3 setVector)
         {
             anim.SetFloat("moveX", setVector.x);
             anim.SetFloat("moveY", setVector.y);
         }
 
+        /**
+        * This function is called to change the enemy's animation according to the direction it is facing when it is moving around the map.
+        */
         private void changeAnim(Vector3 direction)
         {
             if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
@@ -142,6 +166,9 @@ namespace Assets
             }
         }
 
+        /**
+        * This function is called when the player collides with the enemy.
+        */
         void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.CompareTag("JohnCena"))
@@ -155,6 +182,9 @@ namespace Assets
             }
         }
 
+        /**
+        * This function is called when the player is "John Cena". The player will stun the enemy.
+        */
         void HitIsTrue()
         {
             if (hit == true)
@@ -164,6 +194,9 @@ namespace Assets
             }
         }
 
+        /**
+        * This function is called when the player is "Chubs". The player will cause the enemy to move slower.
+        */
         void SloMoIsTrue()
         {
             if (slomo == true)
@@ -176,6 +209,9 @@ namespace Assets
             }
         }
 
+        /**
+        * This function is called to cause the enemy to be stunned for 10 seconds if the player is "John Cena" and has collided with the enemy.
+        */
         IEnumerator WaitForStunToEnd()
         {
             //wait a frame
@@ -184,6 +220,9 @@ namespace Assets
             yield return new WaitForSeconds(10.0f);
         }
 
+        /**
+        * This function is called to cause the enemy to be move slower for 30 seconds if the player is "Chubs" and has collided with the enemy.
+        */
         IEnumerator WaitForSloMoToEnd()
         {
             //wait a frame

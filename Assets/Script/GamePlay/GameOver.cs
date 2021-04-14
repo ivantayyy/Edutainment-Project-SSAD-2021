@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 namespace Assets
 {
+    /**
+     * GameOver handles when player finishes a game.
+     */
     public class GameOver : MonoBehaviour
     {
         public int nextSceneLoad;
@@ -11,6 +14,11 @@ namespace Assets
         public int level;
         public int currentLevel;
 
+        /**
+         * Start() is called before the first frame update.
+         * Gets current level of player from player preferences.
+         * Gets next level scene.
+         */
         void Start()
         {
             currentLevel = PlayerPrefs.GetInt("currentLevel", 1);
@@ -18,6 +26,10 @@ namespace Assets
             nextSceneLoad = SceneManager.GetActiveScene().buildIndex + 1;
             level = PlayerPrefs.GetInt("levelReached", 1);
         }
+
+        /**
+         * Function to continue load next level scene.
+         */
         public void Continue()
         {
             if (currentLevel < level)
@@ -71,6 +83,9 @@ namespace Assets
             }
         }
 
+        /**
+         * Function to return to level-select screen.
+         */
         public void Quit()
         {
             SceneManager.LoadScene("Level_select");

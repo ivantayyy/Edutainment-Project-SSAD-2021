@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 
 namespace Assets
 {
+    /**
+    * AssignmentResultsManager manages the student's maximum results on their assignments.
+    */
     public class AssignmentResultsManager : MonoBehaviour
     {
         public GameObject classElement;
@@ -20,7 +23,10 @@ namespace Assets
         private string studentName;
 
         public static AssignmentResultsManager instance;
-        // Start is called before the first frame update
+
+        /**
+        *  Start() is called before the first frame update
+        */
         private void Start()
         {
             if (instance == null)
@@ -29,6 +35,10 @@ namespace Assets
                 LoadAssignmentList();
             }
         }
+
+        /**
+        * Loads assignment list
+        */
         public async void LoadAssignmentList()
         {
             List<string> AssignmentList = await FirebaseManager.getAllAssignmentName();
@@ -58,10 +68,11 @@ namespace Assets
                 });
             }
         }
-        //Button that Loads studentNames for the summary report
 
-        //loads all student names in class
-
+        /**@brief
+        * Button that loads list of student names from specific class.
+        * @param className contains class name
+        */
         async public Task LoadStudentNamesAsync(string className)
         {
             Debug.Log("loading studentName async");
@@ -97,6 +108,11 @@ namespace Assets
             }
         }
 
+        /**@brief
+        *  Gets the maximum results of a specific assignment for a student.
+        * @param assignmentID contains the assignment ID
+        * @param sName contains the student's name
+        */
         public async void getAssignmentResults(string assignmentID, string sName)
         {
             AssignmentResults results = await FirebaseManager.getAssignmentResults(assignmentID, sName);
@@ -112,6 +128,9 @@ namespace Assets
             ptAttemptText.text = ptAttemptStr;
         }
 
+        /**@brief
+        * Brings user back to the Teacher Menu
+        */
         public void backBtn()
         {
             Destroy(GameObject.Find("TeacherObject"));

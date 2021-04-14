@@ -154,7 +154,6 @@ namespace Assets
         private void PostToDatabase()
         {
 
-            User user = new User();
             MCQData mcqData = new MCQData();
 
             mcqData.Answer = getAnswer.text;
