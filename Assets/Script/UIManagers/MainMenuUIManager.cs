@@ -20,6 +20,9 @@ namespace Assets
 
         }
 
+        /**
+         * Displays main menu UI
+         */
         public void mainUI()
         {
             clearscreen();
@@ -27,16 +30,27 @@ namespace Assets
             backbtn.SetActive(true);
         }
 
+        /**
+         * Displays leaderboard UI
+         */
         public void leaderBoard()
         {
             clearscreen();
             leaderBoardUI.SetActive(true);
         }
+
+        /**
+         * Returns to main menu UI
+         */
         public void back()
         {
             clearscreen();
             mainMenuUI.SetActive(true);
         }
+
+        /**
+         * Clears all screens
+         */
         public void clearscreen()
         {
             leaderBoardUI.SetActive(false);

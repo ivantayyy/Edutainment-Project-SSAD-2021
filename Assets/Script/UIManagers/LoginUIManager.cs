@@ -29,24 +29,36 @@ namespace Assets
             }
         }
 
-        //Functions to change the login screen UI
+        /**
+         * Displays login screen UI
+         */
         public void LoginScreen() //Back button
         {
             clearscreen();
             loginUI.SetActive(true);
         }
-        public void RegisterScreen() // Regester button
+
+        /**
+         * Displays register UI.
+         */
+        public void RegisterScreen() // Register button
         {
             clearscreen();
             registerUI.SetActive(true);
         }
 
+        /**
+         * Clears all screens.
+         */
         public void clearscreen() //turn off all screens
         {
             loginUI.SetActive(false);
             registerUI.SetActive(false);
         }
 
+        /**
+         * Returns to login UI
+         */
         public void backButton()
         {
             clearscreen();

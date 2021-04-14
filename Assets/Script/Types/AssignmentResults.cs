@@ -10,6 +10,9 @@ namespace Assets
         public int attempts;
         public int maxPoint;
 
+        /**
+         * Creates new list of assignment results.
+         */
         public AssignmentResults()
         {
             this.points = new List<int>();
