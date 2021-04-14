@@ -23,7 +23,7 @@ public class TeacherMenuUIManager : MonoBehaviour
             isTeacherObj.isTeacher = true;
         }
     }
-
+  
     // Update is called once per frame
     public void summaryReport()
     {
