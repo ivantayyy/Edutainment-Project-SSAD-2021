@@ -8,6 +8,10 @@ namespace Assets
     {
         public AbstractQuizManager[] quizManagers;
         public GameObject[] pendingIcons;
+
+        /**
+         * Disable question icon in game once quiz is completed
+         */
         void Update()
         {
             for (int i = 0; i < quizManagers.Length; i++)

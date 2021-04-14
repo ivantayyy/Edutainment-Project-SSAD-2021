@@ -10,7 +10,11 @@ namespace Assets
         public string[] Answers;
         public string CorrectAnswer;
 
-
+        /**
+         * @param question question
+         * @param answers choices for answer
+         * @param correctAnw the correct answer
+         */
         public QuestionAndAnswer(string question, string[] answers, string correctAns)
         {
             Questions = question;

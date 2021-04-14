@@ -15,6 +15,9 @@ namespace Assets
         public Text ScoreTxt;
         public bool completed = false;
 
+        /**
+         * Function to generate next question shen answer is correct.
+         */
         public void correct()
         {
             {
@@ -27,6 +30,10 @@ namespace Assets
                 }
             }
         }
+
+        /**
+         * Function to regenerate same question shen answer is wrong.
+         */
         public void wrong()
         {
             currentQuestion++;
@@ -36,18 +43,32 @@ namespace Assets
                 generateQuestion();
             }
         }
+
+        /**
+         * Function to generate question
+         */
         public void generateQuestion()
         {
             //currentQuestion = Random.Range(0, QnA.Count);
             QuestionTxt.text = QnA[currentQuestion].Questions;
             SetAnswers();
         }
+
         abstract public void SetAnswers();
         abstract public void checkAns();
+
+        /**
+         * Returns number of correct answers
+         */
         public int getNumCorrect()
         {
             return numCorrect;
         }
+
+        /**
+         * Assigns number of correct answers to variable numCorrect.
+         * @param num number of questions correct
+         */
         public void setNumCorrect(int num)
         {
             numCorrect = num;

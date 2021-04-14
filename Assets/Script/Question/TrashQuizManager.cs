@@ -12,7 +12,10 @@ namespace Assets
         public bool correct = false;
         public QuestionAndAnswer[] questions = new QuestionAndAnswer[4];
 
-        // Start is called before the first frame update
+        /**
+         * Start is called before the first frame update.
+         * Generates question
+         */
         void Start()
         {
             /*questions[0] = new QuestionAndAnswer("Choose A", new string[1] { "A" }, 0);
@@ -26,6 +29,11 @@ namespace Assets
             generateQuestion();
         }
 
+        /**
+         * Displays score.
+         * Displays 'Try Again' if quiz is incomplete. 
+         * Displays 'Mission Completed' if quiz is complete.
+         */
         void Update()
         {
             //display score
@@ -51,6 +59,9 @@ namespace Assets
             }
         }
 
+        /**
+         * Check if answer is correct.
+         */
         public override void checkAns()
         {
             //check answer with inputfield
@@ -64,10 +75,13 @@ namespace Assets
                 correct = false;
         }
 
+        /**
+         * Set button isCorrect to true if answer is correct
+         */
         public override void SetAnswers()
         {
             checkAns();
-            //if answer correct, set button isCorrect to true
+
             if (correct)
             {
                 options[0].GetComponent<TrashAnswer>().isCorrect = true;

@@ -12,6 +12,10 @@ namespace Assets
         public Animator[] anim;
         private string number;
 
+        /**
+         * Checks if the answer is correct.
+         * Plays animation, generate next question and updates score when answer is correct.
+         */
         public void answer()
         {
             if (isCorrect)

@@ -29,6 +29,9 @@ namespace Assets
         public string s5ss2;
         public string s5ss3;
 
+        /**
+         * Assigns variables to mcq questions created.
+         */
         public QuestionNumber()
         {
 
