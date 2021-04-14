@@ -16,6 +16,9 @@ using System.Linq;
 
 namespace Assets
 {
+    /**
+     * FirebaseManager handles database functions.
+     */
     public static class FirebaseManager
     {
         // Firebase variables
@@ -24,8 +27,13 @@ namespace Assets
         public static FirebaseUser User;
         public static DatabaseReference DBreference;
 
-        /*
-         * Registers Student Function
+        /**
+         * Function to register Student
+         * @param _email contains email of user
+         * @param _password contains password of account
+         * @param _username contains username of user
+         * @param _acctype contains type of account being registered
+         * @param _classSubscribed contains class that user is subscribing to
          */
         async public static Task<string> RegisterAsync(string _email, string _password, string _username, string _acctype, string _classSubscribed)
         {
@@ -107,7 +115,10 @@ namespace Assets
             return message;
         }
 
-        //Used to get A list of all students subscribed in the class
+        /**
+         * Used to get a list of all students subscribed in the class
+         * @param className contains name of class from where to fetch the list from
+         */
         public async static Task<List<string>> getAllUsersInClass(string className)
         {
             List<string> AllUsersList = new List<string>();
@@ -131,10 +142,12 @@ namespace Assets
 
             return AllUsersList;
         }
-        /*
+
+        /**
          * Login Methods
+         * @param _email contains email of user
+         * @param _password contains password of user
          */
-        // login function
         async public static Task<string> LoginAsync(string _email, string _password)
         {
             string message = "";
@@ -195,7 +208,9 @@ namespace Assets
             return message;
         }
 
-        // Run on login page Start() for Login Initialises Firebase
+        /**
+         * Run on login page Start() for Login Initialises Firebase
+         */
         private static void InitializeFirebase()
         {
             Debug.Log("Setting up Firebase Auth");
@@ -205,7 +220,9 @@ namespace Assets
             Debug.Log("Set up Firebase Auth successfully");
         }
 
-        // Run on LoginPage at STart() to Check dependencies 
+        /** 
+         * Run on LoginPage at STart() to Check dependencies 
+         */
         public static void CheckFirebaseDependencies()
         {
             UnityEngine.Debug.Log("Firebase Manager Awake is called");
@@ -226,19 +243,19 @@ namespace Assets
             });
         }
 
-        /*
+        /**
          * Signout function 
          */
-
         public static void SignOut()
         {
             auth.SignOut();
         }
 
-        /*
+        /**
          * Function gets a Student User with uid and accType
+         * @param uid Student user id
+         * @param acctype User's account type
          */
-
         async public static Task<InitUser> GetUser(string uid, string acctype)
         {
             UnityEngine.Debug.Log("Reached GetUser() Function");
@@ -253,8 +270,8 @@ namespace Assets
             return currentUser;
         }
 
-        /*
-         * Function Checks if currenUser is a teacher
+        /**
+         * Function too check if currenUser is a teacher
          */
         async public static Task<bool> isTeacher()
         {
@@ -269,8 +286,13 @@ namespace Assets
         }
 
 
-        /*
-         * Function updates the Student's score upon successful completion of a stage
+        /**
+         * Function to update the Student's score upon successful completion of a stage
+         * @param gamemode contains game mode, to only update the score of that mode
+         * @param userid contains student's user id
+         * @param justFinishedLevel contains level of the game student played
+         * @param new_timeTaken latest time taken student took to complete the game
+         * @param new_points lates number of points student earned during the game
          */
         async public static Task updateScoreOnDatabaseAsync(string gamemode, string userid, int justFinishedlevel, float new_timeTaken, float new_points)
         {
@@ -391,6 +413,12 @@ namespace Assets
             }
         }
 
+        /**
+         * Updates student's assignment score.
+         * @param userid contains student's id
+         * @param assignmentID contains the id of the assignment the score is assigned to
+         * @param newPoints contains the points earned by student
+         */
         async public static Task updateAssignmentScoreAsync(string userid, string assignmentID, int newPoints)
         {
 
@@ -437,8 +465,9 @@ namespace Assets
 
         }
 
-        /*
-         * This Function Gets the Users' Max Level(maximum uncleared stage) from the database
+        /**
+         * Function Gets the Users' Max Level(maximum uncleared stage) from the database
+         * @param gamemode contains game mode to check user's max level for that specific game mode
          */
         async public static Task<int> getUserMaxLevelReachedAsync(string gamemode)
         {
@@ -451,8 +480,9 @@ namespace Assets
             return maxLevelReached;
         }
 
-        /*
+        /**
          * This function gets the Top 10 users from the Leaderboard according to the gameMode specified
+         * @param gamemode contains game mode to get top 10 users for that specific game mode
          */
         async public static Task<List<InitUser>> GetLeaderBoardFromDatabase(string gameMode)
         {
@@ -480,9 +510,10 @@ namespace Assets
         }
 
 
-        /*
-         * This function gets a List of Student's Names from the Database
-         * Can be deprecated and use CClasses CChild to get All uid Then Get all the Names
+        /**
+         * This function gets a List of Student's Names from the Database.
+         * Can be deprecated and use CClasses CChild to get All uid Then Get all the Names.
+         * @param className contains class name
          */
         async public static Task<Dictionary<string, string>> LoadStudentNamesAsync(string className)
         {
@@ -513,10 +544,8 @@ namespace Assets
             return StudentsInfo;
         }
 
-        /*
-         * TODO: Link this to assignments with Samuel
+        /**
          * This function creates an assignment for a Teacher
-         * Not Tested
          */
         public static string getAssignmentKey()
         {
@@ -525,6 +554,11 @@ namespace Assets
             return AssignmentID;
         }
 
+        /**
+         * Function for teacher to assign an assignment to all students that have subscribed to the class.
+         * @param className contains the class name that the teacher created the assignment for
+         * @param AssignmentID contains the id of the assignment the teacher created
+         */
         public async static Task addToAllSubscribedStudents(string className, string AssignmentID)
         {
             List<string> UsersInClass;
@@ -571,8 +605,9 @@ namespace Assets
         //    //Add code to questions database 
         //}
 
-        /*
-         * Helper function for checking username exist in database for registration
+        /**
+         * Helper function to check if username exist in database for registration
+         * @param _username contains the username to be checked
          */
         async public static Task<bool> CheckUsernameExistsInDatabaseAsync(string _username)
         {
@@ -583,8 +618,11 @@ namespace Assets
             return hasUsername;
         }
 
-        /*
+        /**
          * This method adds an intialised user data (Student or Teacher )to firebase database
+         * @param acctype contains the type of the account to be created
+         * @param username contains username to be added
+         * @param uid contains user id
          */
         private async static Task InitialiseUserData(string acctype, string username, string uid, string classSubscribed)
         {
@@ -616,8 +654,10 @@ namespace Assets
         }
 
 
-        /*
+        /**
          * Adds Uid of newly registered student to a class
+         * @param className contains name of class that the student is registered for
+         * @param uid contains id of user registering
          */
         private async static Task subscribeClass(string className, string uid)
         {
@@ -642,8 +682,11 @@ namespace Assets
 
         }
 
-        /*
-         * Samuel's load questions
+        /**
+         * Function to load questions
+         * @param stage contains game stage
+         * @param substage contains substage of the stage
+         * @param questionNo contains question number to be loaded
          */
         public async static Task<DBQT> getQuestionFromNormalDB(string stage, string substage, string questionNo)
         {
@@ -655,6 +698,12 @@ namespace Assets
             return singleQuestion;
         }
 
+        /**
+         * Function to get question from Custom Lobby database
+         * @param roomName contains the room where questions are to be fetched from
+         * @param quizNo contains quiz number
+         * @param qnNo contains question number
+         */
         public async static Task<DBQT> getQuestionFromCustomDB(string roomName, string quizNo, string qnNo)
         {
             DBQT singleQuestion;
@@ -665,6 +714,12 @@ namespace Assets
             return singleQuestion;
         }
 
+        /**
+         * Function to get question from Assignment database
+         * @param roomName contains the room where questions are to be fetched from
+         * @param quizNo contains quiz number
+         * @param qnNo contains question number
+         */
         public async static Task<DBQT> getQuestionFromAssignmentDB(string roomName, string quizNo, string qnNo)
         {
             DBQT singleQuestion;
@@ -676,6 +731,10 @@ namespace Assets
             return singleQuestion;
         }
 
+        /**
+         * Function to get assignment name
+         * @param uid contains id of user
+         */
         public async static Task<List<String>> getAssignmentName(string uid)
         {
             var Task = DBreference.Child("Student").Child(uid).Child("assignments").GetValueAsync();
@@ -692,6 +751,9 @@ namespace Assets
             return returnList;
         }
 
+        /**
+         * Function to get list of all assignments
+         */
         public async static Task<List<String>> getAllAssignmentName()
         {
             List<string> assignmentList = new List<String>();
@@ -714,6 +776,11 @@ namespace Assets
 
             return assignmentList;
         }
+
+        /**
+         * Function to get list of students that has been assigned a specific assignment
+         * @param assignmentID contains id of assignment to get student list from
+         */
         public async static Task<List<String>> getAllStudentFromAssignments(string assignmentID)
         {
             List<string> studentList = new List<String>();
@@ -737,6 +804,11 @@ namespace Assets
             return studentList;
         }
 
+        /**
+         * Function to get assignment results of a student for an assignment.
+         * @param assignmentID contains id of assignment
+         * @param studentName contains name of student to get results from
+         */
         public async static Task<AssignmentResults> getAssignmentResults(string assignmentID, string studentName)
         {
             AssignmentResults results;

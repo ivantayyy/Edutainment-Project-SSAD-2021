@@ -41,7 +41,7 @@ namespace Assets
 
         /**
          * Loads student idata for all 3 boards.
-         * \params uid string that contains user id to load the user's data.
+         * @param uid contains user id to load the user's data.
          */
         async public void loadStudentInfo(string uid)
         {
@@ -73,8 +73,8 @@ namespace Assets
 
         /**
          * Helper function for loading a single gamemode's data
-         * \params student
-         * \params GameMode string to specify game mode, single player, multiplayer of custom lobby.
+         * @param student
+         * @param GameMode specify game mode, single player, multiplayer of custom lobby.
          */
         private void LoadSelectGameModeData(InitUser student, string GameMode)
         {

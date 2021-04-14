@@ -130,7 +130,7 @@ namespace Assets
 
         /**
          * Gets AccType from dropdown button
-         * \params dd options from the dropdown: none, Stduent, Teacher
+         * @param dd options from the dropdown: none, Stduent, Teacher
          */
         private string getAccType(Dropdown dd)
         {
@@ -152,7 +152,7 @@ namespace Assets
 
         /**
          * Gets Class subscribed, which is the class the student selects.
-         * \params dd List of classes
+         * @param dd List of classes
          */
         private string GetClassSubscribed(Dropdown dd)
         {

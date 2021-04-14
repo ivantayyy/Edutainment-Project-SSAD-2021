@@ -72,7 +72,7 @@ namespace Assets
         /**
          * Button that Loads studentNames for the summary report.
          * Loads all student names in class.
-         * \params  className contains class name to load student data from that class.
+         * @param  className contains class name to load student data from that class.
          */
 
         async public Task LoadStudentNamesAsync(string className)

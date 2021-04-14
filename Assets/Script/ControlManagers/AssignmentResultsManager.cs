@@ -71,7 +71,7 @@ namespace Assets
 
         /**@brief
         * Button that loads list of student names from specific class.
-        * \params className string that contains class name
+        * @param className contains class name
         */
         async public Task LoadStudentNamesAsync(string className)
         {
@@ -110,8 +110,8 @@ namespace Assets
 
         /**@brief
         *  Gets the maximum results of a specific assignment for a student.
-        * \params assignmentID string that contains the assignment ID
-        * \params sName string that contains the student's name
+        * @param assignmentID contains the assignment ID
+        * @param sName contains the student's name
         */
         public async void getAssignmentResults(string assignmentID, string sName)
         {
