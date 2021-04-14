@@ -29,25 +29,23 @@ public class LoginManager : MonoBehaviour
     public InputField passwordRegisterVerifyField;
     public Text warningRegisterText;
 
-    
+    /*!\brief check firebase dependencies
+     *          
+     */
     void Start()
     {
         Debug.Log("LoginManager instantiated");
+
         FirebaseManager.CheckFirebaseDependencies();
     }
 
-    //helper function for instantiating Photon user
-    public void instantiatePhotonUser()
-    {
-        string userid = FirebaseManager.auth.CurrentUser.UserId;
-        PhotonNetworkMngr.setUserId(userid);
-
-        string username = FirebaseManager.auth.CurrentUser.DisplayName;
-        PhotonNetworkMngr.setNickName(username);
-    }
-
-   
-
+    /*!\brief Function for the login button
+     *          
+     *   Check input fields for email and password before authenticating w firebase
+     *   display error message if invalid input/ not a registered user/ wrong password
+     *   login using firebase
+     *   load student menu/ teacher menu depending on account type
+     */
     //Function for the login button
     public async void LoginButton()
     {
@@ -70,7 +68,7 @@ public class LoginManager : MonoBehaviour
         warningLoginText.text = "";
         warningLoginText.text = message;
         Debug.Log("Login Task on Login Button() completed sucessfully proceeding to instantiate photon user");
-        instantiatePhotonUser();
+        //instantiatePhotonUser();
         // wait for 2 seconds
         //redirects to next screen
         var isTeacherTask = FirebaseManager.isTeacher();
@@ -194,6 +192,12 @@ public class LoginManager : MonoBehaviour
         ddReg.value = 0;
     }
 
+    /*!\brief register new user function
+     *          
+     *    Check inputs for valid email and password to register new account
+     *    else display error message
+     *    store new user in firebase database
+     */
     public async void RegisterButton()
     {
         string acctype = getAccType(ddReg);
@@ -231,10 +235,5 @@ public class LoginManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
 
-    void Update()
-    {
-        
-    }
 }

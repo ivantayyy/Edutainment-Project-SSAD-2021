@@ -14,29 +14,44 @@ public class MainMenu : MonoBehaviour
     private List<string> assignmentList;
 
     public static MainMenu instance;
+
+    /*!\brief Awake function is called before start
+     *          connect to photonNetowrk server
+     */
     private void Awake()
     {
        
         Debug.Log("Main Menu Manager instantiated");
         
         //connect to photon
-        PhotonNetworkMngr.connectUsingSettings(versionName);
+        
 
         
     }
-
-    public async void Start()
-    {
-        //string uid = PhotonNetwork.player.UserId;
-        //await FirebaseManager.updateAssignmentScoreAsync(uid,"AssignmentID",12);
-
-    }
-
+    /*!\brief when connected to photon network, join lobby
+     *          and calls instantiatePhotonUser
+     */
     private void OnConnectedToMaster()//when connected to photon netwoek
     {
         PhotonNetworkMngr.joinLobby(TypedLobby.Default);//define lobby tyoe of photon
+        instantiatePhotonUser();
         Debug.Log("Connected");
     }
+
+    /*!\brief set photon userid and nickname to firebase user's userid and username
+     *          
+     */
+    public void instantiatePhotonUser()
+    {
+        string userid = FirebaseManager.auth.CurrentUser.UserId;
+        PhotonNetworkMngr.setUserId(userid);
+
+        string username = FirebaseManager.auth.CurrentUser.DisplayName;
+        PhotonNetworkMngr.setNickName(username);
+    }
+    /*!\brief go to single player page when called
+     *          
+     */
     public void singlePlayer()//link to single player button
     {
         //when select sinngleplayer, go to singple player page
@@ -45,47 +60,33 @@ public class MainMenu : MonoBehaviour
         //LOAD LEVEL IN PHOTON
         PhotonNetworkMngr.loadLevel("ChooseCharacters");
     }
+    /*!\brief go to multiplayer page when called
+     *          
+     */
     public void multiPlayer()
     {
         
         modeObject.modeType = 1;
         PhotonNetworkMngr.loadLevel("Multiplayer");
     }
+    /*!\brief go to custom lobby page when called
+     *          
+     */
     public void custom()
     {
         
         modeObject.modeType = 2;
         PhotonNetworkMngr.loadLevel("CustomLobby");
     }
+    /*!\brief go to student assignment page when called
+     *          
+     */
     public void assignment()
     {
         
         modeObject.modeType = 3;
         PhotonNetworkMngr.loadLevel("Assignment");
     }
-    /*public void mainUI()
-    {
-        clearscreen();
-        main.SetActive(true);
-        backbtn.SetActive(true);
-    }
-
-    public void leaderBoard()
-    {
-        clearscreen();
-        leaderboard.SetActive(true);
-    }
-    public void back()
-    {
-        clearscreen();
-        main.SetActive(true);
-    }
-    public void clearscreen()
-    {
-        leaderboard.SetActive(false);
-        main.SetActive(false);
-    }
-    */
     
 
 }
