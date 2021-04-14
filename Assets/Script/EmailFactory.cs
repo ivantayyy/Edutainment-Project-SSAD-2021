@@ -16,11 +16,8 @@ public class EmailFactory : MonoBehaviour
     [SerializeField] Button btnSubmit;
     [SerializeField] bool sendDirect;
 
-    const string kSenderEmailAddress = "potate345@gmail.com";
-    const string kSenderPassword = "Potato123";
-    //const string kReceiverEmailAddress = "clarissa.nurawan@gmail.com";
-    //Text kReceiverEmailAddress = receiverEmail.text;
-
+    const string kSenderEmailAddress = "ButterflyImpact.Adm@gmail.com";
+    const string kSenderPassword = "Admin.123";
 
     void Start()
     {
@@ -39,9 +36,8 @@ public class EmailFactory : MonoBehaviour
         // Create mail
         MailMessage mail = new MailMessage();
         mail.From = new MailAddress(kSenderEmailAddress);
-        //EmailFactory em = new EmailFactory();
         mail.To.Add(new MailAddress(receiverEmail.text));
-        mail.Subject = "Invitation";
+        mail.Subject = "Invitation to join room in Butterfly Impact!";
         mail.Body = message;
 
         // Setup server 

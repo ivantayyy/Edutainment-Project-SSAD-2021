@@ -8,7 +8,7 @@ public class GameOver : MonoBehaviour
     public int nextSceneLoad;
     public int subSceneLoad;
     public int level;
-    private int currentLevel;
+    public int currentLevel;
 
     void Start()
     {

@@ -10,8 +10,8 @@ using UnityEngine.UI;
 public class LoadQuestions : MonoBehaviour
 {
     // variables to input in scene
-    public int StageNumber;
-    public int SubstageNumber; // SubstageNumber = level%3
+    private int StageNumber;
+    private int SubstageNumber; // SubstageNumber = currentLevel%3
 
     public AbstractQuizManager MCQ1;
     public AbstractQuizManager MCQ2;
@@ -51,12 +51,33 @@ public class LoadQuestions : MonoBehaviour
     */
     private GameObject mainMenuScript;
     private int mode;
+    private int currentlevel;
 
     // Start is called before the first frame update 
     private async void Start()
     {
         mainMenuScript = GameObject.Find("MainMenuScript");
         mode = mainMenuScript.GetComponent<MainMenu>().mode;
+        Debug.Log(PlayerPrefs.GetInt("currentLevel", 1));
+        currentlevel = PlayerPrefs.GetInt("currentLevel", 1);
+
+        if (currentlevel % 3 != 0)
+        {
+            StageNumber = currentlevel/3 + 1;
+        }
+        else
+        {
+            StageNumber = currentlevel/3;
+        }
+        Debug.Log("Stage Number: " + StageNumber);
+
+        SubstageNumber = currentlevel%3;
+        if (SubstageNumber == 0)
+        {
+            SubstageNumber = 3;
+        }
+        Debug.Log("Substage Number: " + SubstageNumber);
+
         //string userData = "{\"email\":\"" + teacherEmail + "\",\"password\":\"" + teacherPassword + "\",\"returnSecureToken\":true}";
         //RestClient.Post<SignResponse>("https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=" + AuthKey, userData).Then(
         //    response =>
