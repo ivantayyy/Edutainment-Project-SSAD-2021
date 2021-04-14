@@ -6,7 +6,7 @@ using Hashtable = ExitGames.Client.Photon.Hashtable;
 namespace Assets
 {
     /**
-    *  PlayerScorescript controls the score display in a quiz object when the player is doing a quiz.
+    *  PlayerScorescript controls the score display of the player.
     */
     public class PlayerScorescript : MonoBehaviour
 
