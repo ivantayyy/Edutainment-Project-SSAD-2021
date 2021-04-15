@@ -6,6 +6,9 @@ using UnityEngine;
 namespace Assets
 {
     [Serializable]
+    /**
+     * Data format for custom mcq questions.
+     */
     public class MCQData
     {
         public string Options;

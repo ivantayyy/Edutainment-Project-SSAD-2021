@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace Assets
 {
+    /**
+     * Data format of teacher details.
+     */
     [Serializable]
     public class Teacher
     {
@@ -14,6 +17,12 @@ namespace Assets
         public string id;
         public List<string> assignedAssignments;
 
+        /**
+         * Set teacher details.
+         * @param _accType type of account
+         * @param _username acccount username
+         * @param _id account id
+         */
         public Teacher(string _accType, string _username, string _id)
         {
             this.accType = _accType;

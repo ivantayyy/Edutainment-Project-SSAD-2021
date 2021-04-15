@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace Assets
 {
+    /**
+     * Controls the animations for the quiz objects and handles user interactions with the quizzes.
+     */
     public class QuestionSign : MonoBehaviour
     {
         public GameObject WeaponQuiz; //consist of quizManager and submit button for each quiz
@@ -16,6 +19,10 @@ namespace Assets
         public string quizName;
         public AbstractQuizManager quizManager;
 
+        /**
+         * Start() is called before the first frame.
+         * Instantiates the animator of the quiz object.
+         */
         void Start()
         {
 
@@ -23,7 +30,11 @@ namespace Assets
             restartQuiz(quizManager);
         }
 
-        // Update is called once per frame
+        /**
+         * Update is called once per frame.
+         * If player is near a sign and presses spacebar, enables dialog box of quiz object.
+         * If dialog box is already active, it is disabled when spacebar is pressed.
+         */
         void Update()
         {
             correct = quizManager.getNumCorrect();
@@ -53,6 +64,10 @@ namespace Assets
                 }
             }
         }
+
+        /**
+         * Sets off trigger when player is in range of question sign game object.
+         */
         public void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("Player"))  //if sign's box collider collides with player's box collider (entering)
@@ -63,6 +78,9 @@ namespace Assets
             }
         }
 
+        /**
+         * Sets off trigger when player leaves the range of question sign game object.
+         */
         public void OnTriggerExit2D(Collider2D other)
         {
             if (other.CompareTag("Player")) //if sign's box collider collides with player's box collider (exiting)
@@ -79,6 +97,9 @@ namespace Assets
             }
         }
 
+        /**
+         * Restarts quiz when player presses spacebar to disable and enable the dialog box of a quiz object again.
+         */
         public void restartQuiz(AbstractQuizManager quizManager)
         {
             //Debug.Log("correct = " + correct);

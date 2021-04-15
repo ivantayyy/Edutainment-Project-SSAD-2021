@@ -7,6 +7,9 @@ namespace Assets
 {
     [Serializable]
 
+    /**
+     * Format of questions in database, includes Answer, Options and Question.
+     */
     public class DBQT
     {
         public string Answer;

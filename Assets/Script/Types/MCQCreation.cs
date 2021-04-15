@@ -61,6 +61,9 @@ namespace Assets
 
         QuestionNumber questionNo = new QuestionNumber();
 
+        /**
+         * To get authorization for database.
+         */
         private void Start()
         {
 
@@ -76,6 +79,10 @@ namespace Assets
                 });
 
         }
+
+        /**
+         * Retrieve question from database.
+         */
         private void RetrieveFromDatabase()
         {
 
@@ -90,6 +97,9 @@ namespace Assets
 
         }
 
+        /**
+         * Fill in database with questions.
+         */
         private void PostToDatabase()
         {
             int stageSel = stageSelection.value + 1;

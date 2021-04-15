@@ -99,6 +99,9 @@ namespace Assets
             }
         }
 
+        /**
+         * Goes to next page depending on type of account.
+         */
         public async void continueBut()
         {
             Debug.Log("cont");
@@ -121,6 +124,10 @@ namespace Assets
             }
 
         }
+
+        /**
+         * Post questions to database when button is clicked.
+         */
         public void OnSubmit()
         {
             PostToDatabase();
@@ -131,11 +138,19 @@ namespace Assets
 
         }
 
+        /**
+         * To edit question in database.
+         */
         public void submitQuestionChange()
         {
             retrieveCustomInfo();
         }
 
+        /**
+         * Returns to previous page.
+         * Teacher menu if acc type is teacher.
+         * Main menu is acc type is student
+         */
         public void backButton()
         {
             if (isTeacher)
@@ -151,6 +166,10 @@ namespace Assets
 
 
         }
+
+        /**
+         * Post questions to database.
+         */
         private void PostToDatabase()
         {
 
@@ -219,6 +238,9 @@ namespace Assets
             }
         }
 
+        /**
+         * Checks question type and sets the type.
+         */
         private void questionTypeChecker()
         {
 
@@ -264,6 +286,9 @@ namespace Assets
 
         }
 
+        /**
+         * Get custom questions.
+         */
         private void retrieveCustomInfo()
         {
             Debug.Log("tsad");
@@ -294,6 +319,10 @@ namespace Assets
 
 
         }
+
+        /**
+         * Edits question when user submits question changes.
+         */
         private void reInsertQuestion()
         {
             int quizSelect = selectQuiz.value + 1;

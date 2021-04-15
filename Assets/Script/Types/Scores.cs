@@ -14,6 +14,11 @@ namespace Assets
         public List<int> attempts;
         public float totalPoints;
         //public string jsonString;
+
+        /**
+         * Instantiates lists for different variables in the class.
+         * For variables: points, timeTaken, attempts.
+         */
         public Scores()
         {
             //cursubstage is length of points/timetaken/attempts
@@ -22,6 +27,7 @@ namespace Assets
             this.timeTaken = new List<float>();
             this.attempts = new List<int>();
         }
+
         public void init()
         {
             this.curSubstage = 1;

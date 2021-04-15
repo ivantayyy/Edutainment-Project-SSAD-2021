@@ -29,6 +29,10 @@ namespace Assets
         {
 
         }
+
+        /**
+         * Initialize user's details.
+         */
         public InitUser(string _accType, string _username, string _id, string classSubscribed)
         {
             this.classSubscribed = classSubscribed;

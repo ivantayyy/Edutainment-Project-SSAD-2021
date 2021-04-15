@@ -22,13 +22,18 @@ namespace Assets
 
         /**
          * Start() is called before the first frame update.
+         * Generates question.
          */
         void Start()
         {
             generateQuestion();
         }
 
-        
+        /**
+         * Updates the message on the quiz dialog box.
+         * Displays 'Try Again' if player does not answer all questions correctly for that quiz.
+         * Displays 'Mission Completed' if player answers all questions correctly for that quiz. 
+         */
         void Update()
         {
             ScoreTxt.text = numCorrect + "/" + QnA.Count;
@@ -86,6 +91,10 @@ namespace Assets
             SetAnswers();
         }
         */
+
+        /**
+         * Function to check if player's selected answer.
+         */
         public override void checkAns()
         {
             int correct = int.Parse(QnA[currentQuestion].CorrectAnswer);
@@ -104,7 +113,9 @@ namespace Assets
 
         }
 
-
+        /**
+         * Display options on UI for a quiz object.
+         */
         public override void SetAnswers()
         {
 
