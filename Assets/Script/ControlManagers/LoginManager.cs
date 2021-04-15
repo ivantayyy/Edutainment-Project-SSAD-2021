@@ -225,7 +225,7 @@ namespace Assets
          */
         public async void RegisterButton()
         {
-            string acctype = getAccType(ddReg);
+                        string acctype = getAccType(ddReg);
             string classSubscribed = GetClassSubscribed(ddClass);
 
             if (acctype == "none")

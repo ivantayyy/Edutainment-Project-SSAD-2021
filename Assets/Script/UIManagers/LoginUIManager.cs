@@ -45,6 +45,7 @@ namespace Assets
         {
             clearscreen();
             registerUI.SetActive(true);
+
         }
 
         /**

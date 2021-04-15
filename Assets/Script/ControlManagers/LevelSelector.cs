@@ -11,6 +11,9 @@ namespace Assets
     public class LevelSelector : MonoBehaviour
     {
 
+
+        private int mode;
+        private GameObject modeObject;
         public Button[] levelButtons;
 
         /**
@@ -18,20 +21,41 @@ namespace Assets
          */
         async void Start()
         {
-
-            var levelReachedTask = FirebaseManager.getUserMaxLevelReachedAsync("singlePlayer");
-            int levelReached = await levelReachedTask;
-            //Debug
-            UnityEngine.Debug.Log("sucess level reached " + levelReached.ToString());
-
-
-            PlayerPrefs.GetInt("levelReached", levelReached);
+            modeObject = GameObject.Find("modeObject");
+            mode = modeObject.GetComponent<mode>().modeType;
+            int levelSelect;
+            //multiplayer
+            if(mode == 1 ||mode == 2)
+            {
+                levelSelect = 0;
+                foreach(PhotonPlayer player in PhotonNetwork.playerList)
+                {
+                    string userid = player.UserId;
+                    var task = FirebaseManager.getUserMaxLevelReachedAsync("multiPlayer");
+                    int level = await task;
+                    if (level <= levelSelect)
+                    {
+                        levelSelect = level;
+                    }
+                }
+            }
+            else {
+                var levelReachedTask = FirebaseManager.getUserMaxLevelReachedAsync("singlePlayer");
+                levelSelect = await levelReachedTask;
+                UnityEngine.Debug.Log("sucess level reached " + levelSelect.ToString());
+            }
+            PlayerPrefs.GetInt("levelReached", levelSelect);
             int currentLevel = PlayerPrefs.GetInt("currentLevel", 1);
+
+
+            //Debug
+
+
             Debug.Log(PlayerPrefs.GetInt("levelReached"));
-            Debug.Log(levelReached);
+            Debug.Log(levelSelect);
             for (int i = 0; i < levelButtons.Length; i++)
             {
-                if (i + 1 > levelReached)
+                if (i + 1 > levelSelect)
                     levelButtons[i].interactable = false;
             }
         }
