@@ -371,7 +371,7 @@ namespace Assets
                 else // means replaying a previously cleared level
                 {
                     // if achieved new highscore
-                    if (new_points < points[justFinishedlevel - 1])
+                    if (new_points > points[justFinishedlevel - 1])
                     {
                         // increase attempts for that level by 1
                         DBScore.attempts[justFinishedlevel - 1] = DBScore.attempts[justFinishedlevel - 1] + 1;
