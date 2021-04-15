@@ -24,8 +24,8 @@ namespace Assets
 
         void Start()
         {
-            teacherObject = GameObject.Find("TeacherObject");
-            isTeacher = teacherObject.GetComponent<isTeacherObject>().isTeacher;
+            //teacherObject = GameObject.Find("TeacherObject");
+           // isTeacher = teacherObject.GetComponent<isTeacherObject>().isTeacher;
 
             UnityEngine.Assertions.Assert.IsNotNull(txtData);
             UnityEngine.Assertions.Assert.IsNotNull(btnSubmit);
@@ -37,7 +37,7 @@ namespace Assets
         }
 
         // Method 1: Direct message
-        private void SendAnEmail(string message)
+        public void SendAnEmail(string message)
         {
             // Create mail
             MailMessage mail = new MailMessage();
@@ -84,8 +84,8 @@ namespace Assets
 
         public void inviteEmail()
         {
-            if (!isTeacher)
-                txtData.text = "Hi, join me for a game at room: " + PhotonNetwork.room.Name;
+           // if (!isTeacher)
+           //     txtData.text = "Hi, join me for a game at room: " + PhotonNetwork.room.Name;
             EmailUI.SetActive(true);
         }
     }
