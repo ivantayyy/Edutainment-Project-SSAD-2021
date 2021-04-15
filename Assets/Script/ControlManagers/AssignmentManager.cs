@@ -43,31 +43,47 @@ namespace Assets
         { 
             List<string> AssignmentList = await FirebaseManager.getAssignmentName(uid);
             ClassElement element = new ClassElement();
-            foreach (Transform child in this.AssignmentBoardContent.transform)
+            if (AssignmentList.Contains("NONE"))
             {
-                UnityEngine.Debug.Log("reached before transform loop");
-                Destroy(child.gameObject);
-                UnityEngine.Debug.Log("reached after transform loop");
-            }
-            foreach (string assignmentName in AssignmentList)
-            {
-                
-                //get instantiated gameobject
+                Debug.Log("NO assignment list");
                 GameObject classBoardElement = Instantiate(classElement, this.AssignmentBoardContent);
-                //add and get script to gameobject
                 element = classBoardElement.AddComponent<ClassElement>();
-                //assign script's text to gameobject's child's text
                 element.TextName = classBoardElement.transform.GetChild(0).GetComponent<Text>();
-                //edit text
-                element.NewElement(assignmentName);
-                //add onclick function to gameobject which will load student names
-                classBoardElement.GetComponent<Button>().onClick.AddListener(async delegate
-                {
-                    string roomName = classBoardElement.transform.GetChild(0).GetComponent<Text>().text;
-                    chooseAssignmentBut(roomName);
+                element.NewElement("No Assignments");
+                Button but = classBoardElement.GetComponent<Button>();
+                but.interactable = false;
 
-                });
             }
+            else
+            {
+                foreach (Transform child in this.AssignmentBoardContent.transform)
+                {
+                    UnityEngine.Debug.Log("reached before transform loop");
+                    Destroy(child.gameObject);
+                    UnityEngine.Debug.Log("reached after transform loop");
+                }
+                foreach (string assignmentName in AssignmentList)
+                {
+                    //get instantiated gameobject
+                    GameObject classBoardElement = Instantiate(classElement, this.AssignmentBoardContent);
+                    //add and get script to gameobject
+                    element = classBoardElement.AddComponent<ClassElement>();
+                    //assign script's text to gameobject's child's text
+                    element.TextName = classBoardElement.transform.GetChild(0).GetComponent<Text>();
+
+                    //edit text
+                    element.NewElement(assignmentName);
+                    //add onclick function to gameobject which will load student names
+                    classBoardElement.GetComponent<Button>().onClick.AddListener(async delegate
+                    {
+                        string roomName = classBoardElement.transform.GetChild(0).GetComponent<Text>().text;
+                        chooseAssignmentBut(roomName);
+
+                    });
+                }
+            }
+
+            
         }
 
         public void backButton()

@@ -9,6 +9,9 @@ using Newtonsoft.Json;
 using System;
 using System.Threading.Tasks;
 using System.Linq;
+using Proyecto26;
+using System.Net;
+using RSG;
 
 namespace Assets
 {
@@ -22,6 +25,8 @@ namespace Assets
         public static FirebaseAuth auth;
         public static FirebaseUser User;
         public static DatabaseReference DBreference;
+
+        public static string DatabaseEndPoint = "https://fir-auth-9c8cd-default-rtdb.firebaseio.com/";
 
         /**
          * Function to register Student
@@ -596,13 +601,13 @@ namespace Assets
                 }
             }
         }
-        //async public static Task createAssignmentAsync(string AssignmentID)
-        //{
-        //    DBreference.Child("Assignments").Child(AssignmentID);
-        //    await DBreference.Child("Assignments").Child(AssignmentID).SetValueAsync(1);
-        //    Debug.Log($"Successfully set Assignment with Assignment ID {AssignmentID}");
-        //    //Add code to questions database 
-        //}
+        async public static Task createAssignmentAsync(string AssignmentID)
+        {
+            DBreference.Child("Assignments").Child(AssignmentID);
+            await DBreference.Child("Assignments").Child(AssignmentID).SetValueAsync(1);
+            Debug.Log($"Successfully set Assignment with Assignment ID {AssignmentID}");
+            //Add code to questions database 
+        }
 
         /**
          * Helper function to check if username exist in database for registration
@@ -820,6 +825,16 @@ namespace Assets
             //Debug.Log("fbmanager assignments");
             return results;
         }
+        //public static InitUser GetUserrest(string uid,string accType)
+        //{
+        //    Debug.Log("reached user");
+        //    InitUser resUser;
+        //    return resUser= RestClient.Get<InitUser>(DatabaseEndPoint + $"Student/{uid}").Then<InitUser>(user=> 
+        //    {
+        //        Debug.Log("Raeached inside func");
+        //    });
+        //}
+
 
     }
 
