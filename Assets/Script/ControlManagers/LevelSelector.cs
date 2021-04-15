@@ -27,12 +27,14 @@ namespace Assets
             //multiplayer
             if(mode == 1 ||mode == 2)
             {
-                levelSelect = 0;
-                foreach(PhotonPlayer player in PhotonNetwork.playerList)
+                levelSelect = 15;
+                foreach (var photonPlayer in PhotonNetwork.playerList)
                 {
-                    string userid = player.UserId;
+                    Debug.Log("Photon player list = " + PhotonNetwork.playerList);
+                    string userid = photonPlayer.UserId;
                     var task = FirebaseManager.getUserMaxLevelReachedAsync("multiPlayer");
                     int level = await task;
+                    Debug.Log(userid + " " + level);
                     if (level <= levelSelect)
                     {
                         levelSelect = level;
