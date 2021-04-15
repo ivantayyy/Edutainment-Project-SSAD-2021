@@ -16,7 +16,11 @@ namespace Assets
         private const string TWITTER_ADDRESS = "http://twitter.com/intent/tweet";
         private const string TWITTER_LANG = "en";
 
-
+        /**
+         * Redirects user to twitter website.
+         * Requires user to log in if they are not logged in yet.
+         * Opens create post dialog with set message.
+         */
         public void PressedTwitter()
         {
             Application.OpenURL(TWITTER_ADDRESS + "?text=" + WWW.EscapeURL(twitterNameParam + "\n" +
@@ -24,6 +28,10 @@ namespace Assets
 
         }
 
+        /**
+         * Redirects user to a public facebook page.
+         * Users can create post if they are logged in to facebok.
+         */
         public void PressedFB()
         {
             Application.OpenURL(FB_ADDRESS + "?text=" + WWW.EscapeURL(FBNameParam + "\n" +

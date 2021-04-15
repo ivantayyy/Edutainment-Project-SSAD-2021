@@ -36,7 +36,10 @@ namespace Assets
             });
         }
 
-        // Method 1: Direct message
+        /**
+         * Creates email and sends to receiver email.
+         * @param message is the customized message sent in the email body.
+         */
         private void SendAnEmail(string message)
         {
             // Create mail
@@ -75,6 +78,9 @@ namespace Assets
             }
         }
 
+        /**
+         * Clears email UI.
+         */
         public void cancelEmail()
         {
             txtData.text = "";
@@ -82,6 +88,10 @@ namespace Assets
             EmailUI.SetActive(false);
         }
 
+        /**
+         * Allow student to send email invite.
+         * Set email content to include room name.
+         */
         public void inviteEmail()
         {
             if (!isTeacher)
