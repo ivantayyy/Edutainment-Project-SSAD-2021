@@ -248,6 +248,7 @@
     <Compile Include="Assets\Script\ControlManagers\SignOutManager.cs" />
     <Compile Include="Assets\Script\ControlManagers\StudentSummaryReportManager.cs" />
     <Compile Include="Assets\Script\ControlManagers\SummaryReportManager.cs" />
+    <Compile Include="Assets\Script\DBInputTest.cs" />
     <Compile Include="Assets\Script\EmailFactory.cs" />
     <Compile Include="Assets\Script\FirebaseManager\FirebaseManager.cs" />
     <Compile Include="Assets\Script\GamePlay\CharacterSelection.cs" />

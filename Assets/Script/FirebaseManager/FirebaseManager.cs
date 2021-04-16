@@ -665,12 +665,16 @@ namespace Assets
          */
         private async static Task subscribeClass(string className, string uid)
         {
-            List<string> ListOfSubscribers;
+            List<string> ListOfSubscribers = new List<string>();
             var classRef = DBreference.Child("Classes").Child(className).GetValueAsync();
             DataSnapshot datasnapshot = await classRef;
             string jsonObject = datasnapshot.GetRawJsonValue();
-            ListOfSubscribers = JsonConvert.DeserializeObject<List<string>>(jsonObject);
-            Debug.Log(jsonObject);
+            if (jsonObject != null)
+            {
+                ListOfSubscribers = JsonConvert.DeserializeObject<List<string>>(jsonObject);
+                Debug.Log(jsonObject);
+            }
+            
             ListOfSubscribers.Add(uid);
             string toUpdate = JsonConvert.SerializeObject(ListOfSubscribers);
             var updateTask = DBreference.Child("Classes").Child(className).SetRawJsonValueAsync(toUpdate);

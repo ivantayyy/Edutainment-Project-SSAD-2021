@@ -41,7 +41,7 @@ namespace Assets
         public void LoadClassList()
         {
             List<string> classList = new List<string>() {
-            "FS6","FS7","FS8","FS9"
+            "FS6","FS7","FS8","FS9","TestClass"
         };
             ClassElement element = new ClassElement();
             foreach (Transform child in this.classContent.transform)
