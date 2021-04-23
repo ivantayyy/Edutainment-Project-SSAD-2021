@@ -54,9 +54,14 @@ namespace Assets
         public Text assignmenText;
         private void Awake()
         {
+            
+        }
+
+        private void Start()
+        {
             teacherObject = GameObject.Find("TeacherObject");
             isTeacher = teacherObject.GetComponent<isTeacherObject>().isTeacher;
-            PhotonNetwork.ConnectUsingSettings("0.2");
+
             if (isTeacher)
             {
                 classAssign.SetActive(true);
@@ -64,11 +69,7 @@ namespace Assets
             }
 
             assignmentID = FirebaseManager.getAssignmentKey();
-        }
-
-        private void Start()
-        {
-
+            PhotonNetwork.ConnectUsingSettings("0.2");
             string userData = "{\"email\":\"" + userEmail + "\",\"password\":\"" + userPassword + "\",\"returnSecureToken\":true}";
             RestClient.Post<SignResponse>("https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=" + AuthKey, userData).Then(
                 response =>
