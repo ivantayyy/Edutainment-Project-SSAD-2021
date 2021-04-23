@@ -715,7 +715,7 @@ namespace Assets
         public async static Task<DBQT> getQuestionFromCustomDB(string roomName, string quizNo, string qnNo)
         {
             DBQT singleQuestion;
-            var Task = DBreference.Child("CustomLobbyQuestions").Child(roomName).Child(quizNo).GetValueAsync();
+            var Task = DBreference.Child("CustomLobbyQuestions").Child(roomName).Child(quizNo).Child(qnNo).GetValueAsync();
             DataSnapshot singleQuestionSnapshot = await Task;
             string sqstr = singleQuestionSnapshot.GetRawJsonValue();
             singleQuestion = JsonConvert.DeserializeObject<DBQT>(sqstr);

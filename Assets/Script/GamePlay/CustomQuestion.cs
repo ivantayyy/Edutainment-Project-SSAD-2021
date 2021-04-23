@@ -288,7 +288,7 @@ namespace Assets
             }
             else
             {
-                RestClient.Get<MCQData>(databaseURL + getLobbyName.text + "/" + "quiz_" + quizNo.ToString() + "/" + questionNo.ToString() + "/" + localId + ".json?auth=" + idToken).Then(response =>
+                RestClient.Get<MCQData>(databaseURL + getLobbyName.text + "/" + "quiz_" + quizNo.ToString() + "/" + questionNo.ToString() + "/" +  ".json?auth=" + idToken).Then(response =>
                 {
                     Debug.Log("hello");
                     questionData = response;
