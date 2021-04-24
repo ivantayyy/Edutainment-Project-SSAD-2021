@@ -1,4 +1,4 @@
-# SSAD_Project :pray: :100:
+# SSAD_Project
 
 ## Steps for installing Dependencies
 1. Download Firebase Android SDK [here](https://firebase.google.com/docs/unity/setup) and follow download instructions
