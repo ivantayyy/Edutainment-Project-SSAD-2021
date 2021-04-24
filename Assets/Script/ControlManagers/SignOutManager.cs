@@ -14,6 +14,8 @@ namespace Assets
          */
         public void SignOutButton()
         {
+            Destroy(GameObject.Find("modeObject"));
+            Destroy(GameObject.Find("TeacherObject"));
             FirebaseManager.SignOut();
             Debug.Log("Successfully signed out");
             SceneManager.LoadScene("Login");
