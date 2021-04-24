@@ -15,6 +15,8 @@ namespace Assets
     public class Timergameover : MonoBehaviour
     {
         public int countDownStartValue;
+        private int timing;
+        
         public Text timerUI;
         public Text finalText;
 
@@ -32,6 +34,9 @@ namespace Assets
         private GameObject modeObject;
         public GameObject gameOverUI;
         public GameObject gameOverContButton;
+        public GameObject tryAgainButton;
+
+        TimeSpan spanTime;
 
         private string GameMode;
 
@@ -41,7 +46,7 @@ namespace Assets
         {
             modeObject = GameObject.Find("modeObject");
             mode = modeObject.GetComponent<mode>().modeType;
-
+            timing = countDownStartValue;//get timer start value
             countDownTimer();
 
             // Find the PlayerScorescript attached to "PlayerScore" for player 1
@@ -90,7 +95,7 @@ namespace Assets
             //currentTime = countDownStartValue;
             if (countDownStartValue > 0)
             {
-                TimeSpan spanTime = TimeSpan.FromSeconds(countDownStartValue);
+                spanTime = TimeSpan.FromSeconds(countDownStartValue);
                 timerUI.text = "Timer: " + spanTime.Minutes + " : " + spanTime.Seconds;
 
                 countDownStartValue--;
@@ -102,10 +107,17 @@ namespace Assets
                         finalText.text = "Game over! Enemy Wins!";
                     else
                         finalText.text = "Game over! Player 2 Wins!";
+                    timing = timing - countDownStartValue;
+                    Debug.Log("timing = " + timing);
                     countDownStartValue = 0;
                     gameOverUI.SetActive(true);
-                    if (mode == 3)
+                    
+                    if (mode == 0||mode == 3)//if single player/assignment
+                    {
                         gameOverContButton.SetActive(false);
+                        tryAgainButton.SetActive(true);
+                    }
+                        
                 }
 
                 if (playerscore == 15)
@@ -117,8 +129,12 @@ namespace Assets
                         finalText.text = "Game over! Player 1 Wins!";
                     countDownStartValue = 0;
                     gameOverUI.SetActive(true);
-                    if (mode == 3)
+                    if (mode == 3)//if assignment
+                    {
                         gameOverContButton.SetActive(false);
+                        tryAgainButton.SetActive(true);
+                    }
+
                     //Only need to update this instance's winning player
                     //UpdateWin();
                 }
@@ -134,8 +150,11 @@ namespace Assets
                         finalText.text = "Game over! Player 2 Wins!";
 
                     gameOverUI.SetActive(true);
-                    if (mode == 3)
+                    if (mode == 0||mode == 3)//if singleplayer/ assignment
+                    {
                         gameOverContButton.SetActive(false);
+                        tryAgainButton.SetActive(true);
+                    }
                 }
                 else if (playerscore > enemyscore)
                 {
@@ -146,13 +165,13 @@ namespace Assets
                     gameOverUI.SetActive(true);
                     //updates win asynchronously
 
-                    if (mode == 3)
+                    if (mode == 3)//if assignment
                     {
                         takeAssignmentScore();
                         gameOverContButton.SetActive(false);
+                        tryAgainButton.SetActive(true);
                     }
-                    else
-                        UpdateWin();
+                    
                 }
                 else
                 {
@@ -162,7 +181,8 @@ namespace Assets
                         gameOverContButton.SetActive(false);
 
                 }
-
+                //update win for all conditions
+                UpdateWin();
 
             }
 
@@ -181,7 +201,8 @@ namespace Assets
             //Need find a way to generate dynamically the mode type
             string uid = PhotonNetwork.player.UserId;
             int currLevelCleared = PlayerPrefs.GetInt("currentLevel", 1);
-            float timeTaken = 160F;
+            float timeTaken = timing-(spanTime.Minutes*60 + spanTime.Seconds);
+            Debug.Log("timeTaken = " + timeTaken);
             Debug.Log("Current level cleared is: " + currLevelCleared);
             var updateTask = FirebaseManager.updateScoreOnDatabaseAsync(GameMode, uid, currLevelCleared, timeTaken, playerscore);
             await updateTask;

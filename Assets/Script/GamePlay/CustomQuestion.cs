@@ -54,21 +54,24 @@ namespace Assets
         public Text assignmenText;
         private void Awake()
         {
-            teacherObject = GameObject.Find("TeacherObject");
-            isTeacher = teacherObject.GetComponent<isTeacherObject>().isTeacher;
-            PhotonNetwork.ConnectUsingSettings("0.2");
-            if (isTeacher)
-            {
-                classAssign.SetActive(true);
-                getLobbyName.interactable = false;
-            }
-
-            assignmentID = FirebaseManager.getAssignmentKey();
+            
         }
 
         private void Start()
         {
+            teacherObject = GameObject.Find("TeacherObject");
+            if(teacherObject!=null)
+                isTeacher = teacherObject.GetComponent<isTeacherObject>().isTeacher;
 
+            if (isTeacher)
+            {
+                classAssign.SetActive(true);
+                getLobbyName.interactable = false;
+                assignmentID = FirebaseManager.getAssignmentKey();
+            }  
+
+            
+            PhotonNetwork.ConnectUsingSettings("0.2");
             string userData = "{\"email\":\"" + userEmail + "\",\"password\":\"" + userPassword + "\",\"returnSecureToken\":true}";
             RestClient.Post<SignResponse>("https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=" + AuthKey, userData).Then(
                 response =>
@@ -80,6 +83,7 @@ namespace Assets
                     Debug.Log(error);
                 });
             Debug.Log("test2");
+
         }
         private void Update()
         {
@@ -209,12 +213,14 @@ namespace Assets
                 //RestClient.Put("https://fir-auth-9c8cd-default-rtdb.firebaseio.com/Assignments/" + assignmentID + "/" + "quiz_" + quizCounters.ToString() + "/" + questionCounters.ToString() + "/" + localId + ".json?auth=" + idToken, mcqData);
                 //Insert add assignment to student lsit
                 RestClient.Put("https://fir-auth-9c8cd-default-rtdb.firebaseio.com/Assignments/" + assignmentID + "/" + "quiz_" + quizCounters.ToString() + "/" + questionCounters.ToString() + ".json?auth=" + idToken, mcqData);
+                
 
             }
             else
             {
                 //RestClient.Put(databaseURL + getLobbyName.text + "/" + "quiz_" + quizCounters.ToString() + "/" + questionCounters.ToString() + "/" + localId + ".json?auth=" + idToken, mcqData);
                 RestClient.Put(databaseURL + getLobbyName.text + "/" + "quiz_" + quizCounters.ToString() + "/" + questionCounters.ToString() + ".json?auth=" + idToken, mcqData);
+                Debug.Log(databaseURL + getLobbyName.text + "/" + "quiz_" + quizCounters.ToString() + "/" + questionCounters.ToString() + ".json?auth=" + idToken);
             }
 
             if (questionCounters == 3)
@@ -307,7 +313,7 @@ namespace Assets
             }
             else
             {
-                RestClient.Get<MCQData>(databaseURL + getLobbyName.text + "/" + "quiz_" + quizNo.ToString() + "/" + questionNo.ToString() + "/" + localId + ".json?auth=" + idToken).Then(response =>
+                RestClient.Get<MCQData>(databaseURL + getLobbyName.text + "/" + "quiz_" + quizNo.ToString() + "/" + questionNo.ToString() + "/" +  ".json?auth=" + idToken).Then(response =>
                 {
                     Debug.Log("hello");
                     questionData = response;

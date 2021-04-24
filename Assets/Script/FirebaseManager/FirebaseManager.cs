@@ -371,7 +371,7 @@ namespace Assets
                 else // means replaying a previously cleared level
                 {
                     // if achieved new highscore
-                    if (new_points < points[justFinishedlevel - 1])
+                    if (new_points > points[justFinishedlevel - 1])
                     {
                         // increase attempts for that level by 1
                         DBScore.attempts[justFinishedlevel - 1] = DBScore.attempts[justFinishedlevel - 1] + 1;
@@ -665,12 +665,16 @@ namespace Assets
          */
         private async static Task subscribeClass(string className, string uid)
         {
-            List<string> ListOfSubscribers;
+            List<string> ListOfSubscribers = new List<string>();
             var classRef = DBreference.Child("Classes").Child(className).GetValueAsync();
             DataSnapshot datasnapshot = await classRef;
             string jsonObject = datasnapshot.GetRawJsonValue();
-            ListOfSubscribers = JsonConvert.DeserializeObject<List<string>>(jsonObject);
-            Debug.Log(jsonObject);
+            if (jsonObject != null)
+            {
+                ListOfSubscribers = JsonConvert.DeserializeObject<List<string>>(jsonObject);
+                Debug.Log(jsonObject);
+            }
+            
             ListOfSubscribers.Add(uid);
             string toUpdate = JsonConvert.SerializeObject(ListOfSubscribers);
             var updateTask = DBreference.Child("Classes").Child(className).SetRawJsonValueAsync(toUpdate);
@@ -711,7 +715,7 @@ namespace Assets
         public async static Task<DBQT> getQuestionFromCustomDB(string roomName, string quizNo, string qnNo)
         {
             DBQT singleQuestion;
-            var Task = DBreference.Child("CustomLobbyQuestions").Child(roomName).Child(quizNo).GetValueAsync();
+            var Task = DBreference.Child("CustomLobbyQuestions").Child(roomName).Child(quizNo).Child(qnNo).GetValueAsync();
             DataSnapshot singleQuestionSnapshot = await Task;
             string sqstr = singleQuestionSnapshot.GetRawJsonValue();
             singleQuestion = JsonConvert.DeserializeObject<DBQT>(sqstr);

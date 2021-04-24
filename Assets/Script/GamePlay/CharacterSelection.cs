@@ -154,6 +154,7 @@ namespace Assets
             if (mode == 0 || mode == 3)// if single player
             {
                 //create and join room for single player
+                PhotonNetwork.ConnectUsingSettings("0.2");
                 RoomOptions roomOptions = new RoomOptions();
                 PhotonNetworkMngr.createRoom(null, roomOptions, TypedLobby.Default);
                 PhotonNetworkMngr.loadLevel("Level_select");

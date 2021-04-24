@@ -83,6 +83,11 @@ namespace Assets
             }
         }
 
+        public void tryAgain()
+        {
+            SceneManager.LoadScene(subSceneLoad);
+        }
+
         /**
          * Function to return to level-select screen.
          */

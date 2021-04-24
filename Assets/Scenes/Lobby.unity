@@ -592,7 +592,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 506509453}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c83edcfe6608e4717b1b29a7bce88fcf, type: 3}
+  m_Script: {fileID: 11500000, guid: c705cfb58c49a76468aef51bb547019f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   FBNameParam: Try out this questions!?
@@ -1475,7 +1475,6 @@ GameObject:
   - component: {fileID: 1269705855}
   - component: {fileID: 1269705854}
   - component: {fileID: 1269705853}
-  - component: {fileID: 1269705852}
   m_Layer: 5
   m_Name: SendButton
   m_TagString: Untagged
@@ -1503,23 +1502,6 @@ RectTransform:
   m_AnchoredPosition: {x: 28.8, y: -162.5}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1269705852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1269705850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff45986137e514fcea624fd536c69b41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  txtData: {fileID: 0}
-  receiverEmail: {fileID: 0}
-  EmailUI: {fileID: 0}
-  btnSubmit: {fileID: 0}
-  sendDirect: 0
 --- !u!114 &1269705853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1562,7 +1544,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1269705854}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1299388753}
+        m_MethodName: SendAnEmail
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1269705854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1626,7 +1619,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1299388752}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff45986137e514fcea624fd536c69b41, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a6c4c977c5c3464c882995b5c93ab6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   txtData: {fileID: 1881504269}
